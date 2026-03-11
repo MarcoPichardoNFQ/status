@@ -91,18 +91,21 @@
                 
                 <!-- NAVEGACIÓN -->
                 <nav class="hidden xl:flex space-x-3 bg-[#0b1221] p-2 rounded-xl border border-cyan-900/30 shadow-inner">
-                    <button onclick="switchTab('megara')" id="btn-megara" class="tab-btn active flex items-center px-5 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 bg-cyan-950/60 text-cyan-400 border border-cyan-800/50">
-                        <i data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces Megara
+                    <button onclick="switchTab('megara')" id="btn-megara" class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 bg-cyan-950/60 text-cyan-400 border border-cyan-800/50">
+                        <i data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces
                     </button>
-                    <button onclick="switchTab('reporting')" id="btn-reporting" class="tab-btn flex items-center px-5 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
+                    <button onclick="switchTab('reporting')" id="btn-reporting" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
                         <i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 2. Reporting
                     </button>
-                    <button onclick="switchTab('infra')" id="btn-infra" class="tab-btn flex items-center px-5 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
-                        <i data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infraestructura & API
+                    <button onclick="switchTab('infra')" id="btn-infra" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
+                        <i data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infra & API
                     </button>
-                    <button onclick="switchTab('uat')" id="btn-uat" class="tab-btn flex items-center px-5 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent relative overflow-hidden">
+                    <button onclick="switchTab('uat')" id="btn-uat" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent relative overflow-hidden">
                         <i data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT
                         <span class="ml-2 bg-indigo-500/20 text-indigo-400 py-0.5 px-2.5 rounded font-mono text-xs border border-indigo-500/30">9</span>
+                    </button>
+                    <button onclick="switchTab('graficas')" id="btn-graficas" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-fuchsia-200 hover:bg-slate-800/50 border border-transparent relative overflow-hidden">
+                        <i data-lucide="pie-chart" class="w-5 h-5 mr-2"></i> 5. Gráficas
                     </button>
                 </nav>
             </div>
@@ -196,7 +199,7 @@
             </div>
         </div>
 
-        <!-- PESTAÑA 4: ANOMALÍAS UAT -->
+        <!-- PESTAÑA 4: ANOMALÍAS UAT (ESTANDARIZADA) -->
         <div id="tab-uat" class="tab-pane space-y-8">
             <div class="flex justify-between items-end mb-6 border-l-4 border-indigo-400 pl-5">
                 <div>
@@ -205,9 +208,44 @@
                 </div>
             </div>
 
-            <!-- Grid de Tarjetas para UAT -->
-            <div id="uat-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                <!-- Inyectado por JS -->
+            <div class="glass-panel rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-cyan-900/30">
+                        <thead class="bg-[#04060a]">
+                            <tr>
+                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">Tema / Tarea</th>
+                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">Entorno / Flujo</th>
+                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">Comentarios de Telemetría</th>
+                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Siguientes Pasos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-uat" class="divide-y divide-cyan-900/20">
+                            <!-- Inyectado por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- PESTAÑA 5: GRÁFICAS DE CONTROL -->
+        <div id="tab-graficas" class="tab-pane space-y-8">
+            <div class="flex justify-between items-end mb-6 border-l-4 border-fuchsia-500 pl-5">
+                <div>
+                  <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">5. Gráficas de control</h2>
+                  <p class="text-fuchsia-400 font-mono text-sm uppercase tracking-widest">Visualización de métricas de rendimiento y estado</p>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-8 flex flex-col items-center space-y-10">
+                <!-- Imagen 1 -->
+                <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px]">
+                    <img src="PEGA_AQUI_TU_URL_DE_DRIVE_1" alt="Gráfica de control 1" class="w-full h-auto object-contain">
+                </div>
+                
+                <!-- Imagen 2 -->
+                <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px]">
+                    <img src="PEGA_AQUI_TU_URL_DE_DRIVE_2" alt="Gráfica de control 2" class="w-full h-auto object-contain">
+                </div>
             </div>
         </div>
 
@@ -296,7 +334,7 @@
                     </td>
                     <td class="px-8 py-5 bg-[#080d1a]/50">
                         <div class="flex items-start">
-                            <i data-lucide="chevron-right" class="w-5 h-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-cyan-500 font-bold mr-2 text-lg inline-block align-middle pb-1">•</span>
                             <span class="text-sm font-medium text-amber-100/90 leading-relaxed">${row.pasos}</span>
                         </div>
                     </td>
@@ -304,52 +342,16 @@
             `).join('');
         }
 
-        function generateUATCards(dataArray) {
-            return dataArray.map(item => {
-                const isEnCola = item.flujo === 'En cola' || item.flujo === 'Planificado';
-                const borderColor = isEnCola ? 'border-indigo-500/40' : 'border-cyan-900/40';
-                const iconColor = isEnCola ? 'text-indigo-400' : 'text-cyan-500';
-                const actionBg = isEnCola ? 'text-indigo-200 bg-indigo-950/40 border-indigo-900/50' : 'text-cyan-200 bg-cyan-950/40 border-cyan-900/50';
-
-                return `
-                <div class="glass-panel border ${borderColor} rounded-xl p-6 hover:bg-[#0b1221] transition-colors relative overflow-hidden group shadow-lg">
-                    ${isEnCola ? '<div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-indigo-500 to-indigo-900"></div>' : ''}
-                    
-                    <div class="flex justify-between items-start mb-5 pl-2">
-                        ${getFlowBadge(item.flujo)}
-                        ${getEnvBadge(item.entorno)}
-                    </div>
-                    
-                    <div class="pl-2 flex flex-col h-[calc(100%-2.5rem)]">
-                        <h3 class="text-lg font-bold text-white mb-1.5">${item.tema}</h3>
-                        <p class="text-sm font-mono text-cyan-400/80 mb-5 tracking-wide flex items-center">
-                            <i data-lucide="target" class="w-4 h-4 mr-1.5"></i> ${item.tarea}
-                        </p>
-                        
-                        <div class="bg-[#04060a]/80 rounded-lg p-4 text-sm text-slate-300 mb-6 border ${isEnCola ? 'border-indigo-900/30' : 'border-slate-800/50'} leading-relaxed flex-grow">
-                            <span class="${iconColor} font-bold mr-2 text-lg inline-block align-middle pb-1">•</span>${item.comentarios}
-                        </div>
-                        
-                        <div class="flex items-center justify-between mt-auto pt-5 border-t border-cyan-900/20">
-                            <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">
-                                ACTUALIZACIÓN: <span class="text-white ml-1.5">${item.fecha}</span>
-                            </div>
-                            <div class="text-xs font-mono font-bold flex items-center uppercase tracking-widest px-3 py-2 rounded border ${actionBg}">
-                                ${item.pasos}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
-            }).join('');
-        }
-
         // --- SISTEMA DE PESTAÑAS ---
         function switchTab(tabId) {
             // Ocultar todas
             document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-cyan-950/60', 'text-cyan-400', 'border-cyan-800/50', 'bg-indigo-950/60', 'text-indigo-400', 'border-indigo-800/50');
+                btn.classList.remove(
+                    'bg-cyan-950/60', 'text-cyan-400', 'border-cyan-800/50', 
+                    'bg-indigo-950/60', 'text-indigo-400', 'border-indigo-800/50',
+                    'bg-fuchsia-950/60', 'text-fuchsia-400', 'border-fuchsia-800/50'
+                );
                 btn.classList.add('text-slate-500', 'border-transparent');
             });
 
@@ -360,6 +362,8 @@
             
             if (tabId === 'uat') {
                 activeBtn.classList.add('bg-indigo-950/60', 'text-indigo-400', 'border-indigo-800/50');
+            } else if (tabId === 'graficas') {
+                activeBtn.classList.add('bg-fuchsia-950/60', 'text-fuchsia-400', 'border-fuchsia-800/50');
             } else {
                 activeBtn.classList.add('bg-cyan-950/60', 'text-cyan-400', 'border-cyan-800/50');
             }
@@ -367,11 +371,11 @@
 
         // --- INICIALIZACIÓN ---
         window.onload = () => {
-            // Inyectar datos en las tablas y grids
+            // Inyectar datos en las tablas
             document.getElementById('tbody-megara').innerHTML = generateTableRows(dbMegara);
             document.getElementById('tbody-reporting').innerHTML = generateTableRows(dbReporting);
             document.getElementById('tbody-infra').innerHTML = generateTableRows(dbInfra);
-            document.getElementById('uat-grid').innerHTML = generateUATCards(dbUAT);
+            document.getElementById('tbody-uat').innerHTML = generateTableRows(dbUAT);
 
             // Inicializar iconos
             lucide.createIcons();
