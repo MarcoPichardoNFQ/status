@@ -330,7 +330,7 @@
                         alt="Gráfica de control 1" class="w-full h-auto object-contain">
                 </div>
 
-
+                <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Tiempos de ejecución Rundeck</p>
                 <!-- Imagen 2 -->
                 <div
                     class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px]">
@@ -338,6 +338,15 @@
 
                     <img src="https://lh3.googleusercontent.com/d/1pO-dux39_aK97TcZmNlaJ1eES1hWj__U"
                         alt="Gráfica de control 2" class="w-full h-auto object-contain">
+
+                </div>
+                <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Cantidad Ejecuciones Manuales</p>
+                   <div
+                    class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px]">
+
+
+                    <img src="https://lh3.googleusercontent.com/d/1T-qhJvwab_ZSxjYapJMgf6NNByRsIEKr"
+                        alt="Gráfica de control 3" class="w-full h-auto object-contain">
 
                 </div>
             </div>
@@ -377,9 +386,8 @@
             { tema: "DDBB", tarea: "CA_details_intr", entorno: "UAT", flujo: "En cola", inv: "S3", fecha: "05/09/2025", comentarios: "Ajuste de formatos de datos requeridos a largo plazo.", pasos: "Agendado para validación S3" },
             { tema: "Creación mapeos", tarea: "Nuevos Mapeos", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3", fecha: "28/10/2025", comentarios: "En desarrollo 3 nuevos mapeos que utilizarán la extracción InvestCompanyInstitute", pasos: "Agendado para validación S3" },
             { tema: "Ajuste InvestCompanyInstitute", tarea: "Subtabla XSD", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3 / Vermeg", fecha: "28/10/2025", comentarios: "Se incluyó nueva subtabla XSD, construida y promocionada a UAT.", pasos: "Agendado para validación S3" },
-            { tema: "Mapeo (Errores Ejecución)", tarea: "mt_caixa_tipos", entorno: "PRD", flujo: "En cola", inv: "NFQ / S3", fecha: "31/10/2025", comentarios: "value too long for type character varying(50). Ajuste en UAT acordado.", pasos: "Espera confirmación S3 para PRD" },
             { tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Interfaz Equity", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: "Nuevo campo incluido, a espera de validación y promoción a PRD.", pasos: "Agendado para validación S3" },
-            { tema: "Ajuste Proceso de Carga", tarea: "Ajuste ScriptByClient", entorno: "UAT", flujo: "Completado", inv: "NFQ / S3", fecha: "28/01/2026", comentarios: "Ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT.", pasos: "Validado exitosamente" },
+            { tema: "Ajuste Proceso de Carga", tarea: "Ajuste ScriptByClient", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3", fecha: "28/01/2026", comentarios: "Ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT.", pasos: "Espera confirmación S3 para PRD" },
             { tema: "Option", tarea: "Creación de Nuevo Campo", entorno: "UAT", flujo: "Planificado", inv: "NFQ / S3", fecha: "28/10/2025", comentarios: "Adición de campo Security Sector. Actividad pendiente en backlog por prioridad S3.", pasos: "S3 compartirá XSD." },
             { tema: "Información UAT", tarea: "Monitoreo de cargas", entorno: "UAT", flujo: "Planificado", inv: "NFQ / S3", fecha: "31/10/2025", comentarios: "Se requerirá de validaciones de información por causa de los mapeos en UAT.", pasos: "S3 revisará ambiente." }
         ];
