@@ -1,412 +1,496 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misión Apollo-Aldrin | Telemetría Detallada</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Documentación de Carga de Archivos MEGARA</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
-
+        /* Estilos generales */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #040814;
-            color: #cbd5e1;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
         }
 
-        h1,
-        h2,
-        h3,
-        .font-space {
-            font-family: 'Space Grotesk', sans-serif;
+        /* Contenedor principal para centrar el contenido y darle formato de "página" */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        @keyframes zoomInFade {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Títulos */
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
         }
 
-        .tab-pane {
-            display: none;
+        /* Enlaces */
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
 
-        .tab-pane.active {
+        /* Listas y Tabla de Contenido */
+        .toc {
+            background-color: #f1f8ff;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* Detalles (Desplegables) */
+        details {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        details > ol, details > ul {
+            margin-top: 10px;
+        }
+
+        /* Imágenes responsivas y con buen estilo */
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             display: block;
-            animation: zoomInFade 0.4s ease-out forwards;
+            margin: 15px 0;
         }
 
-        /* Custom Scrollbar for tables */
-        ::-webkit-scrollbar {
-            height: 8px;
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0b1221;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #38bdf8;
-        }
-
-        .glass-panel {
-            background: rgba(11, 18, 33, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(8, 145, 178, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        /* Código en línea */
+        code {
+            background-color: #f4f4f4;
+            color: #e74c3c;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+            font-size: 0.9em;
         }
     </style>
 </head>
+<body>
 
-<body class="min-h-screen selection:bg-cyan-500/30 relative pb-12">
-<ol>
-<li><a href="#objetivo">Objetivo</a></li>
-<li><a href="#relacion-de-módulos-archivos-y-extracciones">Relacion de módulos, archivos y extracciones</a></li>
-<li><a href="#tablas-de-control">Tablas de Control</a><ol>
-<li><a href="#explicación-id_camda">Explicación id_camda</a></li>
-<li><a href="#controlflag_arquivos">controlflag_arquivos</a></li>
-<li><a href="#controlflag_interfaces">controlflag_interfaces</a></li>
-</ol>
-</li>
-<li><a href="#consideraciones">Consideraciones</a></li>
-<li><a href="#acciones-pendientes">Acciones Pendientes</a></li>
-</ol>
-<h1 id="objetivo">Objetivo</h1>
-<p>Este CR surge de la necesidad de tener más trazabilidad en la carga de archivos que recibimos de MEGARA y se basa en la mejora de dos puntos principalmente:</p>
-<ol>
-<li>Manejo de extracciones procesadas.\
- Actualmente recibimos <strong>134 Extracciones</strong> en la dirección <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> y nuestros  <strong>conversores JAVA</strong> se encargan de buscar durante max 2 min la presencia de su archivo asignado.\
- Este CR contempla  recibir <strong>9 Archivos Flag</strong> de <strong>3 Módulos diferentes</strong>, dichos archivos contienen la relación de las extracciones que recibimos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>.\
- Como ya sabemos exactamente el nombre de las extracciones que recibimos: no tenemos que hacer una busqueda intensa por cada uno de los 134 archivos.</li>
-<li>Control de datos mapeados.\
-La opción por la que se ha decantado S3 es que cuando falte alguna extracción en una carga de archivos, no se actualicen los campos <code>cod_flag_mapeo</code> de las <strong>tablas principales sss</strong>. Este campo indica a las funciones de mapeo con que registros trabajar. En consecuencia, si hay alguna extracción faltante en una ejecución, la siguiente ejecucion trabajará con un bloque mayor de información; se hará de este modo hasta que recibamos un paquete completo de interfaces.</li>
-</ol>
-<h1 id="relacion-de-m-dulos-archivos-y-extracciones">Relacion de módulos, archivos y extracciones</h1>
-<p>Los archivos flag recibidos cada 10 minutos serán de la forma:</p>
-<ol>
-<li>MEGACOMMON_EndOfWeek_xxx.xml</li>
-<li>MEGACOMMON_IntraDay_xxx.xml</li>
-<li>MEGACOMMON_EndOfDay_xxx.xml</li>
-<li>MEGACOMMON_EndOfMonth_xxx.xml</li>
-<li>MEGACUSTODY_IntraDay_xxx.xml</li>
-<li>MEGACUSTODY_EndOfDay_xxx.xml</li>
-<li>MEGACUSTODY_EndOfWeek_xxx.xml <strong>(este se recibe una vez cada hora)</strong></li>
-<li>MEGARAFA_IntraDay_xxx.xml</li>
-<li>MEGARAFA_EndOfMonth_xxx.xml</li>
-</ol>
-<p>A continuación la relación de módulos, archivos y extracciones.</p>
-<details>
+<div class="container">
 
-   1. MegaAccounting. <em>Módulo</em>
-      1. MEGAACCOUNTING_EndOfWeek <em>Archivo</em>
-         1. ClientTransaction
-         2.  CashTransferOrder
-         3. CreateCAFromLoanScheduleSLA
-         4. Unit
-         5. Fund
-         6. TaxPayerCategory
-         7. TypeOfApplicationShort
-         8. TypeOfApplicationLong
-         9.  CAConfiguration
-         10. OptionConfiguration
-         11. Rentability
-         12. SwapAssetTypeOption
-         13. CVMLongClassification
-         14. Equity
-         15. AccountNature
-         16. AccountCategory
-         17. NationalClassification
-      2.  MEGAACCOUNTING_IntraDay <em>Archivo</em>
-           1.  CGCPosition
-           2.  BenchmarkPerformance
-           3.  performance
-           4.  RentabilityFA
-           5.  NetAssetValue
-           6.  CashMovement
-           7.  ClientBalance
-           8.  YieldCurve
-           9.  CashAccountingEntry
-           10. Commodity
-           11. Consultant
-           12. Counterparties
-           13. CountryCalendar
-           14. Custodian
-           15. CustodyBalanceRegister
-           16. DetailedPriceCriterion
-           17. EconomicAgentCategory
-           18. EntitySector
-           19. ExternalCashAccount
-           20. Guarantor
-           21. ReferenceRatePrice
-           22. SecurityAccountingEntry
-      3.  MEGAACCOUNTING_EndOfDay <em>Archivo</em>
-          1.  DetailedCashFlow
-          2.  AssetController
-          3.  AssetManager
-          4.  AutonomousAgent
-          5.  Bank
-          6.  Broker
-          7.  FiduciaryAgent
-          8.  FiscalProfile
-          9.  Forward
-          10. FRC
-          11. FundAdministrator
-          12. FundAuditor
-          13. FundClassification
-          14. FundDistributor
-          15. IndexBenchmark
-          16. Issuers
-          17. LiabilitiesController
-          18. MainEntityCalendar
-          19. PricingRule
-          20. PricingRuleProfile
-          21. ReferenceRate
-          22. Regulator
-          23. RiskAgent
-          24. SCC
-          25. SCS
-          26. Fund Manager
-          27. CSD
-          28. ScriptByClient
-          29. SecuritiesLendingRegister
-          30. ValuationPriceSLA
-      4.  MEGAACCOUNTING_EndOfMonth <em>Archivo</em>
-          1.  Bonds
-          2.  NAVRentabilityDetails
-          3.  EligiblePosition
-          4.  SecurityPrice
-          5.  ValorizedPosition
-          6.  ClientSecurityPayment
-          7.  ClientInstruction Cor
-          8.  ClientCashAccount
-          9.  STI
-          10. Future
-          11. Right
-          12. CVMShortClassification
-          13. ClientCashAccbySecAcc
-          14. ClassificationFATCA
-          15. FiscalClassification
-          16. Market
-          17. ClientSecAccount
-          18. ContractualClient
-          19. Country
-          20. Currency
-          21. NostroSecAccount
-          22. TransactionType
-          23. NostroSecAccountSLA
-          24. CA
-          25. ClientEntitlement
-          26. ClientCashPayment
-          27. ClientInstruction
-          28. FiscalNature
-          29. PayableReceivable
-          30. SupervisionDashboard
-          31. NavDetails
-          32. ProblemCode
-      5.  MEGGAACCOUNTING_EndOfWeek
-          1.  Option
-   2.  MegaCustody <em>Módulo</em>
-       1.  MEGACUSTODY_IntraDay <em>Archivo</em>
-           1.  RegularTransaction
-           2.  CashTransactionType
-           3.  PledgeRequest
-           4.  NetMarketExecution
-           5.  NetMarketExecConfirmationExtractConfig
-           6.  IncomingNetMarketExecutionExtractConfig
-           7.  ForeignExchangeRate
-           8.  DepledgeRequest
-       2.  MEGACUSTODY_EndOfDay <em>Archivo</em>
-           1.  CodificationConfig
-           2.  FixAmountFeeRule
-           3.  FixRateFeeRule
-           4.  ScaledFeeRule
-           5.  PledgingReason
-           6.  ShortSellingSLA
-           7.  PaymentChannel
-           8.  Mututal Fund Calendar
-           9.  MarketTradeCommSLA
-           10. CSDCalendar
-           11. BrokerCommissionSLA
-   3.  MegaraFA <em>Módulo</em>
-       1.  MEGARAFA_IntraDay  <em>Archivo</em>
-           1.  SurperformanceNavDetailExtractConfig
-           2.  ShareOutStandingByUnit
-           3.  LiabilitiesOperation
-           4.  FeesDetails
-           5.  Derivativeadjustment
-           6.  DepoValorizedPosition
-       2.  MEGARAFA_EndOfMonth <em>Archivo</em>
-           1.  DeferredFeesPaidSLA
-           2.  RelatedBillProcessSLA
-           3.  PeriodiCMngtFeesConfig
-           4.  ManagementFeesSLA
-           5.  IndexRentabilityDetails
-           6.  FeesType
-           7.  BillingDatesSLA
-</details>
+    <div class="toc">
+        <h3>Índice</h3>
+        <ol>
+            <li><a href="#objetivo">Objetivo</a></li>
+            <li><a href="#relacion">Relación de módulos, archivos y extracciones</a></li>
+            <li><a href="#tablas">Tablas de Control</a>
+                <ol>
+                    <li><a href="#id_camda">Explicación id_camda</a></li>
+                    <li><a href="#arquivos">controlflag_arquivos</a></li>
+                    <li><a href="#interfaces">controlflag_interfaces</a></li>
+                </ol>
+            </li>
+            <li><a href="#consideraciones">Consideraciones</a></li>
+            <li><a href="#acciones">Acciones Pendientes</a></li>
+        </ol>
+    </div>
 
+    <h1 id="objetivo">Objetivo</h1>
+    <p>Este CR surge de la necesidad de tener más trazabilidad en la carga de archivos que recibimos de MEGARA y se basa en la mejora de dos puntos principalmente:</p>
+    <ol>
+        <li>
+            <strong>Manejo de extracciones procesadas.</strong><br>
+            Actualmente recibimos <strong>134 Extracciones</strong> en la dirección <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> y nuestros <strong>conversores JAVA</strong> se encargan de buscar durante max 2 min la presencia de su archivo asignado.<br>
+            Este CR contempla recibir <strong>9 Archivos Flag</strong> de <strong>3 Módulos diferentes</strong>, dichos archivos contienen la relación de las extracciones que recibimos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>.<br>
+            Como ya sabemos exactamente el nombre de las extracciones que recibimos: no tenemos que hacer una búsqueda intensa por cada uno de los 134 archivos.
+        </li>
+        <li>
+            <strong>Control de datos mapeados.</strong><br>
+            La opción por la que se ha decantado S3 es que cuando falte alguna extracción en una carga de archivos, no se actualicen los campos <code>cod_flag_mapeo</code> de las <strong>tablas principales sss</strong>. Este campo indica a las funciones de mapeo con qué registros trabajar. En consecuencia, si hay alguna extracción faltante en una ejecución, la siguiente ejecución trabajará con un bloque mayor de información; se hará de este modo hasta que recibamos un paquete completo de interfaces.
+        </li>
+    </ol>
 
-<h1 id="tablas-de-control">Tablas de Control</h1>
-<p>Existen dos tablas de control:</p>
-<ul>
-<li>stg_s3.controlflag_interfaces</li>
-<li>stg_s3.controlflag_arquivos</li>
-</ul>
-<h2 id="explicaci-n-id_camda">Explicación id_camda</h2>
-<p>Este campo esta presente en las dos tablas de control.\
-Es un identificador secuencial por lote de ejecución, por ejemplo: para la ejecución de las 13:00 hrs la tabla <em>stg_s3.controlflag_arquivos</em> tendrá el mismo <em>id_camda</em> en 9 registros, uno por cada archivo flag.</p>
-<p><img src="images/id_camdaarquivos.png" alt="id_camdaarquivos" title="id_camdaarquivos"> </p>
-<p>Análogamente, la tabla de <em>stg_s3controlflag_interfaces</em> tendrá el mismo comportamiento, teniendo 133 registros con el mismo id_camda (o 134, recordando que una interfaz la recibimos una vez cada hora)</p>
-<p><img src="images/id_camdainterfaces.png" alt="camdaflagintefaces" width="5000" height='300'/></p>
-<p><img src="images/id_camdacount.png" alt="camdaflagcount" width="500" height='300'/></p>
-<h2 id="controlflag_arquivos">controlflag_arquivos</h2>
-<p>Esta tabla contiene la relación de los archivos flag recibidos.</p>
-<p>Explicacion de los campos de la tabla:</p>
-<ul>
-<li><strong>id_camda</strong> <ul>
-<li><a href="#id_camdaarquivos">Previamente explicado</a>.</li>
-</ul>
-</li>
-<li><strong>id</strong><ul>
-<li>id secuencial unico para cada registro</li>
-</ul>
-</li>
-<li><strong>nome_base</strong><ul>
-<li>A que archivo flag pertenece el archivo tratado, mostrado <a href="#id_camdaarquivos">previamente</a>.</li>
-</ul>
-</li>
-<li><p><strong>nome_completo</strong></p>
-<ul>
-<li>Nombre del archivo flag recibido y trabajado en esa ejecucion
-<img src="images/arquivonombrecompleto.png" alt="arquivonombrecompleto" width="500" height='300'/></li>
-</ul>
-</li>
-<li><p><strong>data</strong></p>
-<ul>
-<li>Este valor representa en que momento se empezó el job de rundeck. 
-  <img src="images/dataarquivos.png" alt="dataarquivos" width="500" height='300'/></li>
-</ul>
-</li>
-<li><p><strong>data_recebemento</strong></p>
-<ul>
-<li>Indica la hora en la que fue recibido el respectivo archivo flag en la carpeta de <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>
-<img src="images/arquivodatarec.png" alt="arquivodatarec" width="500" height='300'/>
-Recordando que el tiempo maximo de recibiento son 2 min a partir de que inicia el job de rundeck.</li>
-</ul>
-</li>
-</ul>
-<p><a href="./MEGAACCOUNTING_EndOfDay_1739905158481.xml">Este documento</a> es el ejemplo del contenido de un archivo flag, asi lo leemos y de informa la tabla <code>stg_s3.controlflag_interfaces</code> de la siguiente manera</p>
-<h2 id="controlflag_interfaces">controlflag_interfaces</h2>
-<p>Esta tabla contiene la relación de las interfaces recibidas por archivo flag.
-<img src="images/interfaces.png" alt="arquivodatarec" width="500" height='300'/></p>
-<p>Explicacion de los campos de la tabla:</p>
-<ul>
-<li>id_camda<ul>
-<li><a href="#id_camdaarquivos">Previamente explicado</a>.</li>
-</ul>
-</li>
-<li>id<ul>
-<li>id secuencial unico para cada registro</li>
-</ul>
-</li>
-<li>id_arquivo_flag<ul>
-<li>Este campo se puede eliminar, su proposito era ligarlo con el campo <code>id</code> de <code>stg_s3.controlflag_arquivos</code></li>
-</ul>
-</li>
-<li>nome_flag_geral<ul>
-<li>De cual de los 9 archivos flag proviene la interfaz.</li>
-</ul>
-</li>
-<li>nome_flag_completo<ul>
-<li>Indica el archivo flag especifico del cual proviene el xml procesado</li>
-</ul>
-</li>
-<li>nome_interface_base<ul>
-<li>A que interfaz pertenece el xml procesado</li>
-</ul>
-</li>
-<li>nome_interface_completo<ul>
-<li>El nombre completo del archivo xml procesado</li>
-</ul>
-</li>
-<li>recebido<ul>
-<li>Indica si efectivamente el archivo xml estaba en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> 
-<strong>OJO</strong> Este parametro es importante, porque si bien el archivo flag nos dice lo que en teoria recibimos, este campo sirve de verificacion.
-Si tenemos un null aqui, significa que aunque el archivo flag diga que lo recibimos, realmente no lo fue.</li>
-</ul>
-</li>
-<li>track_status<ul>
-<li>Campo informado por el xml que indica si fue generado exitosamente o no</li>
-</ul>
-</li>
-<li>data_recebemento<ul>
-<li>Indica la hora en que recibimos el xml en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> </li>
-</ul>
-</li>
-<li>data_fim_conversao<ul>
-<li>Este sería el momento en que termina de convertirse el java, pendiente desarrollo para informar.</li>
-</ul>
-</li>
-</ul>
-<h1 id="consideraciones">Consideraciones</h1>
-<ul>
-<li><p>Se considera un GAP de dos minutos para recbir 8 archivos flag cada 10 min (9 cada hora), de no ser asi:
-Si no se reciben todos los archivos flag:  </p>
-<ul>
-<li>No se ejecutarán los mapeos.</li>
-<li>No se actualizará ningún valor <code>cod_flag_mapeo</code> de ninguna tabla <code>SSS_</code>.</li>
-</ul>
-</li>
-<li><p>Si los archivos listados en los archivos flag no coinciden con los archivos recibidos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>:</p>
-<ul>
-<li>No se cargará informacion de el/los archivos discrepantes.</li>
-<li>No se ejecutarán los mapeos.</li>
-<li>No se actualizará ningún valor <code>cod_flag_mapeo</code> de ninguna tabla <code>SSS_</code>.</li>
-<li>Se mantendrá el archivo discrepante en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> hasta su eliminación manual. <strong>PENDIENTE AJUSTE</strong></li>
-</ul>
-</li>
-<li><p>Carga manual de Archivos</p>
-<ul>
-<li>La inserción manual de archivos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> deberán ser informados en el contenido de su respectivo archivo flag.</li>
-<li>Se deberán recibir todos los archivos flag.</li>
-<li>Se deberán recibir todos los archivos listados en los archivos flag.\
-La ómisión de alguno de estos puntos provoca:<ul>
-<li>Los archivos insertados manualmente no serán consumidos por Rundeck.</li>
-<li>No se llevarán a cabo mapeos.</li>
-<li>El campo <code>cod_flag_mapeo</code> de todas las tablas <code>SSS_</code> se mantendra de la forma <code>cod_flag_mapeo = null</code>.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>¿Cuando informar a s3?<ul>
-<li>Cuando el paso &quot;Validacion cantidad de interfaces recibidas&quot; de error, pues lo que ahce es contar cuantos archivos fueron procesados.</li>
-</ul>
-</li>
-<li>Todo archivo flag procesado se mueve a la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/Flags</code> al final de su lectura.</li>
-</ul>
-<h1 id="acciones-pendientes">Acciones Pendientes</h1>
-<ul>
-<li>Actualmente el hacer o no mapeos se decide en base a la cantidad de interfaces recibidas, se debe de implementar la validacion de que el java ha ido correctamente.</li>
-<li>Arreglar parte de encriptacion de los xml</li>
-<li>Agregar alertas de fallo.</li>
-</ul>
+    <h1 id="relacion">Relación de módulos, archivos y extracciones</h1>
+    <p>Los archivos flag recibidos cada 10 minutos serán de la forma:</p>
+    <ol>
+        <li>MEGACOMMON_EndOfWeek_xxx.xml</li>
+        <li>MEGACOMMON_IntraDay_xxx.xml</li>
+        <li>MEGACOMMON_EndOfDay_xxx.xml</li>
+        <li>MEGACOMMON_EndOfMonth_xxx.xml</li>
+        <li>MEGACUSTODY_IntraDay_xxx.xml</li>
+        <li>MEGACUSTODY_EndOfDay_xxx.xml</li>
+        <li>MEGACUSTODY_EndOfWeek_xxx.xml <strong>(este se recibe una vez cada hora)</strong></li>
+        <li>MEGARAFA_IntraDay_xxx.xml</li>
+        <li>MEGARAFA_EndOfMonth_xxx.xml</li>
+    </ol>
+
+    <p>A continuación la relación de módulos, archivos y extracciones.</p>
+
+    <details>
+        <summary>Ver desglose de Módulos (Clic para expandir)</summary>
+        <ol>
+            <li><strong>MegaAccounting.</strong> <em>Módulo</em>
+                <ol>
+                    <li>MEGAACCOUNTING_EndOfWeek <em>Archivo</em>
+                        <ol>
+                            <li>ClientTransaction</li>
+                            <li>CashTransferOrder</li>
+                            <li>CreateCAFromLoanScheduleSLA</li>
+                            <li>Unit</li>
+                            <li>Fund</li>
+                            <li>TaxPayerCategory</li>
+                            <li>TypeOfApplicationShort</li>
+                            <li>TypeOfApplicationLong</li>
+                            <li>CAConfiguration</li>
+                            <li>OptionConfiguration</li>
+                            <li>Rentability</li>
+                            <li>SwapAssetTypeOption</li>
+                            <li>CVMLongClassification</li>
+                            <li>Equity</li>
+                            <li>AccountNature</li>
+                            <li>AccountCategory</li>
+                            <li>NationalClassification</li>
+                        </ol>
+                    </li>
+                    <li>MEGAACCOUNTING_IntraDay <em>Archivo</em>
+                        <ol>
+                            <li>CGCPosition</li>
+                            <li>BenchmarkPerformance</li>
+                            <li>performance</li>
+                            <li>RentabilityFA</li>
+                            <li>NetAssetValue</li>
+                            <li>CashMovement</li>
+                            <li>ClientBalance</li>
+                            <li>YieldCurve</li>
+                            <li>CashAccountingEntry</li>
+                            <li>Commodity</li>
+                            <li>Consultant</li>
+                            <li>Counterparties</li>
+                            <li>CountryCalendar</li>
+                            <li>Custodian</li>
+                            <li>CustodyBalanceRegister</li>
+                            <li>DetailedPriceCriterion</li>
+                            <li>EconomicAgentCategory</li>
+                            <li>EntitySector</li>
+                            <li>ExternalCashAccount</li>
+                            <li>Guarantor</li>
+                            <li>ReferenceRatePrice</li>
+                            <li>SecurityAccountingEntry</li>
+                        </ol>
+                    </li>
+                    <li>MEGAACCOUNTING_EndOfDay <em>Archivo</em>
+                        <ol>
+                            <li>DetailedCashFlow</li>
+                            <li>AssetController</li>
+                            <li>AssetManager</li>
+                            <li>AutonomousAgent</li>
+                            <li>Bank</li>
+                            <li>Broker</li>
+                            <li>FiduciaryAgent</li>
+                            <li>FiscalProfile</li>
+                            <li>Forward</li>
+                            <li>FRC</li>
+                            <li>FundAdministrator</li>
+                            <li>FundAuditor</li>
+                            <li>FundClassification</li>
+                            <li>FundDistributor</li>
+                            <li>IndexBenchmark</li>
+                            <li>Issuers</li>
+                            <li>LiabilitiesController</li>
+                            <li>MainEntityCalendar</li>
+                            <li>PricingRule</li>
+                            <li>PricingRuleProfile</li>
+                            <li>ReferenceRate</li>
+                            <li>Regulator</li>
+                            <li>RiskAgent</li>
+                            <li>SCC</li>
+                            <li>SCS</li>
+                            <li>Fund Manager</li>
+                            <li>CSD</li>
+                            <li>ScriptByClient</li>
+                            <li>SecuritiesLendingRegister</li>
+                            <li>ValuationPriceSLA</li>
+                        </ol>
+                    </li>
+                    <li>MEGAACCOUNTING_EndOfMonth <em>Archivo</em>
+                        <ol>
+                            <li>Bonds</li>
+                            <li>NAVRentabilityDetails</li>
+                            <li>EligiblePosition</li>
+                            <li>SecurityPrice</li>
+                            <li>ValorizedPosition</li>
+                            <li>ClientSecurityPayment</li>
+                            <li>ClientInstruction Cor</li>
+                            <li>ClientCashAccount</li>
+                            <li>STI</li>
+                            <li>Future</li>
+                            <li>Right</li>
+                            <li>CVMShortClassification</li>
+                            <li>ClientCashAccbySecAcc</li>
+                            <li>ClassificationFATCA</li>
+                            <li>FiscalClassification</li>
+                            <li>Market</li>
+                            <li>ClientSecAccount</li>
+                            <li>ContractualClient</li>
+                            <li>Country</li>
+                            <li>Currency</li>
+                            <li>NostroSecAccount</li>
+                            <li>TransactionType</li>
+                            <li>NostroSecAccountSLA</li>
+                            <li>CA</li>
+                            <li>ClientEntitlement</li>
+                            <li>ClientCashPayment</li>
+                            <li>ClientInstruction</li>
+                            <li>FiscalNature</li>
+                            <li>PayableReceivable</li>
+                            <li>SupervisionDashboard</li>
+                            <li>NavDetails</li>
+                            <li>ProblemCode</li>
+                        </ol>
+                    </li>
+                    <li>MEGGAACCOUNTING_EndOfWeek
+                        <ol>
+                            <li>Option</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li><strong>MegaCustody</strong> <em>Módulo</em>
+                <ol>
+                    <li>MEGACUSTODY_IntraDay <em>Archivo</em>
+                        <ol>
+                            <li>RegularTransaction</li>
+                            <li>CashTransactionType</li>
+                            <li>PledgeRequest</li>
+                            <li>NetMarketExecution</li>
+                            <li>NetMarketExecConfirmationExtractConfig</li>
+                            <li>IncomingNetMarketExecutionExtractConfig</li>
+                            <li>ForeignExchangeRate</li>
+                            <li>DepledgeRequest</li>
+                        </ol>
+                    </li>
+                    <li>MEGACUSTODY_EndOfDay <em>Archivo</em>
+                        <ol>
+                            <li>CodificationConfig</li>
+                            <li>FixAmountFeeRule</li>
+                            <li>FixRateFeeRule</li>
+                            <li>ScaledFeeRule</li>
+                            <li>PledgingReason</li>
+                            <li>ShortSellingSLA</li>
+                            <li>PaymentChannel</li>
+                            <li>Mututal Fund Calendar</li>
+                            <li>MarketTradeCommSLA</li>
+                            <li>CSDCalendar</li>
+                            <li>BrokerCommissionSLA</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li><strong>MegaraFA</strong> <em>Módulo</em>
+                <ol>
+                    <li>MEGARAFA_IntraDay <em>Archivo</em>
+                        <ol>
+                            <li>SurperformanceNavDetailExtractConfig</li>
+                            <li>ShareOutStandingByUnit</li>
+                            <li>LiabilitiesOperation</li>
+                            <li>FeesDetails</li>
+                            <li>Derivativeadjustment</li>
+                            <li>DepoValorizedPosition</li>
+                        </ol>
+                    </li>
+                    <li>MEGARAFA_EndOfMonth <em>Archivo</em>
+                        <ol>
+                            <li>DeferredFeesPaidSLA</li>
+                            <li>RelatedBillProcessSLA</li>
+                            <li>PeriodiCMngtFeesConfig</li>
+                            <li>ManagementFeesSLA</li>
+                            <li>IndexRentabilityDetails</li>
+                            <li>FeesType</li>
+                            <li>BillingDatesSLA</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </details>
+
+    <h1 id="tablas">Tablas de Control</h1>
+    <p>Existen dos tablas de control:</p>
+    <ul>
+        <li><code>stg_s3.controlflag_interfaces</code></li>
+        <li><code>stg_s3.controlflag_arquivos</code></li>
+    </ul>
+
+    <h2 id="id_camda">Explicación id_camda</h2>
+    <p>Este campo está presente en las dos tablas de control.<br>
+    Es un identificador secuencial por lote de ejecución, por ejemplo: para la ejecución de las 13:00 hrs la tabla <em>stg_s3.controlflag_arquivos</em> tendrá el mismo <em>id_camda</em> en 9 registros, uno por cada archivo flag.</p>
+
+    <img src="images/id_camdaarquivos.png" alt="id_camdaarquivos" title="id_camdaarquivos"> 
+
+    <p>Análogamente, la tabla de <em>stg_s3.controlflag_interfaces</em> tendrá el mismo comportamiento, teniendo 133 registros con el mismo id_camda (o 134, recordando que una interfaz la recibimos una vez cada hora).</p>
+
+    <img src="images/id_camdainterfaces.png" alt="camdaflagintefaces">
+    <img src="images/id_camdacount.png" alt="camdaflagcount" style="max-width: 500px;">
+
+    <h2 id="arquivos">controlflag_arquivos</h2>
+    <p>Esta tabla contiene la relación de los archivos flag recibidos.</p>
+    <p>Explicación de los campos de la tabla:</p>
+    <ul>
+        <li><strong>id_camda</strong>
+            <ul><li><a href="#id_camda">Previamente explicado</a>.</li></ul>
+        </li>
+        <li><strong>id</strong>
+            <ul><li>id secuencial único para cada registro</li></ul>
+        </li>
+        <li><strong>nome_base</strong>
+            <ul><li>A qué archivo flag pertenece el archivo tratado, mostrado <a href="#id_camda">previamente</a>.</li></ul>
+        </li>
+        <li><strong>nome_completo</strong>
+            <ul>
+                <li>Nombre del archivo flag recibido y trabajado en esa ejecución</li>
+                <li><img src="images/arquivonombrecompleto.png" alt="arquivonombrecompleto" style="max-width: 500px;"></li>
+            </ul>
+        </li>
+        <li><strong>data</strong>
+            <ul>
+                <li>Este valor representa en qué momento se empezó el job de rundeck.</li>
+                <li><img src="images/dataarquivos.png" alt="dataarquivos" style="max-width: 500px;"></li>
+            </ul>
+        </li>
+        <li><strong>data_recebemento</strong>
+            <ul>
+                <li>Indica la hora en la que fue recibido el respectivo archivo flag en la carpeta de <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code></li>
+                <li><img src="images/arquivodatarec.png" alt="arquivodatarec" style="max-width: 500px;"></li>
+                <li>Recordando que el tiempo máximo de recibimiento son 2 min a partir de que inicia el job de rundeck.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><a href="./MEGAACCOUNTING_EndOfDay_1739905158481.xml">Este documento</a> es el ejemplo del contenido de un archivo flag, así lo leemos y se informa la tabla <code>stg_s3.controlflag_interfaces</code> de la siguiente manera:</p>
+
+    <h2 id="interfaces">controlflag_interfaces</h2>
+    <p>Esta tabla contiene la relación de las interfaces recibidas por archivo flag.</p>
+    <img src="images/interfaces.png" alt="interfaces" style="max-width: 500px;">
+
+    <p>Explicación de los campos de la tabla:</p>
+    <ul>
+        <li><strong>id_camda</strong>
+            <ul><li><a href="#id_camda">Previamente explicado</a>.</li></ul>
+        </li>
+        <li><strong>id</strong>
+            <ul><li>id secuencial único para cada registro</li></ul>
+        </li>
+        <li><strong>id_arquivo_flag</strong>
+            <ul><li>Este campo se puede eliminar, su propósito era ligarlo con el campo <code>id</code> de <code>stg_s3.controlflag_arquivos</code></li></ul>
+        </li>
+        <li><strong>nome_flag_geral</strong>
+            <ul><li>De cuál de los 9 archivos flag proviene la interfaz.</li></ul>
+        </li>
+        <li><strong>nome_flag_completo</strong>
+            <ul><li>Indica el archivo flag específico del cual proviene el xml procesado</li></ul>
+        </li>
+        <li><strong>nome_interface_base</strong>
+            <ul><li>A qué interfaz pertenece el xml procesado</li></ul>
+        </li>
+        <li><strong>nome_interface_completo</strong>
+            <ul><li>El nombre completo del archivo xml procesado</li></ul>
+        </li>
+        <li><strong>recebido</strong>
+            <ul>
+                <li>Indica si efectivamente el archivo xml estaba en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code></li>
+                <li><strong>OJO</strong> Este parámetro es importante, porque si bien el archivo flag nos dice lo que en teoría recibimos, este campo sirve de verificación. Si tenemos un null aquí, significa que aunque el archivo flag diga que lo recibimos, realmente no lo fue.</li>
+            </ul>
+        </li>
+        <li><strong>track_status</strong>
+            <ul><li>Campo informado por el xml que indica si fue generado exitosamente o no</li></ul>
+        </li>
+        <li><strong>data_recebemento</strong>
+            <ul><li>Indica la hora en que recibimos el xml en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code></li></ul>
+        </li>
+        <li><strong>data_fim_conversao</strong>
+            <ul><li>Este sería el momento en que termina de convertirse el java, pendiente desarrollo para informar.</li></ul>
+        </li>
+    </ul>
+
+    <h1 id="consideraciones">Consideraciones</h1>
+    <ul>
+        <li>Se considera un GAP de dos minutos para recibir 8 archivos flag cada 10 min (9 cada hora), de no ser así:
+            <ul>
+                <li>Si no se reciben todos los archivos flag:
+                    <ul>
+                        <li>No se ejecutarán los mapeos.</li>
+                        <li>No se actualizará ningún valor <code>cod_flag_mapeo</code> de ninguna tabla <code>SSS_</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Si los archivos listados en los archivos flag no coinciden con los archivos recibidos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>:
+            <ul>
+                <li>No se cargará información de el/los archivos discrepantes.</li>
+                <li>No se ejecutarán los mapeos.</li>
+                <li>No se actualizará ningún valor <code>cod_flag_mapeo</code> de ninguna tabla <code>SSS_</code>.</li>
+                <li>Se mantendrá el archivo discrepante en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> hasta su eliminación manual. <strong>PENDIENTE AJUSTE</strong></li>
+            </ul>
+        </li>
+        <li><strong>Carga manual de Archivos</strong>
+            <ul>
+                <li>La inserción manual de archivos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> deberán ser informados en el contenido de su respectivo archivo flag.</li>
+                <li>Se deberán recibir todos los archivos flag.</li>
+                <li>Se deberán recibir todos los archivos listados en los archivos flag.<br>
+                La omisión de alguno de estos puntos provoca:
+                    <ul>
+                        <li>Los archivos insertados manualmente no serán consumidos por Rundeck.</li>
+                        <li>No se llevarán a cabo mapeos.</li>
+                        <li>El campo <code>cod_flag_mapeo</code> de todas las tablas <code>SSS_</code> se mantendrá de la forma <code>cod_flag_mapeo = null</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>¿Cuándo informar a s3?</strong>
+            <ul>
+                <li>Cuando el paso "Validación cantidad de interfaces recibidas" dé error, pues lo que hace es contar cuántos archivos fueron procesados.</li>
+            </ul>
+        </li>
+        <li>Todo archivo flag procesado se mueve a la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/Flags</code> al final de su lectura.</li>
+    </ul>
+
+    <h1 id="acciones">Acciones Pendientes</h1>
+    <ul>
+        <li>Actualmente el hacer o no mapeos se decide en base a la cantidad de interfaces recibidas, se debe de implementar la validación de que el java ha ido correctamente.</li>
+        <li>Arreglar parte de encriptación de los xml.</li>
+        <li>Agregar alertas de fallo.</li>
+    </ul>
+
+</div>
 
 </body>
-
 </html>
