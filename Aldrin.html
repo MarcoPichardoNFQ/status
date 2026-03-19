@@ -75,418 +75,338 @@
 </head>
 
 <body class="min-h-screen selection:bg-cyan-500/30 relative pb-12">
+<ol>
+<li><a href="#objetivo">Objetivo</a></li>
+<li><a href="#relacion-de-módulos-archivos-y-extracciones">Relacion de módulos, archivos y extracciones</a></li>
+<li><a href="#tablas-de-control">Tablas de Control</a><ol>
+<li><a href="#explicación-id_camda">Explicación id_camda</a></li>
+<li><a href="#controlflag_arquivos">controlflag_arquivos</a></li>
+<li><a href="#controlflag_interfaces">controlflag_interfaces</a></li>
+</ol>
+</li>
+<li><a href="#consideraciones">Consideraciones</a></li>
+<li><a href="#acciones-pendientes">Acciones Pendientes</a></li>
+</ol>
+<h1 id="objetivo">Objetivo</h1>
+<p>Este CR surge de la necesidad de tener más trazabilidad en la carga de archivos que recibimos de MEGARA y se basa en la mejora de dos puntos principalmente:</p>
+<ol>
+<li>Manejo de extracciones procesadas.\
+ Actualmente recibimos <strong>134 Extracciones</strong> en la dirección <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> y nuestros  <strong>conversores JAVA</strong> se encargan de buscar durante max 2 min la presencia de su archivo asignado.\
+ Este CR contempla  recibir <strong>9 Archivos Flag</strong> de <strong>3 Módulos diferentes</strong>, dichos archivos contienen la relación de las extracciones que recibimos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>.\
+ Como ya sabemos exactamente el nombre de las extracciones que recibimos: no tenemos que hacer una busqueda intensa por cada uno de los 134 archivos.</li>
+<li>Control de datos mapeados.\
+La opción por la que se ha decantado S3 es que cuando falte alguna extracción en una carga de archivos, no se actualicen los campos <code>cod_flag_mapeo</code> de las <strong>tablas principales sss</strong>. Este campo indica a las funciones de mapeo con que registros trabajar. En consecuencia, si hay alguna extracción faltante en una ejecución, la siguiente ejecucion trabajará con un bloque mayor de información; se hará de este modo hasta que recibamos un paquete completo de interfaces.</li>
+</ol>
+<h1 id="relacion-de-m-dulos-archivos-y-extracciones">Relacion de módulos, archivos y extracciones</h1>
+<p>Los archivos flag recibidos cada 10 minutos serán de la forma:</p>
+<ol>
+<li>MEGACOMMON_EndOfWeek_xxx.xml</li>
+<li>MEGACOMMON_IntraDay_xxx.xml</li>
+<li>MEGACOMMON_EndOfDay_xxx.xml</li>
+<li>MEGACOMMON_EndOfMonth_xxx.xml</li>
+<li>MEGACUSTODY_IntraDay_xxx.xml</li>
+<li>MEGACUSTODY_EndOfDay_xxx.xml</li>
+<li>MEGACUSTODY_EndOfWeek_xxx.xml <strong>(este se recibe una vez cada hora)</strong></li>
+<li>MEGARAFA_IntraDay_xxx.xml</li>
+<li>MEGARAFA_EndOfMonth_xxx.xml</li>
+</ol>
+<p>A continuación la relación de módulos, archivos y extracciones.</p>
+<details>
 
-    <!-- FONDOS ESPACIALES (Apollo Theme) -->
-    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden fixed">
-        <div class="absolute inset-0 opacity-40"
-            style="background-image: radial-gradient(circle at 50% 0%, #0c1838 0%, transparent 50%), radial-gradient(circle at 80% 80%, #1e102a 0%, transparent 40%)">
-        </div>
-
-        <div class="absolute bottom-0 left-0 w-full h-64 opacity-10">
-            <svg viewBox="0 0 1440 320" preserveAspectRatio="none"
-                class="absolute bottom-0 w-full h-full text-cyan-900">
-                <path fill="currentColor"
-                    d="M0,256L48,245.3C96,235,192,213,288,218.7C384,224,480,256,576,256C672,256,768,224,864,213.3C960,203,1056,213,1152,229.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-                </path>
-            </svg>
-        </div>
-
-        <svg class="absolute bottom-16 right-32 w-64 h-64 opacity-[0.05] drop-shadow-[0_0_15px_rgba(56,189,248,0.2)]"
-            viewBox="0 0 200 200" fill="none">
-            <path d="M100 120 L50 180 M100 120 L150 180 M100 120 L75 170 M100 120 L125 170" stroke="#cbd5e1"
-                stroke-width="4" stroke-linecap="round" />
-            <polygon points="60,120 140,120 120,90 80,90" fill="#94a3b8" />
-            <polygon points="70,90 130,90 110,40 90,40" fill="#cbd5e1" />
-            <line x1="100" y1="40" x2="100" y2="10" stroke="#cbd5e1" stroke-width="2" />
-            <circle cx="100" cy="10" r="4" fill="#cbd5e1" />
-        </svg>
-    </div>
-
-    <!-- HEADER COORPORATIVO -->
-    <header class="relative z-50 bg-[#04060a]/90 backdrop-blur-md border-b border-cyan-900/50 shadow-lg sticky top-0">
-        <div class="w-11/12 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
-                <div class="flex items-center space-x-6">
-                    <svg width="48" height="48" viewBox="0 0 100 100" fill="none"
-                        class="drop-shadow-[0_0_10px_rgba(250,204,21,0.6)]">
-                        <circle cx="50" cy="50" r="46" fill="#040814" stroke="#facc15" stroke-width="2"
-                            stroke-dasharray="4 2" class="animate-[spin_20s_linear_infinite]" />
-                        <circle cx="50" cy="50" r="38" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
-                        <path d="M30 65 C 20 40, 40 20, 70 30" stroke="#facc15" stroke-width="1.5"
-                            stroke-dasharray="3 3" fill="none" />
-                        <path d="M55 25 L 65 15 L 75 25 L 70 55 L 60 55 Z" fill="#e2e8f0" stroke="#ffffff"
-                            stroke-width="1" />
-                        <circle cx="35" cy="65" r="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
-                        <circle cx="33" cy="63" r="2" fill="#334155" />
-                    </svg>
-                    <div>
-                        <h1 class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
-                            Misión Apollo-Aldrin
-                        </h1>
-                        <p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Control de Misión •
-                            Stardate: 12.03.2026</p>
-                    </div>
-                </div>
-
-                <!-- NAVEGACIÓN -->
-                <nav
-                    class="hidden xl:flex space-x-3 bg-[#0b1221] p-2 rounded-xl border border-cyan-900/30 shadow-inner">
-                    <button onclick="switchTab('megara')" id="btn-megara"
-                        class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 bg-cyan-950/60 text-cyan-400 border border-cyan-800/50">
-                        <i data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces
-                    </button>
-                    <button onclick="switchTab('reporting')" id="btn-reporting"
-                        class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
-                        <i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 2. Reporting
-                    </button>
-                    <button onclick="switchTab('infra')" id="btn-infra"
-                        class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
-                        <i data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infra & API
-                    </button>
-                    <button onclick="switchTab('uat')" id="btn-uat"
-                        class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent relative overflow-hidden">
-                        <i data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT
-
-                    </button>
-                    <button onclick="switchTab('graficas')" id="btn-graficas"
-                        class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-fuchsia-200 hover:bg-slate-800/50 border border-transparent relative overflow-hidden">
-                        <i data-lucide="pie-chart" class="w-5 h-5 mr-2"></i> 5. Gráficas
-                    </button>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="relative z-10 w-11/12 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
-
-        <!-- PESTAÑA 1: MEGARAS -->
-        <div id="tab-megara" class="tab-pane active space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-cyan-500 pl-5">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">1. Interfaces Megara</h2>
-                    <p class="text-cyan-600 font-mono text-sm uppercase tracking-widest">Estado de integración de
-                        extracción y mapeos SAC</p>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
-                                    Tema / Tarea</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
-                                    Entorno / Flujo</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
-                                    Comentarios de Telemetría</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
-                                    Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-megara" class="divide-y divide-cyan-900/20">
-                            <!-- Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- PESTAÑA 2: REPORTING -->
-        <div id="tab-reporting" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-indigo-500 pl-5">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">2. Módulo de Reporting</h2>
-                    <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Desarrollo de Informes y Qlik
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
-                                    Tema / Tarea</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
-                                    Entorno / Flujo</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
-                                    Comentarios de Telemetría</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
-                                    Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-reporting" class="divide-y divide-cyan-900/20">
-                            <!-- Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- PESTAÑA 3: INFRAESTRUCTURA & API -->
-        <div id="tab-infra" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-emerald-500 pl-5">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">3. Infraestructura & API
-                    </h2>
-                    <p class="text-emerald-400 font-mono text-sm uppercase tracking-widest">Tiempos de carga, Datahub y
-                        llamadas Rundeck</p>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
-                                    Tema / Tarea</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
-                                    Entorno / Flujo</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
-                                    Comentarios de Telemetría</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
-                                    Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-infra" class="divide-y divide-cyan-900/20">
-                            <!-- Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- PESTAÑA 4: ANOMALÍAS UAT (ESTANDARIZADA) -->
-        <div id="tab-uat" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-indigo-400 pl-5">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">4. Backlog de Actividades
-                        (UAT)</h2>
-                    <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Actividades planificadas en
-                        cola de validación a largo plazo</p>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
-                                    Tema / Tarea</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
-                                    Entorno / Flujo</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
-                                    Comentarios de Telemetría</th>
-                                <th
-                                    class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
-                                    Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-uat" class="divide-y divide-cyan-900/20">
-                            <!-- Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- PESTAÑA 5: GRÁFICAS DE CONTROL -->
-        <div id="tab-graficas" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-fuchsia-500 pl-5">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">5. Gráficas de control</h2>
-                    <p class="text-fuchsia-400 font-mono text-sm uppercase tracking-widest">Visualización de métricas de
-                        rendimiento y estado</p>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-2xl p-8 flex flex-col items-center space-y-10">
-                <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Tiempos de ejecución Rundeck</p>
-
-                <!-- Imagen 1 -->
-                <div
-                    class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px]">
-                    <img src="https://lh3.googleusercontent.com/d/1iAx60JA6AOVeeZWvdKXol9X0aHIwnqw_"
-                        alt="Gráfica de control 1" class="w-full h-auto object-contain">
-                </div>
-
-                <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Tiempos de ejecución Rundeck</p>
-                <iframe
-src="https://qlik.s3caceis.com.br/single/?appid=c1176a2b-cb88-47b9-868c-b386a7f2e19c&obj=mdQsY&theme=horizon&opt=ctxmenu,currsel&select=clearall"
-class="w-full h-[500px] border-0">
-</iframe>
-                <!-- Imagen 2 -->
-                <div
-                    class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px]">
+   1. MegaAccounting. <em>Módulo</em>
+      1. MEGAACCOUNTING_EndOfWeek <em>Archivo</em>
+         1. ClientTransaction
+         2.  CashTransferOrder
+         3. CreateCAFromLoanScheduleSLA
+         4. Unit
+         5. Fund
+         6. TaxPayerCategory
+         7. TypeOfApplicationShort
+         8. TypeOfApplicationLong
+         9.  CAConfiguration
+         10. OptionConfiguration
+         11. Rentability
+         12. SwapAssetTypeOption
+         13. CVMLongClassification
+         14. Equity
+         15. AccountNature
+         16. AccountCategory
+         17. NationalClassification
+      2.  MEGAACCOUNTING_IntraDay <em>Archivo</em>
+           1.  CGCPosition
+           2.  BenchmarkPerformance
+           3.  performance
+           4.  RentabilityFA
+           5.  NetAssetValue
+           6.  CashMovement
+           7.  ClientBalance
+           8.  YieldCurve
+           9.  CashAccountingEntry
+           10. Commodity
+           11. Consultant
+           12. Counterparties
+           13. CountryCalendar
+           14. Custodian
+           15. CustodyBalanceRegister
+           16. DetailedPriceCriterion
+           17. EconomicAgentCategory
+           18. EntitySector
+           19. ExternalCashAccount
+           20. Guarantor
+           21. ReferenceRatePrice
+           22. SecurityAccountingEntry
+      3.  MEGAACCOUNTING_EndOfDay <em>Archivo</em>
+          1.  DetailedCashFlow
+          2.  AssetController
+          3.  AssetManager
+          4.  AutonomousAgent
+          5.  Bank
+          6.  Broker
+          7.  FiduciaryAgent
+          8.  FiscalProfile
+          9.  Forward
+          10. FRC
+          11. FundAdministrator
+          12. FundAuditor
+          13. FundClassification
+          14. FundDistributor
+          15. IndexBenchmark
+          16. Issuers
+          17. LiabilitiesController
+          18. MainEntityCalendar
+          19. PricingRule
+          20. PricingRuleProfile
+          21. ReferenceRate
+          22. Regulator
+          23. RiskAgent
+          24. SCC
+          25. SCS
+          26. Fund Manager
+          27. CSD
+          28. ScriptByClient
+          29. SecuritiesLendingRegister
+          30. ValuationPriceSLA
+      4.  MEGAACCOUNTING_EndOfMonth <em>Archivo</em>
+          1.  Bonds
+          2.  NAVRentabilityDetails
+          3.  EligiblePosition
+          4.  SecurityPrice
+          5.  ValorizedPosition
+          6.  ClientSecurityPayment
+          7.  ClientInstruction Cor
+          8.  ClientCashAccount
+          9.  STI
+          10. Future
+          11. Right
+          12. CVMShortClassification
+          13. ClientCashAccbySecAcc
+          14. ClassificationFATCA
+          15. FiscalClassification
+          16. Market
+          17. ClientSecAccount
+          18. ContractualClient
+          19. Country
+          20. Currency
+          21. NostroSecAccount
+          22. TransactionType
+          23. NostroSecAccountSLA
+          24. CA
+          25. ClientEntitlement
+          26. ClientCashPayment
+          27. ClientInstruction
+          28. FiscalNature
+          29. PayableReceivable
+          30. SupervisionDashboard
+          31. NavDetails
+          32. ProblemCode
+      5.  MEGGAACCOUNTING_EndOfWeek
+          1.  Option
+   2.  MegaCustody <em>Módulo</em>
+       1.  MEGACUSTODY_IntraDay <em>Archivo</em>
+           1.  RegularTransaction
+           2.  CashTransactionType
+           3.  PledgeRequest
+           4.  NetMarketExecution
+           5.  NetMarketExecConfirmationExtractConfig
+           6.  IncomingNetMarketExecutionExtractConfig
+           7.  ForeignExchangeRate
+           8.  DepledgeRequest
+       2.  MEGACUSTODY_EndOfDay <em>Archivo</em>
+           1.  CodificationConfig
+           2.  FixAmountFeeRule
+           3.  FixRateFeeRule
+           4.  ScaledFeeRule
+           5.  PledgingReason
+           6.  ShortSellingSLA
+           7.  PaymentChannel
+           8.  Mututal Fund Calendar
+           9.  MarketTradeCommSLA
+           10. CSDCalendar
+           11. BrokerCommissionSLA
+   3.  MegaraFA <em>Módulo</em>
+       1.  MEGARAFA_IntraDay  <em>Archivo</em>
+           1.  SurperformanceNavDetailExtractConfig
+           2.  ShareOutStandingByUnit
+           3.  LiabilitiesOperation
+           4.  FeesDetails
+           5.  Derivativeadjustment
+           6.  DepoValorizedPosition
+       2.  MEGARAFA_EndOfMonth <em>Archivo</em>
+           1.  DeferredFeesPaidSLA
+           2.  RelatedBillProcessSLA
+           3.  PeriodiCMngtFeesConfig
+           4.  ManagementFeesSLA
+           5.  IndexRentabilityDetails
+           6.  FeesType
+           7.  BillingDatesSLA
+</details>
 
 
-                    <img src="https://lh3.googleusercontent.com/d/1pO-dux39_aK97TcZmNlaJ1eES1hWj__U"
-                        alt="Gráfica de control 2" class="w-full h-auto object-contain">
+<h1 id="tablas-de-control">Tablas de Control</h1>
+<p>Existen dos tablas de control:</p>
+<ul>
+<li>stg_s3.controlflag_interfaces</li>
+<li>stg_s3.controlflag_arquivos</li>
+</ul>
+<h2 id="explicaci-n-id_camda">Explicación id_camda</h2>
+<p>Este campo esta presente en las dos tablas de control.\
+Es un identificador secuencial por lote de ejecución, por ejemplo: para la ejecución de las 13:00 hrs la tabla <em>stg_s3.controlflag_arquivos</em> tendrá el mismo <em>id_camda</em> en 9 registros, uno por cada archivo flag.</p>
+<p><img src="images/id_camdaarquivos.png" alt="id_camdaarquivos" title="id_camdaarquivos"> </p>
+<p>Análogamente, la tabla de <em>stg_s3controlflag_interfaces</em> tendrá el mismo comportamiento, teniendo 133 registros con el mismo id_camda (o 134, recordando que una interfaz la recibimos una vez cada hora)</p>
+<p><img src="images/id_camdainterfaces.png" alt="camdaflagintefaces" width="5000" height='300'/></p>
+<p><img src="images/id_camdacount.png" alt="camdaflagcount" width="500" height='300'/></p>
+<h2 id="controlflag_arquivos">controlflag_arquivos</h2>
+<p>Esta tabla contiene la relación de los archivos flag recibidos.</p>
+<p>Explicacion de los campos de la tabla:</p>
+<ul>
+<li><strong>id_camda</strong> <ul>
+<li><a href="#id_camdaarquivos">Previamente explicado</a>.</li>
+</ul>
+</li>
+<li><strong>id</strong><ul>
+<li>id secuencial unico para cada registro</li>
+</ul>
+</li>
+<li><strong>nome_base</strong><ul>
+<li>A que archivo flag pertenece el archivo tratado, mostrado <a href="#id_camdaarquivos">previamente</a>.</li>
+</ul>
+</li>
+<li><p><strong>nome_completo</strong></p>
+<ul>
+<li>Nombre del archivo flag recibido y trabajado en esa ejecucion
+<img src="images/arquivonombrecompleto.png" alt="arquivonombrecompleto" width="500" height='300'/></li>
+</ul>
+</li>
+<li><p><strong>data</strong></p>
+<ul>
+<li>Este valor representa en que momento se empezó el job de rundeck. 
+  <img src="images/dataarquivos.png" alt="dataarquivos" width="500" height='300'/></li>
+</ul>
+</li>
+<li><p><strong>data_recebemento</strong></p>
+<ul>
+<li>Indica la hora en la que fue recibido el respectivo archivo flag en la carpeta de <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>
+<img src="images/arquivodatarec.png" alt="arquivodatarec" width="500" height='300'/>
+Recordando que el tiempo maximo de recibiento son 2 min a partir de que inicia el job de rundeck.</li>
+</ul>
+</li>
+</ul>
+<p><a href="./MEGAACCOUNTING_EndOfDay_1739905158481.xml">Este documento</a> es el ejemplo del contenido de un archivo flag, asi lo leemos y de informa la tabla <code>stg_s3.controlflag_interfaces</code> de la siguiente manera</p>
+<h2 id="controlflag_interfaces">controlflag_interfaces</h2>
+<p>Esta tabla contiene la relación de las interfaces recibidas por archivo flag.
+<img src="images/interfaces.png" alt="arquivodatarec" width="500" height='300'/></p>
+<p>Explicacion de los campos de la tabla:</p>
+<ul>
+<li>id_camda<ul>
+<li><a href="#id_camdaarquivos">Previamente explicado</a>.</li>
+</ul>
+</li>
+<li>id<ul>
+<li>id secuencial unico para cada registro</li>
+</ul>
+</li>
+<li>id_arquivo_flag<ul>
+<li>Este campo se puede eliminar, su proposito era ligarlo con el campo <code>id</code> de <code>stg_s3.controlflag_arquivos</code></li>
+</ul>
+</li>
+<li>nome_flag_geral<ul>
+<li>De cual de los 9 archivos flag proviene la interfaz.</li>
+</ul>
+</li>
+<li>nome_flag_completo<ul>
+<li>Indica el archivo flag especifico del cual proviene el xml procesado</li>
+</ul>
+</li>
+<li>nome_interface_base<ul>
+<li>A que interfaz pertenece el xml procesado</li>
+</ul>
+</li>
+<li>nome_interface_completo<ul>
+<li>El nombre completo del archivo xml procesado</li>
+</ul>
+</li>
+<li>recebido<ul>
+<li>Indica si efectivamente el archivo xml estaba en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> 
+<strong>OJO</strong> Este parametro es importante, porque si bien el archivo flag nos dice lo que en teoria recibimos, este campo sirve de verificacion.
+Si tenemos un null aqui, significa que aunque el archivo flag diga que lo recibimos, realmente no lo fue.</li>
+</ul>
+</li>
+<li>track_status<ul>
+<li>Campo informado por el xml que indica si fue generado exitosamente o no</li>
+</ul>
+</li>
+<li>data_recebemento<ul>
+<li>Indica la hora en que recibimos el xml en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> </li>
+</ul>
+</li>
+<li>data_fim_conversao<ul>
+<li>Este sería el momento en que termina de convertirse el java, pendiente desarrollo para informar.</li>
+</ul>
+</li>
+</ul>
+<h1 id="consideraciones">Consideraciones</h1>
+<ul>
+<li><p>Se considera un GAP de dos minutos para recbir 8 archivos flag cada 10 min (9 cada hora), de no ser asi:
+Si no se reciben todos los archivos flag:  </p>
+<ul>
+<li>No se ejecutarán los mapeos.</li>
+<li>No se actualizará ningún valor <code>cod_flag_mapeo</code> de ninguna tabla <code>SSS_</code>.</li>
+</ul>
+</li>
+<li><p>Si los archivos listados en los archivos flag no coinciden con los archivos recibidos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code>:</p>
+<ul>
+<li>No se cargará informacion de el/los archivos discrepantes.</li>
+<li>No se ejecutarán los mapeos.</li>
+<li>No se actualizará ningún valor <code>cod_flag_mapeo</code> de ninguna tabla <code>SSS_</code>.</li>
+<li>Se mantendrá el archivo discrepante en la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> hasta su eliminación manual. <strong>PENDIENTE AJUSTE</strong></li>
+</ul>
+</li>
+<li><p>Carga manual de Archivos</p>
+<ul>
+<li>La inserción manual de archivos en <code>/prdmegara/PRD/Devices/MegaCommon/innotech/</code> deberán ser informados en el contenido de su respectivo archivo flag.</li>
+<li>Se deberán recibir todos los archivos flag.</li>
+<li>Se deberán recibir todos los archivos listados en los archivos flag.\
+La ómisión de alguno de estos puntos provoca:<ul>
+<li>Los archivos insertados manualmente no serán consumidos por Rundeck.</li>
+<li>No se llevarán a cabo mapeos.</li>
+<li>El campo <code>cod_flag_mapeo</code> de todas las tablas <code>SSS_</code> se mantendra de la forma <code>cod_flag_mapeo = null</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>¿Cuando informar a s3?<ul>
+<li>Cuando el paso &quot;Validacion cantidad de interfaces recibidas&quot; de error, pues lo que ahce es contar cuantos archivos fueron procesados.</li>
+</ul>
+</li>
+<li>Todo archivo flag procesado se mueve a la carpeta <code>/prdmegara/PRD/Devices/MegaCommon/innotech/Flags</code> al final de su lectura.</li>
+</ul>
+<h1 id="acciones-pendientes">Acciones Pendientes</h1>
+<ul>
+<li>Actualmente el hacer o no mapeos se decide en base a la cantidad de interfaces recibidas, se debe de implementar la validacion de que el java ha ido correctamente.</li>
+<li>Arreglar parte de encriptacion de los xml</li>
+<li>Agregar alertas de fallo.</li>
+</ul>
 
-                </div>
-                <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Cantidad Ejecuciones Manuales</p>
-                   <div
-                    class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px]">
-
-
-                    <img src="https://lh3.googleusercontent.com/d/1T-qhJvwab_ZSxjYapJMgf6NNByRsIEKr"
-                        alt="Gráfica de control 3" class="w-full h-auto object-contain">
-
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- LÓGICA Y DATOS (JAVASCRIPT) -->
-    <script>
-        // --- BASE DE DATOS ---
-
-        const dbMegara = [
-            { tema: "Sustitución Rundeck", tarea: "Creación de Solución", entorno: "NA", flujo: "No iniciado", inv: "NFQ / S3", fecha: "05/02/2026", comentarios: "Opciones de interfaces compartidas por S3: CGC Position, Valorized Position, Net Asset, Payable Receivable", pasos: "NTT configurará ambiente necesario" },
-            { tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_pos_fu_t_cgc", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "11/03/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_FU_POS_CGC", pasos: "S3 y NFQ en monitoreo continuo." },
-            { tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_pl_cl_patrfut_t_cgc", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "11/03/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_PATR_FUT_CGC", pasos: "S3 y NFQ en monitoreo continuo." },
-            { tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_pos_fu_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "11/03/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_FU_POS", pasos: "S3 y NFQ en monitoreo continuo." },
-            { tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_pl_cl_patrfut_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "11/03/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_PATR_FUT", pasos: "S3 y NFQ en monitoreo continuo." }
-        ];
-
-        const dbReporting = [
-            { tema: "Nuevo Extrato Simplificado", tarea: "Desarrollo", entorno: "PRD/UAT", flujo: "En curso", inv: "S3 / NFQ", fecha: "04/03/2026", comentarios: "NFQ ha finalizado desarrollo Qlik.", pasos: "Esperando validacion de S3." },
-            { tema: "Detalhado de Estoque de RF", tarea: "Ajuste", entorno: "PRD", flujo: "Completado", inv: "S3 / NFQ", fecha: "03/04/2026", comentarios: "Ajuste de reglas para campos de Lucro/Prejuizo. En alineación con S3 para solventar falta de información.", pasos: "S3 definirá acciones a seguir para informar campos." },
-            { tema: "Informes Asíncronos", tarea: "S3 solicita informes", entorno: "PRD", flujo: "En curso", inv: "NTT / NFQ / VERMEG", fecha: "06/03/2026", comentarios: "NFQ compartió calendario. Testes OK (Fluxo Caixa, Títulos RF). Desarrollo en curso de Títulos RV y Extrato Simplificado.", pasos: "NFQ entregará 'Extrato Simplificado' la siguiente semana." },
-            { tema: "Generación informes", tarea: "Revisión de informes vacíos", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "29/01/2026", comentarios: "Movimentaçao Swap, Dividendos generados en blanco (Arreglados). Esperando detalles de Posiçao Swap.", pasos: "S3 validará arreglos y compartirá detalles de PS." },
-            { tema: "Nota de Liquidaçao RF", tarea: "Generación de informe", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "09/02/2026", comentarios: "S3 en análisis de cambio de plantilla. NFQ hizo ajustes por error reportado.", pasos: "S3 analizará cambio de plantilla." },
-            { tema: "Demonstrativo de Caixa", tarea: "Problema de Generación en Portal", entorno: "PRD", flujo: "Requiere atención", inv: "FINANCEIT", fecha: "10/02/2026", comentarios: "Se desplegó un informe en paralelo que ocasionó error en el portal al generar información solicitada por los clientes.", pasos: "Requiere escalado y resolución inmediata." }
-        ];
-
-        const dbInfra = [
-            { tema: "Megara", tarea: "Generación Megara", entorno: "PRD", flujo: "Crítico", inv: "NFQ / S3 / VERMEG", fecha: "05/09/2025", comentarios: "Megara no envía todos los flags (Desfase). Intervalo de entrega cambió de 6 a 10 min.", pasos: "S3 tratando incidencia con JIRA." },
-            { tema: "API Rundeck", tarea: "Llamada de MEGARA", entorno: "UAT", flujo: "En curso", inv: "S3 / VERMEG", fecha: "28/10/2025", comentarios: "Intermitencia en MEGARA con la API. S3 busca GAP en fin de semana para implantación.", pasos: "S3 notificará a NFQ fecha de implantación." },
-            { tema: "Datahub Api", tarea: "dh-motivobloqueio", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: "Ajustes realizados en API Motivo de Bloqueos.", pasos: "Pendiente validación S3. Notificará resultados." }
-        ];
-
-        const dbUAT = [
-            { tema: "Mapeo", tarea: "Validación en UAT (cli_addr_t)", entorno: "UAT", flujo: "En cola", inv: "S3", fecha: "07/07/2025", comentarios: "En espera de validación por parte de S3 para promoción a PRD.", pasos: "Agendado para validación S3" },
-            { tema: "DDBB", tarea: "CA_details_intr", entorno: "UAT", flujo: "En cola", inv: "S3", fecha: "05/09/2025", comentarios: "Ajuste de formatos de datos requeridos a largo plazo.", pasos: "Agendado para validación S3" },
-            { tema: "Creación mapeos", tarea: "Nuevos Mapeos", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3", fecha: "28/10/2025", comentarios: "En desarrollo 3 nuevos mapeos que utilizarán la extracción InvestCompanyInstitute", pasos: "Agendado para validación S3" },
-            { tema: "Ajuste InvestCompanyInstitute", tarea: "Subtabla XSD", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3 / Vermeg", fecha: "28/10/2025", comentarios: "Se incluyó nueva subtabla XSD, construida y promocionada a UAT.", pasos: "Agendado para validación S3" },
-            { tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Interfaz Equity", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: "Nuevo campo incluido, a espera de validación y promoción a PRD.", pasos: "Agendado para validación S3" },
-            { tema: "Ajuste Proceso de Carga", tarea: "Ajuste ScriptByClient", entorno: "UAT", flujo: "En cola", inv: "NFQ / S3", fecha: "28/01/2026", comentarios: "Ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT.", pasos: "Espera confirmación S3 para PRD" },
-            { tema: "Option", tarea: "Creación de Nuevo Campo", entorno: "UAT", flujo: "Planificado", inv: "NFQ / S3", fecha: "28/10/2025", comentarios: "Adición de campo Security Sector. Actividad pendiente en backlog por prioridad S3.", pasos: "S3 compartirá XSD." },
-            { tema: "Información UAT", tarea: "Monitoreo de cargas", entorno: "UAT", flujo: "Planificado", inv: "NFQ / S3", fecha: "31/10/2025", comentarios: "Se requerirá de validaciones de información por causa de los mapeos en UAT.", pasos: "S3 revisará ambiente." }
-        ];
-
-        // --- FUNCIONES AUXILIARES DE RENDERIZADO ---
-
-        function getEnvBadge(env) {
-            if (env.includes('PRD') && !env.includes('UAT')) return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-[0_0_8px_rgba(16,185,129,0.2)]">PRD</span>`;
-            if (env.includes('UAT')) return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">UAT</span>`;
-            if (env === 'NA') return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-slate-800 text-slate-400 border border-slate-600">N/A</span>`;
-            return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-slate-800 text-slate-400 border border-slate-600">${env}</span>`;
-        }
-
-        function getFlowBadge(flow) {
-            switch (flow) {
-                case 'Completado': return `<span class="flex items-center text-xs font-bold text-emerald-400 uppercase tracking-widest"><i data-lucide="check-circle-2" class="w-4 h-4 mr-1.5"></i> COMPLETADO</span>`;
-                case 'No iniciado':
-                case 'Planificado': return `<span class="flex items-center text-xs font-bold text-slate-400 uppercase tracking-widest"><i data-lucide="minus-circle" class="w-4 h-4 mr-1.5"></i> PLANIFICADO</span>`;
-                case 'En curso': return `<span class="flex items-center text-xs font-bold text-cyan-400 uppercase tracking-widest"><i data-lucide="play-circle" class="w-4 h-4 mr-1.5"></i> EN CURSO</span>`;
-                case 'Crítico': return `<span class="flex items-center text-xs font-bold text-rose-500 uppercase tracking-widest animate-pulse"><i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5"></i> CRÍTICO</span>`;
-                case 'Requiere atención': return `<span class="flex items-center text-xs font-bold text-red-500 uppercase tracking-widest animate-pulse"><i data-lucide="siren" class="w-4 h-4 mr-1.5"></i> REQUIERE ATENCIÓN</span>`;
-                case 'En cola': return `<span class="flex items-center text-xs font-bold text-indigo-400 uppercase tracking-widest"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> EN COLA</span>`;
-                default: return `<span class="text-slate-500 text-xs uppercase">${flow}</span>`;
-            }
-        }
-
-        function generateTableRows(dataArray) {
-            return dataArray.map(row => `
-                <tr class="hover:bg-cyan-900/20 transition-colors group">
-                    <td class="px-8 py-5">
-                        <div class="font-bold text-slate-200 text-base group-hover:text-cyan-300 transition-colors">${row.tema}</div>
-                        <div class="text-sm font-mono text-cyan-700 mt-1">${row.tarea}</div>
-                        <div class="flex items-center text-xs font-mono text-slate-500 mt-3">
-                            <i data-lucide="users" class="w-3.5 h-3.5 mr-1.5"></i> ${row.inv}
-                        </div>
-                    </td>
-                    <td class="px-8 py-5 space-y-3">
-                        <div>${getFlowBadge(row.flujo)}</div>
-                        <div class="mt-2">${getEnvBadge(row.entorno)}</div>
-                    </td>
-                    <td class="px-8 py-5">
-                        <p class="text-sm text-slate-300 leading-relaxed">${row.comentarios}</p>
-                        <div class="flex items-center text-xs font-mono text-cyan-600 mt-4 border-t border-cyan-900/30 pt-3 w-max">
-                            <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> Fecha de actualización: ${row.fecha}
-                        </div>
-                    </td>
-                    <td class="px-8 py-5 bg-[#080d1a]/50">
-                        <div class="flex items-start">
-                            <span class="text-cyan-500 font-bold mr-2 text-lg inline-block align-middle pb-1">•</span>
-                            <span class="text-sm font-medium text-amber-100/90 leading-relaxed">${row.pasos}</span>
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
-        }
-
-        // --- SISTEMA DE PESTAÑAS ---
-        function switchTab(tabId) {
-            // Ocultar todas
-            document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove(
-                    'bg-cyan-950/60', 'text-cyan-400', 'border-cyan-800/50',
-                    'bg-indigo-950/60', 'text-indigo-400', 'border-indigo-800/50',
-                    'bg-fuchsia-950/60', 'text-fuchsia-400', 'border-fuchsia-800/50'
-                );
-                btn.classList.add('text-slate-500', 'border-transparent');
-            });
-
-            // Activar la seleccionada
-            document.getElementById(`tab-${tabId}`).classList.add('active');
-            const activeBtn = document.getElementById(`btn-${tabId}`);
-            activeBtn.classList.remove('text-slate-500', 'border-transparent');
-
-            if (tabId === 'uat') {
-                activeBtn.classList.add('bg-indigo-950/60', 'text-indigo-400', 'border-indigo-800/50');
-            } else if (tabId === 'graficas') {
-                activeBtn.classList.add('bg-fuchsia-950/60', 'text-fuchsia-400', 'border-fuchsia-800/50');
-            } else {
-                activeBtn.classList.add('bg-cyan-950/60', 'text-cyan-400', 'border-cyan-800/50');
-            }
-        }
-
-        // --- INICIALIZACIÓN ---
-        window.onload = () => {
-            // Inyectar datos en las tablas
-            document.getElementById('tbody-megara').innerHTML = generateTableRows(dbMegara);
-            document.getElementById('tbody-reporting').innerHTML = generateTableRows(dbReporting);
-            document.getElementById('tbody-infra').innerHTML = generateTableRows(dbInfra);
-            document.getElementById('tbody-uat').innerHTML = generateTableRows(dbUAT);
-
-            // Inicializar iconos
-            lucide.createIcons();
-        };
-    </script>
 </body>
 
 </html>
