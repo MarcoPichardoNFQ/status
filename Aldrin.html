@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -87,7 +90,7 @@
                         <h1 class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
                             Misión Apollo-Aldrin
                         </h1>
-                        <p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Control de Misión • Stardate: 19.03.2026</p>
+                        <p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Control de Misión • Stardate: 16.04.2026</p>
                     </div>
                 </div>
                 
@@ -259,19 +262,19 @@
                 <!--Imagen 1 -->
                 <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px] text-slate-500">
                     <!--Reemplaza TU_ID_DE_DRIVE_AQUI_1 por el ID real de Google Drive -->
-                    <img src="https://lh3.googleusercontent.com/d/1Qs7nfzFK2WVh5zlmR-6PoLsVxEQZRnGw" alt="Gráfica de control 1 (Reemplazar URL)" class="w-full h-auto object-contain">
+                    <img src="https://lh3.googleusercontent.com/d/12Tl8bXbrLdsn31O2D_pKU4D7KPVNa84P" alt="Gráfica de control 1 (Reemplazar URL)" class="w-full h-auto object-contain">
                 </div>
                 
                 <!--Imagen 2 -->
                 <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px] text-slate-500">
                     <!--Reemplaza TU_ID_DE_DRIVE_AQUI_2 por el ID real de Google Drive -->
-                    <img src="https://lh3.googleusercontent.com/d/1EIR-U8_JevEjwdTD9Ja5deAIrwZgl5QN" alt="Gráfica de control 2 (Reemplazar URL)" class="w-full h-auto object-contain">
+                    <img src="https://lh3.googleusercontent.com/d/170hv2qq5mVguqgv2PQy6lmKUmn8jaaqJ" alt="Gráfica de control 2 (Reemplazar URL)" class="w-full h-auto object-contain">
                 </div>
                 
                 <!--Imagen 3 -->
                 <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px] text-slate-500">
                     <!--Reemplaza TU_ID_DE_DRIVE_AQUI_2 por el ID real de Google Drive -->
-                    <img src="https://lh3.googleusercontent.com/d/1jhKAotYqSpc13LUcvVvUSX4YjV9wZhtt" alt="Gráfica de control 2 (Reemplazar URL)" class="w-full h-auto object-contain">
+                    <img src="https://lh3.googleusercontent.com/d/1ufs7M4dcCkxbHIsaNliGcTwtbZPNv1EM" alt="Gráfica de control 2 (Reemplazar URL)" class="w-full h-auto object-contain">
                 </div>
                 
             </div>
@@ -284,65 +287,39 @@
         // ---BASE DE DATOS ---
         
         const dbMegara = [
-		{ tema: "Sustitución Rundeck.", tarea: "Creación de Solución", entorno: "NA", flujo: "En curso", inv: "NFQ / S3", fecha: "09/04/2026", comentarios: "Opciones de interfaces compartidas por S3: CGC Position, Valorized Position,Net Asset, Payable Receivable- NFQ en desarrrollo de POC", pasos: "- NFQ compartirá resultados de POC"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "refresh_summary_netasset_calculations", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un nuevo ajuste en la carga de las tablas Megara que alimentan el mapeo refresh_summary_netasset_calculations", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_stat_ba_script_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "07/04/2026", comentarios: "Fue realizado un ajuste de emergencia en lo mapeo de la función `function_meg_sac_stat_ba_script_t` y del procedure `cs_script_bycl_rep_transf_pc`.", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_pos_rv_t()", entorno: "UAT", flujo: "Completado", inv: "NFQ / S3", fecha: "07/04/2026", comentarios: "Fue realizado un ajuste en la función function_meg_cart_pos_rv_t debido a que el filtro de reprocesamiento requirió de cambios.", pasos: "S3 en validación para llevar a PRD"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR.", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t2", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Term Operations)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t3", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Lending / Borrowing Operations)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t4", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Tax)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t8", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Derivatives Adjustment)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t9", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Fees)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t10", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Corporate Actions)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t11", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Liabilities)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t12", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Other)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t13", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Cash Pending)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t14", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (PDD)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t15", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Market Charge)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t16", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Interest)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t17", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Paid Fees)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t18", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (ADJUSTMENT Type 2)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_cl_patr", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_PATR", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_cart_patr", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_PATRSINT", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_cpr_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_CPR (Instructions)", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_caixa_mt_t_2", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo MT_CAIXA", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_estat_rentab_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_RENTAB", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_pos_fu_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_FU_POS", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_pos_fu_t_cgc", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_FU_POS", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_pl_cl_patrfut_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_PATRFUT", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_pl_cl_patrfut_t_cgc", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_PATRFUT", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_stat_cl_mc_txadm_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "06/04/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_CL_MC_TXADM", pasos: "N/A"},
-		{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_stat_rv_cadpap_flex_t", entorno: "PRD", flujo: "En curso", inv: "NFQ / S3", fecha: "24/03/2026", comentarios: "Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_RV_CADPAP_FLEX- NFQ ha realizado ajustes en proceso de carga para ajiustes de tipos de datos.", pasos: "N/A"},
-		{ tema: "Nuevas Interfaces", tarea: "Creación de 2 nuebas interfaces (Recalculation_Request, Recalculation_Request_Reason)", entorno: "UAT", flujo: "Completado", inv: "NFQ / S3", fecha: "24/03/2026", comentarios: "Se han realizado cambios en los lookups,  la validación de XSD y XML, y se han añadido nuevas filas a las tablas maestros (UAT)", pasos: "- S3 validando para aprobar creacion en PRD"},
-		{ tema: "Nuevas Interfaces", tarea: "Creación de 1 nueba interface (OTC_SWAP)", entorno: "DEV", flujo: "En curso", inv: "NFQ / S3", fecha: "08/04/2026", comentarios: "Se han realizado cambios en los lookups,  la validación de XSD y XML, y se han añadido nuevas filas a las tablas maestros (UAT)", pasos: "- S3 validando para aprobar creacion en PRD"},	
-        
-
+{ tema: "Sustitución Rundeck.", tarea: "Creación de Solución", entorno: "NA", flujo: "En curso", inv: "NFQ / S3", fecha: "09/04/2026", comentarios: "- Opciones de interfaces compartidas por S3:\n⫸CGC Position, Valorized Position,Net Asset, Payable Receivable\n⫸- NFQ en desarrollo de POC", pasos: "- NFQ compartirá resultados de POC"},
+{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_stat_sw_cad_t", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "15/04/2026", comentarios: "- Fue ajustada funcion de mapeamento", pasos: "Esperando valiadacion de s3 para prd"},
+{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_pos_rv_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "07/04/2026", comentarios: "- Fue ajustada funcion de mapeamento", pasos: "N/A"},
+{ tema: "Nuevas Interfaces", tarea: "Creación de 2 nuebas interfaces (Recalculation_Request, \n⫸Recalculation_Request_Reason)", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "24/03/2026", comentarios: "- Desarrollo realizado en UAT.", pasos: "- S3 validando para aprobar creacion en PRD"},
+{ tema: "Nuevas Interfaces", tarea: "Creación de 2 nuevas interfaces de swap (OTC_SWAP, SWAP Prices)", entorno: "DEV", flujo: "En curso", inv: "NFQ / S3", fecha: "13/04/2026", comentarios: "- Desarrollo realizado en UAT.", pasos: "- S3 validando para aprobar creacion en PRD"}
         ];
 
         const dbReporting = [
-        { tema: "Extrato Simplificado", tarea: "Desarrollo", entorno: "PRD/UAT", flujo: "En curso", inv: "S3 / NFQ", fecha: "04/03/2026", comentarios: " S3 ha validado PDF y XLSX\n⫸Liberado en UAT, a la espera de promocion en PRD\n⫸A la espera que S3 comparta plantilla de CSV", pasos: "S3 compartirá template en csv."},
-        { tema: "Detalhado de Estoque de RF", tarea: "Ajuste", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "03/04/2026", comentarios: " Ajuste de reglas para campos de Lucro / Prejuizo\n⫸ S3 en validación de ajustes hechos por NFQ", pasos: "Aguardando validacion de S3."},
-        { tema: "Informes Asíncronos", tarea: "S3 solicita la creación de informes asíncronos", entorno: "PRD", flujo: "En curso", inv: "NTT / NFQ / VERMEG", fecha: "06/03/2026", comentarios: " NFQ ha compartido calendario de entrega para los informes solicitados.\n⫸Testes OK de (Fluxo de Caixa, Operacoes Títulos RF, Mov Ingressos e Retiradas)\n⫸Desarrollo terminado de Operações com Títulos de Renda Variáve\n⫸NFQ en desarrollo de 1 informe (Extrato Simplificado)", pasos: "Extrato Simplificado: La actividad se comenzará despues de recibir la plantilla de CSV\nOperações Titulos Renda Variavel: S3 validará informe assincrono"}
+     { tema: "Extrato Simplificado", tarea: "Desarrollo", entorno: "PRD/UAT", flujo: "En curso", inv: "S3 / NFQ", fecha: "09/04/2026", comentarios: "- S3 ha validado PDF y XLSX\n⫸- Liberado en UAT, a la espera de promocion en PRD\n⫸- A la espera que S3 comparta plantilla de CSV", pasos: "-S3 compartirá template en csv."},
+{ tema: "Detalhado de Estoque de RF", tarea: "Ajuste", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "07/04/2026", comentarios: "- Ajuste de reglas para campos de Lucro / Prejuizo\n⫸- S3 en validación de ajustes hechos por NFQ", pasos: "Aguardando validacion de S3."},
+{ tema: "Informes Asíncronos", tarea: "S3 solicita la creación de informes asíncronos", entorno: "PRD", flujo: "En curso", inv: "NTT / NFQ / VERMEG", fecha: "16/04/2026", comentarios: "- NFQ ha compartido calendario de entrega para los informes solicitados.\n⫸- Testes OK de (Fluxo de Caixa, Operacoes Títulos RF)\n⫸- Espernando repuesta de Operacoes com Titulos de Renda Variavel\n⫸- NFQ en desarrollo de 1 informe (Extrato Simplificado)", pasos: "Espernado respuesta de Operaciones de Titulos ed Renda Variavel (cliente y fecha)\n⫸S3 entregará informes de Extrato Simplifcado"}
         ];
 
         const dbInfra = [
-            { tema: "API", tarea: "Llamada de MEGARA desde Rundeck", entorno: "PRD", flujo: "En curso", inv: "S3 / VERMEG", fecha: "07/07/2025", comentarios: " NFQ ha implementado solución y se encuentra operativa en PRD", pasos: " Monitorar las cargas en Rundeck"}
+          { tema: "Archivos Carga", tarea: "Alerta de archivos demasiado grandes", entorno: "PRD", flujo: "En curso", inv: "S3 / VERMEG", fecha: "03/04/2026", comentarios: "- Esperando vobo de S3 de implantación", pasos: "- S3 dará VoBo a la activación de alerta."},
+{ tema: "API", tarea: "Reintentos llamada API", entorno: "PRD", flujo: "En curso", inv: "S3 / VERMEG", fecha: "06/03/2026", comentarios: "- S3 solicita 30 reintentos cada 5 min en caso de error.\n⫸- BAU notificará a S3 después de 30 intentos fallidos", pasos: "En monitoreamento"},
+{ tema: "API", tarea: "Llamada de MEGARA desde Rundeck", entorno: "PRD", flujo: "En curso", inv: "S3 / VERMEG", fecha: "14/04/2026", comentarios: "- NFQ ha implementado solución y se encuentra operativa en PRD\n⫸- Fallas ocasionaes de lado de Megara", pasos: "- Monitorar las cargas en Rundeck"}
         ];
 
         const dbUAT = [
-            { tema: "Mapeo", tarea: "Validación ajuste en UAT function_meg_sac_stat_cli_addr_t", entorno: "UAT", flujo: "Requiere atención", inv: "S3", fecha: "05/09/2025", comentarios: " En espera de validación por parte de S3 para promoción a PRD.", pasos: "Validación de lado S3"},
-            { tema: "DDBB", tarea: "CA_details_intr", entorno: "UAT", flujo: "Requiere atención", inv: "S3", fecha: "28/10/2025", comentarios: " Ajuste de formatos de datos", pasos: "Validación de lado S3"},
-            { tema: "Creación mapeos", tarea: "Nuevos Mapeos", entorno: "UAT", flujo: "Requiere atención", inv: "NFQ / S3", fecha: "28/10/2025", comentarios: "Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute", pasos: "Validación de lado S3"},
-            { tema: "Ajuste InvestCompanyInstitute", tarea: "Subtabla", entorno: "UAT", flujo: "Requiere atención", inv: "NFQ / S3 / Vermeg / NTT", fecha: "31/10/2025", comentarios: "Se incluyó una nueva subtabla dentro del XSD, se construyó y promocionó a UAT, a espera de validación de S3", pasos: "Validación de lado S3"},
-            { tema: "Mapeo", tarea: "Errores ejecución de Mapeo", entorno: "PRD", flujo: "Requiere atención", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: " mt_caixa_tipos (longitud de campo)\n⫸value too long for type character varying(50)\n⫸ Ajuste en UAT conforme acordado, en espera de confirmación por parte de S3 para promoción a producción.", pasos: "Validación de lado S3"},
-            { tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Interfaz Equity", entorno: "UAT", flujo: "Requiere atención", inv: "NFQ / S3", fecha: "28/01/2026", comentarios: " Fue incluido un nuevo campo, a espera de validación y promoción a PRD", pasos: "Validación de lado S3"},
-             { tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Carga ScriptByClient", entorno: "UAT", flujo: "Requiere atención", inv: "NFQ / S3", fecha: "31/10/2025", comentarios: " Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT", pasos: "Validación de lado S3"},
-             { tema: "Información UAT", tarea: "Monitoreamento de cargas", entorno: "UAT", flujo: "Requiere atención", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: " Se requerirá de validaciones de información por causa de los mapeos en UAT", pasos: " S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de proyecto"},
-             { tema: "Datahub Api", tarea: "dhmotivobloqueio", entorno: "UAT", flujo: "Requiere atención", inv: "NFQ / S3", fecha: "46043", comentarios: " Api Motivo de Bloqueos han sido realizados los ajustes y está pendiente validación por parte de S3", pasos: " S3 notificará resultados de validaciones"},
-             { tema: "Generacion informes", tarea: "Revisión de informes vacos", entorno: "PRD", flujo: "Requiere atención", inv: "S3 / NFQ", fecha: "29/01/2026", comentarios: " Movimentaçao Swap, Dividendos juros apropiados,Posiçao Swap.siendo generados en blanco.\n⫸ Primeros dos arreglados, esperando detalles del tercero.", pasos: " S3 validará arreglos en los informes.\n⫸ S3 compartirá detalles de PS para poder dar soporte."},
-             { tema: "Nota de Liquidaçao de Renda Fixa", tarea: "Generación de informe", entorno: "PRD", flujo: "Requiere atención", inv: "S3 / NFQ", fecha: "09/02/2026", comentarios: " S3 en análisis de cambio de plantilla para casos sin información.\n⫸ S3 reporta error en generación de informe.\n⫸ NFQ hizo ajustes.", pasos: " S3 analizará cambio de plantilla"}        ];
+      { tema: "Mapeo", tarea: "Validación ajuste en UAT function_meg_sac_stat_cli_addr_t", entorno: "UAT", flujo: "En curso", inv: "S3", fecha: "07/07/2025", comentarios: "- En espera de validación por parte de S3 para promoción a PRD.", pasos: "Validación de lado S3"},
+{ tema: "DDBB", tarea: "CA_details_intr", entorno: "UAT", flujo: "En curso", inv: "S3", fecha: "05/09/2025", comentarios: "- Ajuste de formatos de datos", pasos: "Validación de lado S3"},
+{ tema: "Creación mapeos", tarea: "Nuevos Mapeos", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "28/10/2025", comentarios: "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute", pasos: "Validación de lado S3"},
+{ tema: "Ajuste InvestCompanyInstitute", tarea: "Subtabla", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3 / Vermeg / NTT", fecha: "28/10/2025", comentarios: "-Se incluyó una nueva subtabla dentro del XSD, se construyó y promocionó a UAT, a espera de validación de S3", pasos: "Validación de lado S3"},
+{ tema: "Mapeo", tarea: "Errores ejecución de Mapeo", entorno: "PRD", flujo: "En curso", inv: "NFQ / S3", fecha: "31/10/2025", comentarios: "- mt_caixa_tipos (longitud de campo)\n⫸value too long for type character varying(50)\n⫸\n⫸- Ajuste en UAT conforme acordado, en espera de confirmación por parte de S3 para promoción a producción.", pasos: "Validación de lado S3"},
+{ tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Interfaz Equity", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD", pasos: "Validación de lado S3"},
+{ tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Carga ScriptByClient", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "28/01/2026", comentarios: "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT", pasos: "Validación de lado S3"},
+{ tema: "Información UAT", tarea: "Monitoreamento de cargas", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "30/10/2025", comentarios: "- Se requerirá de validaciones de información por causa de los mapeos en UAT", pasos: "- S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de proyecto"},
+{ tema: "Datahub Api", tarea: "dh-motivobloqueio", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: "- Api Motivo de Bloqueos han sido realizados los ajustes y está pendiente validación por parte de S3", pasos: "- S3 notificará resultados de validaciones"},
+{ tema: "Generacion informes", tarea: "Revisión de informes vacos", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "29/01/2026", comentarios: "- Movimentaçao Swap, Dividendos juros apropiados,Posiçao Swap.siendo generados en blanco.\n⫸- Primeros dos arreglados, esperando detalles del tercero.\n⫸", pasos: "- S3 validará arreglos en los informes.\n⫸- S3 compartirá detalles de PS para poder dar soporte."},
+{ tema: "Nota de Liquidaçao de Renda Fixa", tarea: "Generación de informe", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "09/02/2026", comentarios: "- S3 en análisis de cambio de plantilla para casos sin información.\n⫸- S3 reporta error en generación de informe.\n⫸- NFQ hizo ajustes.", pasos: "- S3 analizará cambio de plantilla"}
 
+    ];
         // ---FUNCIONES AUXILIARES DE RENDERIZADO ---
 
         function getEnvBadge(env) {
