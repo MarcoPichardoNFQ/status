@@ -104,14 +104,14 @@
   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   // Inicializar Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const tasksCollection = collection(db, "tasks");
-
-  let tasks = [];
-  const modal = document.getElementById('taskModal');
-  const form = document.getElementById('taskForm');
-
+  const firebaseConfig = {
+  apiKey: "AIzaSyDJR-Z-ChLxBqq0FIYQQaLg1igswTr03fM",
+  authDomain: "aldrinbrkanbandevteam-be0aa.firebaseapp.com",
+  projectId: "aldrinbrkanbandevteam-be0aa",
+  storageBucket: "aldrinbrkanbandevteam-be0aa.firebasestorage.app",
+  messagingSenderId: "452946196342",
+  appId: "1:452946196342:web:888d4a2691ca6fb44bec57"
+};
   // ESCUCHAR CAMBIOS EN TIEMPO REAL (La magia ocurre aquí)
   onSnapshot(tasksCollection, (snapshot) => {
     tasks = [];
