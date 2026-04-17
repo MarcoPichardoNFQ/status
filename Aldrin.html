@@ -51,9 +51,9 @@
   .priority-Alta { background: #ff5630; } .priority-Media { background: #ffab00; } .priority-Baja { background: #36b37e; }
   
   /* ESTILO COMPACTO TERMINADO */
-  #done .task { padding: 8px; opacity: 0.7; box-shadow: none; border-left: 4px solid #ccc; background: white !important;}
-  #done .task-title { font-weight: normal; font-size: 0.85em; margin-bottom: 4px; text-decoration: line-through;}
-  #done .priority, #done .pts-badge-task { display: none; }
+  #done .task {  font-size: 0.9em;padding: 8px; opacity: 0.7; box-shadow: none; }
+  
+  #done .priority, #done .pts-badge-task { display: none }
   #done .assignee { font-size: 0.9em; background: transparent; border: none; padding: 0;}
 
   /* UI Base */
@@ -81,7 +81,7 @@
   <h2>Aldrin Dev Team</h2>
   <!-- <div class="filters">
     <button class="filter-btn active" id="btn-filter-all" onclick="setFilter('all')">Todas</button>
-    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Marco)</button>
+    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Líder)</button>
     <button class="filter-btn" id="btn-filter-high" onclick="setFilter('high')">🔥 Alta Prioridad</button>
   </div> -->
 </div>
@@ -127,7 +127,7 @@
         <label>Responsable:</label>
         <select id="taskAssignee">
           <option value="Sin asignar">-- Sin asignar --</option>
-          <option value="Marco">Marco</option>
+          <option value="Líder">Marco</option>
           <option value="Henrique">Henrique</option>
           <option value="Samuel">Samuel</option>
           <option value="Ambos (Pair)">Ambos (Pair)</option>
@@ -148,15 +148,47 @@
 
     <div class="form-group">
       <label>Prioridad:</label>
+	  
       <select id="taskPriority"><option value="Alta">Alta</option><option value="Media" selected>Media</option><option value="Baja">Baja</option></select>
     </div>
+	
     <div class="form-group"><label>Descripción:</label><textarea id="taskDesc"></textarea></div>
+	<!-- añadir todo el historico de cambios se haria de la siguiente manera:
+	 deberia haber un array de objetos dentro de cada tarea llamado "history" y cada vez que se haga un cambio importante (cambio de estado, cambio de responsable, cambio de prioridad) se añade un nuevo objeto a ese array con la siguiente estructura:
+	 El codigo para el contenido del objeto dinamico sería algo así:
+const changeRecord = {
+  timestamp: getNow(),
+  type: 'status-change', // o 'assignee-change', 'priority-change'
+  oldValue: task.column, // o task.assignee, task.priority según el tipo de cambio
+  newValue: newColumnId // o newAssignee, newPriority según el tipo decambio
+};
+Luego, para mostrar ese historial en el modal, se podría añadir una nueva sección debajo de los timestamps con un botón "Ver Historial" que al hacer clic despliegue una lista con todos los cambios registrados en el array "history", mostrando la fecha, el tipo de cambio y los valores antiguos y nuevos, de la siguiente manera:
+<div class="history-box" id="historyBox" style="display:none; margin-top:15px; background:#f4f5f7; padding:10px; border-radius:5px;">
+  <h4>Historial de Cambios</h4>
+  <ul id="historyList" style="list-style:none; padding-left:0;"></ul>
+</div>
+todo esto se añade en la linea numero 150, justo debajo del div de timestamps, y el código para rellenar ese historial al abrir el modal de edición sería algo así:
+
+	 -->
+	
+	
+	
+	
 
     <div class="timestamps-box" id="timestampsBox">
       <p><b>Creada:</b> <span id="tsCreated">-</span></p>
       <p><b>Asignada:</b> <span id="tsAssigned">-</span></p>
       <p><b>Iniciada:</b> <span id="tsStarted">-</span></p>
       <p><b>Terminada:</b> <span id="tsFinished">-</span></p>
+    </div>
+
+    <div style="margin-top:10px;">
+      <button type="button" class="btn" id="toggleHistoryBtn" onclick="toggleHistory()">Ver Historial</button>
+    </div>
+
+    <div class="history-box" id="historyBox" style="display:none; margin-top:15px; background:#f4f5f7; padding:10px; border-radius:5px;">
+      <h4>Historial de Cambios</h4>
+      <ul id="historyList" style="list-style:none; padding-left:0; margin:0;"></ul>
     </div>
 
     <div style="display:flex; justify-content:space-between; margin-top: 20px;">
@@ -198,8 +230,9 @@ const firebaseConfig = {
   const modal = document.getElementById('taskModal');
   const form = document.getElementById('taskForm');
 
-  const colorMap = { "Sin asignar": "#ffffff", "Marco": "#e6efff", "Henrique": "#e6ffe6", "Samuel": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
-  const WIP_LIMIT = 2; // Límite de tareas en progreso del equipo
+  const colorMap = { "Sin asignar": "#ffffff", "Líder": "#e6efff", "Henrique": "#e6ffe6", "Samuel": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
+  const WIP_LIMIT = 3; // Límite de tareas en progreso del equipo
+  //el limite deberia ser por persona y se ajusta el codigo de la linea 
 
   // Filtros
   window.setFilter = (filter) => {
@@ -221,7 +254,7 @@ const firebaseConfig = {
 
     // Aplicar Filtro
     let filteredTasks = tasks.filter(t => {
-      if (currentFilter === 'mine') return t.assignee === 'Marco' || t.assignee === 'Ambos (Pair)';
+      if (currentFilter === 'mine') return t.assignee === 'Líder' || t.assignee === 'Ambos (Pair)';
       if (currentFilter === 'high') return t.priority === 'Alta';
       return true; // 'all'
     });
@@ -308,9 +341,33 @@ const firebaseConfig = {
     document.getElementById('tsAssigned').innerText = ts.assigned || '-';
     document.getElementById('tsStarted').innerText = ts.started || '-';
     document.getElementById('tsFinished').innerText = ts.finished || '-';
+    // Populate history list
+    const historyList = document.getElementById('historyList');
+    historyList.innerHTML = '';
+    const history = task.history || [];
+    if (history.length === 0) {
+      const li = document.createElement('li');
+      li.innerText = 'Sin cambios registrados.';
+      historyList.appendChild(li);
+    } else {
+      history.slice().reverse().forEach(h => {
+        const li = document.createElement('li');
+        li.style.padding = '6px 0';
+        li.style.borderBottom = '1px solid #e0e0e0';
+        li.innerHTML = `<b>${h.timestamp}</b> — <i>${h.type}</i>: ${h.oldValue || ''} → ${h.newValue || ''}`;
+        historyList.appendChild(li);
+      });
+    }
+    document.getElementById('historyBox').style.display = 'none';
+    document.getElementById('toggleHistoryBtn').style.display = 'inline-block';
 
     document.getElementById('deleteBtn').style.display = 'block';
     modal.showModal();
+  };
+
+  window.toggleHistory = () => {
+    const box = document.getElementById('historyBox');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
   };
 
   window.closeModal = () => modal.close();
@@ -333,18 +390,63 @@ const firebaseConfig = {
         return;
       }
     }
+	//regla:: bloquear si hay altas sin asignar, pero solo para el lider, los devs pueden asignarse aunque haya altas sin asignar
+	if (isSelfAssigning && newPriority !== "Alta" && newAssignee === "Líder") {
+	  const unassignedHigh = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Alta" && t.column === "todo" && t.id !== id);
+	  if (unassignedHigh) {
+		alert("⚠️ Hay tareas ALTA sin asignar. Toma esas primero.");
+		return;
+	  }
+	}
+	//regla: bloquear bajas sin asignar si hay medias sin asignar o altas sin asignar
+	if (isSelfAssigning && newPriority === "Baja" && newAssignee !== "Sin asignar") {
+	  const unassignedMedium = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Media" && t.column === "todo" && t.id !== id);
+	  const unassignedHigh = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Alta" && t.column === "todo" && t.id !== id);
+	  if (unassignedMedium || unassignedHigh) {
+		alert("⚠️ Hay tareas MEDIA o ALTA sin asignar. Toma esas primero.");
+		return;
+	  }
+	}
+	//regla: una vez asignada una tarea, no se puede cambiar a sin asignar, para evitar que se queden tareas sin responsable
+	if (!isSelfAssigning && oldAssignee !== "Sin asignar" && newAssignee === "Sin asignar") {
+	  alert("⚠️ No puedes desasignar una tarea ya asignada. Si quieres cambiar el responsable, asigna a otra persona.");
+	  return;
+	}
 
     let ts = existingTask ? existingTask.timestamps || {} : { created: getNow(), createdMs: Date.now() };
     if (isSelfAssigning && !ts.assigned) ts.assigned = getNow();
+    // Build change records for history
+    const changeRecords = [];
+    const newColumn = document.getElementById('columnId').value;
+    if (existingTask) {
+      if (existingTask.assignee !== newAssignee) changeRecords.push({ timestamp: getNow(), type: 'assignee-change', oldValue: existingTask.assignee, newValue: newAssignee });
+      if (existingTask.priority !== newPriority) changeRecords.push({ timestamp: getNow(), type: 'priority-change', oldValue: existingTask.priority, newValue: newPriority });
+      if (existingTask.column !== newColumn) changeRecords.push({ timestamp: getNow(), type: 'status-change', oldValue: existingTask.column, newValue: newColumn });
+    } else {
+      // New task created
+      changeRecords.push({ timestamp: getNow(), type: 'created', oldValue: '', newValue: newColumn });
+      if (newAssignee && newAssignee !== 'Sin asignar') changeRecords.push({ timestamp: getNow(), type: 'assignee-change', oldValue: 'Sin asignar', newValue: newAssignee });
+    }
 
+    const newHistory = (existingTask && Array.isArray(existingTask.history)) ? [...existingTask.history, ...changeRecords] : changeRecords;
+// BLINDAJE DE WIP AL EDITAR DESDE EL MODAL
+    if (document.getElementById('columnId').value === 'in-progress' && newAssignee !== oldAssignee) {
+      const samuelWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Samuel' || t.assignee === 'Ambos (Pair)')).length;
+      const henriqueWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Henrique' || t.assignee === 'Ambos (Pair)')).length;
+      
+      if (newAssignee === 'Samuel' && samuelWIP >= 3) { alert("🚨 Samuel ya tiene 3 tareas en progreso."); return; }
+      if (newAssignee === 'Henrique' && henriqueWIP >= 3) { alert("🚨 Henrique ya tiene 3 tareas en progreso."); return; }
+      if (newAssignee === 'Ambos (Pair)' && (samuelWIP >= 3 || henriqueWIP >= 3)) { alert("🚨 Samuel o Henrique ya están al tope (3)."); return; }
+    }
     const taskData = {
-      column: document.getElementById('columnId').value,
+      column: newColumn,
       title: document.getElementById('taskTitle').value,
       assignee: newAssignee,
       points: document.getElementById('taskPoints').value,
       priority: newPriority,
       desc: document.getElementById('taskDesc').value,
-      timestamps: ts
+      timestamps: ts,
+      history: newHistory
     };
 
     try {
@@ -375,14 +477,26 @@ const firebaseConfig = {
     if (!task || task.column === newColumnId) return;
 
     // VALIDAR LÍMITE WIP
+// VALIDAR LÍMITE WIP INDIVIDUAL Y PAIR
     if (newColumnId === 'in-progress') {
-      const inProgCount = tasks.filter(t => t.column === 'in-progress').length;
-      if (inProgCount >= WIP_LIMIT) {
-        alert(`🚨 ¡Límite de WIP superado! El equipo no puede tener más de ${WIP_LIMIT} tareas en progreso a la vez. Terminen algo primero.`);
-        return; // Cancela el movimiento
+      // Contar cuántas tareas tienen actualmente en progreso (incluyendo las compartidas)
+      const samuelWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Samuel' || t.assignee === 'Ambos (Pair)')).length;
+      const henriqueWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Henrique' || t.assignee === 'Ambos (Pair)')).length;
+
+      if (task.assignee === 'Samuel' && samuelWIP >= 3) {
+        alert("🚨 ¡Límite superado! Samuel ya tiene 3 tareas en progreso.");
+        return;
       }
+      if (task.assignee === 'Henrique' && henriqueWIP >= 3) {
+        alert("🚨 ¡Límite superado! Henrique ya tiene 3 tareas en progreso.");
+        return;
+      }
+      if (task.assignee === 'Ambos (Pair)' && (samuelWIP >= 3 || henriqueWIP >= 3)) {
+        alert("🚨 ¡Límite superado! No pueden tomar una tarea en Pair porque Samuel o Henrique ya están al tope de su capacidad (3).");
+        return;
+      }
+      // Si el assignee es 'Líder' o 'Sin asignar', pasará directo sin restricciones
     }
-    
     let ts = task.timestamps || {};
     if (newColumnId === 'in-progress' && task.column === 'todo') {
       ts.started = getNow();
@@ -390,10 +504,15 @@ const firebaseConfig = {
     }
     if (newColumnId === 'done') ts.finished = getNow();
 
+    // Append history record for status change
+    const changeRecord = { timestamp: getNow(), type: 'status-change', oldValue: task.column, newValue: newColumnId };
+    const newHistory = Array.isArray(task.history) ? [...task.history, changeRecord] : [changeRecord];
+
     try {
-      await updateDoc(doc(db, "tasks", id), { column: newColumnId, timestamps: ts });
+      await updateDoc(doc(db, "tasks", id), { column: newColumnId, timestamps: ts, history: newHistory });
     } catch (e) { console.error(e); }
   };
+  
 
   // --- FUNCIÓN RETROSPECTIVA ---
   window.exportAndClearRetro = async () => {
@@ -413,6 +532,7 @@ const firebaseConfig = {
     });
 
     // Descargar
+	
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
