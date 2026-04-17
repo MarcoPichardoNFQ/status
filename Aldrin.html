@@ -1,457 +1,263 @@
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misión Apollo-Aldrin | Telemetría Detallada</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #040814;
-            color: #cbd5e1;
-        }
-        
-        h1, h2, h3, .font-space {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanban Dev Team V3 - Persistente</title>
+<style>
+  :root {
+    --bg-color: #f4f5f7;
+    --col-bg: #ebecf0;
+    --text-main: #172b4d;
+    --btn-primary: #0052cc;
+    --btn-hover: #0047b3;
+    --danger: #de350b;
+  }
+  
+  body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: var(--bg-color); 
+    padding: 30px; 
+    color: var(--text-main);
+  }
+  
+  .board { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
+  
+  .column { 
+    background: var(--col-bg); 
+    border-radius: 8px; 
+    width: 320px; 
+    min-width: 320px;
+    padding: 15px; 
+    min-height: 600px;
+  }
+  
+  /* Tarjetas */
+  .task { 
+    background: white; 
+    padding: 12px; 
+    border-radius: 6px; 
+    margin-bottom: 12px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
+    cursor: pointer; 
+    border-left: 6px solid #ccc;
+    transition: transform 0.1s;
+  }
+  .task:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+  
+  .task-title { font-weight: 600; margin-bottom: 8px; }
+  
+  .task-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.8em; }
+  
+  .assignee { background: #dfe1e6; padding: 2px 8px; border-radius: 10px; font-weight: bold; }
 
-        @keyframes zoomInFade {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .tab-pane { display: none; }
-        .tab-pane.active {
-            display: block;
-            animation: zoomInFade 0.4s ease-out forwards;
-        }
+  .priority { padding: 2px 8px; border-radius: 4px; color: white; font-weight: bold; }
+  .priority-Alta { background: #ff5630; }
+  .priority-Media { background: #ffab00; }
+  .priority-Baja { background: #36b37e; }
 
-        /* Custom Scrollbar for tables */
-        ::-webkit-scrollbar { height: 8px; width: 8px; }
-        ::-webkit-scrollbar-track { background: #0b1221; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
-
-        .glass-panel {
-            background: rgba(11, 18, 33, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(8, 145, 178, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-    </style>
+  /* Formulario y UI */
+  .btn { padding: 10px 15px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
+  .btn-primary { background: var(--btn-primary); color: white; }
+  .btn-danger { background: var(--danger); color: white; }
+  
+  dialog { border: none; border-radius: 8px; width: 400px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+  dialog::backdrop { background: rgba(0,0,0,0.6); }
+  
+  .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
+  .form-group label { margin-bottom: 5px; font-weight: bold; font-size: 0.85em; }
+  .form-group input, .form-group select, .form-group textarea { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+  textarea { resize: vertical; min-height: 80px; }
+  
+  .modal-actions { display: flex; justify-content: space-between; margin-top: 20px; }
+</style>
 </head>
-<body class="min-h-screen selection:bg-cyan-500/30 relative pb-12">
+<body>
 
-    <!--FONDOS ESPACIALES (Apollo Theme) -->
-    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden fixed">
-        <div class="absolute inset-0 opacity-40" 
-             style="background-image: radial-gradient(circle at 50% 0%, #0c1838 0%, transparent 50%), radial-gradient(circle at 80% 80%, #1e102a 0%, transparent 40%)">
-        </div>
-        
-        <div class="absolute bottom-0 left-0 w-full h-64 opacity-10">
-            <svg viewBox="0 0 1440 320" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full text-cyan-900">
-                <path fill="currentColor" d="M0,256L48,245.3C96,235,192,213,288,218.7C384,224,480,256,576,256C672,256,768,224,864,213.3C960,203,1056,213,1152,229.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-        </div>
+<h2>Kanban Board - Equipo de Desarrollo</h2>
 
-        <svg class="absolute bottom-16 right-32 w-64 h-64 opacity-[0.05] drop-shadow-[0_0_15px_rgba(56,189,248,0.2)]" viewBox="0 0 200 200" fill="none">
-            <path d="M100 120 L50 180 M100 120 L150 180 M100 120 L75 170 M100 120 L125 170" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" />
-            <polygon points="60,120 140,120 120,90 80,90" fill="#94a3b8" />
-            <polygon points="70,90 130,90 110,40 90,40" fill="#cbd5e1" />
-            <line x1="100" y1="40" x2="100" y2="10" stroke="#cbd5e1" stroke-width="2" />
-            <circle cx="100" cy="10" r="4" fill="#cbd5e1" />
-        </svg>
+<div class="board">
+  <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Por Hacer</h3>
+    <button class="btn btn-primary" style="width:100%" onclick="openModalForCreate('todo')">+ Nueva Tarea</button>
+    <div class="task-container"></div>
+  </div>
+  
+  <div class="column" id="in-progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>En Progreso</h3>
+    <div class="task-container"></div>
+  </div>
+  
+  <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Terminado</h3>
+    <div class="task-container"></div>
+  </div>
+</div>
+
+<dialog id="taskModal">
+  <h3 id="modalTitle">Nueva Tarea</h3>
+  <form id="taskForm">
+    <input type="hidden" id="taskId">
+    <input type="hidden" id="columnId">
+    
+    <div class="form-group">
+      <label>Título:</label>
+      <input type="text" id="taskTitle" required>
     </div>
 
-    <!--HEADER COORPORATIVO -->
-    <header class="relative z-50 bg-[#04060a]/90 backdrop-blur-md border-b border-cyan-900/50 shadow-lg sticky top-0">
-        <div class="w-11/12 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
-                
-                <!--Izquierda: Título y Misión -->
-                <div class="flex items-center space-x-6">
-                    <svg width="48" height="48" viewBox="0 0 100 100" fill="none" class="drop-shadow-[0_0_10px_rgba(250,204,21,0.6)]">
-                        <circle cx="50" cy="50" r="46" fill="#040814" stroke="#facc15" stroke-width="2" stroke-dasharray="4 2" class="animate-[spin_20s_linear_infinite]" />
-                        <circle cx="50" cy="50" r="38" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
-                        <path d="M30 65 C 20 40, 40 20, 70 30" stroke="#facc15" stroke-width="1.5" stroke-dasharray="3 3" fill="none" />
-                        <path d="M55 25 L 65 15 L 75 25 L 70 55 L 60 55 Z" fill="#e2e8f0" stroke="#ffffff" stroke-width="1"/>
-                        <circle cx="35" cy="65" r="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-                        <circle cx="33" cy="63" r="2" fill="#334155" />
-                    </svg>
-                    <div>
-                        <h1 class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
-                            Misión Apollo-Aldrin
-                        </h1>
-                        <p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Control de Misión • Stardate: 16.04.2026</p>
-                    </div>
-                </div>
-                
-                <!--Derecha: Navegación y Logos Partners -->
-                <div class="flex items-center space-x-8 overflow-x-auto pb-2 xl:pb-0">
-                    
-                    <!--NAVEGACIÓN -->
-                    <nav class="flex space-x-3 bg-[#0b1221] p-2 rounded-xl border border-cyan-900/30 shadow-inner whitespace-nowrap">
-                        <button onclick="switchTab('megara')" id="btn-megara" class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 bg-cyan-950/60 text-cyan-400 border border-cyan-800/50">
-                            <i data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces
-                        </button>
-                        <button onclick="switchTab('reporting')" id="btn-reporting" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
-                            <i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 2. Reporting
-                        </button>
-                        <button onclick="switchTab('infra')" id="btn-infra" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
-                            <i data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infra & API
-                        </button>
-                        <button onclick="switchTab('uat')" id="btn-uat" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent relative overflow-hidden">
-                            <i data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT
-                            <span class="ml-2 bg-indigo-500/20 text-indigo-400 py-0.5 px-2.5 rounded font-mono text-xs border border-indigo-500/30">12</span>
-                        </button>
-                        <button onclick="switchTab('graficas')" id="btn-graficas" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-fuchsia-200 hover:bg-slate-800/50 border border-transparent relative overflow-hidden">
-                            <i data-lucide="pie-chart" class="w-5 h-5 mr-2"></i> 5. Gráficas
-                        </button>
-                    </nav>
+    <div class="form-group">
+      <label>Responsable:</label>
+      <select id="taskAssignee">
+        <option value="Líder">Tú (Líder)</option>
+        <option value="Dev A">Desarrollador A</option>
+        <option value="Dev B">Desarrollador B</option>
+      </select>
+    </div>
 
-                    <!--LOGOS CLIENTE / PARTNER -->
-                    <div class="hidden lg:flex items-center space-x-6 border-l border-cyan-900/50 pl-8 h-12">
-                        <!--Logo Cliente -->
-                        <img src="https://lh3.googleusercontent.com/d/13_MI7hp3FM5zOgxBYPU-2pq-kRuICS6_" 
-                             alt="Logo Cliente" 
-                             class="h-10 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
-                        <!--Logo Partner -->
-                        <img src="https://lh3.googleusercontent.com/d/1ZWZ7TzS5FsxCjvfCOtSfymWEnk7Cwb09" 
-                             alt="Logo Partner" 
-                             class="h-9 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
-                    </div>
+    <div class="form-group">
+      <label>Prioridad:</label>
+      <select id="taskPriority">
+        <option value="Alta">Alta</option>
+        <option value="Media" selected>Media</option>
+        <option value="Baja">Baja</option>
+      </select>
+    </div>
 
-                </div>
-            </div>
+    <div class="form-group">
+      <label>Color de Etiqueta:</label>
+      <input type="color" id="taskColor" value="#0052cc">
+    </div>
+
+    <div class="form-group">
+      <label>Descripción / Notas Detalladas:</label>
+      <textarea id="taskDesc" placeholder="Escribe aquí los detalles técnicos..."></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <div>
+        <button type="button" class="btn btn-danger" id="deleteBtn" onclick="deleteCurrentTask()">Eliminar</button>
+      </div>
+      <div>
+        <button type="button" class="btn" onclick="closeModal()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<script>
+  // --- ESTADO DE LA APP ---
+  let tasks = JSON.parse(localStorage.getItem('kanban-tasks')) || [];
+  const modal = document.getElementById('taskModal');
+  const form = document.getElementById('taskForm');
+
+  // --- RENDERIZADO ---
+  function renderBoard() {
+    // Limpiar contenedores
+    document.querySelectorAll('.task-container').forEach(c => c.innerHTML = '');
+
+    tasks.forEach(task => {
+      const taskEl = document.createElement('div');
+      taskEl.className = 'task';
+      taskEl.draggable = true;
+      taskEl.id = task.id;
+      taskEl.style.borderLeftColor = task.color;
+      taskEl.onclick = () => openModalForEdit(task.id);
+      taskEl.ondragstart = drag;
+
+      taskEl.innerHTML = `
+        <div class="task-title">${task.title}</div>
+        <div class="task-footer">
+          <span class="assignee">${task.assignee}</span>
+          <span class="priority priority-${task.priority}">${task.priority}</span>
         </div>
-    </header>
+      `;
 
-    <!--CONTENIDO PRINCIPAL -->
-    <main class="relative z-10 w-11/12 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      document.querySelector(`#${task.column} .task-container`).appendChild(taskEl);
+    });
+    
+    localStorage.setItem('kanban-tasks', JSON.stringify(tasks));
+  }
 
-        <!--PESTAÑA 1: MEGARAS -->
-        <div id="tab-megara" class="tab-pane active space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-cyan-500 pl-5">
-                <div>
-                  <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">1. Interfaces Megara</h2>
-                  <p class="text-cyan-600 font-mono text-sm uppercase tracking-widest">Estado de integración de extracción y mapeos SAC</p>
-                </div>
-            </div>
-            
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">Tema / Tarea</th>
-                                <th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">Entorno / Flujo</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">Comentarios de Telemetría</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-megara" class="divide-y divide-cyan-900/20">
-                            <!--Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  // --- LÓGICA DE MODAL ---
+  function openModalForCreate(colId) {
+    form.reset();
+    document.getElementById('modalTitle').innerText = "Nueva Tarea";
+    document.getElementById('taskId').value = '';
+    document.getElementById('columnId').value = colId;
+    document.getElementById('deleteBtn').style.display = 'none';
+    modal.showModal();
+  }
 
-        <!--PESTAÑA 2: REPORTING -->
-        <div id="tab-reporting" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-indigo-500 pl-5">
-                <div>
-                  <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">2. Módulo de Reporting</h2>
-                  <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Desarrollo de Informes y Qlik</p>
-                </div>
-            </div>
+  function openModalForEdit(id) {
+    const task = tasks.find(t => t.id == id);
+    if(!task) return;
 
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">Tema / Tarea</th>
-                                <th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">Entorno / Flujo</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">Comentarios de Telemetría</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-reporting" class="divide-y divide-cyan-900/20">
-                            <!--Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    document.getElementById('modalTitle').innerText = "Detalles de Tarea";
+    document.getElementById('taskId').value = task.id;
+    document.getElementById('columnId').value = task.column;
+    document.getElementById('taskTitle').value = task.title;
+    document.getElementById('taskAssignee').value = task.assignee;
+    document.getElementById('taskPriority').value = task.priority;
+    document.getElementById('taskColor').value = task.color;
+    document.getElementById('taskDesc').value = task.desc || '';
+    
+    document.getElementById('deleteBtn').style.display = 'block';
+    modal.showModal();
+  }
 
-        <!--PESTAÑA 3: INFRAESTRUCTURA & API -->
-        <div id="tab-infra" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-emerald-500 pl-5">
-                <div>
-                  <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">3. Infraestructura & API</h2>
-                  <p class="text-emerald-400 font-mono text-sm uppercase tracking-widest">Tiempos de carga, Datahub y llamadas Rundeck</p>
-                </div>
-            </div>
+  function closeModal() { modal.close(); }
 
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">Tema / Tarea</th>
-                                <th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">Entorno / Flujo</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">Comentarios de Telemetría</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-infra" class="divide-y divide-cyan-900/20">
-                            <!--Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    const id = document.getElementById('taskId').value;
+    const taskData = {
+      id: id || Date.now().toString(),
+      column: document.getElementById('columnId').value,
+      title: document.getElementById('taskTitle').value,
+      assignee: document.getElementById('taskAssignee').value,
+      priority: document.getElementById('taskPriority').value,
+      color: document.getElementById('taskColor').value,
+      desc: document.getElementById('taskDesc').value
+    };
 
-        <!--PESTAÑA 4: ANOMALÍAS UAT (ESTANDARIZADA) -->
-        <div id="tab-uat" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-indigo-400 pl-5">
-                <div>
-                  <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">4. Backlog de Actividades (UAT)</h2>
-                  <p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Actividades planificadas en cola de validación a largo plazo</p>
-                </div>
-            </div>
+    if (id) {
+      // Editar
+      const index = tasks.findIndex(t => t.id == id);
+      tasks[index] = taskData;
+    } else {
+      // Crear
+      tasks.push(taskData);
+    }
 
-            <div class="glass-panel rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-cyan-900/30">
-                        <thead class="bg-[#04060a]">
-                            <tr>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">Tema / Tarea</th>
-                                <th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">Entorno / Flujo</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">Comentarios de Telemetría</th>
-                                <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Siguientes Pasos</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-uat" class="divide-y divide-cyan-900/20">
-                            <!--Inyectado por JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    renderBoard();
+    closeModal();
+  };
 
-        <!--PESTAÑA 5: GRÁFICAS DE CONTROL -->
-        <div id="tab-graficas" class="tab-pane space-y-8">
-            <div class="flex justify-between items-end mb-6 border-l-4 border-fuchsia-500 pl-5">
-                <div>
-                  <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">5. Gráficas de control</h2>
-                  <p class="text-fuchsia-400 font-mono text-sm uppercase tracking-widest">Visualización de métricas de rendimiento y estado</p>
-                </div>
-            </div>
+  function deleteCurrentTask() {
+    const id = document.getElementById('taskId').value;
+    tasks = tasks.filter(t => t.id != id);
+    renderBoard();
+    closeModal();
+  }
 
-            <div class="glass-panel rounded-2xl p-8 flex flex-col items-center space-y-10">
-                <!--Imagen 1 -->
-                <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px] text-slate-500">
-                    <!--Reemplaza TU_ID_DE_DRIVE_AQUI_1 por el ID real de Google Drive -->
-                    <img src="https://lh3.googleusercontent.com/d/12Tl8bXbrLdsn31O2D_pKU4D7KPVNa84P" alt="Gráfica de control 1 (Reemplazar URL)" class="w-full h-auto object-contain">
-                </div>
-                
-                <!--Imagen 2 -->
-                <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px] text-slate-500">
-                    <!--Reemplaza TU_ID_DE_DRIVE_AQUI_2 por el ID real de Google Drive -->
-                    <img src="https://lh3.googleusercontent.com/d/170hv2qq5mVguqgv2PQy6lmKUmn8jaaqJ" alt="Gráfica de control 2 (Reemplazar URL)" class="w-full h-auto object-contain">
-                </div>
-                
-                <!--Imagen 3 -->
-                <div class="w-full max-w-6xl bg-[#04060a]/80 border border-cyan-900/50 rounded-xl overflow-hidden shadow-2xl flex justify-center items-center min-h-[400px] text-slate-500">
-                    <!--Reemplaza TU_ID_DE_DRIVE_AQUI_2 por el ID real de Google Drive -->
-                    <img src="https://lh3.googleusercontent.com/d/1ufs7M4dcCkxbHIsaNliGcTwtbZPNv1EM" alt="Gráfica de control 2 (Reemplazar URL)" class="w-full h-auto object-contain">
-                </div>
-                
-            </div>
-        </div>
+  // --- DRAG AND DROP ---
+  function allowDrop(ev) { ev.preventDefault(); }
+  function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+  function drop(ev) {
+    ev.preventDefault();
+    const id = ev.dataTransfer.getData("text");
+    let target = ev.target;
+    while (!target.classList.contains('column')) target = target.parentElement;
+    
+    const task = tasks.find(t => t.id == id);
+    task.column = target.id;
+    renderBoard();
+  }
 
-    </main>
+  // Inicializar
+  renderBoard();
+</script>
 
-    <!--LÓGICA Y DATOS (JAVASCRIPT) -->
-    <script>
-        // ---BASE DE DATOS ---
-        
-        const dbMegara = [
-{ tema: "Sustitución Rundeck.", tarea: "Creación de Solución", entorno: "NA", flujo: "En curso", inv: "NFQ / S3", fecha: "09/04/2026", comentarios: "- Opciones de interfaces compartidas por S3:\n⫸CGC Position, Valorized Position,Net Asset, Payable Receivable\n⫸- NFQ en desarrollo de POC", pasos: "- NFQ compartirá resultados de POC"},
-{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_sac_stat_sw_cad_t", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "15/04/2026", comentarios: "- Fue ajustada funcion de mapeamento", pasos: "Esperando valiadacion de s3 para prd"},
-{ tema: "Ajuste Proceso de Carga", tarea: "function_meg_cart_pos_rv_t", entorno: "PRD", flujo: "Completado", inv: "NFQ / S3", fecha: "07/04/2026", comentarios: "- Fue ajustada funcion de mapeamento", pasos: "N/A"},
-{ tema: "Nuevas Interfaces", tarea: "Creación de 2 nuebas interfaces (Recalculation_Request, \n⫸Recalculation_Request_Reason)", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "24/03/2026", comentarios: "- Desarrollo realizado en UAT.", pasos: "- S3 validando para aprobar creacion en PRD"},
-{ tema: "Nuevas Interfaces", tarea: "Creación de 2 nuevas interfaces de swap (OTC_SWAP, SWAP Prices)", entorno: "DEV", flujo: "En curso", inv: "NFQ / S3", fecha: "13/04/2026", comentarios: "- Desarrollo realizado en UAT.", pasos: "- S3 validando para aprobar creacion en PRD"}
-        ];
-
-        const dbReporting = [
-     { tema: "Extrato Simplificado", tarea: "Desarrollo", entorno: "PRD/UAT", flujo: "En curso", inv: "S3 / NFQ", fecha: "09/04/2026", comentarios: "- S3 ha validado PDF y XLSX\n⫸- Liberado en UAT, a la espera de promocion en PRD\n⫸- A la espera que S3 comparta plantilla de CSV", pasos: "-S3 compartirá template en csv."},
-{ tema: "Detalhado de Estoque de RF", tarea: "Ajuste", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "07/04/2026", comentarios: "- Ajuste de reglas para campos de Lucro / Prejuizo\n⫸- S3 en validación de ajustes hechos por NFQ", pasos: "Aguardando validacion de S3."},
-{ tema: "Informes Asíncronos", tarea: "S3 solicita la creación de informes asíncronos", entorno: "PRD", flujo: "En curso", inv: "NTT / NFQ / VERMEG", fecha: "16/04/2026", comentarios: "- NFQ ha compartido calendario de entrega para los informes solicitados.\n⫸- Testes OK de (Fluxo de Caixa, Operacoes Títulos RF)\n⫸- Espernando repuesta de Operacoes com Titulos de Renda Variavel\n⫸- NFQ en desarrollo de 1 informe (Extrato Simplificado)", pasos: "Espernado respuesta de Operaciones de Titulos ed Renda Variavel (cliente y fecha)\n⫸S3 entregará informes de Extrato Simplifcado"}
-        ];
-
-        const dbInfra = [
-          { tema: "Archivos Carga", tarea: "Alerta de archivos demasiado grandes", entorno: "PRD", flujo: "En curso", inv: "S3 / VERMEG", fecha: "03/04/2026", comentarios: "- Esperando vobo de S3 de implantación", pasos: "- S3 dará VoBo a la activación de alerta."},
-{ tema: "API", tarea: "Reintentos llamada API", entorno: "PRD", flujo: "En curso", inv: "S3 / VERMEG", fecha: "06/03/2026", comentarios: "- S3 solicita 30 reintentos cada 5 min en caso de error.\n⫸- BAU notificará a S3 después de 30 intentos fallidos", pasos: "En monitoreamento"},
-{ tema: "API", tarea: "Llamada de MEGARA desde Rundeck", entorno: "PRD", flujo: "En curso", inv: "S3 / VERMEG", fecha: "14/04/2026", comentarios: "- NFQ ha implementado solución y se encuentra operativa en PRD\n⫸- Fallas ocasionaes de lado de Megara", pasos: "- Monitorar las cargas en Rundeck"}
-        ];
-
-        const dbUAT = [
-      { tema: "Mapeo", tarea: "Validación ajuste en UAT function_meg_sac_stat_cli_addr_t", entorno: "UAT", flujo: "En curso", inv: "S3", fecha: "07/07/2025", comentarios: "- En espera de validación por parte de S3 para promoción a PRD.", pasos: "Validación de lado S3"},
-{ tema: "DDBB", tarea: "CA_details_intr", entorno: "UAT", flujo: "En curso", inv: "S3", fecha: "05/09/2025", comentarios: "- Ajuste de formatos de datos", pasos: "Validación de lado S3"},
-{ tema: "Creación mapeos", tarea: "Nuevos Mapeos", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "28/10/2025", comentarios: "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute", pasos: "Validación de lado S3"},
-{ tema: "Ajuste InvestCompanyInstitute", tarea: "Subtabla", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3 / Vermeg / NTT", fecha: "28/10/2025", comentarios: "-Se incluyó una nueva subtabla dentro del XSD, se construyó y promocionó a UAT, a espera de validación de S3", pasos: "Validación de lado S3"},
-{ tema: "Mapeo", tarea: "Errores ejecución de Mapeo", entorno: "PRD", flujo: "En curso", inv: "NFQ / S3", fecha: "31/10/2025", comentarios: "- mt_caixa_tipos (longitud de campo)\n⫸value too long for type character varying(50)\n⫸\n⫸- Ajuste en UAT conforme acordado, en espera de confirmación por parte de S3 para promoción a producción.", pasos: "Validación de lado S3"},
-{ tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Interfaz Equity", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD", pasos: "Validación de lado S3"},
-{ tema: "Ajuste Proceso de Carga", tarea: "Ajuste de Carga ScriptByClient", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "28/01/2026", comentarios: "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT", pasos: "Validación de lado S3"},
-{ tema: "Información UAT", tarea: "Monitoreamento de cargas", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "30/10/2025", comentarios: "- Se requerirá de validaciones de información por causa de los mapeos en UAT", pasos: "- S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de proyecto"},
-{ tema: "Datahub Api", tarea: "dh-motivobloqueio", entorno: "UAT", flujo: "En curso", inv: "NFQ / S3", fecha: "21/01/2026", comentarios: "- Api Motivo de Bloqueos han sido realizados los ajustes y está pendiente validación por parte de S3", pasos: "- S3 notificará resultados de validaciones"},
-{ tema: "Generacion informes", tarea: "Revisión de informes vacos", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "29/01/2026", comentarios: "- Movimentaçao Swap, Dividendos juros apropiados,Posiçao Swap.siendo generados en blanco.\n⫸- Primeros dos arreglados, esperando detalles del tercero.\n⫸", pasos: "- S3 validará arreglos en los informes.\n⫸- S3 compartirá detalles de PS para poder dar soporte."},
-{ tema: "Nota de Liquidaçao de Renda Fixa", tarea: "Generación de informe", entorno: "PRD", flujo: "En curso", inv: "S3 / NFQ", fecha: "09/02/2026", comentarios: "- S3 en análisis de cambio de plantilla para casos sin información.\n⫸- S3 reporta error en generación de informe.\n⫸- NFQ hizo ajustes.", pasos: "- S3 analizará cambio de plantilla"}
-
-    ];
-        // ---FUNCIONES AUXILIARES DE RENDERIZADO ---
-
-        function getEnvBadge(env) {
-            if (env.includes('PRD') && !env.includes('UAT')) return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-[0_0_8px_rgba(16,185,129,0.2)]">PRD</span>`;
-            if (env.includes('UAT')) return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">UAT</span>`;
-            if (env === 'NA') return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-slate-800 text-slate-400 border border-slate-600">N/A</span>`;
-            return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-slate-800 text-slate-400 border border-slate-600">${env}</span>`;
-        }
-
-        function getFlowBadge(flow) {
-            switch(flow) {
-                case 'Completado': return `<span class="flex items-center text-xs font-bold text-emerald-400 uppercase tracking-widest"><i data-lucide="check-circle-2" class="w-4 h-4 mr-1.5"></i> COMPLETADO</span>`;
-                case 'No iniciado': 
-                case 'Planificado': return `<span class="flex items-center text-xs font-bold text-slate-400 uppercase tracking-widest"><i data-lucide="minus-circle" class="w-4 h-4 mr-1.5"></i> PLANIFICADO</span>`;
-                case 'En curso': return `<span class="flex items-center text-xs font-bold text-cyan-400 uppercase tracking-widest"><i data-lucide="play-circle" class="w-4 h-4 mr-1.5"></i> EN CURSO</span>`;
-                case 'Crítico': return `<span class="flex items-center text-xs font-bold text-rose-500 uppercase tracking-widest animate-pulse"><i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5"></i> CRÍTICO</span>`;
-                case 'Requiere atención': return `<span class="flex items-center text-xs font-bold text-red-500 uppercase tracking-widest animate-pulse"><i data-lucide="siren" class="w-4 h-4 mr-1.5"></i> REQUIERE ATENCIÓN</span>`;
-                case 'En cola': 
-                case 'Bloqueado': return `<span class="flex items-center text-xs font-bold text-amber-500 uppercase tracking-widest"><i data-lucide="ban" class="w-4 h-4 mr-1.5"></i> BLOQUEADO</span>`;
-                default: return `<span class="text-slate-500 text-xs uppercase">${flow}</span>`;
-            }
-        }
-
-        function formatBulletParagraphs(text, paragraphClass) {
-            if (!text || !text.trim()) {
-                return `<span class="text-sm text-slate-500">-</span>`;
-            }
-
-            const normalized = text.replace(/\r/g, '');
-            const markerParagraphs = normalized
-                .split('⫸')
-                .map(part => part.trim())
-                .filter(Boolean);
-
-            const paragraphs = markerParagraphs.length > 0
-                ? markerParagraphs
-                : normalized
-                    .split(/\n{2,}/)
-                    .map(part => part.trim())
-                    .filter(Boolean);
-
-            return `<div class="space-y-2">${paragraphs.map(paragraph => `
-                <div class="flex items-start">
-                    <span class="text-cyan-500 font-bold mr-2 text-lg inline-block align-middle pb-1">•</span>
-                    <span class="${paragraphClass}">${paragraph.replace(/\n/g, '<br>')}</span>
-                </div>
-            `).join('')}</div>`;
-        }
-
-        function formatParticipants(involved) {
-            if (!involved || !involved.trim()) {
-                return `<span class="text-xs font-mono text-slate-500">-</span>`;
-            }
-
-            return involved
-                .split('/')
-                .map(part => part.trim())
-                .filter(Boolean)
-                .map(name => `<span class="inline-flex items-center px-2.5 py-1 rounded-full border border-cyan-500/35 bg-cyan-500/10 text-cyan-200 text-xs font-space font-bold uppercase tracking-widest">${name}</span>`)
-                .join('');
-        }
-
-        function generateTableRows(dataArray) {
-            if (dataArray.length === 0) return '';
-            return dataArray.map(row => `
-                <tr class="hover:bg-cyan-900/20 transition-colors group">
-                    <td class="px-8 py-5">
-                        <div class="font-bold text-slate-200 text-base group-hover:text-cyan-300 transition-colors">${row.tema}</div>
-                        <div class="text-sm font-mono text-cyan-500 mt-1">${row.tarea}</div>
-                        <div class="flex flex-wrap items-center gap-2 mt-3">
-                            <i data-lucide="users" class="w-3.5 h-3.5 text-cyan-300"></i>
-                            ${formatParticipants(row.inv)}
-                        </div>
-                    </td>
-                    <td class="px-8 py-5 space-y-3 text-center">
-                        <div class="flex justify-center">${getFlowBadge(row.flujo)}</div>
-                        <div class="mt-2 flex justify-center">${getEnvBadge(row.entorno)}</div>
-                    </td>
-                    <td class="px-8 py-5">
-                        ${formatBulletParagraphs(row.comentarios, 'text-sm text-slate-300 leading-relaxed')}
-                        <div class="flex items-center text-xs font-mono text-cyan-600 mt-4 border-t border-cyan-900/30 pt-3 w-max">
-                            <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> Fecha de actualización: ${row.fecha}
-                        </div>
-                    </td>
-                    <td class="px-8 py-5 bg-[#080d1a]/50">
-                        ${formatBulletParagraphs(row.pasos, 'text-sm font-medium text-amber-100/90 leading-relaxed')}
-                    </td>
-                </tr>
-            `).join('');
-        }
-
-        // ---SISTEMA DE PESTAÑAS ---
-        function switchTab(tabId) {
-            // Ocultar todas
-            document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove(
-                    'bg-cyan-950/60', 'text-cyan-400', 'border-cyan-800/50', 
-                    'bg-indigo-950/60', 'text-indigo-400', 'border-indigo-800/50',
-                    'bg-fuchsia-950/60', 'text-fuchsia-400', 'border-fuchsia-800/50'
-                );
-                btn.classList.add('text-slate-500', 'border-transparent');
-            });
-
-            // Activar la seleccionada
-            document.getElementById(`tab-${tabId}`).classList.add('active');
-            const activeBtn = document.getElementById(`btn-${tabId}`);
-            activeBtn.classList.remove('text-slate-500', 'border-transparent');
-            
-            if (tabId === 'uat') {
-                activeBtn.classList.add('bg-indigo-950/60', 'text-indigo-400', 'border-indigo-800/50');
-            } else if (tabId === 'graficas') {
-                activeBtn.classList.add('bg-fuchsia-950/60', 'text-fuchsia-400', 'border-fuchsia-800/50');
-            } else {
-                activeBtn.classList.add('bg-cyan-950/60', 'text-cyan-400', 'border-cyan-800/50');
-            }
-        }
-
-        // ---INICIALIZACIÓN ---
-        window.onload = () => {
-            // Inyectar datos en las tablas
-            document.getElementById('tbody-megara').innerHTML = generateTableRows(dbMegara);
-            document.getElementById('tbody-reporting').innerHTML = generateTableRows(dbReporting);
-            document.getElementById('tbody-infra').innerHTML = generateTableRows(dbInfra);
-            document.getElementById('tbody-uat').innerHTML = generateTableRows(dbUAT);
-
-            // Inicializar iconos
-            lucide.createIcons();
-        };
-
-        // Hacer la función switchTab global para que los botones onclick puedan acceder a ella
-        window.switchTab = switchTab;
-    </script>
 </body>
 </html>
