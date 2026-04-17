@@ -3,53 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kanban Dev Team V4 - Firebase Realtime</title>
+<title>Kanban Dev Team V6 - Ultimate</title>
 <style>
-  /* --- LOS ESTILOS SON EXACTAMENTE LOS MISMOS QUE EN LA V3 --- */
   :root {
     --bg-color: #f4f5f7; --col-bg: #ebecf0; --text-main: #172b4d;
-    --btn-primary: #0052cc; --btn-hover: #0047b3; --danger: #de350b;
+    --btn-primary: #0052cc; --btn-hover: #0047b3; --danger: #de350b; --success: #00875a;
   }
-  body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); padding: 30px; color: var(--text-main); }
+  body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); padding: 30px; color: var(--text-main); margin: 0;}
+  
+  /* Cabecera y Filtros */
+  .header-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .filters { display: flex; gap: 10px; }
+  .filter-btn { padding: 6px 12px; border-radius: 15px; border: 1px solid #ccc; background: white; cursor: pointer; font-weight: bold; transition: 0.2s;}
+  .filter-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
+  
+  /* Tablero */
   .board { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
-  .column { background: var(--col-bg); border-radius: 8px; width: 320px; min-width: 320px; padding: 15px; min-height: 600px; }
-  .task { background: white; padding: 12px; border-radius: 6px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); cursor: pointer; border-left: 6px solid #ccc; transition: transform 0.1s; }
+  .column { background: var(--col-bg); border-radius: 8px; width: 320px; min-width: 320px; padding: 15px; min-height: 600px; display: flex; flex-direction: column;}
+  .col-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #dfe1e6; padding-bottom: 10px; margin-bottom: 15px;}
+  .col-header h3 { margin: 0; font-size: 1.1em; }
+  .pts-badge-col { background: #dfe1e6; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+  .task-container { flex-grow: 1; min-height: 50px; }
+
+  /* Tarjetas Dinámicas */
+  .task { 
+    padding: 12px; border-radius: 6px; margin-bottom: 12px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15); cursor: pointer; 
+    transition: transform 0.1s; border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+  }
   .task:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-  .task-title { font-weight: 600; margin-bottom: 8px; }
+  .task-title { font-weight: 600; margin-bottom: 8px; font-size: 0.95em; padding-right: 25px;}
   .task-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.8em; }
-  .assignee { background: #dfe1e6; padding: 2px 8px; border-radius: 10px; font-weight: bold; }
+  .assignee { background: rgba(255,255,255,0.6); padding: 2px 8px; border-radius: 10px; font-weight: bold; border: 1px solid rgba(0,0,0,0.1); }
+  .pts-badge-task { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.1); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75em; font-weight: bold; }
+
+  /* Tarea Estancada (Stale) */
+  .stale { animation: pulseRed 2s infinite; border: 2px solid var(--danger); }
+  @keyframes pulseRed { 
+    0% { box-shadow: 0 0 0 0 rgba(222,53,11, 0.4); } 
+    70% { box-shadow: 0 0 0 8px rgba(222,53,11, 0); } 
+    100% { box-shadow: 0 0 0 0 rgba(222,53,11, 0); } 
+  }
+
+  /* Prioridades */
   .priority { padding: 2px 8px; border-radius: 4px; color: white; font-weight: bold; }
   .priority-Alta { background: #ff5630; } .priority-Media { background: #ffab00; } .priority-Baja { background: #36b37e; }
-  .btn { padding: 10px 15px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
+  
+  /* ESTILO COMPACTO TERMINADO */
+  #done .task { padding: 8px; opacity: 0.7; box-shadow: none; border-left: 4px solid #ccc; background: white !important;}
+  #done .task-title { font-weight: normal; font-size: 0.85em; margin-bottom: 4px; text-decoration: line-through;}
+  #done .priority, #done .pts-badge-task { display: none; }
+  #done .assignee { font-size: 0.9em; background: transparent; border: none; padding: 0;}
+
+  /* UI Base */
+  .btn { padding: 8px 12px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
   .btn-primary { background: var(--btn-primary); color: white; width: 100%; margin-bottom: 10px; }
+  .btn-success { background: var(--success); color: white; width: 100%; margin-bottom: 10px; }
   .btn-danger { background: var(--danger); color: white; }
-  dialog { border: none; border-radius: 8px; width: 400px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+  dialog { border: none; border-radius: 8px; width: 450px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
   dialog::backdrop { background: rgba(0,0,0,0.6); }
   .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
   .form-group label { margin-bottom: 5px; font-weight: bold; font-size: 0.85em; }
   .form-group input, .form-group select, .form-group textarea { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
-  textarea { resize: vertical; min-height: 80px; }
-  .modal-actions { display: flex; justify-content: space-between; margin-top: 20px; }
+  
+  /* Grid para Modal */
+  .form-row { display: flex; gap: 10px; }
+  .form-row .form-group { flex: 1; }
+  
+  .timestamps-box { background: #f4f5f7; padding: 10px; border-radius: 5px; font-size: 0.75em; color: #5e6c84; margin-top: 15px; display: none; }
+  .timestamps-box p { margin: 3px 0; }
 </style>
 </head>
 <body>
 
-<h2>Kanban Board - Equipo de Desarrollo (Conectado a Firebase)</h2>
+<div class="header-controls">
+  <h2>Aldrin Dev Team</h2>
+  <!-- <div class="filters">
+    <button class="filter-btn active" id="btn-filter-all" onclick="setFilter('all')">Todas</button>
+    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Líder)</button>
+    <button class="filter-btn" id="btn-filter-high" onclick="setFilter('high')">🔥 Alta Prioridad</button>
+  </div> -->
+</div>
 
 <div class="board">
   <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h3>Por Hacer</h3>
+    <div class="col-header">
+      <h3>Por Hacer</h3>
+      <span class="pts-badge-col" id="pts-todo">0 pts</span>
+    </div>
     <button class="btn btn-primary" onclick="openModalForCreate('todo')">+ Nueva Tarea</button>
     <div class="task-container"></div>
   </div>
   
   <div class="column" id="in-progress" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h3>En Progreso</h3>
+    <div class="col-header">
+      <h3>En Progreso (Max 4)</h3>
+      <span class="pts-badge-col" id="pts-in-progress">0 pts</span>
+    </div>
     <div class="task-container"></div>
   </div>
   
   <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h3>Terminado</h3>
+    <div class="col-header">
+      <h3>Terminado</h3>
+      <span class="pts-badge-col" id="pts-done">0 pts</span>
+    </div>
+    <button class="btn btn-success" onclick="exportAndClearRetro()">📥 Sprint Retro (CSV)</button>
     <div class="task-container"></div>
   </div>
 </div>
@@ -61,22 +121,45 @@
     <input type="hidden" id="columnId">
     
     <div class="form-group"><label>Título:</label><input type="text" id="taskTitle" required></div>
-    <div class="form-group">
-      <label>Responsable:</label>
-      <select id="taskAssignee">
-        <option value="Líder">Tú (Líder)</option>
-        <option value="Dev A">Desarrollador A</option>
-        <option value="Dev B">Desarrollador B</option>
-      </select>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Responsable:</label>
+        <select id="taskAssignee">
+          <option value="Sin asignar">-- Sin asignar --</option>
+          <option value="Líder">Tú (Líder)</option>
+          <option value="Dev A">Desarrollador A</option>
+          <option value="Dev B">Desarrollador B</option>
+          <option value="Ambos (Pair)">Ambos (Pair)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Puntos (Esfuerzo):</label>
+        <select id="taskPoints">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="5">5</option>
+          <option value="8">8</option>
+          <option value="13">13</option>
+        </select>
+      </div>
     </div>
+
     <div class="form-group">
       <label>Prioridad:</label>
       <select id="taskPriority"><option value="Alta">Alta</option><option value="Media" selected>Media</option><option value="Baja">Baja</option></select>
     </div>
-    <div class="form-group"><label>Color:</label><input type="color" id="taskColor" value="#0052cc"></div>
     <div class="form-group"><label>Descripción:</label><textarea id="taskDesc"></textarea></div>
 
-    <div class="modal-actions">
+    <div class="timestamps-box" id="timestampsBox">
+      <p><b>Creada:</b> <span id="tsCreated">-</span></p>
+      <p><b>Asignada:</b> <span id="tsAssigned">-</span></p>
+      <p><b>Iniciada:</b> <span id="tsStarted">-</span></p>
+      <p><b>Terminada:</b> <span id="tsFinished">-</span></p>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; margin-top: 20px;">
       <div><button type="button" class="btn btn-danger" id="deleteBtn" onclick="deleteCurrentTask()">Eliminar</button></div>
       <div>
         <button type="button" class="btn" style="background:#dfe1e6; color:#172b4d;" onclick="closeModal()">Cancelar</button>
@@ -92,19 +175,10 @@
     from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  // PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE (Reemplaza este objeto)
-  const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "TU_DOMINIO.firebaseapp.com",
-    projectId: "TU_PROJECT_ID",
-    storageBucket: "TU_BUCKET.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdefg"
-  };
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-  // Inicializar Firebase
-  const firebaseConfig = {
+  // PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE
+ 
+  // Your web app's Firebase configuration
+const firebaseConfig = {
   apiKey: "AIzaSyDJR-Z-ChLxBqq0FIYQQaLg1igswTr03fM",
   authDomain: "aldrinbrkanbandevteam-be0aa.firebaseapp.com",
   projectId: "aldrinbrkanbandevteam-be0aa",
@@ -112,28 +186,77 @@
   messagingSenderId: "452946196342",
   appId: "1:452946196342:web:888d4a2691ca6fb44bec57"
 };
-  // ESCUCHAR CAMBIOS EN TIEMPO REAL (La magia ocurre aquí)
+  
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const tasksCollection = collection(db, "tasks");
+
+  let tasks = [];
+  let currentFilter = 'all';
+  const modal = document.getElementById('taskModal');
+  const form = document.getElementById('taskForm');
+
+  const colorMap = { "Sin asignar": "#ffffff", "Líder": "#e6efff", "Dev A": "#e6ffe6", "Dev B": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
+  const WIP_LIMIT = 4; // Límite de tareas en progreso del equipo
+
+  // Filtros
+  window.setFilter = (filter) => {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`btn-filter-${filter}`).classList.add('active');
+    renderBoard();
+  };
+
   onSnapshot(tasksCollection, (snapshot) => {
     tasks = [];
-    snapshot.forEach((doc) => {
-      tasks.push({ id: doc.id, ...doc.data() });
-    });
+    snapshot.forEach((doc) => { tasks.push({ id: doc.id, ...doc.data() }); });
     renderBoard();
   });
 
   function renderBoard() {
     document.querySelectorAll('.task-container').forEach(c => c.innerHTML = '');
+    let pts = { 'todo': 0, 'in-progress': 0, 'done': 0 };
 
-    tasks.forEach(task => {
+    // Aplicar Filtro
+    let filteredTasks = tasks.filter(t => {
+      if (currentFilter === 'mine') return t.assignee === 'Líder' || t.assignee === 'Ambos (Pair)';
+      if (currentFilter === 'high') return t.priority === 'Alta';
+      return true; // 'all'
+    });
+
+    // Ordenar (Alta arriba)
+    filteredTasks.sort((a, b) => {
+      const p = { "Alta": 1, "Media": 2, "Baja": 3 };
+      return p[a.priority] - p[b.priority];
+    });
+
+    filteredTasks.forEach(task => {
+      // Sumar puntos a la columna
+      const taskPts = parseInt(task.points || 0);
+      pts[task.column] += taskPts;
+
       const taskEl = document.createElement('div');
       taskEl.className = 'task';
       taskEl.draggable = true;
       taskEl.id = task.id;
-      taskEl.style.borderLeftColor = task.color;
+      taskEl.style.backgroundColor = colorMap[task.assignee] || "#ffffff";
+      
+      // Lógica de Alarma "Estancada" (> 3 días)
+      // Para probarlo hoy, cambia 259200000 (3 días) por 60000 (1 minuto)
+      if (task.column === 'in-progress' && task.timestamps && task.timestamps.startedMs) {
+        const timeInProg = Date.now() - task.timestamps.startedMs;
+        if (timeInProg > 259200000) { // 3 días en milisegundos
+          taskEl.classList.add('stale');
+        }
+      }
+
       taskEl.onclick = () => window.openModalForEdit(task.id);
       taskEl.ondragstart = window.drag;
 
       taskEl.innerHTML = `
+        <span class="pts-badge-task">${task.points || '-'}</span>
         <div class="task-title">${task.title}</div>
         <div class="task-footer">
           <span class="assignee">${task.assignee}</span>
@@ -141,20 +264,29 @@
         </div>
       `;
 
-      // Prevenir error si la columna no existe
-      const column = document.querySelector(`#${task.column} .task-container`);
-      if (column) column.appendChild(taskEl);
+      const container = document.querySelector(`#${task.column} .task-container`);
+      if (container) container.appendChild(taskEl);
     });
+
+    // Actualizar marcadores de puntos
+    document.getElementById('pts-todo').innerText = `${pts['todo']} pts`;
+    document.getElementById('pts-in-progress').innerText = `${pts['in-progress']} pts`;
+    document.getElementById('pts-done').innerText = `${pts['done']} pts`;
   }
 
-  // --- EXPORTAR FUNCIONES AL WINDOW (Para que el HTML las pueda llamar) ---
-  
+  // --- MISMAS FUNCIONES DE ANTES MODIFICADAS LIGERAMENTE ---
+  const getNow = () => {
+    const d = new Date();
+    return `${d.toLocaleDateString()} ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+  };
+
   window.openModalForCreate = (colId) => {
     form.reset();
     document.getElementById('modalTitle').innerText = "Nueva Tarea";
     document.getElementById('taskId').value = '';
     document.getElementById('columnId').value = colId;
     document.getElementById('deleteBtn').style.display = 'none';
+    document.getElementById('timestampsBox').style.display = 'none';
     modal.showModal();
   };
 
@@ -166,79 +298,135 @@
     document.getElementById('columnId').value = task.column;
     document.getElementById('taskTitle').value = task.title;
     document.getElementById('taskAssignee').value = task.assignee;
+    document.getElementById('taskPoints').value = task.points || "3";
     document.getElementById('taskPriority').value = task.priority;
-    document.getElementById('taskColor').value = task.color;
     document.getElementById('taskDesc').value = task.desc || '';
     
+    document.getElementById('timestampsBox').style.display = 'block';
+    const ts = task.timestamps || {};
+    document.getElementById('tsCreated').innerText = ts.created || '-';
+    document.getElementById('tsAssigned').innerText = ts.assigned || '-';
+    document.getElementById('tsStarted').innerText = ts.started || '-';
+    document.getElementById('tsFinished').innerText = ts.finished || '-';
+
     document.getElementById('deleteBtn').style.display = 'block';
     modal.showModal();
   };
 
   window.closeModal = () => modal.close();
 
-  // GUARDAR / EDITAR EN FIREBASE
   form.onsubmit = async (e) => {
     e.preventDefault();
     const id = document.getElementById('taskId').value;
+    const newAssignee = document.getElementById('taskAssignee').value;
+    const newPriority = document.getElementById('taskPriority').value;
+    
+    const existingTask = tasks.find(t => t.id === id);
+    const oldAssignee = existingTask ? existingTask.assignee : "Sin asignar";
+
+    // Regla: Bloquear si hay altas sin asignar
+    const isSelfAssigning = oldAssignee === "Sin asignar" && newAssignee !== "Sin asignar";
+    if (isSelfAssigning && newPriority !== "Alta") {
+      const unassignedHigh = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Alta" && t.column === "todo" && t.id !== id);
+      if (unassignedHigh) {
+        alert("⚠️ Hay tareas ALTA sin asignar. Toma esas primero.");
+        return;
+      }
+    }
+
+    let ts = existingTask ? existingTask.timestamps || {} : { created: getNow(), createdMs: Date.now() };
+    if (isSelfAssigning && !ts.assigned) ts.assigned = getNow();
+
     const taskData = {
       column: document.getElementById('columnId').value,
       title: document.getElementById('taskTitle').value,
-      assignee: document.getElementById('taskAssignee').value,
-      priority: document.getElementById('taskPriority').value,
-      color: document.getElementById('taskColor').value,
-      desc: document.getElementById('taskDesc').value
+      assignee: newAssignee,
+      points: document.getElementById('taskPoints').value,
+      priority: newPriority,
+      desc: document.getElementById('taskDesc').value,
+      timestamps: ts
     };
 
     try {
-      if (id) {
-        // Actualizar existente
-        await updateDoc(doc(db, "tasks", id), taskData);
-      } else {
-        // Crear nueva
-        await addDoc(tasksCollection, taskData);
-      }
+      if (id) await updateDoc(doc(db, "tasks", id), taskData);
+      else await addDoc(tasksCollection, taskData);
       window.closeModal();
-    } catch (e) {
-      console.error("Error guardando documento: ", e);
-      alert("Hubo un error al guardar. Revisa la consola.");
-    }
+    } catch (e) { alert("Error al guardar."); }
   };
 
-  // ELIMINAR EN FIREBASE
   window.deleteCurrentTask = async () => {
-    const id = document.getElementById('taskId').value;
-    if (confirm("¿Estás seguro de eliminar esta tarea?")) {
-      try {
-        await deleteDoc(doc(db, "tasks", id));
-        window.closeModal();
-      } catch (e) {
-        console.error("Error eliminando documento: ", e);
-      }
+    if (confirm("¿Seguro de eliminar?")) {
+      await deleteDoc(doc(db, "tasks", document.getElementById('taskId').value));
+      window.closeModal();
     }
   };
 
-  // DRAG AND DROP CON FIREBASE
+  // --- DRAG, DROP Y LIMITES WIP ---
   window.allowDrop = (ev) => ev.preventDefault();
   window.drag = (ev) => ev.dataTransfer.setData("text", ev.currentTarget.id);
   window.drop = async (ev) => {
     ev.preventDefault();
     const id = ev.dataTransfer.getData("text");
     let target = ev.target;
-    
-    while (!target.classList.contains('column')) {
-      target = target.parentElement;
-    }
+    while (!target.classList.contains('column')) target = target.parentElement;
     
     const newColumnId = target.id;
     const task = tasks.find(t => t.id === id);
-    
-    // Solo actualiza si realmente cambió de columna
-    if (task && task.column !== newColumnId) {
-      try {
-        await updateDoc(doc(db, "tasks", id), { column: newColumnId });
-      } catch (e) {
-        console.error("Error actualizando columna: ", e);
+    if (!task || task.column === newColumnId) return;
+
+    // VALIDAR LÍMITE WIP
+    if (newColumnId === 'in-progress') {
+      const inProgCount = tasks.filter(t => t.column === 'in-progress').length;
+      if (inProgCount >= WIP_LIMIT) {
+        alert(`🚨 ¡Límite de WIP superado! El equipo no puede tener más de ${WIP_LIMIT} tareas en progreso a la vez. Terminen algo primero.`);
+        return; // Cancela el movimiento
       }
+    }
+    
+    let ts = task.timestamps || {};
+    if (newColumnId === 'in-progress' && task.column === 'todo') {
+      ts.started = getNow();
+      ts.startedMs = Date.now(); // Para la alarma de estancamiento
+    }
+    if (newColumnId === 'done') ts.finished = getNow();
+
+    try {
+      await updateDoc(doc(db, "tasks", id), { column: newColumnId, timestamps: ts });
+    } catch (e) { console.error(e); }
+  };
+
+  // --- FUNCIÓN RETROSPECTIVA ---
+  window.exportAndClearRetro = async () => {
+    const doneTasks = tasks.filter(t => t.column === 'done');
+    if (doneTasks.length === 0) {
+      alert("No hay tareas terminadas para exportar.");
+      return;
+    }
+
+    if (!confirm(`Vas a descargar un CSV con ${doneTasks.length} tareas y borrarlas de Firebase. ¿Continuar?`)) return;
+
+    // Generar CSV
+    let csv = "ID,Titulo,Responsable,Prioridad,Puntos,Fecha Creada,Fecha Iniciada,Fecha Finalizada\n";
+    doneTasks.forEach(t => {
+      const ts = t.timestamps || {};
+      csv += `${t.id},"${t.title.replace(/"/g, '""')}",${t.assignee},${t.priority},${t.points || 0},"${ts.created || ''}","${ts.started || ''}","${ts.finished || ''}"\n`;
+    });
+
+    // Descargar
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `Retro_${new Date().toISOString().slice(0,10)}.csv`;
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Limpiar Firebase
+    for (const t of doneTasks) {
+      try { await deleteDoc(doc(db, "tasks", t.id)); } 
+      catch (e) { console.error("Error borrando:", e); }
     }
   };
 </script>
