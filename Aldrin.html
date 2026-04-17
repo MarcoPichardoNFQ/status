@@ -3,83 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kanban Dev Team V3 - Persistente</title>
+<title>Kanban Dev Team V4 - Firebase Realtime</title>
 <style>
+  /* --- LOS ESTILOS SON EXACTAMENTE LOS MISMOS QUE EN LA V3 --- */
   :root {
-    --bg-color: #f4f5f7;
-    --col-bg: #ebecf0;
-    --text-main: #172b4d;
-    --btn-primary: #0052cc;
-    --btn-hover: #0047b3;
-    --danger: #de350b;
+    --bg-color: #f4f5f7; --col-bg: #ebecf0; --text-main: #172b4d;
+    --btn-primary: #0052cc; --btn-hover: #0047b3; --danger: #de350b;
   }
-  
-  body { 
-    font-family: 'Segoe UI', sans-serif; 
-    background-color: var(--bg-color); 
-    padding: 30px; 
-    color: var(--text-main);
-  }
-  
+  body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); padding: 30px; color: var(--text-main); }
   .board { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
-  
-  .column { 
-    background: var(--col-bg); 
-    border-radius: 8px; 
-    width: 320px; 
-    min-width: 320px;
-    padding: 15px; 
-    min-height: 600px;
-  }
-  
-  /* Tarjetas */
-  .task { 
-    background: white; 
-    padding: 12px; 
-    border-radius: 6px; 
-    margin-bottom: 12px; 
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
-    cursor: pointer; 
-    border-left: 6px solid #ccc;
-    transition: transform 0.1s;
-  }
+  .column { background: var(--col-bg); border-radius: 8px; width: 320px; min-width: 320px; padding: 15px; min-height: 600px; }
+  .task { background: white; padding: 12px; border-radius: 6px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); cursor: pointer; border-left: 6px solid #ccc; transition: transform 0.1s; }
   .task:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-  
   .task-title { font-weight: 600; margin-bottom: 8px; }
-  
   .task-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.8em; }
-  
   .assignee { background: #dfe1e6; padding: 2px 8px; border-radius: 10px; font-weight: bold; }
-
   .priority { padding: 2px 8px; border-radius: 4px; color: white; font-weight: bold; }
-  .priority-Alta { background: #ff5630; }
-  .priority-Media { background: #ffab00; }
-  .priority-Baja { background: #36b37e; }
-
-  /* Formulario y UI */
+  .priority-Alta { background: #ff5630; } .priority-Media { background: #ffab00; } .priority-Baja { background: #36b37e; }
   .btn { padding: 10px 15px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
-  .btn-primary { background: var(--btn-primary); color: white; }
+  .btn-primary { background: var(--btn-primary); color: white; width: 100%; margin-bottom: 10px; }
   .btn-danger { background: var(--danger); color: white; }
-  
   dialog { border: none; border-radius: 8px; width: 400px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
   dialog::backdrop { background: rgba(0,0,0,0.6); }
-  
   .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
   .form-group label { margin-bottom: 5px; font-weight: bold; font-size: 0.85em; }
   .form-group input, .form-group select, .form-group textarea { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
   textarea { resize: vertical; min-height: 80px; }
-  
   .modal-actions { display: flex; justify-content: space-between; margin-top: 20px; }
 </style>
 </head>
 <body>
 
-<h2>Kanban Board - Equipo de Desarrollo</h2>
+<h2>Kanban Board - Equipo de Desarrollo (Conectado a Firebase)</h2>
 
 <div class="board">
   <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
     <h3>Por Hacer</h3>
-    <button class="btn btn-primary" style="width:100%" onclick="openModalForCreate('todo')">+ Nueva Tarea</button>
+    <button class="btn btn-primary" onclick="openModalForCreate('todo')">+ Nueva Tarea</button>
     <div class="task-container"></div>
   </div>
   
@@ -100,11 +60,7 @@
     <input type="hidden" id="taskId">
     <input type="hidden" id="columnId">
     
-    <div class="form-group">
-      <label>Título:</label>
-      <input type="text" id="taskTitle" required>
-    </div>
-
+    <div class="form-group"><label>Título:</label><input type="text" id="taskTitle" required></div>
     <div class="form-group">
       <label>Responsable:</label>
       <select id="taskAssignee">
@@ -113,47 +69,61 @@
         <option value="Dev B">Desarrollador B</option>
       </select>
     </div>
-
     <div class="form-group">
       <label>Prioridad:</label>
-      <select id="taskPriority">
-        <option value="Alta">Alta</option>
-        <option value="Media" selected>Media</option>
-        <option value="Baja">Baja</option>
-      </select>
+      <select id="taskPriority"><option value="Alta">Alta</option><option value="Media" selected>Media</option><option value="Baja">Baja</option></select>
     </div>
-
-    <div class="form-group">
-      <label>Color de Etiqueta:</label>
-      <input type="color" id="taskColor" value="#0052cc">
-    </div>
-
-    <div class="form-group">
-      <label>Descripción / Notas Detalladas:</label>
-      <textarea id="taskDesc" placeholder="Escribe aquí los detalles técnicos..."></textarea>
-    </div>
+    <div class="form-group"><label>Color:</label><input type="color" id="taskColor" value="#0052cc"></div>
+    <div class="form-group"><label>Descripción:</label><textarea id="taskDesc"></textarea></div>
 
     <div class="modal-actions">
+      <div><button type="button" class="btn btn-danger" id="deleteBtn" onclick="deleteCurrentTask()">Eliminar</button></div>
       <div>
-        <button type="button" class="btn btn-danger" id="deleteBtn" onclick="deleteCurrentTask()">Eliminar</button>
-      </div>
-      <div>
-        <button type="button" class="btn" onclick="closeModal()">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn" style="background:#dfe1e6; color:#172b4d;" onclick="closeModal()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" style="width:auto; margin-bottom:0;">Guardar</button>
       </div>
     </div>
   </form>
 </dialog>
 
-<script>
-  // --- ESTADO DE LA APP ---
-  let tasks = JSON.parse(localStorage.getItem('kanban-tasks')) || [];
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot } 
+    from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE (Reemplaza este objeto)
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyABFrlGcywZf9EIyTiW-mOwqHMXRazerbE",
+  authDomain: "aldrinbrkanbandevteam.firebaseapp.com",
+  projectId: "aldrinbrkanbandevteam",
+  storageBucket: "aldrinbrkanbandevteam.firebasestorage.app",
+  messagingSenderId: "273051385002",
+  appId: "1:273051385002:web:1caa573bdf6fd2349664d3"
+};
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  // Inicializar Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const tasksCollection = collection(db, "tasks");
+
+  let tasks = [];
   const modal = document.getElementById('taskModal');
   const form = document.getElementById('taskForm');
 
-  // --- RENDERIZADO ---
+  // ESCUCHAR CAMBIOS EN TIEMPO REAL (La magia ocurre aquí)
+  onSnapshot(tasksCollection, (snapshot) => {
+    tasks = [];
+    snapshot.forEach((doc) => {
+      tasks.push({ id: doc.id, ...doc.data() });
+    });
+    renderBoard();
+  });
+
   function renderBoard() {
-    // Limpiar contenedores
     document.querySelectorAll('.task-container').forEach(c => c.innerHTML = '');
 
     tasks.forEach(task => {
@@ -162,8 +132,8 @@
       taskEl.draggable = true;
       taskEl.id = task.id;
       taskEl.style.borderLeftColor = task.color;
-      taskEl.onclick = () => openModalForEdit(task.id);
-      taskEl.ondragstart = drag;
+      taskEl.onclick = () => window.openModalForEdit(task.id);
+      taskEl.ondragstart = window.drag;
 
       taskEl.innerHTML = `
         <div class="task-title">${task.title}</div>
@@ -173,26 +143,26 @@
         </div>
       `;
 
-      document.querySelector(`#${task.column} .task-container`).appendChild(taskEl);
+      // Prevenir error si la columna no existe
+      const column = document.querySelector(`#${task.column} .task-container`);
+      if (column) column.appendChild(taskEl);
     });
-    
-    localStorage.setItem('kanban-tasks', JSON.stringify(tasks));
   }
 
-  // --- LÓGICA DE MODAL ---
-  function openModalForCreate(colId) {
+  // --- EXPORTAR FUNCIONES AL WINDOW (Para que el HTML las pueda llamar) ---
+  
+  window.openModalForCreate = (colId) => {
     form.reset();
     document.getElementById('modalTitle').innerText = "Nueva Tarea";
     document.getElementById('taskId').value = '';
     document.getElementById('columnId').value = colId;
     document.getElementById('deleteBtn').style.display = 'none';
     modal.showModal();
-  }
+  };
 
-  function openModalForEdit(id) {
-    const task = tasks.find(t => t.id == id);
+  window.openModalForEdit = (id) => {
+    const task = tasks.find(t => t.id === id);
     if(!task) return;
-
     document.getElementById('modalTitle').innerText = "Detalles de Tarea";
     document.getElementById('taskId').value = task.id;
     document.getElementById('columnId').value = task.column;
@@ -204,15 +174,15 @@
     
     document.getElementById('deleteBtn').style.display = 'block';
     modal.showModal();
-  }
+  };
 
-  function closeModal() { modal.close(); }
+  window.closeModal = () => modal.close();
 
-  form.onsubmit = (e) => {
+  // GUARDAR / EDITAR EN FIREBASE
+  form.onsubmit = async (e) => {
     e.preventDefault();
     const id = document.getElementById('taskId').value;
     const taskData = {
-      id: id || Date.now().toString(),
       column: document.getElementById('columnId').value,
       title: document.getElementById('taskTitle').value,
       assignee: document.getElementById('taskAssignee').value,
@@ -221,43 +191,58 @@
       desc: document.getElementById('taskDesc').value
     };
 
-    if (id) {
-      // Editar
-      const index = tasks.findIndex(t => t.id == id);
-      tasks[index] = taskData;
-    } else {
-      // Crear
-      tasks.push(taskData);
+    try {
+      if (id) {
+        // Actualizar existente
+        await updateDoc(doc(db, "tasks", id), taskData);
+      } else {
+        // Crear nueva
+        await addDoc(tasksCollection, taskData);
+      }
+      window.closeModal();
+    } catch (e) {
+      console.error("Error guardando documento: ", e);
+      alert("Hubo un error al guardar. Revisa la consola.");
     }
-
-    renderBoard();
-    closeModal();
   };
 
-  function deleteCurrentTask() {
+  // ELIMINAR EN FIREBASE
+  window.deleteCurrentTask = async () => {
     const id = document.getElementById('taskId').value;
-    tasks = tasks.filter(t => t.id != id);
-    renderBoard();
-    closeModal();
-  }
+    if (confirm("¿Estás seguro de eliminar esta tarea?")) {
+      try {
+        await deleteDoc(doc(db, "tasks", id));
+        window.closeModal();
+      } catch (e) {
+        console.error("Error eliminando documento: ", e);
+      }
+    }
+  };
 
-  // --- DRAG AND DROP ---
-  function allowDrop(ev) { ev.preventDefault(); }
-  function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
-  function drop(ev) {
+  // DRAG AND DROP CON FIREBASE
+  window.allowDrop = (ev) => ev.preventDefault();
+  window.drag = (ev) => ev.dataTransfer.setData("text", ev.currentTarget.id);
+  window.drop = async (ev) => {
     ev.preventDefault();
     const id = ev.dataTransfer.getData("text");
     let target = ev.target;
-    while (!target.classList.contains('column')) target = target.parentElement;
     
-    const task = tasks.find(t => t.id == id);
-    task.column = target.id;
-    renderBoard();
-  }
-
-  // Inicializar
-  renderBoard();
+    while (!target.classList.contains('column')) {
+      target = target.parentElement;
+    }
+    
+    const newColumnId = target.id;
+    const task = tasks.find(t => t.id === id);
+    
+    // Solo actualiza si realmente cambió de columna
+    if (task && task.column !== newColumnId) {
+      try {
+        await updateDoc(doc(db, "tasks", id), { column: newColumnId });
+      } catch (e) {
+        console.error("Error actualizando columna: ", e);
+      }
+    }
+  };
 </script>
-
 </body>
 </html>
