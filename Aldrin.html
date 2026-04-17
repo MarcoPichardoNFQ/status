@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kanban Aldrin BR</title>
+<title>Kanban Dev Team V6 - Ultimate</title>
 <style>
   :root {
     --bg-color: #f4f5f7; --col-bg: #ebecf0; --text-main: #172b4d;
@@ -418,6 +418,34 @@ const firebaseConfig = {
     // Build change records for history
     const changeRecords = [];
     const newColumn = document.getElementById('columnId').value;
+	// VALIDAR COMBINACIONES DESDE EL MODAL (Edición manual)
+    if (newColumn === 'in-progress' && (newAssignee === 'Samuel' || newAssignee === 'Henrique' || newAssignee === 'Ambos (Pair)')) {
+      const currentTasks = tasks.filter(t => 
+        t.column === 'in-progress' && t.id !== id && 
+        (t.assignee === newAssignee || t.assignee === 'Ambos (Pair)' || (newAssignee === 'Ambos (Pair)' && (t.assignee === 'Samuel' || t.assignee === 'Henrique')))
+      );
+
+      if (newPriority === 'Alta') {
+        currentTasks.forEach(async (t) => {
+          try {
+            const changeRecord = { timestamp: getNow(), type: 'status-change', oldValue: t.column, newValue: 'todo' };
+            const newHistory = Array.isArray(t.history) ? [...t.history, changeRecord] : [changeRecord];
+            await updateDoc(doc(db, "tasks", t.id), { column: 'todo', history: newHistory });
+          } catch(e) { console.error(e); }
+        });
+      } else {
+        let countAlta = currentTasks.filter(t => t.priority === 'Alta').length;
+        let countMedia = currentTasks.filter(t => t.priority === 'Media').length;
+        let countBaja = currentTasks.filter(t => t.priority === 'Baja').length;
+
+        if (newPriority === 'Media') countMedia++;
+        if (newPriority === 'Baja') countBaja++;
+
+        if (countAlta > 0) { alert(`🚨 ${newAssignee} ya tiene una tarea ALTA. Termínala primero.`); return; }
+        if (countMedia > 1 || (countMedia === 1 && countBaja > 1)) { alert(`🚨 Límite: Solo se permite 1 Media y 1 Baja.`); return; }
+        if (countMedia === 0 && countBaja > 3) { alert(`🚨 Límite: Máximo 3 tareas Bajas.`); return; }
+      }
+    }
     if (existingTask) {
       if (existingTask.assignee !== newAssignee) changeRecords.push({ timestamp: getNow(), type: 'assignee-change', oldValue: existingTask.assignee, newValue: newAssignee });
       if (existingTask.priority !== newPriority) changeRecords.push({ timestamp: getNow(), type: 'priority-change', oldValue: existingTask.priority, newValue: newPriority });
@@ -476,26 +504,48 @@ const firebaseConfig = {
     const task = tasks.find(t => t.id === id);
     if (!task || task.column === newColumnId) return;
 
-    // VALIDAR LÍMITE WIP
-// VALIDAR LÍMITE WIP INDIVIDUAL Y PAIR
-    if (newColumnId === 'in-progress') {
-      // Contar cuántas tareas tienen actualmente en progreso (incluyendo las compartidas)
-      const samuelWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Samuel' || t.assignee === 'Ambos (Pair)')).length;
-      const henriqueWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Henrique' || t.assignee === 'Ambos (Pair)')).length;
+   // VALIDAR COMBINACIONES ESTRICTAS (Samuel, Henrique y Pair)
+    if (newColumnId === 'in-progress' && (task.assignee === 'Samuel' || task.assignee === 'Henrique' || task.assignee === 'Ambos (Pair)')) {
+      const assignee = task.assignee;
+      
+      // Obtener tareas que actualmente están en progreso afectando a este usuario
+      const currentTasks = tasks.filter(t => 
+        t.column === 'in-progress' && 
+        t.id !== id && 
+        (t.assignee === assignee || t.assignee === 'Ambos (Pair)' || (assignee === 'Ambos (Pair)' && (t.assignee === 'Samuel' || t.assignee === 'Henrique')))
+      );
 
-      if (task.assignee === 'Samuel' && samuelWIP >= 3) {
-        alert("🚨 ¡Límite superado! Samuel ya tiene 3 tareas en progreso.");
-        return;
+      if (task.priority === 'Alta') {
+        // REGLA 1: Si entra una ALTA, las demás regresan a "todo" automáticamente
+        currentTasks.forEach(async (t) => {
+          try {
+            const changeRecord = { timestamp: getNow(), type: 'status-change', oldValue: t.column, newValue: 'todo' };
+            const newHistory = Array.isArray(t.history) ? [...t.history, changeRecord] : [changeRecord];
+            await updateDoc(doc(db, "tasks", t.id), { column: 'todo', history: newHistory });
+          } catch(e) { console.error("Error al regresar tarea: ", e); }
+        });
+      } else {
+        // REGLAS 2 y 3: Validar combinaciones si NO es Alta
+        let countAlta = currentTasks.filter(t => t.priority === 'Alta').length;
+        let countMedia = currentTasks.filter(t => t.priority === 'Media').length;
+        let countBaja = currentTasks.filter(t => t.priority === 'Baja').length;
+
+        if (task.priority === 'Media') countMedia++;
+        if (task.priority === 'Baja') countBaja++;
+
+        if (countAlta > 0) {
+          alert(`🚨 Bloqueado: ${assignee} debe terminar la tarea ALTA actual antes de tomar otras.`);
+          return;
+        }
+        if (countMedia > 1 || (countMedia === 1 && countBaja > 1)) {
+          alert(`🚨 Combinación no permitida: Solo pueden tener 1 tarea Media y 1 Baja a la vez.`);
+          return;
+        }
+        if (countMedia === 0 && countBaja > 3) {
+          alert(`🚨 Combinación no permitida: Máximo de 3 tareas Bajas.`);
+          return;
+        }
       }
-      if (task.assignee === 'Henrique' && henriqueWIP >= 3) {
-        alert("🚨 ¡Límite superado! Henrique ya tiene 3 tareas en progreso.");
-        return;
-      }
-      if (task.assignee === 'Ambos (Pair)' && (samuelWIP >= 3 || henriqueWIP >= 3)) {
-        alert("🚨 ¡Límite superado! No pueden tomar una tarea en Pair porque Samuel o Henrique ya están al tope de su capacidad (3).");
-        return;
-      }
-      // Si el assignee es 'Líder' o 'Sin asignar', pasará directo sin restricciones
     }
     let ts = task.timestamps || {};
     if (newColumnId === 'in-progress' && task.column === 'todo') {
