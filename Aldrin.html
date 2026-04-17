@@ -81,7 +81,7 @@
   <h2>Aldrin Dev Team</h2>
   <!-- <div class="filters">
     <button class="filter-btn active" id="btn-filter-all" onclick="setFilter('all')">Todas</button>
-    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Líder)</button>
+    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Marco)</button>
     <button class="filter-btn" id="btn-filter-high" onclick="setFilter('high')">🔥 Alta Prioridad</button>
   </div> -->
 </div>
@@ -127,9 +127,9 @@
         <label>Responsable:</label>
         <select id="taskAssignee">
           <option value="Sin asignar">-- Sin asignar --</option>
-          <option value="Líder">Marco</option>
-          <option value="Dev A">Henrique</option>
-          <option value="Dev B">Samuel</option>
+          <option value="Marco">Marco</option>
+          <option value="Henrique">Henrique</option>
+          <option value="Samuel">Samuel</option>
           <option value="Ambos (Pair)">Ambos (Pair)</option>
         </select>
       </div>
@@ -198,7 +198,7 @@ const firebaseConfig = {
   const modal = document.getElementById('taskModal');
   const form = document.getElementById('taskForm');
 
-  const colorMap = { "Sin asignar": "#ffffff", "Líder": "#e6efff", "Dev A": "#e6ffe6", "Dev B": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
+  const colorMap = { "Sin asignar": "#ffffff", "Marco": "#e6efff", "Henrique": "#e6ffe6", "Samuel": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
   const WIP_LIMIT = 2; // Límite de tareas en progreso del equipo
 
   // Filtros
@@ -221,7 +221,7 @@ const firebaseConfig = {
 
     // Aplicar Filtro
     let filteredTasks = tasks.filter(t => {
-      if (currentFilter === 'mine') return t.assignee === 'Líder' || t.assignee === 'Ambos (Pair)';
+      if (currentFilter === 'mine') return t.assignee === 'Marco' || t.assignee === 'Ambos (Pair)';
       if (currentFilter === 'high') return t.priority === 'Alta';
       return true; // 'all'
     });
