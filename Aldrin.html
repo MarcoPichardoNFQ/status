@@ -52,7 +52,59 @@
   
   /* ESTILO COMPACTO TERMINADO */
   #done .task {  font-size: 0.9em;padding: 8px; opacity: 0.7; box-shadow: none; }
-  
+    /*--ordenar tareas por data de creación--*/
+  /*para ordenar las tareas por fecha de creación el codigo será el siguiente: considerando 
+     <div class="timestamps-box" id="timestampsBox">
+          <p><b>Creada:</b> <span id="tsCreated">-</span></p>
+          <p><b>Asignada:</b> <span id="tsAssigned">-</span></p>
+          <p><b>Iniciada:</b> <span id="tsStarted">-</span></p>
+          <p><b>Terminada:</b> <span id="tsFinished">-</span></p>
+        </div>
+  el codigo seria :
+  filteredTasks.sort((a, b) => {
+      const dateA = new Date(a.timestamps?.createdMs || 0);
+      const dateB = new Date(b.timestamps?.createdMs || 0);
+      return dateA - dateB; // Orden ascendente por fecha de creación
+    });
+  y modificamos en la lin:
+  filteredTasks.forEach(task => {
+      if (task.column === 'done') {
+        // Sumar puntos a la columna
+        const taskPts = parseInt(task.points || 0);
+        pts[task.column] += taskPts;
+
+        const taskEl = document.createElement('div');
+        taskEl.className = 'task';
+        taskEl.draggable = true;
+        taskEl.id = task.id;
+        taskEl.style.backgroundColor = colorMap[task.assignee] || "#ffffff";
+        
+        // Lógica de Alarma "Estancada" (> 3 días)
+        // Para probarlo hoy, cambia 259200000 (3 días) por 60000 (1 minuto)
+        if (task.column === 'in-progress' && task.timestamps && task.timestamps.startedMs) {
+          const timeInProg = Date.now() - task.timestamps.startedMs;
+          if (timeInProg > 259200000) { // 3 días en milisegundos
+            taskEl.classList.add('stale');
+          }
+        }
+
+        taskEl.onclick = () => window.openModalForEdit(task.id);
+        taskEl.ondragstart = window.drag;
+
+        taskEl.innerHTML = `
+          <span class="pts-badge-task">${task.points || '-'}</span>
+          <div class="task-title">${task.title}</div>
+          <div class="task-footer">
+            <span class="assignee">${task.assignee}</span>
+            <span class="priority priority-${task.priority}">${task.priority}</span>
+          </div>
+        `;
+
+        const container = document.querySelector(`#${task.column} .task-container`);
+        if (container) container.appendChild(taskEl);
+      }
+    });
+  */
   #done .priority, #done .pts-badge-task { display: none }
   #done .assignee { font-size: 0.9em; background: transparent; border: none; padding: 0;}
 
@@ -273,11 +325,15 @@ const firebaseConfig = {
     });
 
     // Ordenar (Alta arriba)
-    filteredTasks.sort((a, b) => {
+    /*filteredTasks.sort((a, b) => {
       const p = { "Alta": 1, "Media": 2, "Baja": 3 };
       return p[a.priority] - p[b.priority];
+    });*/
+filteredTasks.sort((a, b) => {
+      const dateA = new Date(a.timestamps?.createdMs || 0);
+      const dateB = new Date(b.timestamps?.createdMs || 0);
+      return dateA - dateB; // Orden ascendente por fecha de creación
     });
-
     filteredTasks.forEach(task => {
       // Sumar puntos a la columna
       const taskPts = parseInt(task.points || 0);
