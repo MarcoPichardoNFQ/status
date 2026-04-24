@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kanban Dev BR V6</title>
-<style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Dev Team V6 - Ultimate</title>
+    <style>
   :root {
     --bg-color: #f4f5f7; --col-bg: #ebecf0; --text-main: #172b4d;
     --btn-primary: #0052cc; --btn-hover: #0047b3; --danger: #de350b; --success: #00875a;
@@ -74,86 +74,95 @@
   .timestamps-box { background: #f4f5f7; padding: 10px; border-radius: 5px; font-size: 0.75em; color: #5e6c84; margin-top: 15px; display: none; }
   .timestamps-box p { margin: 3px 0; }
 </style>
-</head>
-<body>
+  </head>
+  <body>
 
-<div class="header-controls">
-  <h2>Aldrin Dev Team</h2>
-  <!-- <div class="filters">
+    <div class="header-controls">
+      <h2>Aldrin Dev Team</h2>
+      <!-- <div class="filters">
     <button class="filter-btn active" id="btn-filter-all" onclick="setFilter('all')">Todas</button>
-    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Líder)</button>
+    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Marco)</button>
     <button class="filter-btn" id="btn-filter-high" onclick="setFilter('high')">🔥 Alta Prioridad</button>
   </div> -->
-</div>
+    </div>
 
-<div class="board">
-  <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <div class="col-header">
-      <h3>Por Hacer</h3>
-      <span class="pts-badge-col" id="pts-todo">0 pts</span>
-    </div>
-    <button class="btn btn-primary" onclick="openModalForCreate('todo')">+ Nueva Tarea</button>
-    <div class="task-container"></div>
-  </div>
-  
-  <div class="column" id="in-progress" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <div class="col-header">
-      <h3>En Progreso (Max 4)</h3>
-      <span class="pts-badge-col" id="pts-in-progress">0 pts</span>
-    </div>
-    <div class="task-container"></div>
-  </div>
-  
-  <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <div class="col-header">
-      <h3>Terminado</h3>
-      <span class="pts-badge-col" id="pts-done">0 pts</span>
-    </div>
-    <button class="btn btn-success" onclick="exportAndClearRetro()">📥 Sprint Retro (CSV)</button>
-    <div class="task-container"></div>
-  </div>
-</div>
-
-<dialog id="taskModal">
-  <h3 id="modalTitle">Nueva Tarea</h3>
-  <form id="taskForm">
-    <input type="hidden" id="taskId">
-    <input type="hidden" id="columnId">
-    
-    <div class="form-group"><label>Título:</label><input type="text" id="taskTitle" required></div>
-    
-    <div class="form-row">
-      <div class="form-group">
-        <label>Responsable:</label>
-        <select id="taskAssignee">
-          <option value="Sin asignar">-- Sin asignar --</option>
-          <option value="Líder">Marco</option>
-          <option value="Henrique">Henrique</option>
-          <option value="Samuel">Samuel</option>
-          <option value="Ambos (Pair)">Ambos (Pair)</option>
-        </select>
+    <div class="board">
+      <div class="column" id="todo" ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+        <div class="col-header">
+          <h3>Por Hacer</h3>
+          <span class="pts-badge-col" id="pts-todo">0 pts</span>
+        </div>
+        <button class="btn btn-primary" onclick="openModalForCreate('todo')">+
+          Nueva Tarea</button>
+        <div class="task-container"></div>
       </div>
-      <div class="form-group">
-        <label>Puntos (Esfuerzo):</label>
-        <select id="taskPoints">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3" selected>3</option>
-          <option value="5">5</option>
-          <option value="8">8</option>
-          <option value="13">13</option>
-        </select>
+
+      <div class="column" id="in-progress" ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+        <div class="col-header">
+          <h3>En Progreso (Max 4)</h3>
+          <span class="pts-badge-col" id="pts-in-progress">0 pts</span>
+        </div>
+        <div class="task-container"></div>
+      </div>
+
+      <div class="column" id="done" ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+        <div class="col-header">
+          <h3>Terminado</h3>
+          <span class="pts-badge-col" id="pts-done">0 pts</span>
+        </div>
+        <button class="btn btn-success" onclick="exportAndClearRetro()">📥
+          Sprint Retro (CSV)</button>
+        <div class="task-container"></div>
       </div>
     </div>
 
-    <div class="form-group">
-      <label>Prioridad:</label>
-	  
-      <select id="taskPriority"><option value="Alta">Alta</option><option value="Media" selected>Media</option><option value="Baja">Baja</option></select>
-    </div>
-	
-    <div class="form-group"><label>Descripción:</label><textarea id="taskDesc"></textarea></div>
-	<!-- añadir todo el historico de cambios se haria de la siguiente manera:
+    <dialog id="taskModal">
+      <h3 id="modalTitle">Nueva Tarea</h3>
+      <form id="taskForm">
+        <input type="hidden" id="taskId">
+        <input type="hidden" id="columnId">
+
+        <div class="form-group"><label>Título:</label><input type="text"
+            id="taskTitle" required></div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Responsable:</label>
+            <select id="taskAssignee">
+              <option value="Sin asignar">-- Sin asignar --</option>
+              <option value="Marco">Marco</option>
+              <option value="Henrique">Henrique</option>
+              <option value="Samuel">Samuel</option>
+              <option value="Ambos (Pair)">Ambos (Pair)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Puntos (Esfuerzo):</label>
+            <select id="taskPoints">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="5">5</option>
+              <option value="8">8</option>
+              <option value="13">13</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Prioridad:</label>
+
+          <select id="taskPriority"><option value="Alta">Alta</option><option
+              value="Media" selected>Media</option><option
+              value="Baja">Baja</option></select>
+        </div>
+
+        <div class="form-group"><label>Descripción:</label><textarea
+            id="taskDesc"></textarea></div>
+        <!-- añadir todo el historico de cambios se haria de la siguiente manera:
 	 deberia haber un array de objetos dentro de cada tarea llamado "history" y cada vez que se haga un cambio importante (cambio de estado, cambio de responsable, cambio de prioridad) se añade un nuevo objeto a ese array con la siguiente estructura:
 	 El codigo para el contenido del objeto dinamico sería algo así:
 const changeRecord = {
@@ -170,38 +179,42 @@ Luego, para mostrar ese historial en el modal, se podría añadir una nueva secc
 todo esto se añade en la linea numero 150, justo debajo del div de timestamps, y el código para rellenar ese historial al abrir el modal de edición sería algo así:
 
 	 -->
-	
-	
-	
-	
 
-    <div class="timestamps-box" id="timestampsBox">
-      <p><b>Creada:</b> <span id="tsCreated">-</span></p>
-      <p><b>Asignada:</b> <span id="tsAssigned">-</span></p>
-      <p><b>Iniciada:</b> <span id="tsStarted">-</span></p>
-      <p><b>Terminada:</b> <span id="tsFinished">-</span></p>
-    </div>
+        <div class="timestamps-box" id="timestampsBox">
+          <p><b>Creada:</b> <span id="tsCreated">-</span></p>
+          <p><b>Asignada:</b> <span id="tsAssigned">-</span></p>
+          <p><b>Iniciada:</b> <span id="tsStarted">-</span></p>
+          <p><b>Terminada:</b> <span id="tsFinished">-</span></p>
+        </div>
 
-    <div style="margin-top:10px;">
-      <button type="button" class="btn" id="toggleHistoryBtn" onclick="toggleHistory()">Ver Historial</button>
-    </div>
+        <div style="margin-top:10px;">
+          <button type="button" class="btn" id="toggleHistoryBtn"
+            onclick="toggleHistory()">Ver Historial</button>
+        </div>
 
-    <div class="history-box" id="historyBox" style="display:none; margin-top:15px; background:#f4f5f7; padding:10px; border-radius:5px;">
-      <h4>Historial de Cambios</h4>
-      <ul id="historyList" style="list-style:none; padding-left:0; margin:0;"></ul>
-    </div>
+        <div class="history-box" id="historyBox"
+          style="display:none; margin-top:15px; background:#f4f5f7; padding:10px; border-radius:5px;">
+          <h4>Historial de Cambios</h4>
+          <ul id="historyList"
+            style="list-style:none; padding-left:0; margin:0;"></ul>
+        </div>
 
-    <div style="display:flex; justify-content:space-between; margin-top: 20px;">
-      <div><button type="button" class="btn btn-danger" id="deleteBtn" onclick="deleteCurrentTask()">Eliminar</button></div>
-      <div>
-        <button type="button" class="btn" style="background:#dfe1e6; color:#172b4d;" onclick="closeModal()">Cancelar</button>
-        <button type="submit" class="btn btn-primary" style="width:auto; margin-bottom:0;">Guardar</button>
-      </div>
-    </div>
-  </form>
-</dialog>
+        <div
+          style="display:flex; justify-content:space-between; margin-top: 20px;">
+          <div><button type="button" class="btn btn-danger" id="deleteBtn"
+              onclick="deleteCurrentTask()">Eliminar</button></div>
+          <div>
+            <button type="button" class="btn"
+              style="background:#dfe1e6; color:#172b4d;"
+              onclick="closeModal()">Cancelar</button>
+            <button type="submit" class="btn btn-primary"
+              style="width:auto; margin-bottom:0;">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
 
-<script type="module">
+    <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
   import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot } 
     from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
@@ -230,7 +243,7 @@ const firebaseConfig = {
   const modal = document.getElementById('taskModal');
   const form = document.getElementById('taskForm');
 
-  const colorMap = { "Sin asignar": "#ffffff", "Líder": "#e6efff", "Henrique": "#e6ffe6", "Samuel": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
+  const colorMap = { "Sin asignar": "#ffffff", "Marco": "#e6efff", "Henrique": "#e6ffe6", "Samuel": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
   const WIP_LIMIT = 3; // Límite de tareas en progreso del equipo
   //el limite deberia ser por persona y se ajusta el codigo de la linea 
 
@@ -254,7 +267,7 @@ const firebaseConfig = {
 
     // Aplicar Filtro
     let filteredTasks = tasks.filter(t => {
-      if (currentFilter === 'mine') return t.assignee === 'Líder' || t.assignee === 'Ambos (Pair)';
+      if (currentFilter === 'mine') return t.assignee === 'Marco' || t.assignee === 'Ambos (Pair)';
       if (currentFilter === 'high') return t.priority === 'Alta';
       return true; // 'all'
     });
@@ -391,7 +404,7 @@ const firebaseConfig = {
       }
     }
 	//regla:: bloquear si hay altas sin asignar, pero solo para el lider, los devs pueden asignarse aunque haya altas sin asignar
-	if (isSelfAssigning && newPriority !== "Alta" && newAssignee === "Líder") {
+	if (isSelfAssigning && newPriority !== "Alta" && newAssignee === "Marco") {
 	  const unassignedHigh = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Alta" && t.column === "todo" && t.id !== id);
 	  if (unassignedHigh) {
 		alert("⚠️ Hay tareas ALTA sin asignar. Toma esas primero.");
@@ -600,5 +613,5 @@ const firebaseConfig = {
     }
   };
 </script>
-</body>
+  </body>
 </html>
