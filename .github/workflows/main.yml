@@ -21,7 +21,7 @@ jobs:
       - name: Instalar dependencias Python
         run: |
           python -m pip install --upgrade pip
-          pip install pandas
+          pip install -r requirements.txt
 
       - name: Ejecutar script 1
         run: python scripts/1.py
