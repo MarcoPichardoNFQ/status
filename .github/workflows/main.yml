@@ -30,7 +30,7 @@ jobs:
         run: python scripts/2.py
 
       - name: Instalar dependencias Node
-        run: npm ci
+        run: npm install
 
       - name: Build
         run: npm run build
