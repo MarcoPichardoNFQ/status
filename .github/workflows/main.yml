@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Modificar JSON
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  update-json:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,19 +21,19 @@ jobs:
       - name: Instalar dependencias Python
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install pandas
 
-      - name: Modificar JSON
+      - name: Ejecutar script 1
         run: python scripts/1.py
 
-      - name: Modificar JSON2
+      - name: Ejecutar script 2
         run: python scripts/2.py
 
-      - name: Instalar dependencias Node
-        run: npm install
+      - name: Commit cambios
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
 
-      - name: Build
-        run: npm run build
-
-      - name: Deploy
-        run: npm run deploy
+          git add .
+          git diff --cached --quiet || git commit -m "Actualizacion automatica JSON"
+          git push
