@@ -1,673 +1,938 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban Dev Team V6 - Ultimate</title>
-    <style>
-  :root {
-    --bg-color: #f4f5f7; --col-bg: #ebecf0; --text-main: #172b4d;
-    --btn-primary: #0052cc; --btn-hover: #0047b3; --danger: #de350b; --success: #00875a;
-  }
-  body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); padding: 30px; color: var(--text-main); margin: 0;}
-  
-  /* Cabecera y Filtros */
-  .header-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-  .filters { display: flex; gap: 10px; }
-  .filter-btn { padding: 6px 12px; border-radius: 15px; border: 1px solid #ccc; background: white; cursor: pointer; font-weight: bold; transition: 0.2s;}
-  .filter-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
-  
-  /* Tablero */
-  .board { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
-  .column { background: var(--col-bg); border-radius: 8px; width: 320px; min-width: 320px; padding: 15px; min-height: 600px; display: flex; flex-direction: column;}
-  .col-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #dfe1e6; padding-bottom: 10px; margin-bottom: 15px;}
-  .col-header h3 { margin: 0; font-size: 1.1em; }
-  .pts-badge-col { background: #dfe1e6; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
-  .task-container { flex-grow: 1; min-height: 50px; }
 
-  /* Tarjetas Dinámicas */
-  .task { 
-    padding: 12px; border-radius: 6px; margin-bottom: 12px; 
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15); cursor: pointer; 
-    transition: transform 0.1s; border: 1px solid rgba(0,0,0,0.05);
-    position: relative;
-  }
-  .task:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-  .task-title { font-weight: 600; margin-bottom: 8px; font-size: 0.95em; padding-right: 25px;}
-  .task-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.8em; }
-  .assignee { background: rgba(255,255,255,0.6); padding: 2px 8px; border-radius: 10px; font-weight: bold; border: 1px solid rgba(0,0,0,0.1); }
-  .pts-badge-task { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.1); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75em; font-weight: bold; }
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Misión Apollo-Aldrin | Data Analytics Hub</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://unpkg.com/lucide@latest"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
 
-  /* Tarea Estancada (Stale) */
-  .stale { animation: pulseRed 2s infinite; border: 2px solid var(--danger); }
-  @keyframes pulseRed { 
-    0% { box-shadow: 0 0 0 0 rgba(222,53,11, 0.4); } 
-    70% { box-shadow: 0 0 0 8px rgba(222,53,11, 0); } 
-    100% { box-shadow: 0 0 0 0 rgba(222,53,11, 0); } 
-  }
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: #040814;
+			color: #cbd5e1;
+		}
 
-  /* Prioridades */
-  .priority { padding: 2px 8px; border-radius: 4px; color: white; font-weight: bold; }
-  .priority-Alta { background: #ff5630; } .priority-Media { background: #ffab00; } .priority-Baja { background: #36b37e; }
-  
-  /* ESTILO COMPACTO TERMINADO */
-  #done .task {  font-size: 0.9em;padding: 8px; opacity: 0.7; box-shadow: none; }
-    /*--ordenar tareas por data de creación--*/
-  /*para ordenar las tareas por fecha de creación el codigo será el siguiente: considerando 
-     <div class="timestamps-box" id="timestampsBox">
-          <p><b>Creada:</b> <span id="tsCreated">-</span></p>
-          <p><b>Asignada:</b> <span id="tsAssigned">-</span></p>
-          <p><b>Iniciada:</b> <span id="tsStarted">-</span></p>
-          <p><b>Terminada:</b> <span id="tsFinished">-</span></p>
-        </div>
-  el codigo seria :
-  filteredTasks.sort((a, b) => {
-      const dateA = new Date(a.timestamps?.createdMs || 0);
-      const dateB = new Date(b.timestamps?.createdMs || 0);
-      return dateA - dateB; // Orden ascendente por fecha de creación
-    });
-  y modificamos en la lin:
-  filteredTasks.forEach(task => {
-      if (task.column === 'done') {
-        // Sumar puntos a la columna
-        const taskPts = parseInt(task.points || 0);
-        pts[task.column] += taskPts;
+		h1,
+		h2,
+		h3,
+		.font-space {
+			font-family: 'Space Grotesk', sans-serif;
+		}
 
-        const taskEl = document.createElement('div');
-        taskEl.className = 'task';
-        taskEl.draggable = true;
-        taskEl.id = task.id;
-        taskEl.style.backgroundColor = colorMap[task.assignee] || "#ffffff";
-        
-        // Lógica de Alarma "Estancada" (> 3 días)
-        // Para probarlo hoy, cambia 259200000 (3 días) por 60000 (1 minuto)
-        if (task.column === 'in-progress' && task.timestamps && task.timestamps.startedMs) {
-          const timeInProg = Date.now() - task.timestamps.startedMs;
-          if (timeInProg > 259200000) { // 3 días en milisegundos
-            taskEl.classList.add('stale');
-          }
+		.tab-pane {
+			display: none;
+		}
+
+		.tab-pane.active {
+			display: block;
+			animation: zoomInFade 0.4s ease-out forwards;
+		}
+
+		@keyframes zoomInFade {
+			from {
+				opacity: 0;
+				transform: translateY(10px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.glass-panel {
+			background: rgba(11, 18, 33, 0.85);
+			backdrop-filter: blur(12px);
+			border: 1px solid rgba(8, 145, 178, 0.3);
+		}
+
+		.card-kpi {
+			transition: all 0.3s ease;
+		}
+
+		.card-kpi:hover {
+			transform: translateY(-5px);
+			border-color: rgba(34, 211, 238, 0.6);
+			box-shadow: 0 10px 25px -5px rgba(8, 145, 178, 0.2);
+		}
+
+		.tab-btn.active {
+			background: rgba(8, 47, 73, 0.6);
+			color: #22d3ee;
+			border-color: rgba(8, 145, 178, 0.5);
+		}
+
+		/* Custom scrollbar para contenedores */
+		::-webkit-scrollbar {
+			width: 8px;
+			height: 8px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: rgba(4, 8, 20, 0.5);
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: rgba(8, 145, 178, 0.5);
+			border-radius: 4px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: rgba(8, 145, 178, 0.8);
+		}
+	</style>
+</head>
+
+<body class="min-h-screen pb-12">
+
+	<header class="relative z-50 bg-[#04060a]/90 backdrop-blur-md border-b border-cyan-900/50 shadow-lg sticky top-0">
+		<div class="w-11/12 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center h-24">
+				<div class="flex items-center space-x-6">
+					<svg width="48" height="48" viewBox="0 0 100 100" fill="none"
+						class="drop-shadow-[0_0_10px_rgba(250,204,21,0.6)]">
+						<circle cx="50" cy="50" r="46" fill="#040814" stroke="#facc15" stroke-width="2"
+							stroke-dasharray="4 2" class="animate-[spin_20s_linear_infinite]" />
+						<circle cx="50" cy="50" r="38" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
+						<path d="M30 65 C 20 40, 40 20, 70 30" stroke="#facc15" stroke-width="1.5"
+							stroke-dasharray="3 3" fill="none" />
+						<path d="M55 25 L 65 15 L 75 25 L 70 55 L 60 55 Z" fill="#e2e8f0" stroke="#ffffff"
+							stroke-width="1" />
+						<circle cx="35" cy="65" r="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+						<circle cx="33" cy="63" r="2" fill="#334155" />
+					</svg>
+					<div>
+						<h1 class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
+							Misión Apollo-Aldrin
+						</h1>
+						<p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Advanced Telemetry &
+							Analytics</p>
+					</div>
+				</div>
+
+				<div class="flex items-center space-x-8 overflow-x-auto pb-2 xl:pb-0">
+					<nav
+						class="flex space-x-3 bg-[#0b1221] p-2 rounded-xl border border-cyan-900/30 shadow-inner whitespace-nowrap">
+						<button onclick="switchTab('megara')" id="btn-megara"
+							class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
+							<i data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces
+						</button>
+						<button onclick="switchTab('reporting')" id="btn-reporting"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
+							<i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 2. Reporting
+						</button>
+						<button onclick="switchTab('infra')" id="btn-infra"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
+							<i data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infra & API
+						</button>
+						<button onclick="switchTab('uat')" id="btn-uat"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent">
+							<i data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT
+							<span
+								class="ml-2 bg-indigo-500/20 text-indigo-400 py-0.5 px-2.5 rounded font-mono text-xs border border-indigo-500/30">12</span>
+						</button>
+						<button onclick="switchTab('graficas')" id="btn-graficas"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
+							<i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 5. Analytics Hub
+						</button>
+					</nav>
+					<div class="hidden lg:flex items-center space-x-6 border-l border-cyan-900/50 pl-8 h-12">
+						<img src="https://lh3.googleusercontent.com/d/13_MI7hp3FM5zOgxBYPU-2pq-kRuICS6_"
+							alt="Logo Cliente"
+							class="h-10 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
+						<img src="https://lh3.googleusercontent.com/d/1ZWZ7TzS5FsxCjvfCOtSfymWEnk7Cwb09"
+							alt="Logo Partner"
+							class="h-9 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
+					</div>
+				</div>
+			</div>
+		</div>
+		<main class="relative z-10 w-11/12 max-w-[1600px] mx-auto px-4 py-10">
+			<div id="tab-megara" class="tab-pane active space-y-8">
+				<div class="flex justify-between items-end mb-6 border-l-4 border-cyan-500 pl-5">
+					<div>
+						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">1.
+							Interfaces Megara
+						</h2>
+						<p class="text-cyan-600 font-mono text-sm uppercase tracking-widest">Estado
+							de integración de
+							extracción y mapeos SAC
+						</p>
+					</div>
+				</div>
+				<div class="glass-panel rounded-2xl overflow-hidden">
+					<div class="overflow-x-auto">
+						<table class="min-w-full divide-y divide-cyan-900/30">
+							<thead class="bg-[#04060a]">
+								<tr>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
+										Tema / Tarea
+									</th>
+									<th
+										class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
+										Entorno / Flujo
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
+										Comentarios de Telemetría
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+										Siguientes Pasos
+									</th>
+								</tr>
+							</thead>
+							<tbody id="tbody-megara" class="divide-y divide-cyan-900/20"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div id="tab-reporting" class="tab-pane  space-y-8">
+				<div class="flex justify-between items-end mb-6 border-l-4 border-indigo-500 pl-5">
+					<div>
+						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">2.
+							Módulo de Reporting
+						</h2>
+						<p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Desarrollo
+							de Informes y
+							Qlik
+						</p>
+					</div>
+				</div>
+				<div class="glass-panel rounded-2xl overflow-hidden">
+					<div class="overflow-x-auto">
+						<table class="min-w-full divide-y divide-cyan-900/30">
+							<thead class="bg-[#04060a]">
+								<tr>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
+										Tema / Tarea
+									</th>
+									<th
+										class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
+										Entorno / Flujo
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
+										Comentarios de Telemetría
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+										Siguientes Pasos
+									</th>
+								</tr>
+							</thead>
+							<tbody id="tbody-reporting" class="divide-y divide-cyan-900/20"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="tab-infra" class="tab-pane space-y-8">
+				<div class="flex justify-between items-end mb-6 border-l-4 border-emerald-500 pl-5">
+					<div>
+						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">3.
+							Infraestructura & API
+						</h2>
+						<p class="text-emerald-400 font-mono text-sm uppercase tracking-widest">Tiempos
+							de carga,
+							Datahub y llamadas Rundeck
+						</p>
+					</div>
+				</div>
+				<div class="glass-panel rounded-2xl overflow-hidden">
+					<div class="overflow-x-auto">
+						<table class="min-w-full divide-y divide-cyan-900/30">
+							<thead class="bg-[#04060a]">
+								<tr>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
+										Tema / Tarea
+									</th>
+									<th
+										class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
+										Entorno / Flujo
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
+										Comentarios de Telemetría
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+										Siguientes Pasos
+									</th>
+								</tr>
+							</thead>
+							<tbody id="tbody-infra" class="divide-y divide-cyan-900/20"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="tab-uat" class="tab-pane space-y-8">
+				<div class="flex justify-between items-end mb-6 border-l-4 border-indigo-400 pl-5">
+					<div>
+						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">4.
+							Backlog de
+							Actividades (UAT)
+						</h2>
+						<p class="text-indigo-400 font-mono text-sm uppercase tracking-widest">Actividades
+							planificadas
+							en cola de validación a largo plazo
+						</p>
+					</div>
+				</div>
+				<div class="glass-panel rounded-2xl overflow-hidden">
+					<div class="overflow-x-auto">
+						<table class="min-w-full divide-y divide-900/30">
+							<thead class="bg-[#04060a]">
+								<tr>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/4">
+										Tema / Tarea
+									</th>
+									<th
+										class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/6">
+										Entorno / Flujo
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest w-1/3">
+										Comentarios de Telemetría
+									</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+										Siguientes Pasos
+									</th>
+								</tr>
+							</thead>
+							<tbody id="tbody-uat" class="divide-y divide-900/20"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="tab-graficas" class="tab-pane  space-y-8">
+
+				<div
+					class="glass-panel p-6 rounded-2xl flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 shadow-2xl border-t-4 border-t-fuchsia-500  sticky top-30">
+					<div>
+						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider font-space">Centro de
+							Análisis ETL</h2>
+						<p id="subtitulo-graficas" class="text-fuchsia-400 font-mono text-sm uppercase">Cargando
+							telemetría...</p>
+					</div>
+
+					<div
+						class="flex flex-wrap lg:flex-nowrap items-center gap-4 bg-[#080d1a] p-3 rounded-xl border border-cyan-900/50">
+						<div class="flex flex-col px-3 border-r border-cyan-900/50">
+							<span class="text-[10px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Tipo de
+								Ejecución</span>
+							<select id="filtroDatos"
+								class="bg-transparent text-white border-none font-mono text-sm outline-none cursor-pointer">
+								<option value="todos">Todas (Auto + Manual)</option>
+								<option value="solo_auto">Únicamente Automáticas</option>
+								<option value="solo_ma">Únicamente Manuales</option>
+							</select>
+						</div>
+
+						<div class="flex flex-col px-3">
+							<span class="text-[10px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Filtro
+								Semanal</span>
+							<div class="flex space-x-4 font-mono text-sm" id="filtroSemanas">
+								<label class="flex items-center space-x-2 cursor-pointer text-sky-400">
+									<input type="checkbox" value="0"
+										class="chk-semana form-checkbox bg-slate-800 border-sky-500 rounded text-sky-500 focus:ring-sky-500"
+										checked>
+									<span>W24 (Actual)</span>
+								</label>
+								<label class="flex items-center space-x-2 cursor-pointer text-indigo-400">
+									<input type="checkbox" value="1"
+										class="chk-semana form-checkbox bg-slate-800 border-indigo-500 rounded text-indigo-500 focus:ring-indigo-500"
+										checked>
+									<span>W23 (Prev)</span>
+								</label>
+								<label class="flex items-center space-x-2 cursor-pointer text-rose-400">
+									<input type="checkbox" value="2"
+										class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500"
+										checked>
+									<span>W22 (Prev-2)</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
+					<div class="xl:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-cyan-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between">
+									<span><i data-lucide="clock" class="w-3 h-3 inline mr-1"></i> Duración Media</span>
+								</p>
+								<h4 id="kpi-duracion" class="text-4xl font-bold text-white font-space mt-2">0.0</h4>
+								<p class="text-sm text-cyan-500 font-mono">minutos / ejecución</p>
+							</div>
+							<div id="delta-duracion"
+								class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center">
+							</div>
+						</div>
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-indigo-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between">
+									<span><i data-lucide="hard-drive" class="w-3 h-3 inline mr-1"></i> Tamaño
+										Medio</span>
+								</p>
+								<h4 id="kpi-tamano" class="text-4xl font-bold text-white font-space mt-2">0</h4>
+								<p class="text-sm text-indigo-500 font-mono">bytes procesados</p>
+							</div>
+							<div id="delta-tamano"
+								class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center">
+							</div>
+						</div>
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-rose-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between">
+									<span><i data-lucide="activity" class="w-3 h-3 inline mr-1"></i> Volumen
+										Eventos</span>
+								</p>
+								<h4 id="kpi-ejecuciones" class="text-4xl font-bold text-white font-space mt-2">0</h4>
+								<p class="text-sm text-rose-500 font-mono">cargas totales</p>
+							</div>
+							<div id="delta-volumen"
+								class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center">
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="glass-panel rounded-xl p-5 border border-amber-500/30 bg-gradient-to-br from-[#0b1221] to-amber-900/10">
+						<h3
+							class="text-amber-500 font-space font-bold uppercase tracking-widest text-xs mb-3 flex items-center">
+							<i data-lucide="cpu" class="w-4 h-4 mr-2"></i> Insights Automáticos
+						</h3>
+						<div id="insight-text" class="text-sm text-slate-300 leading-relaxed font-inter space-y-3">
+							Cargando análisis...
+						</div>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+					<div class="glass-panel rounded-2xl p-6 lg:col-span-2 relative">
+						<div class="flex justify-between items-center mb-4">
+							<h3 class="text-sky-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia de
+								Tiempos de Ejecución (Minutos)</h3>
+							<span
+								class="text-[10px] text-slate-500 uppercase font-mono tracking-wider border border-slate-700 px-2 py-1 rounded">Incluye
+								4 líneas promedio (Dinámicas)</span>
+						</div>
+						<div class="h-[300px] w-full"><canvas id="chartDuracion"></canvas></div>
+					</div>
+
+					<div class="glass-panel rounded-2xl p-6 relative">
+						<h3 class="text-indigo-400 font-space font-bold uppercase tracking-widest text-sm mb-4">
+							Evolución de
+							Pesos/Tamaños (Bytes)</h3>
+						<div class="h-[280px] w-full"><canvas id="chartTamano"></canvas></div>
+					</div>
+
+					<div class="glass-panel rounded-2xl p-6 relative">
+						<div class="flex justify-between items-center mb-4">
+							<h3 class="text-amber-400 font-space font-bold uppercase tracking-widest text-sm">
+								Correlación:
+								Tamaño vs Duración</h3>
+						</div>
+						<div class="h-[280px] w-full"><canvas id="chartCorrelacion"></canvas></div>
+						<p class="text-[10px] text-slate-400 text-center mt-2 font-mono">¿Archivos más grandes tardan
+							más?
+							Verifica la dispersión.</p>
+					</div>
+
+					<div class="glass-panel rounded-2xl p-6">
+						<h3 class="text-rose-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Volumetría
+							de
+							Cargas (Eventos por día)</h3>
+						<div class="h-[250px] w-full"><canvas id="chartVolumen"></canvas></div>
+					</div>
+
+					<div class="glass-panel rounded-2xl p-6 flex flex-col">
+						<h3 class="text-emerald-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Huella
+							de
+							Desempeño Multivariablee</h3>
+						<div class="h-[250px] w-full flex-grow"><canvas id="chartRadar"></canvas></div>
+					</div>
+				</div>
+
+				<div class="glass-panel rounded-2xl p-6 border-l-4 border-slate-500">
+					<h3
+						class="text-white font-space font-bold uppercase tracking-widest text-sm mb-4 flex items-center">
+						<i data-lucide="book-open" class="w-4 h-4 mr-2"></i> Documentación del Dashboard
+					</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-400">
+						<ul class="space-y-2 list-disc pl-5">
+							<li><strong class="text-cyan-400">Filtrado Temporal:</strong> Desactiva W21 o W20 en la
+								parte
+								superior para aislar las métricas y recalcular promedios enfocados únicamente en las
+								semanas
+								seleccionadas.</li>
+							<li><strong class="text-cyan-400">Líneas de Promedio:</strong> Las gráficas de líneas
+								contienen
+								guías horizontales dinámicas. Muestran el promedio de esa semana específica y una
+								amarilla
+								para el promedio global del set filtrado. Ceros (días futuros) son excluidos del
+								cálculo.
+							</li>
+							<li><strong class="text-cyan-400">Impacto Manual:</strong> Utiliza el filtro "Tipo de
+								Ejecución"
+								para aislar intervenciones manuales. Se espera que este volumen sea cercano a 0 en
+								entornos
+								controlados.</li>
+						</ul>
+						<ul class="space-y-2 list-disc pl-5">
+							<li><strong class="text-amber-400">Gráfico de Correlación:</strong> Cruza los datos de
+								Volumen
+								(Eje X) y Duración (Eje Y). Si ves una línea ascendente, existe una dependencia directa.
+								Puntos aislados (Outliers) indican ejecuciones anómalas (cuellos de botella).</li>
+							<li><strong class="text-amber-400">Deltas (%):</strong> Los KPIs superiores calculan
+								matemáticamente si el rendimiento mejoró (verde) o empeoró (rojo) respecto a la data
+								visible
+								previa.</li>
+							<li><strong class="text-amber-400">Insights Automáticos:</strong> Un motor basado en JS lee
+								las
+								variaciones y emite conclusiones en lenguaje natural para reportes directos a gerencia.
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</main>
+
+		<script>
+			let dbMegara = [];
+			let dbReporting = [];
+			let dbInfra = [];
+			let dbUAT = [];
+			async function cargarDatos() {
+
+				const response = await fetch("data.json");
+
+				const datap = await response.json();
+
+				dbMegara = datap.dbMegara || [];
+				dbReporting = datap.dbReporting || [];
+				dbInfra = datap.dbInfra || [];
+				dbUAT = datap.dbUAT || [];
+
+				document.getElementById('tbody-megara').innerHTML =
+					generateTableRows(dbMegara);
+
+				document.getElementById('tbody-reporting').innerHTML =
+					generateTableRows(dbReporting);
+
+				document.getElementById('tbody-infra').innerHTML =
+					generateTableRows(dbInfra);
+					document.getElementById('tbody-uat').innerHTML =
+					generateTableRows(dbUAT);
+
+
+				console.log("Datos cargados");
+			}
+
+			// window.onload = async () => {
+
+			// 	await cargarDatos();
+
+			// 	await init();
+
+			// 	lucide.createIcons();
+			// };
+
+
+			// ==========================================
+			// 2. FUNCIONES DE RENDERIZADO DE TABLAS
+			// ==========================================
+			function getEnvBadge(env) {
+				if (env.includes('PRD') && !env.includes('UAT')) return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-[0_0_8px_rgba(16,185,129,0.2)]">PRD</span>`;
+				if (env.includes('UAT')) return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">UAT</span>`;
+				if (env === 'NA') return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-slate-800 text-slate-400 border border-slate-600">N/A</span>`;
+				return `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest bg-slate-800 text-slate-400 border border-slate-600">${env}</span>`;
+			}
+
+			function getFlowBadge(flow) {
+				switch (flow) {
+					case 'Completado': return `<span class="flex items-center text-xs font-bold text-emerald-400 uppercase tracking-widest"><i data-lucide="check-circle-2" class="w-4 h-4 mr-1.5"></i> COMPLETADO</span>`;
+					case 'No iniciado':
+					case 'Planificado': return `<span class="flex items-center text-xs font-bold text-slate-400 uppercase tracking-widest"><i data-lucide="minus-circle" class="w-4 h-4 mr-1.5"></i> PLANIFICADO</span>`;
+					case 'En curso': return `<span class="flex items-center text-xs font-bold text-cyan-400 uppercase tracking-widest"><i data-lucide="play-circle" class="w-4 h-4 mr-1.5"></i> EN CURSO</span>`;
+					case 'Crítico': return `<span class="flex items-center text-xs font-bold text-rose-500 uppercase tracking-widest animate-pulse"><i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5"></i> CRÍTICO</span>`;
+					case 'Requiere atención': return `<span class="flex items-center text-xs font-bold text-red-500 uppercase tracking-widest animate-pulse"><i data-lucide="siren" class="w-4 h-4 mr-1.5"></i> REQUIERE ATENCIÓN</span>`;
+					case 'En cola':
+					case 'Bloqueado': return `<span class="flex items-center text-xs font-bold text-amber-500 uppercase tracking-widest"><i data-lucide="ban" class="w-4 h-4 mr-1.5"></i> BLOQUEADO</span>`;
+					default: return `<span class="text-slate-500 text-xs uppercase">${flow}</span>`;
+				}
+			}
+
+			function formatBulletParagraphs(text, paragraphClass) {
+				if (!text || !text.trim()) return `<span class="text-sm text-slate-500">-</span>`;
+				const normalized = text.replace(/\r/g, '');
+				const markerParagraphs = normalized.split('⫸').map(part => part.trim()).filter(Boolean);
+				const paragraphs = markerParagraphs.length > 0 ? markerParagraphs : normalized.split(/\n{2,}/).map(part => part.trim()).filter(Boolean);
+				return `<div class="space-y-2">${paragraphs.map(paragraph => `
+             <div class="flex items-start">
+                 <span class="text-cyan-500 font-bold mr-2 text-lg inline-block align-middle pb-1">•</span>
+                 <span class="${paragraphClass}">${paragraph.replace(/\n/g, '<br>')}</span>
+             </div>
+         `).join('')}</div>`;
+			}
+
+			function formatParticipants(involved) {
+				if (!involved || !involved.trim()) return `<span class="text-xs font-mono text-slate-500">-</span>`;
+				return involved.split('/').map(part => part.trim()).filter(Boolean)
+					.map(name => `<span class="inline-flex items-center px-2.5 py-1 rounded-full border border-cyan-500/35 bg-cyan-500/10 text-cyan-200 text-xs font-space font-bold uppercase tracking-widest">${name}</span>`)
+					.join('');
+			}
+
+			function generateTableRows(dataArray) {
+				if (dataArray.length === 0) return '';
+				return dataArray.map(row => `
+             <tr class="hover:bg-cyan-900/20 transition-colors group">
+                 <td class="px-8 py-5">
+                     <div class="font-bold text-slate-200 text-base group-hover:text-cyan-300 transition-colors">${row.tema}</div>
+                     <div class="text-sm font-mono text-cyan-500 mt-1">${row.tarea}</div>
+                     <div class="flex flex-wrap items-center gap-2 mt-3">
+                         <i data-lucide="users" class="w-3.5 h-3.5 text-cyan-300"></i>
+                         ${formatParticipants(row.inv)}
+                     </div>
+                 </td>
+                 <td class="px-8 py-5 space-y-3 text-center">
+                     <div class="flex justify-center">${getFlowBadge(row.flujo)}</div>
+                     <div class="mt-2 flex justify-center">${getEnvBadge(row.entorno)}</div>
+                 </td>
+                 <td class="px-8 py-5">
+                     ${formatBulletParagraphs(row.comentarios, 'text-sm text-slate-300 leading-relaxed')}
+                     <div class="flex items-center text-xs font-mono text-cyan-600 mt-4 border-t border-cyan-900/30 pt-3 w-max">
+                         <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> Fecha: ${row.fecha}
+                     </div>
+                 </td>
+                 <td class="px-8 py-5 bg-[#080d1a]/50">
+                     ${formatBulletParagraphs(row.pasos, 'text-sm font-medium text-amber-100/90 leading-relaxed')}
+                 </td>
+             </tr>
+         `).join('');
+			}
+
+			let datosGlobales;
+			let graficos = {};
+			const coloresSemanas = ["#38bdf8", "#818cf8", "#fb7185"];
+			const labelsSemana = ["W24", "W23", "W22"];
+
+			Chart.defaults.color = '#94a3b8';
+			Chart.defaults.borderColor = 'rgba(255,255,255,0.05)';
+			Chart.defaults.font.family = "'Inter', sans-serif";
+
+		function getCommonOptions(yAxisLabel = "") {
+    return {
+        responsive: true,
+        maintainAspectRatio: false,
+        spanGaps: false, // <-- AÑADIR ESTA LÍNEA: Esto evita que las líneas caigan a cero
+        plugins: {
+            legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } },
+            tooltip: { backgroundColor: 'rgba(11,18,33,0.95)', titleColor: '#38bdf8', borderColor: 'rgba(56,189,248,0.3)', borderWidth: 1 }
+        },
+        scales: {
+            x: {
+                grid: { color: 'rgba(255,255,255,0.05)' },
+                ticks: { color: '#94a3b8', font: { size: 10 } }
+            },
+            y: {
+                beginAtZero: true,
+                grid: { color: 'rgba(255,255,255,0.05)' },
+                ticks: { color: '#94a3b8', font: { size: 10 } },
+                title: { display: !!yAxisLabel, text: yAxisLabel, color: 'rgba(255,255,255,0.5)', font: { size: 10 } }
+            }
         }
-
-        taskEl.onclick = () => window.openModalForEdit(task.id);
-        taskEl.ondragstart = window.drag;
-
-        taskEl.innerHTML = `
-          <span class="pts-badge-task">${task.points || '-'}</span>
-          <div class="task-title">${task.title}</div>
-          <div class="task-footer">
-            <span class="assignee">${task.assignee}</span>
-            <span class="priority priority-${task.priority}">${task.priority}</span>
-          </div>
-        `;
-
-        const container = document.querySelector(`#${task.column} .task-container`);
-        if (container) container.appendChild(taskEl);
-      }
-    });
-  */
-  #done .priority, #done .pts-badge-task { display: none }
-  #done .assignee { font-size: 0.9em; background: transparent; border: none; padding: 0;}
-
-  /* UI Base */
-  .btn { padding: 8px 12px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
-  .btn-primary { background: var(--btn-primary); color: white; width: 100%; margin-bottom: 10px; }
-  .btn-success { background: var(--success); color: white; width: 100%; margin-bottom: 10px; }
-  .btn-danger { background: var(--danger); color: white; }
-  dialog { border: none; border-radius: 8px; width: 450px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-  dialog::backdrop { background: rgba(0,0,0,0.6); }
-  .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
-  .form-group label { margin-bottom: 5px; font-weight: bold; font-size: 0.85em; }
-  .form-group input, .form-group select, .form-group textarea { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
-  
-  /* Grid para Modal */
-  .form-row { display: flex; gap: 10px; }
-  .form-row .form-group { flex: 1; }
-  
-  .timestamps-box { background: #f4f5f7; padding: 10px; border-radius: 5px; font-size: 0.75em; color: #5e6c84; margin-top: 15px; display: none; }
-  .timestamps-box p { margin: 3px 0; }
-</style>
-  </head>
-  <body>
-
-    <div class="header-controls">
-      <h2>Aldrin Dev Team</h2>
-      <!-- <div class="filters">
-    <button class="filter-btn active" id="btn-filter-all" onclick="setFilter('all')">Todas</button>
-    <button class="filter-btn" id="btn-filter-mine" onclick="setFilter('mine')">Mis tareas (Marco)</button>
-    <button class="filter-btn" id="btn-filter-high" onclick="setFilter('high')">🔥 Alta Prioridad</button>
-  </div> -->
-    </div>
-
-    <div class="board">
-      <div class="column" id="todo" ondrop="drop(event)"
-        ondragover="allowDrop(event)">
-        <div class="col-header">
-          <h3>Por Hacer</h3>
-          <span class="pts-badge-col" id="pts-todo">0 pts</span>
-        </div>
-        <button class="btn btn-primary" onclick="openModalForCreate('todo')">+
-          Nueva Tarea</button>
-        <div class="task-container"></div>
-      </div>
-
-      <div class="column" id="in-progress" ondrop="drop(event)"
-        ondragover="allowDrop(event)">
-        <div class="col-header">
-          <h3>En Progreso (Max 4)</h3>
-          <span class="pts-badge-col" id="pts-in-progress">0 pts</span>
-        </div>
-        <div class="task-container"></div>
-      </div>
-
-      <div class="column" id="done" ondrop="drop(event)"
-        ondragover="allowDrop(event)">
-        <div class="col-header">
-          <h3>Terminado</h3>
-          <span class="pts-badge-col" id="pts-done">0 pts</span>
-        </div>
-        <button class="btn btn-success" onclick="exportAndClearRetro()">📥
-          Sprint Retro (CSV)</button>
-        <div class="task-container"></div>
-      </div>
-    </div>
-
-    <dialog id="taskModal">
-      <h3 id="modalTitle">Nueva Tarea</h3>
-      <form id="taskForm">
-        <input type="hidden" id="taskId">
-        <input type="hidden" id="columnId">
-
-        <div class="form-group"><label>Título:</label><input type="text"
-            id="taskTitle" required></div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Responsable:</label>
-            <select id="taskAssignee">
-              <option value="Sin asignar">-- Sin asignar --</option>
-              <option value="Marco">Marco</option>
-              <option value="Henrique">Henrique</option>
-              <option value="Samuel">Samuel</option>
-              <option value="Ambos (Pair)">Ambos (Pair)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Puntos (Esfuerzo):</label>
-            <select id="taskPoints">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3" selected>3</option>
-              <option value="5">5</option>
-              <option value="8">8</option>
-              <option value="13">13</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Prioridad:</label>
-
-          <select id="taskPriority"><option value="Alta">Alta</option><option
-              value="Media" selected>Media</option><option
-              value="Baja">Baja</option></select>
-        </div>
-
-        <div class="form-group"><label>Descripción:</label><textarea
-            id="taskDesc"></textarea></div>
-        <!-- añadir todo el historico de cambios se haria de la siguiente manera:
-	 deberia haber un array de objetos dentro de cada tarea llamado "history" y cada vez que se haga un cambio importante (cambio de estado, cambio de responsable, cambio de prioridad) se añade un nuevo objeto a ese array con la siguiente estructura:
-	 El codigo para el contenido del objeto dinamico sería algo así:
-const changeRecord = {
-  timestamp: getNow(),
-  type: 'status-change', // o 'assignee-change', 'priority-change'
-  oldValue: task.column, // o task.assignee, task.priority según el tipo de cambio
-  newValue: newColumnId // o newAssignee, newPriority según el tipo decambio
-};
-Luego, para mostrar ese historial en el modal, se podría añadir una nueva sección debajo de los timestamps con un botón "Ver Historial" que al hacer clic despliegue una lista con todos los cambios registrados en el array "history", mostrando la fecha, el tipo de cambio y los valores antiguos y nuevos, de la siguiente manera:
-<div class="history-box" id="historyBox" style="display:none; margin-top:15px; background:#f4f5f7; padding:10px; border-radius:5px;">
-  <h4>Historial de Cambios</h4>
-  <ul id="historyList" style="list-style:none; padding-left:0;"></ul>
-</div>
-todo esto se añade en la linea numero 150, justo debajo del div de timestamps, y el código para rellenar ese historial al abrir el modal de edición sería algo así:
-
-	 -->
-
-        <div class="timestamps-box" id="timestampsBox">
-          <p><b>Creada:</b> <span id="tsCreated">-</span></p>
-          <p><b>Asignada:</b> <span id="tsAssigned">-</span></p>
-          <p><b>Iniciada:</b> <span id="tsStarted">-</span></p>
-          <p><b>Terminada:</b> <span id="tsFinished">-</span></p>
-        </div>
-
-        <div style="margin-top:10px;">
-          <button type="button" class="btn" id="toggleHistoryBtn"
-            onclick="toggleHistory()">Ver Historial</button>
-        </div>
-
-        <div class="history-box" id="historyBox"
-          style="display:none; margin-top:15px; background:#f4f5f7; padding:10px; border-radius:5px;">
-          <h4>Historial de Cambios</h4>
-          <ul id="historyList"
-            style="list-style:none; padding-left:0; margin:0;"></ul>
-        </div>
-
-        <div
-          style="display:flex; justify-content:space-between; margin-top: 20px;">
-          <div><button type="button" class="btn btn-danger" id="deleteBtn"
-              onclick="deleteCurrentTask()">Eliminar</button></div>
-          <div>
-            <button type="button" class="btn"
-              style="background:#dfe1e6; color:#172b4d;"
-              onclick="closeModal()">Cancelar</button>
-            <button type="submit" class="btn btn-primary"
-              style="width:auto; margin-bottom:0;">Guardar</button>
-          </div>
-        </div>
-      </form>
-    </dialog>
-
-    <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot } 
-    from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  // PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE
- 
-  // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDJR-Z-ChLxBqq0FIYQQaLg1igswTr03fM",
-  authDomain: "aldrinbrkanbandevteam-be0aa.firebaseapp.com",
-  projectId: "aldrinbrkanbandevteam-be0aa",
-  storageBucket: "aldrinbrkanbandevteam-be0aa.firebasestorage.app",
-  messagingSenderId: "452946196342",
-  appId: "1:452946196342:web:888d4a2691ca6fb44bec57"
-};
-  
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const tasksCollection = collection(db, "tasks");
-
-  let tasks = [];
-  let currentFilter = 'all';
-  const modal = document.getElementById('taskModal');
-  const form = document.getElementById('taskForm');
-
-  const colorMap = { "Sin asignar": "#ffffff", "Marco": "#e6efff", "Henrique": "#e6ffe6", "Samuel": "#f5e6ff", "Ambos (Pair)": "#fff4e6" };
-  const WIP_LIMIT = 3; // Límite de tareas en progreso del equipo
-  //el limite deberia ser por persona y se ajusta el codigo de la linea 
-
-  // Filtros
-  window.setFilter = (filter) => {
-    currentFilter = filter;
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(`btn-filter-${filter}`).classList.add('active');
-    renderBoard();
-  };
-
-  onSnapshot(tasksCollection, (snapshot) => {
-    tasks = [];
-    snapshot.forEach((doc) => { tasks.push({ id: doc.id, ...doc.data() }); });
-    renderBoard();
-  });
-
-  function renderBoard() {
-    document.querySelectorAll('.task-container').forEach(c => c.innerHTML = '');
-    let pts = { 'todo': 0, 'in-progress': 0, 'done': 0 };
-
-    // Aplicar Filtro
-    let filteredTasks = tasks.filter(t => {
-      if (currentFilter === 'mine') return t.assignee === 'Marco' || t.assignee === 'Ambos (Pair)';
-      if (currentFilter === 'high') return t.priority === 'Alta';
-      return true; // 'all'
-    });
-
-    // Ordenar (Alta arriba)
-    /*filteredTasks.sort((a, b) => {
-      const p = { "Alta": 1, "Media": 2, "Baja": 3 };
-      return p[a.priority] - p[b.priority];
-    });*/
-filteredTasks.sort((a, b) => {
-      const dateA = new Date(a.timestamps?.createdMs || 0);
-      const dateB = new Date(b.timestamps?.createdMs || 0);
-      return dateA - dateB; // Orden ascendente por fecha de creación
-    });
-    filteredTasks.forEach(task => {
-      // Sumar puntos a la columna
-      const taskPts = parseInt(task.points || 0);
-      pts[task.column] += taskPts;
-
-      const taskEl = document.createElement('div');
-      taskEl.className = 'task';
-      taskEl.draggable = true;
-      taskEl.id = task.id;
-      taskEl.style.backgroundColor = colorMap[task.assignee] || "#ffffff";
-      
-      // Lógica de Alarma "Estancada" (> 3 días)
-      // Para probarlo hoy, cambia 259200000 (3 días) por 60000 (1 minuto)
-      if (task.column === 'in-progress' && task.timestamps && task.timestamps.startedMs) {
-        const timeInProg = Date.now() - task.timestamps.startedMs;
-        if (timeInProg > 259200000) { // 3 días en milisegundos
-          taskEl.classList.add('stale');
-        }
-      }
-
-      taskEl.onclick = () => window.openModalForEdit(task.id);
-      taskEl.ondragstart = window.drag;
-
-      taskEl.innerHTML = `
-        <span class="pts-badge-task">${task.points || '-'}</span>
-        <div class="task-title">${task.title}</div>
-        <div class="task-footer">
-          <span class="assignee">${task.assignee}</span>
-          <span class="priority priority-${task.priority}">${task.priority}</span>
-        </div>
-      `;
-
-      const container = document.querySelector(`#${task.column} .task-container`);
-      if (container) container.appendChild(taskEl);
-    });
-
-    // Actualizar marcadores de puntos
-    document.getElementById('pts-todo').innerText = `${pts['todo']} pts`;
-    document.getElementById('pts-in-progress').innerText = `${pts['in-progress']} pts`;
-    document.getElementById('pts-done').innerText = `${pts['done']} pts`;
-  }
-
-  // --- MISMAS FUNCIONES DE ANTES MODIFICADAS LIGERAMENTE ---
-  const getNow = () => {
-    const d = new Date();
-    return `${d.toLocaleDateString()} ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-  };
-
-  window.openModalForCreate = (colId) => {
-    form.reset();
-    document.getElementById('modalTitle').innerText = "Nueva Tarea";
-    document.getElementById('taskId').value = '';
-    document.getElementById('columnId').value = colId;
-    document.getElementById('deleteBtn').style.display = 'none';
-    document.getElementById('timestampsBox').style.display = 'none';
-    modal.showModal();
-  };
-
-  window.openModalForEdit = (id) => {
-    const task = tasks.find(t => t.id === id);
-    if(!task) return;
-    document.getElementById('modalTitle').innerText = "Detalles de Tarea";
-    document.getElementById('taskId').value = task.id;
-    document.getElementById('columnId').value = task.column;
-    document.getElementById('taskTitle').value = task.title;
-    document.getElementById('taskAssignee').value = task.assignee;
-    document.getElementById('taskPoints').value = task.points || "3";
-    document.getElementById('taskPriority').value = task.priority;
-    document.getElementById('taskDesc').value = task.desc || '';
-    
-    document.getElementById('timestampsBox').style.display = 'block';
-    const ts = task.timestamps || {};
-    document.getElementById('tsCreated').innerText = ts.created || '-';
-    document.getElementById('tsAssigned').innerText = ts.assigned || '-';
-    document.getElementById('tsStarted').innerText = ts.started || '-';
-    document.getElementById('tsFinished').innerText = ts.finished || '-';
-    // Populate history list
-    const historyList = document.getElementById('historyList');
-    historyList.innerHTML = '';
-    const history = task.history || [];
-    if (history.length === 0) {
-      const li = document.createElement('li');
-      li.innerText = 'Sin cambios registrados.';
-      historyList.appendChild(li);
-    } else {
-      history.slice().reverse().forEach(h => {
-        const li = document.createElement('li');
-        li.style.padding = '6px 0';
-        li.style.borderBottom = '1px solid #e0e0e0';
-        li.innerHTML = `<b>${h.timestamp}</b> — <i>${h.type}</i>: ${h.oldValue || ''} → ${h.newValue || ''}`;
-        historyList.appendChild(li);
-      });
-    }
-    document.getElementById('historyBox').style.display = 'none';
-    document.getElementById('toggleHistoryBtn').style.display = 'inline-block';
-
-    document.getElementById('deleteBtn').style.display = 'block';
-    modal.showModal();
-  };
-
-  window.toggleHistory = () => {
-    const box = document.getElementById('historyBox');
-    box.style.display = box.style.display === 'block' ? 'none' : 'block';
-  };
-
-  window.closeModal = () => modal.close();
-
-  form.onsubmit = async (e) => {
-    e.preventDefault();
-    const id = document.getElementById('taskId').value;
-    const newAssignee = document.getElementById('taskAssignee').value;
-    const newPriority = document.getElementById('taskPriority').value;
-    
-    const existingTask = tasks.find(t => t.id === id);
-    const oldAssignee = existingTask ? existingTask.assignee : "Sin asignar";
-
-    // Regla: Bloquear si hay altas sin asignar
-    const isSelfAssigning = oldAssignee === "Sin asignar" && newAssignee !== "Sin asignar";
-    if (isSelfAssigning && newPriority !== "Alta") {
-      const unassignedHigh = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Alta" && t.column === "todo" && t.id !== id);
-      if (unassignedHigh) {
-        alert("⚠️ Hay tareas ALTA sin asignar. Toma esas primero.");
-        return;
-      }
-    }
-	//regla:: bloquear si hay altas sin asignar, pero solo para el lider, los devs pueden asignarse aunque haya altas sin asignar
-	if (isSelfAssigning && newPriority !== "Alta" && newAssignee === "Marco") {
-	  const unassignedHigh = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Alta" && t.column === "todo" && t.id !== id);
-	  if (unassignedHigh) {
-		alert("⚠️ Hay tareas ALTA sin asignar. Toma esas primero.");
-		return;
-	  }
-	}
-	//regla: bloquear bajas sin asignar si hay medias sin asignar o altas sin asignar
-	if (isSelfAssigning && newPriority === "Baja" && newAssignee !== "Sin asignar") {
-	  const unassignedMedium = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Media" && t.column === "todo" && t.id !== id);
-	  const unassignedHigh = tasks.some(t => t.assignee === "Sin asignar" && t.priority === "Alta" && t.column === "todo" && t.id !== id);
-	  if (unassignedMedium || unassignedHigh) {
-		alert("⚠️ Hay tareas MEDIA o ALTA sin asignar. Toma esas primero.");
-		return;
-	  }
-	}
-	//regla: una vez asignada una tarea, no se puede cambiar a sin asignar, para evitar que se queden tareas sin responsable
-	if (!isSelfAssigning && oldAssignee !== "Sin asignar" && newAssignee === "Sin asignar") {
-	  alert("⚠️ No puedes desasignar una tarea ya asignada. Si quieres cambiar el responsable, asigna a otra persona.");
-	  return;
-	}
-
-    let ts = existingTask ? existingTask.timestamps || {} : { created: getNow(), createdMs: Date.now() };
-    if (isSelfAssigning && !ts.assigned) ts.assigned = getNow();
-    // Build change records for history
-    const changeRecords = [];
-    const newColumn = document.getElementById('columnId').value;
-	// VALIDAR COMBINACIONES DESDE EL MODAL (Edición manual)
-    if (newColumn === 'in-progress' && (newAssignee === 'Samuel' || newAssignee === 'Henrique' || newAssignee === 'Ambos (Pair)')) {
-      const currentTasks = tasks.filter(t => 
-        t.column === 'in-progress' && t.id !== id && 
-        (t.assignee === newAssignee || t.assignee === 'Ambos (Pair)' || (newAssignee === 'Ambos (Pair)' && (t.assignee === 'Samuel' || t.assignee === 'Henrique')))
-      );
-
-      if (newPriority === 'Alta') {
-        currentTasks.forEach(async (t) => {
-          try {
-            const changeRecord = { timestamp: getNow(), type: 'status-change', oldValue: t.column, newValue: 'todo' };
-            const newHistory = Array.isArray(t.history) ? [...t.history, changeRecord] : [changeRecord];
-            await updateDoc(doc(db, "tasks", t.id), { column: 'todo', history: newHistory });
-          } catch(e) { console.error(e); }
-        });
-      } else {
-        let countAlta = currentTasks.filter(t => t.priority === 'Alta').length;
-        let countMedia = currentTasks.filter(t => t.priority === 'Media').length;
-        let countBaja = currentTasks.filter(t => t.priority === 'Baja').length;
-
-        if (newPriority === 'Media') countMedia++;
-        if (newPriority === 'Baja') countBaja++;
-
-        if (countAlta > 0) { alert(`🚨 ${newAssignee} ya tiene una tarea ALTA. Termínala primero.`); return; }
-        if (countMedia > 1 || (countMedia === 1 && countBaja > 1)) { alert(`🚨 Límite: Solo se permite 1 Media y 1 Baja.`); return; }
-        if (countMedia === 0 && countBaja > 3) { alert(`🚨 Límite: Máximo 3 tareas Bajas.`); return; }
-      }
-    }
-    if (existingTask) {
-      if (existingTask.assignee !== newAssignee) changeRecords.push({ timestamp: getNow(), type: 'assignee-change', oldValue: existingTask.assignee, newValue: newAssignee });
-      if (existingTask.priority !== newPriority) changeRecords.push({ timestamp: getNow(), type: 'priority-change', oldValue: existingTask.priority, newValue: newPriority });
-      if (existingTask.column !== newColumn) changeRecords.push({ timestamp: getNow(), type: 'status-change', oldValue: existingTask.column, newValue: newColumn });
-    } else {
-      // New task created
-      changeRecords.push({ timestamp: getNow(), type: 'created', oldValue: '', newValue: newColumn });
-      if (newAssignee && newAssignee !== 'Sin asignar') changeRecords.push({ timestamp: getNow(), type: 'assignee-change', oldValue: 'Sin asignar', newValue: newAssignee });
-    }
-
-    const newHistory = (existingTask && Array.isArray(existingTask.history)) ? [...existingTask.history, ...changeRecords] : changeRecords;
-// BLINDAJE DE WIP AL EDITAR DESDE EL MODAL
-    if (document.getElementById('columnId').value === 'in-progress' && newAssignee !== oldAssignee) {
-      const samuelWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Samuel' || t.assignee === 'Ambos (Pair)')).length;
-      const henriqueWIP = tasks.filter(t => t.column === 'in-progress' && (t.assignee === 'Henrique' || t.assignee === 'Ambos (Pair)')).length;
-      
-      if (newAssignee === 'Samuel' && samuelWIP >= 3) { alert("🚨 Samuel ya tiene 3 tareas en progreso."); return; }
-      if (newAssignee === 'Henrique' && henriqueWIP >= 3) { alert("🚨 Henrique ya tiene 3 tareas en progreso."); return; }
-      if (newAssignee === 'Ambos (Pair)' && (samuelWIP >= 3 || henriqueWIP >= 3)) { alert("🚨 Samuel o Henrique ya están al tope (3)."); return; }
-    }
-    const taskData = {
-      column: newColumn,
-      title: document.getElementById('taskTitle').value,
-      assignee: newAssignee,
-      points: document.getElementById('taskPoints').value,
-      priority: newPriority,
-      desc: document.getElementById('taskDesc').value,
-      timestamps: ts,
-      history: newHistory
     };
+}
+			async function init() {
+				try {
+					const response = await fetch('datos_dashboard.json');
+					datosGlobales = await response.json();
 
-    try {
-      if (id) await updateDoc(doc(db, "tasks", id), taskData);
-      else await addDoc(tasksCollection, taskData);
-      window.closeModal();
-    } catch (e) { alert("Error al guardar."); }
-  };
+					document.getElementById('subtitulo-graficas').innerText = `Telemetría recibida: ${datosGlobales.semanas.join(' | ')} - Evaluando estado...`;
 
-  window.deleteCurrentTask = async () => {
-    if (confirm("¿Seguro de eliminar?")) {
-      await deleteDoc(doc(db, "tasks", document.getElementById('taskId').value));
-      window.closeModal();
-    }
-  };
+					// Inicializar Gráficas
+					graficos.duracion = new Chart(document.getElementById('chartDuracion'), { type: 'line', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Minutos') });
+					graficos.tamano = new Chart(document.getElementById('chartTamano'), { type: 'line', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Bytes') });
+					graficos.volumen = new Chart(document.getElementById('chartVolumen'), { type: 'bar', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Eventos') });
+					graficos.correlacion = new Chart(document.getElementById('chartCorrelacion'), {
+						type: 'scatter',
+						data: { datasets: [] },
+						options: {
+							responsive: true, maintainAspectRatio: false,
+							plugins: { tooltip: { callbacks: { label: (ctx) => `Tamaño: ${ctx.raw.x.toFixed(0)}B | Duración: ${ctx.raw.y.toFixed(2)}m` } } },
+							scales: { x: { title: { display: true, text: 'Tamaño (Bytes)' } }, y: { title: { display: true, text: 'Duración (Min)' } } }
+						}
+					});
+					graficos.radar = new Chart(document.getElementById('chartRadar'), { type: 'radar', data: { labels: datosGlobales.labels, datasets: [] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { r: { angleLines: { color: 'rgba(255,255,255,0.1)' }, grid: { color: 'rgba(255,255,255,0.1)' } } } } });
 
-  // --- DRAG, DROP Y LIMITES WIP ---
-  window.allowDrop = (ev) => ev.preventDefault();
-  window.drag = (ev) => ev.dataTransfer.setData("text", ev.currentTarget.id);
-  window.drop = async (ev) => {
-    ev.preventDefault();
-    const id = ev.dataTransfer.getData("text");
-    let target = ev.target;
-    while (!target.classList.contains('column')) target = target.parentElement;
-    
-    const newColumnId = target.id;
-    const task = tasks.find(t => t.id === id);
-    if (!task || task.column === newColumnId) return;
+					actualizarDashboard();
 
-   // VALIDAR COMBINACIONES ESTRICTAS (Samuel, Henrique y Pair)
-    if (newColumnId === 'in-progress' && (task.assignee === 'Samuel' || task.assignee === 'Henrique' || task.assignee === 'Ambos (Pair)')) {
-      const assignee = task.assignee;
-      
-      // Obtener tareas que actualmente están en progreso afectando a este usuario
-      const currentTasks = tasks.filter(t => 
-        t.column === 'in-progress' && 
-        t.id !== id && 
-        (t.assignee === assignee || t.assignee === 'Ambos (Pair)' || (assignee === 'Ambos (Pair)' && (t.assignee === 'Samuel' || t.assignee === 'Henrique')))
-      );
+					// Listeners de filtros
+					document.getElementById('filtroDatos').addEventListener('change', actualizarDashboard);
+					document.querySelectorAll('.chk-semana').forEach(chk => chk.addEventListener('change', actualizarDashboard));
 
-      if (task.priority === 'Alta') {
-        // REGLA 1: Si entra una ALTA, las demás regresan a "todo" automáticamente
-        currentTasks.forEach(async (t) => {
-          try {
-            const changeRecord = { timestamp: getNow(), type: 'status-change', oldValue: t.column, newValue: 'todo' };
-            const newHistory = Array.isArray(t.history) ? [...t.history, changeRecord] : [changeRecord];
-            await updateDoc(doc(db, "tasks", t.id), { column: 'todo', history: newHistory });
-          } catch(e) { console.error("Error al regresar tarea: ", e); }
-        });
-      } else {
-        // REGLAS 2 y 3: Validar combinaciones si NO es Alta
-        let countAlta = currentTasks.filter(t => t.priority === 'Alta').length;
-        let countMedia = currentTasks.filter(t => t.priority === 'Media').length;
-        let countBaja = currentTasks.filter(t => t.priority === 'Baja').length;
+					lucide.createIcons();
+				} catch (e) {
+					console.error("Error cargando dashboard:", e);
+					document.getElementById('subtitulo-graficas').innerText = "ERROR: No se detectó señal de datos (datos_dashboard.json)";
+				}
+			}
 
-        if (task.priority === 'Media') countMedia++;
-        if (task.priority === 'Baja') countBaja++;
+			// Utilidad: Calcula promedio ignorando ceros (días futuros/sin datos)
+			function calcularPromedioValido(arrayData) {
+				const validos = arrayData.filter(v => v > 0);
+				if (validos.length === 0) return 0;
+				return validos.reduce((a, b) => a + b, 0) / validos.length;
+			}
 
-        if (countAlta > 0) {
-          alert(`🚨 Bloqueado: ${assignee} debe terminar la tarea ALTA actual antes de tomar otras.`);
-          return;
-        }
-        if (countMedia > 1 || (countMedia === 1 && countBaja > 1)) {
-          alert(`🚨 Combinación no permitida: Solo pueden tener 1 tarea Media y 1 Baja a la vez.`);
-          return;
-        }
-        if (countMedia === 0 && countBaja > 3) {
-          alert(`🚨 Combinación no permitida: Máximo de 3 tareas Bajas.`);
-          return;
-        }
-      }
-    }
-    let ts = task.timestamps || {};
-    if (newColumnId === 'in-progress' && task.column === 'todo') {
-      ts.started = getNow();
-      ts.startedMs = Date.now(); // Para la alarma de estancamiento
-    }
-    if (newColumnId === 'done') ts.finished = getNow();
+			function calcularSumaValida(arrayData) {
+				return arrayData.reduce((a, b) => a + b, 0);
+			}
 
-    // Append history record for status change
-    const changeRecord = { timestamp: getNow(), type: 'status-change', oldValue: task.column, newValue: newColumnId };
-    const newHistory = Array.isArray(task.history) ? [...task.history, changeRecord] : [changeRecord];
+			// Crea configuración de Annotation para una línea
+			function createAnnotationLine(valor, color, labelText, type = 'semana') {
+				return {
+					type: 'line',
+					yMin: valor,
+					yMax: valor,
+					borderColor: color,
+					borderWidth: type === 'global' ? 2 : 1,
+					borderDash: type === 'global' ? [5, 5] : [2, 2],
+					label: {
+						display: true,
+						content: labelText,
+						position: type === 'global' ? 'end' : 'start',
+						backgroundColor: type === 'global' ? 'rgba(250, 204, 21, 0.2)' : color + '40',
+						color: type === 'global' ? '#facc15' : color,
+						font: { size: 9, family: 'monospace' },
+						padding: 4
+					}
+				};
+			}
 
-    try {
-      await updateDoc(doc(db, "tasks", id), { column: newColumnId, timestamps: ts, history: newHistory });
-    } catch (e) { console.error(e); }
-  };
-  
+			function actualizarDashboard() {
+				const escId = document.getElementById('filtroDatos').value;
+				const esc = datosGlobales.escenarios[escId];
 
-  // --- FUNCIÓN RETROSPECTIVA ---
-  window.exportAndClearRetro = async () => {
-    const doneTasks = tasks.filter(t => t.column === 'done');
-    if (doneTasks.length === 0) {
-      alert("No hay tareas terminadas para exportar.");
-      return;
-    }
+				// Determinar qué semanas están seleccionadas (0=W22, 1=W21, 2=W20)
+				const indicesSemanasActivas = Array.from(document.querySelectorAll('.chk-semana')).filter(chk => chk.checked).map(chk => parseInt(chk.value));
 
-    if (!confirm(`Vas a descargar un CSV con ${doneTasks.length} tareas y borrarlas de Firebase. ¿Continuar?`)) return;
+				if (indicesSemanasActivas.length === 0) {
+					alert("Selecciona al menos una semana para visualizar.");
+					document.querySelector('.chk-semana').checked = true;
+					return actualizarDashboard();
+				}
 
-    // Generar CSV
-    let csv = "ID,Titulo,Responsable,Prioridad,Puntos,Fecha Creada,Fecha Iniciada,Fecha Finalizada\n";
-    doneTasks.forEach(t => {
-      const ts = t.timestamps || {};
-      csv += `${t.id},"${t.title.replace(/"/g, '""')}",${t.assignee},${t.priority},${t.points || 0},"${ts.created || ''}","${ts.started || ''}","${ts.finished || ''}"\n`;
-    });
+				// 1. Filtrar Datasets según semanas activas
+				const fDuracion = indicesSemanasActivas.map(i => esc.lineas_duracion[i]);
+				const fTamano = indicesSemanasActivas.map(i => esc.lineas_tamano[i]);
+				const fVolumen = indicesSemanasActivas.map(i => esc.lineas_volumen[i]);
 
-    // Descargar
-	
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `Retro_${new Date().toISOString().slice(0,10)}.csv`;
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+				// 2. Cálculos Dinámicos
+				let totalesSemanas = [];
+				let sumGlobalDur = 0, countGlobalDur = 0;
+				let sumGlobalTam = 0, countGlobalTam = 0;
+				let volumenTotalGlobal = 0;
 
-    // Limpiar Firebase
-    for (const t of doneTasks) {
-      try { await deleteDoc(doc(db, "tasks", t.id)); } 
-      catch (e) { console.error("Error borrando:", e); }
-    }
-  };
-</script>
-  </body>
+				// Anotaciones
+				let annotDuracion = {};
+				let annotTamano = {};
+
+				fDuracion.forEach((ds, indexReal) => {
+					const idxOriginal = indicesSemanasActivas[indexReal];
+					const dsTam = fTamano[indexReal];
+					const dsVol = fVolumen[indexReal];
+
+					// Promedio semana
+					const avgDur = calcularPromedioValido(ds.data);
+					const avgTam = calcularPromedioValido(dsTam.data);
+					const sumVol = calcularSumaValida(dsVol.data);
+
+					// Acumular para global
+					const validosDur = ds.data.filter(v => v > 0);
+					sumGlobalDur += validosDur.reduce((a, b) => a + b, 0);
+					countGlobalDur += validosDur.length;
+
+					const validosTam = dsTam.data.filter(v => v > 0);
+					sumGlobalTam += validosTam.reduce((a, b) => a + b, 0);
+					countGlobalTam += validosTam.length;
+
+					volumenTotalGlobal += sumVol;
+
+					totalesSemanas.push({ semana: labelsSemana[idxOriginal], avgDur, avgTam, sumVol, idx: idxOriginal });
+
+					// Anotaciones Semanales
+					annotDuracion[`sem_${idxOriginal}`] = createAnnotationLine(avgDur, ds.borderColor, `Avg ${labelsSemana[idxOriginal]}`);
+					annotTamano[`sem_${idxOriginal}`] = createAnnotationLine(avgTam, dsTam.borderColor, `Avg ${labelsSemana[idxOriginal]}`);
+				});
+
+				// Promedios globales de lo seleccionado
+				const avgGlobalDur = countGlobalDur > 0 ? sumGlobalDur / countGlobalDur : 0;
+				const avgGlobalTam = countGlobalTam > 0 ? sumGlobalTam / countGlobalTam : 0;
+
+				annotDuracion['global'] = createAnnotationLine(avgGlobalDur, '#facc15', `PROMEDIO GLOBAL: ${avgGlobalDur.toFixed(2)}m`, 'global');
+				annotTamano['global'] = createAnnotationLine(avgGlobalTam, '#facc15', `PROMEDIO GLOBAL: ${avgGlobalTam.toFixed(0)}B`, 'global');
+
+				// 3. Actualizar Gráficas
+				graficos.duracion.data.datasets = JSON.parse(JSON.stringify(fDuracion));
+				graficos.tamano.data.datasets = JSON.parse(JSON.stringify(fTamano));
+
+				// Transformar volumen a Bar y asignar colores de fondo
+				const fVolBar = JSON.parse(JSON.stringify(fVolumen));
+				fVolBar.forEach(ds => { ds.backgroundColor = ds.borderColor + '80'; delete ds.borderDash; });
+				graficos.volumen.data.datasets = fVolBar;
+
+				// Aplicar anotaciones
+				graficos.duracion.options.plugins.annotation = { annotations: annotDuracion };
+				graficos.tamano.options.plugins.annotation = { annotations: annotTamano };
+
+				// 4. Armar Scatter Plot (Tamaño vs Duración)
+				const scatterDatasets = [];
+				indicesSemanasActivas.forEach(i => {
+					const durData = esc.lineas_duracion[i].data;
+					const tamData = esc.lineas_tamano[i].data;
+					const puntos = [];
+					for (let d = 0; d < 5; d++) {
+						if (durData[d] > 0 && tamData[d] > 0) {
+							puntos.push({ x: tamData[d], y: durData[d] });
+						}
+					}
+					scatterDatasets.push({
+						label: labelsSemana[i],
+						data: puntos,
+						backgroundColor: coloresSemanas[i],
+						pointRadius: 6,
+						pointHoverRadius: 8
+					});
+				});
+				graficos.correlacion.data.datasets = scatterDatasets;
+
+				// 5. Actualizar Radar (Re-dibujamos todo para que cruce días/variables de la semana más reciente vs anterior)
+				graficos.radar.data = {
+					labels: datosGlobales.labels,
+					datasets: [
+						{ label: 'Volumen Ocupación', data: esc.radar.vol, borderColor: '#38bdf8', backgroundColor: 'rgba(56,189,248,0.2)' },
+						{ label: 'Desempeño Tiempos', data: esc.radar.dur, borderColor: '#fb7185', backgroundColor: 'rgba(251,113,133,0.2)' }
+					]
+				};
+
+				// 6. Actualizar Tarjetas KPI Globales
+				document.getElementById('kpi-duracion').innerText = avgGlobalDur.toFixed(2);
+				document.getElementById('kpi-tamano').innerText = avgGlobalTam.toFixed(0);
+				document.getElementById('kpi-ejecuciones').innerText = volumenTotalGlobal;
+
+				// 7. Calcular Deltas e Insights
+				generarInsights(totalesSemanas, escId);
+
+				// Renderizar todo
+				Object.values(graficos).forEach(g => g.update());
+			}
+
+			function generarInsights(statsSemanas, tipoFlujo) {
+				// Ordenar stats de menor a mayor indice (0 es W20, 1 es W19, etc)
+				statsSemanas.sort((a, b) => a.idx - b.idx);
+
+				const deltaHtml = (current, prev, inverseIsGood = true) => {
+					if (!prev || prev === 0) return `<span class="text-slate-400">- N/A</span>`;
+					const delta = ((current - prev) / prev) * 100;
+					const val = Math.abs(delta).toFixed(1);
+					let color = "text-slate-400";
+					let flecha = "";
+
+					if (delta > 0) {
+						flecha = "▲";
+						color = inverseIsGood ? "text-rose-400" : "text-emerald-400";
+					} else if (delta < 0) {
+						flecha = "▼";
+						color = inverseIsGood ? "text-emerald-400" : "text-rose-400";
+					} else { return `<span class="text-slate-400">■ 0%</span>`; }
+
+					return `<span class="${color} font-bold">${flecha} ${val}% vs anterior</span>`;
+				}
+
+				// Actualizar UI de Deltas
+				const uiDeltaDur = document.getElementById('delta-duracion');
+				const uiDeltaTam = document.getElementById('delta-tamano');
+				const uiDeltaVol = document.getElementById('delta-volumen');
+
+				if (statsSemanas.length >= 2 && statsSemanas[0].idx === 0) {
+					// Tenemos la actual y al menos una anterior para comparar
+					const wActual = statsSemanas[0];
+					const wPrev = statsSemanas[1]; // Podría ser la 1 o la 2 dependiendo del filtro
+
+					uiDeltaDur.innerHTML = deltaHtml(wActual.avgDur, wPrev.avgDur, true); // Menos duracion es bueno
+					uiDeltaTam.innerHTML = deltaHtml(wActual.avgTam, wPrev.avgTam, true); // Menos tamaño asume menos carga
+					uiDeltaVol.innerHTML = deltaHtml(wActual.sumVol, wPrev.sumVol, false); // Más vol depende, pongamos neutro, asumo false (mas vol, mas color)
+
+					// Redactar texto de Insight
+					let insHtml = `<ul>`;
+					const difDur = ((wActual.avgDur - wPrev.avgDur) / wPrev.avgDur) * 100;
+
+					if (tipoFlujo === 'solo_ma') {
+						insHtml += `<li><strong class="text-rose-500">ALERTA MANUAL:</strong> Se están evaluando únicamente intervenciones manuales. Esto indica procesos que fallaron o requirieron inyección externa.</li>`;
+					}
+
+					if (difDur > 5) {
+						insHtml += `<li><span class="text-rose-400">▼ Rendimiento Degradado:</span> La semana <b>${wActual.semana}</b> experimenta un incremento de tiempo del <b>${difDur.toFixed(1)}%</b> respecto a <b>${wPrev.semana}</b>. Posible cuello de botella en ETL.</li>`;
+					} else if (difDur < -5) {
+						insHtml += `<li><span class="text-emerald-400">▲ Optimización Detectada:</span> Los tiempos mejoraron un <b>${Math.abs(difDur).toFixed(1)}%</b> en comparación a la referencia anterior.</li>`;
+					} else {
+						insHtml += `<li><span class="text-cyan-400">■ Tiempos Estables:</span> La duración del proceso se mantiene con fluctuaciones menores al 5%.</li>`;
+					}
+
+					insHtml += `<li><b>Volumetría:</b> Se han procesado ${wActual.sumVol} eventos vs los ${wPrev.sumVol} del ciclo anterior.</li>`;
+					insHtml += `</ul>`;
+					document.getElementById('insight-text').innerHTML = insHtml;
+
+				} else {
+					uiDeltaDur.innerHTML = "<span class='text-slate-500 text-[10px]'>Selecciona Actual y Prev para comparar</span>";
+					uiDeltaTam.innerHTML = "";
+					uiDeltaVol.innerHTML = "";
+					document.getElementById('insight-text').innerHTML = "No hay suficientes datos consecutivos seleccionados en los filtros para generar conclusiones automatizadas. Activa al menos dos semanas continuas.";
+				}
+			}
+			function switchTab(tabId) {
+				document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+				document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+				document.getElementById('tab-' + tabId).classList.add('active');
+				document.getElementById('btn-' + tabId).classList.add('active');
+				document.getElementById('tbody-megara').innerHTML = generateTableRows(dbMegara);
+				document.getElementById('tbody-reporting').innerHTML = generateTableRows(dbReporting);
+				document.getElementById('tbody-infra').innerHTML = generateTableRows(dbInfra);
+				document.getElementById('tbody-uat').innerHTML = generateTableRows(dbUAT);
+			}
+			window.onload = async () => {
+    await cargarDatos();
+    await init();
+
+    lucide.createIcons();
+
+    switchTab('megara');
+};
+		</script>
+</body>
+
 </html>
