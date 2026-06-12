@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,7 +20,7 @@ jobs:
 
       - name: Modificar JSON
         run: python scripts/1.py
-        
+
       - name: Modificar JSON2
         run: python scripts/2.py
 
