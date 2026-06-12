@@ -1,0 +1,340 @@
+{
+    "dbMegara": [
+        {
+            "tema": "Sustitución Rundeck.",
+            "flujo": "En proceso",
+            "entorno": "",
+            "inv": "NFQ / S3",
+            "tarea": "Creación de Solución",
+            "comentarios": "- Opciones de interfaces compartidas por S3:\nCGC Position, Valorized Position,Net Asset, Payable Receivable\n- La POC ha sido presentada.",
+            "fecha": "09/04/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_cart_pos_rv_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "03/06/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_sac_pl_cl_patrrv_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "03/06/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "En proceso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_cart_estat_clibas_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "10/06/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_sac_stat_rv_cadpap_t1",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "29/05/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_sac_stat_rv_cadpap_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "09/06/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Nueva Interfaz",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Swap Prices",
+            "comentarios": "- Aguardando Vobo de S3 para implantacion",
+            "fecha": "09/06/2026",
+            "pasos": "- S3 validará desarrollo"
+        },
+        {
+            "tema": "Nuevos Campis",
+            "flujo": "En proceso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Client iInstruction",
+            "comentarios": "- Esperando validación de S3",
+            "fecha": "09/06/2026",
+            "pasos": "- S3 validará desarrollo"
+        },
+        {
+            "tema": "Nuevos Campis",
+            "flujo": "En proceso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Valorized Position",
+            "comentarios": "- Esperado nueva extracción con calidad de informacion por parte de S3",
+            "fecha": "11/06/2026",
+            "pasos": "- S3 compartirá nuevo cml para poder realizar desarrollo"
+        },
+        {
+            "tema": "Ajuste campo",
+            "flujo": "No iniciado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Supervision Dashboard",
+            "comentarios": "- S3 solicita ajuste de campo en supervision dhasboard",
+            "fecha": "27/05/2026",
+            "pasos": "- NFQ ajustara segun el orden de prioridad de tareas"
+        }
+    ],
+    "dbReporting": [
+        {
+            "tema": "Nuevos reportes",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Creación de reporte: Relatório de Estoque de Cotas de Fundos",
+            "comentarios": "- Informe Disponibilizado en UAT",
+            "fecha": "27/05/2026",
+            "pasos": "- S3 validará desarrollo"
+        },
+        {
+            "tema": "Nuevos reportes",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Creación de reporte: Relatório de Estoque de Futuros",
+            "comentarios": "- Informe Disponibilizado en UAT",
+            "fecha": "27/05/2026",
+            "pasos": "- S3 validará desarrollo"
+        },
+        {
+            "tema": "Nuevos reportes",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Creación de reporte: Relatório de Estoque de RV",
+            "comentarios": "- Informe Disponibilizado en UAT",
+            "fecha": "03/06/2026",
+            "pasos": "- S3 validará desarrollo"
+        },
+        {
+            "tema": "Nuevos reportes",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Creación de reporte: Relatório de Estoque de RF",
+            "comentarios": "- Informe Disponibilizado en UAT",
+            "fecha": "27/05/2026",
+            "pasos": "- S3 validará desarrollo"
+        },
+        {
+            "tema": "Demonstrativo de caixa",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "S3 / NFQ / VERMEG",
+            "tarea": "Saldos",
+            "comentarios": "- Vermeg ha modificado la configuración de SupervisionDashboard en PRD para que se ejecute a las 06:00 (Horário de Brasilia)",
+            "fecha": "18/05/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Operações com Título de Renda Fixa",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "S3 / NFQ / VERMEG",
+            "tarea": "Reglas",
+            "comentarios": "- Se ha ajustado la regla de visualización de los saldos de los fondos MEGARA.",
+            "fecha": "10/06/2026",
+            "pasos": "- Se realizará desarrollo segun orden de priorización"
+        }
+    ],
+    "dbInfra": [
+        {
+            "tema": "Archivos Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "S3 / VERMEG",
+            "tarea": "Modulos Megara",
+            "comentarios": "- Caida de MegaCustody Intraday",
+            "fecha": "24/03/2026",
+            "pasos": "- Se seguirá compartiendo alerta"
+        },
+        {
+            "tema": "API",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "S3 / VERMEG",
+            "tarea": "Llamada de MEGARA desde Rundeck",
+            "comentarios": "- NFQ ha implementado solución y se encuentra operativa en PRD\n- Fallas ocasionaes de lado de Megara (Durante la implementación de las interfaces, Megacustody se bloqueó)\n- La activación manual de Scheduled Megara mientras la API estaba activada ha provocado problemas",
+            "fecha": "24/3/2026",
+            "pasos": "- S3 alineará internamente"
+        }
+    ],
+    "dbUAT": [
+        {
+            "tema": "Detalhado de Estoque de RF",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "S3 / NFQ",
+            "tarea": "Ajuste",
+            "comentarios": "- Ajuste de reglas para campos de Lucro / Prejuizo\n- S3 en validación de ajustes hechos por NFQ",
+            "fecha": "03/04/2026",
+            "pasos": "Aguardando validacion de S3."
+        },
+        {
+            "tema": "Extrato Simplificado",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "S3 / NFQ",
+            "tarea": "Desarrollo",
+            "comentarios": "- S3 ha validado PDF y XLSX\n- Liberado en UAT, a la espera de promocion en PRD\n- A la espera que S3 comparta plantilla de CSV",
+            "fecha": "29/04/2026",
+            "pasos": "-S3 compartirá template en csv.\n-NFQ ya ha vuelto a solicitar a S3 que envíe los archivos"
+        },
+        {
+            "tema": "Informes Asíncronos",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "NTT / NFQ / VERMEG",
+            "tarea": "S3 solicita la creación de informes asíncronos",
+            "comentarios": "- NFQ ha compartido calendario de entrega para los informes solicitados.\n- Testes OK de (Fluxo de Caixa, Operacoes Títulos RF)\n- Espernando repuesta de Operacoes com Titulos de Renda Variavel\n- NFQ en desarrollo de 1 informe (Extrato Simplificado)",
+            "fecha": "22/04/2026",
+            "pasos": "Espernado respuesta de Operaciones de Titulos ed Renda Variavel (cliente y fecha)\nS3 entregará informes de Extrato Simplifcado"
+        },
+        {
+            "tema": "Nuevas Interfaces",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Creación de 2 nuevas interfaces (Recalculation_Request, \nRecalculation_Request_Reason)",
+            "comentarios": "- Desarrollo realizado en UAT.",
+            "fecha": "29/04/2026",
+            "pasos": "- Validación de lado S3 para pomocionar a UAT"
+        },
+        {
+            "tema": "Mapeo",
+            "flujo": "⚠️",
+            "entorno": "UAT",
+            "inv": "S3",
+            "tarea": "Validación ajuste en UAT function_meg_sac_stat_cli_addr_t",
+            "comentarios": "- En espera de validación por parte de S3 para promoción a PRD.",
+            "fecha": "07/07/2025",
+            "pasos": "Validación de lado S3"
+        },
+        {
+            "tema": "DDBB",
+            "flujo": "⚠️",
+            "entorno": "UAT",
+            "inv": "S3",
+            "tarea": "CA_details_intr",
+            "comentarios": "- Ajuste de formatos de datos",
+            "fecha": "05/09/2025",
+            "pasos": "Validación de lado S3"
+        },
+        {
+            "tema": "Creación mapeos",
+            "flujo": "⚠️",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Nuevos Mapeos",
+            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute",
+            "fecha": "28/10/2025",
+            "pasos": "Validación de lado S3"
+        },
+        {
+            "tema": "Ajuste InvestCompanyInstitute",
+            "flujo": "⚠️",
+            "entorno": "UAT",
+            "inv": "NFQ / S3 / Vermeg / NTT",
+            "tarea": "Subtabla",
+            "comentarios": "-Se incluyó una nueva subtabla dentro del XSD, se construyó y promocionó a UAT, a espera de validación de S3",
+            "fecha": "28/10/2025",
+            "pasos": "Validación de lado S3"
+        },
+        {
+            "tema": "Mapeo",
+            "flujo": "❗",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Errores ejecución de Mapeo",
+            "comentarios": "- mt_caixa_tipos (longitud de campo)\nvalue too long for type character varying(50)\n\n- Ajuste en UAT conforme acordado, en espera de confirmación por parte de S3 para promoción a producción.",
+            "fecha": "31/10/2025",
+            "pasos": "Validación de lado S3"
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "⚠️",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Ajuste de Interfaz Equity",
+            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD",
+            "fecha": "21/01/2026",
+            "pasos": "Validación de lado S3"
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "⚠️",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Ajuste de Carga ScriptByClient",
+            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT",
+            "fecha": "28/01/2026",
+            "pasos": "Validación de lado S3"
+        },
+        {
+            "tema": "Información UAT",
+            "flujo": "⚫",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Monitoreamento de cargas",
+            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT",
+            "fecha": "31/10/2025",
+            "pasos": "- S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de proyecto"
+        },
+        {
+            "tema": "Datahub Api",
+            "flujo": "▶️",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "dh-motivobloqueio",
+            "comentarios": "- Api Motivo de Bloqueos han sido realizados los ajustes y está pendiente validación por parte de S3",
+            "fecha": "21/01/2026",
+            "pasos": "- S3 notificará resultados de validaciones"
+        },
+        {
+            "tema": "Generacion informes",
+            "flujo": "▶️",
+            "entorno": "PRD",
+            "inv": "S3 / NFQ",
+            "tarea": "Revisión de informes vacos",
+            "comentarios": "- Movimentaçao Swap, Dividendos juros apropiados,Posiçao Swap.siendo generados en blanco.\n- Primeros dos arreglados, esperando detalles del tercero.\n",
+            "fecha": "29/01/2026",
+            "pasos": "- S3 validará arreglos en los informes.\n- S3 compartirá detalles de PS para poder dar soporte."
+        },
+        {
+            "tema": "Nota de Liquidaçao de Renda Fixa",
+            "flujo": "▶️",
+            "entorno": "PRD",
+            "inv": "S3 / NFQ",
+            "tarea": "Generación de informe",
+            "comentarios": "- S3 en análisis de cambio de plantilla para casos sin información.\n- S3 reporta error en generación de informe.\n- NFQ hizo ajustes.",
+            "fecha": "09/02/2026",
+            "pasos": "- S3 analizará cambio de plantilla"
+        }
+    ]
+}
