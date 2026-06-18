@@ -32,8 +32,8 @@
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "En proceso",
-            "entorno": "UAT",
+            "flujo": "Completado",
+            "entorno": "PRD",
             "inv": "NFQ / S3",
             "tarea": "function_meg_cart_estat_clibas_t",
             "comentarios": "- Fue ajustada funcion de mapeamento",
