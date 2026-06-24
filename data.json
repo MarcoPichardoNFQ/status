@@ -15,9 +15,9 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "function_meg_sac_pl_cl_patrrv_intermedia_t",
+            "tarea": "function_meg_cart_estat_gestor_t",
             "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "16/06/2026",
+            "fecha": "24/06/2026",
             "pasos": "-"
         },
         {
@@ -25,70 +25,80 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "function_meg_cart_pos_rf_t",
+            "tarea": "function_meg_sac_cart_estat_administracao_t",
             "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "17/06/2026",
+            "fecha": "23/06/2026",
             "pasos": "-"
         },
         {
             "tema": "Ajuste Proceso de Carga",
             "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_sac_cli_bas_compl_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "22/06/2026",
+            "pasos": "-"
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_sac_pl_cl_patrrv_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "18/06/2026",
+            "pasos": "-"
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_cart_pos_rv_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "18/06/2026",
+            "pasos": "-"
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "function_meg_sac_stat_rv_cadpap_t",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "18/06/2026",
+            "pasos": "-"
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "cs_detcash_flow_transf_pc",
+            "comentarios": "- Fue ajustada funcion de mapeamento",
+            "fecha": "18/06/2026",
+            "pasos": "-"
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "En proceso",
             "entorno": "PRD",
             "inv": "NFQ / S3",
             "tarea": "function_meg_cart_estat_clibas_t",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "16/06/2026",
+            "comentarios": "- Ajuste funcion de mapeamento",
+            "fecha": "24/06/2026",
+            "pasos": "- Espera de la solicitud de S3 para promocionar  a PRD"
+        },
+        {
+            "tema": "Activacion Function",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Activación de la función function_meg_cart_estat_clibas_t en PRD",
+            "comentarios": "Fue activada la function en PRD",
+            "fecha": "18/06/2027",
             "pasos": "-"
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "function_meg_sac_pl_cl_patrrf_t",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "16/06/2026",
-            "pasos": "-"
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "function_meg_sac_pl_cl_patrrv_intermedia_t",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "17/06/2026",
-            "pasos": "-"
-        },
-        {
-            "tema": "Nueva Interfaz",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Swap Prices",
-            "comentarios": "- Aguardando Vobo de S3 para implantacion",
-            "fecha": "10/06/2026",
-            "pasos": "- S3 validará desarrollo"
-        },
-        {
-            "tema": "Nuevos Campis",
-            "flujo": "Completado",
-            "entorno": "UAT",
-            "inv": "NFQ / S3",
-            "tarea": "Client iInstruction",
-            "comentarios": "- Esperando validación de S3 para PRD",
-            "fecha": "15/06/2026",
-            "pasos": "- S3 validará desarrollo"
-        },
-        {
-            "tema": "Nuevos Campis",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Valorized Position",
-            "comentarios": "- Esperando validación de S3",
-            "fecha": "17/06/2026",
-            "pasos": "- S3 validará desarrollo"
         },
         {
             "tema": "Ajuste campo",
@@ -109,6 +119,16 @@
             "comentarios": "- Configuración de Rundeck para la interfaz de opciones",
             "fecha": "17/06/2026",
             "pasos": "- NFQ ajustara segun el orden de prioridad de tarefas"
+        },
+        {
+            "tema": "Agregar 2 columnas a la tabla de Contractual Client",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Contractual Client",
+            "comentarios": "- Agregar 2 columnas a la tabla de Contractual Client",
+            "fecha": "09/06/2026",
+            "pasos": "- Espera de la solicitud de S3 para promocionar  a PRD"
         }
     ],
     "dbReporting": [
@@ -171,6 +191,16 @@
             "comentarios": "- Se ha ajustado la regla de visualización de los saldos de los fondos MEGARA.",
             "fecha": "10/06/2026",
             "pasos": "- Se realizará desarrollo segun orden de priorización"
+        },
+        {
+            "tema": "Ajuste al informe del mapa de evolução de cotas.",
+            "flujo": "En proceso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Relatório Mapa de evolução de Cotas - sem dados",
+            "comentarios": "- Cambio en la lógica del código del informe del mapa de evolução de cotas",
+            "fecha": "24/06/2026",
+            "pasos": "- NFQ realizará una promoción para PRD"
         }
     ],
     "dbInfra": [
@@ -252,7 +282,7 @@
             "entorno": "S3",
             "inv": "CA_details_intr",
             "tarea": "- Ajuste de formatos de datos",
-            "comentarios": "- Ajuste de formatos de datos_x000d_",
+            "comentarios": "- Ajuste de formatos de datos_x000D_",
             "fecha": "05/09/2025",
             "pasos": "Validación de lado S3"
         },
@@ -262,7 +292,7 @@
             "entorno": "NFQ / S3",
             "inv": "Nuevos Mapeos",
             "tarea": "-Se encuentra en development 3 novos mapeos que utilizaran la extracción InvestCompanyInstitute",
-            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000d_",
+            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000D_",
             "fecha": "28/10/2025",
             "pasos": "Validación de lado S3"
         },
@@ -292,7 +322,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Interfaz Equity",
             "tarea": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD",
-            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000d_",
+            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000D_",
             "fecha": "21/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -302,7 +332,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Carga ScriptByClient",
             "tarea": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT",
-            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000d_",
+            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000D_",
             "fecha": "28/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -312,7 +342,7 @@
             "entorno": "NFQ / S3",
             "inv": "Monitoreamento de cargas",
             "tarea": "- Se requerirá de validaciones de informação por causa de los mapeos en UAT",
-            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000d_",
+            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000D_",
             "fecha": "31/10/2025",
             "pasos": "- S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de projeto."
         },
