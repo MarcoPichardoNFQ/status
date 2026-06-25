@@ -98,8 +98,21 @@ def procesar():
 
         with open(CONFIG["archivo_json"], "w", encoding="utf-8") as f:
             json.dump(resultado, f, indent=4)
+            
+        # ========================================================
+        # NUEVO: Exportar registros limpios para la Tab 6 (Auditoría)
+        # ========================================================
+        df_export = df_final[['id_camda', 'tipo', 'año_semana', 'dia_nombre_en', 'inicio_dt', 'duracion_min', 'tamano']].copy()
+        df_export['inicio_dt'] = df_export['inicio_dt'].dt.strftime('%Y-%m-%d %H:%M:%S')
+        df_export = df_export.replace({np.nan: None}) # Manejar posibles nulos para JSON
         
-        print(f"✅ Archivo {CONFIG['archivo_json']} generado con éxito.")
+        datos_limpios = df_export.to_dict(orient='records')
+        
+        with open("datos_limpios.json", "w", encoding="utf-8") as f:
+            json.dump(datos_limpios, f, indent=4)
+        # ========================================================
+        
+        print(f"✅ Archivo {CONFIG['archivo_json']} y datos_limpios.json generados con éxito.")
 
     except Exception as e:
         print(f"❌ ERROR CRÍTICO: {e}")
