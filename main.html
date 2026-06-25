@@ -142,6 +142,10 @@
 							class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
 							<i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 5. Analytics Hub
 						</button>
+						<button onclick="switchTab('datos')" id="btn-datos"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
+							<i data-lucide="file-text" class="w-5 h-5 mr-2"></i> 6. Datos Crudos
+						</button>
 					</nav>
 					<div class="hidden lg:flex items-center space-x-6 border-l border-cyan-900/50 pl-8 h-12">
 						<img src="https://lh3.googleusercontent.com/d/13_MI7hp3FM5zOgxBYPU-2pq-kRuICS6_"
@@ -521,6 +525,32 @@
 				</div>
 
 			</div>
+            
+            <div id="tab-datos" class="tab-pane space-y-8">
+				<div class="flex justify-between items-end mb-6 border-l-4 border-yellow-500 pl-5">
+					<div>
+						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">6. Datos Crudos (Ejecuciones)</h2>
+						<p class="text-yellow-400 font-mono text-sm uppercase tracking-widest">Registros base utilizados en Analytics Hub</p>
+					</div>
+				</div>
+				<div class="glass-panel rounded-2xl overflow-hidden">
+					<div class="overflow-y-auto max-h-[600px] w-full">
+						<table class="min-w-full divide-y divide-cyan-900/30">
+							<thead class="bg-[#04060a] sticky top-0 z-10">
+								<tr>
+									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">ID Camda</th>
+									<th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Orden</th>
+									<th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tipo</th>
+									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Inicio Ejecución</th>
+									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Duración</th>
+									<th class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tamaño (Bytes)</th>
+								</tr>
+							</thead>
+							<tbody id="tbody-datos" class="divide-y divide-cyan-900/20"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<script>
@@ -554,15 +584,48 @@
 				console.log("Datos cargados");
 			}
 
-			// window.onload = async () => {
-
-			// 	await cargarDatos();
-
-			// 	await init();
-
-			// 	lucide.createIcons();
-			// };
-
+            async function cargarDatosRaw() {
+				try {
+					const response = await fetch("ejecuciones.csv");
+					if (!response.ok) throw new Error("No se pudo cargar ejecuciones.csv");
+					const text = await response.text();
+					const rows = text.split(/\r?\n/).filter(r => r.trim() !== '');
+					
+					let html = '';
+					// Saltar cabecera (i=1) y limitar a 500 registros para evitar colgar el navegador
+					for(let i = 1; i < Math.min(rows.length, 500); i++) {
+						const cols = rows[i].split('|').map(c => c.replace(/"/g, '').trim());
+						if (cols.length >= 6) {
+							const isAuto = cols[2].toLowerCase() === 'automatica';
+							const badgeClass = isAuto 
+								? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30' 
+								: 'bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/30';
+							
+							html += `
+								<tr class="hover:bg-cyan-900/20 transition-colors group">
+									<td class="px-8 py-4 text-sm font-mono text-slate-300">${cols[0]}</td>
+									<td class="px-8 py-4 text-sm font-mono text-slate-400 text-center">${cols[1]}</td>
+									<td class="px-8 py-4 text-center">
+										<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest border shadow-sm ${badgeClass}">${cols[2]}</span>
+									</td>
+									<td class="px-8 py-4 text-sm font-mono text-slate-400">${cols[3]}</td>
+									<td class="px-8 py-4 text-sm font-mono text-slate-300 font-bold">${cols[4]}</td>
+									<td class="px-8 py-4 text-sm font-mono text-amber-400/80 text-right">${cols[5]}</td>
+								</tr>
+							`;
+						}
+					}
+					
+					if (rows.length > 500) {
+						html += `<tr><td colspan="6" class="px-8 py-5 text-center text-slate-500 font-mono text-xs italic">Mostrando los primeros 500 registros por rendimiento (de ${rows.length - 1} totales).</td></tr>`;
+					}
+					
+					document.getElementById('tbody-datos').innerHTML = html;
+				} catch(e) {
+					console.error("Error cargando raw data:", e);
+					document.getElementById('tbody-datos').innerHTML = `<tr><td colspan="6" class="px-8 py-5 text-center text-rose-500 font-mono text-sm">No se encontró el archivo ejecuciones.csv</td></tr>`;
+				}
+			}
 
 			// ==========================================
 			// 2. FUNCIONES DE RENDERIZADO DE TABLAS
@@ -934,6 +997,7 @@
 			window.onload = async () => {
     await cargarDatos();
     await init();
+    await cargarDatosRaw();
 
     lucide.createIcons();
 
