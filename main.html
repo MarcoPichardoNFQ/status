@@ -108,13 +108,13 @@
 						<circle cx="35" cy="65" r="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
 						<circle cx="33" cy="63" r="2" fill="#334155" />
 					</svg>
-										<div>
-					    <h1 class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
-					        Misión Apollo-Aldrin
-					    </h1>
-					    <p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Advanced Telemetry & Analytics</p>
-					    
-					    <p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">ÚLTIMO DEPLOY: <span id="deploy-timestamp">2026-06-25 00:18:16 UTC</span></p>
+					<div>
+						<h1 class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
+							Misión Apollo-Aldrin
+						</h1>
+						<p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Advanced Telemetry &
+							Analytics</p>
+                        <p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">ÚLTIMO DEPLOY: <span id="deploy-timestamp">N/A</span></p>
 					</div>
 				</div>
 
@@ -145,7 +145,7 @@
 						</button>
 						<button onclick="switchTab('datos')" id="btn-datos"
 							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent">
-							<i data-lucide="file-text" class="w-5 h-5 mr-2"></i> 6. Datos Crudos
+							<i data-lucide="file-json" class="w-5 h-5 mr-2"></i> 6. Datos Post-ETL
 						</button>
 					</nav>
 					<div class="hidden lg:flex items-center space-x-6 border-l border-cyan-900/50 pl-8 h-12">
@@ -530,8 +530,8 @@
             <div id="tab-datos" class="tab-pane space-y-8">
 				<div class="flex justify-between items-end mb-6 border-l-4 border-yellow-500 pl-5">
 					<div>
-						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">6. Datos Crudos (Ejecuciones)</h2>
-						<p class="text-yellow-400 font-mono text-sm uppercase tracking-widest">Registros base utilizados en Analytics Hub</p>
+						<h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">6. Datos Post-ETL</h2>
+						<p class="text-yellow-400 font-mono text-sm uppercase tracking-widest">Información calculada que alimenta el Dashboard (datos_dashboard.json)</p>
 					</div>
 				</div>
 				<div class="glass-panel rounded-2xl overflow-hidden">
@@ -539,12 +539,11 @@
 						<table class="min-w-full divide-y divide-cyan-900/30">
 							<thead class="bg-[#04060a] sticky top-0 z-10">
 								<tr>
-									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">ID Camda</th>
-									<th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Orden</th>
-									<th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tipo</th>
-									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Inicio Ejecución</th>
-									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Duración</th>
-									<th class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tamaño (Bytes)</th>
+									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Semana</th>
+									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Día</th>
+									<th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Eventos (Volumen)</th>
+									<th class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Duración Media (Min)</th>
+									<th class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tamaño Medio (Bytes)</th>
 								</tr>
 							</thead>
 							<tbody id="tbody-datos" class="divide-y divide-cyan-900/20"></tbody>
@@ -583,49 +582,6 @@
 
 
 				console.log("Datos cargados");
-			}
-
-            async function cargarDatosRaw() {
-				try {
-					const response = await fetch("ejecuciones.csv");
-					if (!response.ok) throw new Error("No se pudo cargar ejecuciones.csv");
-					const text = await response.text();
-					const rows = text.split(/\r?\n/).filter(r => r.trim() !== '');
-					
-					let html = '';
-					// Saltar cabecera (i=1) y limitar a 500 registros para evitar colgar el navegador
-					for(let i = 1; i < Math.min(rows.length, 500); i++) {
-						const cols = rows[i].split('|').map(c => c.replace(/"/g, '').trim());
-						if (cols.length >= 6) {
-							const isAuto = cols[2].toLowerCase() === 'automatica';
-							const badgeClass = isAuto 
-								? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30' 
-								: 'bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/30';
-							
-							html += `
-								<tr class="hover:bg-cyan-900/20 transition-colors group">
-									<td class="px-8 py-4 text-sm font-mono text-slate-300">${cols[0]}</td>
-									<td class="px-8 py-4 text-sm font-mono text-slate-400 text-center">${cols[1]}</td>
-									<td class="px-8 py-4 text-center">
-										<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-bold uppercase tracking-widest border shadow-sm ${badgeClass}">${cols[2]}</span>
-									</td>
-									<td class="px-8 py-4 text-sm font-mono text-slate-400">${cols[3]}</td>
-									<td class="px-8 py-4 text-sm font-mono text-slate-300 font-bold">${cols[4]}</td>
-									<td class="px-8 py-4 text-sm font-mono text-amber-400/80 text-right">${cols[5]}</td>
-								</tr>
-							`;
-						}
-					}
-					
-					if (rows.length > 500) {
-						html += `<tr><td colspan="6" class="px-8 py-5 text-center text-slate-500 font-mono text-xs italic">Mostrando los primeros 500 registros por rendimiento (de ${rows.length - 1} totales).</td></tr>`;
-					}
-					
-					document.getElementById('tbody-datos').innerHTML = html;
-				} catch(e) {
-					console.error("Error cargando raw data:", e);
-					document.getElementById('tbody-datos').innerHTML = `<tr><td colspan="6" class="px-8 py-5 text-center text-rose-500 font-mono text-sm">No se encontró el archivo ejecuciones.csv</td></tr>`;
-				}
 			}
 
 			// ==========================================
@@ -800,6 +756,38 @@
 				};
 			}
 
+            function actualizarTablaDatosProcesados(escId, indicesSemanasActivas) {
+                if (!datosGlobales) return;
+                const esc = datosGlobales.escenarios[escId];
+                const labels = datosGlobales.labels;
+                let html = '';
+
+                indicesSemanasActivas.forEach(i => {
+                    const dsDur = esc.lineas_duracion[i];
+                    const dsTam = esc.lineas_tamano[i];
+                    const dsVol = esc.lineas_volumen[i];
+                    const semana = dsDur.label;
+
+                    labels.forEach((dia, dayIndex) => {
+                        const dur = dsDur.data[dayIndex];
+                        const tam = dsTam.data[dayIndex];
+                        const vol = dsVol.data[dayIndex];
+
+                        html += `
+                            <tr class="hover:bg-cyan-900/20 transition-colors group">
+                                <td class="px-8 py-4 text-sm font-mono text-slate-300 font-bold">${semana}</td>
+                                <td class="px-8 py-4 text-sm font-mono text-cyan-400">${dia}</td>
+                                <td class="px-8 py-4 text-sm font-mono text-rose-400 text-center">${vol !== null ? vol : 0}</td>
+                                <td class="px-8 py-4 text-sm font-mono text-amber-400/80 text-right">${dur !== null ? dur.toFixed(2) : '-'}</td>
+                                <td class="px-8 py-4 text-sm font-mono text-indigo-400/80 text-right">${tam !== null ? parseFloat(tam).toFixed(0) : '-'}</td>
+                            </tr>
+                        `;
+                    });
+                });
+
+                document.getElementById('tbody-datos').innerHTML = html;
+            }
+
 			function actualizarDashboard() {
 				const escId = document.getElementById('filtroDatos').value;
 				const esc = datosGlobales.escenarios[escId];
@@ -918,6 +906,9 @@
 				// 7. Calcular Deltas e Insights
 				generarInsights(totalesSemanas, escId);
 
+                // 8. Actualizar Tabla 6 con los datos recién calculados
+                actualizarTablaDatosProcesados(escId, indicesSemanasActivas);
+
 				// Renderizar todo
 				Object.values(graficos).forEach(g => g.update());
 			}
@@ -996,14 +987,13 @@
 				document.getElementById('tbody-uat').innerHTML = generateTableRows(dbUAT);
 			}
 			window.onload = async () => {
-    await cargarDatos();
-    await init();
-    await cargarDatosRaw();
+                await cargarDatos();
+                await init();
 
-    lucide.createIcons();
+                lucide.createIcons();
 
-    switchTab('megara');
-};
+                switchTab('megara');
+            };
 		</script>
 </body>
 
