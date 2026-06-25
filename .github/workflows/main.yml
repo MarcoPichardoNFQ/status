@@ -37,10 +37,9 @@ jobs:
       # --- NUEVO PASO AÑADIDO AQUÍ ---
       - name: Inyectar Timestamp en HTML
         run: |
-          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          TIMESTAMP=$(date -u  -d "-3 hours" +"%Y-%m-%d %H:%M:%S UTC")
           sed -i "s/<span id=\"deploy-timestamp\">.*<\/span>/<span id=\"deploy-timestamp\">$TIMESTAMP<\/span>/g" main.html
       # -------------------------------
-      # --- NUEVO PASO AÑADIDO AQUÍ ---
 
       - name: Commit cambios
         run: |
