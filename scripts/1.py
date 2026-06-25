@@ -61,22 +61,24 @@ def procesar():
         # Limpieza de comillas y espacios
         for col in df.columns:
             df[col] = df[col].astype(str).str.replace('"', '').str.strip()
+            c= col
+            print(c)
 
         # 1. FIX ZONA HORARIA (Bug del Viernes)
         # Cortamos a 19 caracteres para ignorar el offset -0600 y mantener hora local literal
         df['inicio_dt'] = pd.to_datetime(df['inicio_ejecucion'].str.slice(0, 19), errors='coerce')
-        
+        c=df['inicio_dt']
+
         # 2. Conversión de métricas
         df['duracion_min'] = pd.to_timedelta(df['duracion'], errors='coerce').dt.total_seconds() / 60.0
         df['tamano'] = pd.to_numeric(df['tamano'], errors='coerce').fillna(0)
         
         df = df.dropna(subset=['inicio_dt'])
-
         # 3. Clasificación temporal
         df['año_semana'] = df['inicio_dt'].dt.strftime('%G-W%V')
         df['dia_num'] = df['inicio_dt'].dt.dayofweek
         df['dia_nombre_en'] = df['inicio_dt'].dt.day_name()
-        
+        df.to_csv('datos_usuarios.csv', index=False, encoding='utf-8')
         # Filtrar solo Lunes a Viernes (0 a 4)
         df = df[df['dia_num'] < 5].copy()
         

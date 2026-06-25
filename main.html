@@ -410,7 +410,13 @@
 				const escId = document.getElementById('filtroDatos').value;
 				const esc = datosGlobales.escenarios[escId];
 				const indicesSemanasActivas = Array.from(document.querySelectorAll('.chk-semana')).filter(chk => chk.checked).map(chk => parseInt(chk.value));
-				if (indicesSemanasActivas.length === 0) { alert("Selecciona al menos una semana para visualizar."); document.querySelector('.chk-semana').checked = true; return actualizarDashboard(); }
+				
+				if (indicesSemanasActivas.length === 0) { 
+					alert("Selecciona al menos una semana para visualizar."); 
+					document.querySelector('.chk-semana').checked = true; 
+					return actualizarDashboard(); 
+				}
+				
 				const fDuracion = indicesSemanasActivas.map(i => esc.lineas_duracion[i]);
 				const fTamano = indicesSemanasActivas.map(i => esc.lineas_tamano[i]);
 				const fVolumen = indicesSemanasActivas.map(i => esc.lineas_volumen[i]);
@@ -423,48 +429,91 @@
 					const idxOriginal = indicesSemanasActivas[indexReal];
 					const dsTam = fTamano[indexReal];
 					const dsVol = fVolumen[indexReal];
+					
 					const avgDur = calcularPromedioValido(ds.data);
 					const avgTam = calcularPromedioValido(dsTam.data);
 					const sumVol = calcularSumaValida(dsVol.data);
-					const validosDur = ds.data.filter(v => v > 0);
-					sumGlobalDur += validosDur.reduce((a, b) => a + b, 0); countGlobalDur += validosDur.length;
-					const validosTam = dsTam.data.filter(v => v > 0);
-					sumGlobalTam += validosTam.reduce((a, b) => a + b, 0); countGlobalTam += validosTam.length;
+					
+					// --- INICIO DEL CÁLCULO PONDERADO ---
+					// Recorremos los datos del día a día para multiplicar los promedios por su volumen
+					for (let d = 0; d < ds.data.length; d++) {
+						const valDur = ds.data[d];
+						const valTam = dsTam.data[d];
+						const vol = dsVol.data[d];
+
+						if (vol > 0) {
+							// Ponderamos la duración
+							if (valDur > 0) {
+								sumGlobalDur += (valDur * vol);
+								countGlobalDur += vol;
+							}
+							// Ponderamos el tamaño
+							if (valTam > 0) {
+								sumGlobalTam += (valTam * vol);
+								countGlobalTam += vol;
+							}
+						}
+					}
+					// --- FIN DEL CÁLCULO PONDERADO ---
+
 					volumenTotalGlobal += sumVol;
+					
 					totalesSemanas.push({ semana: labelsSemana[idxOriginal], avgDur, avgTam, sumVol, idx: idxOriginal });
+					
 					annotDuracion[`sem_${idxOriginal}`] = createAnnotationLine(avgDur, ds.borderColor, `Avg ${labelsSemana[idxOriginal]}`);
 					annotTamano[`sem_${idxOriginal}`] = createAnnotationLine(avgTam, dsTam.borderColor, `Avg ${labelsSemana[idxOriginal]}`);
 				});
+
 				const avgGlobalDur = countGlobalDur > 0 ? sumGlobalDur / countGlobalDur : 0;
 				const avgGlobalTam = countGlobalTam > 0 ? sumGlobalTam / countGlobalTam : 0;
+				
 				annotDuracion['global'] = createAnnotationLine(avgGlobalDur, '#facc15', `PROMEDIO GLOBAL: ${avgGlobalDur.toFixed(2)}m`, 'global');
 				annotTamano['global'] = createAnnotationLine(avgGlobalTam, '#facc15', `PROMEDIO GLOBAL: ${avgGlobalTam.toFixed(0)}B`, 'global');
 
 				graficos.duracion.data.datasets = JSON.parse(JSON.stringify(fDuracion));
 				graficos.tamano.data.datasets = JSON.parse(JSON.stringify(fTamano));
+				
 				const fVolBar = JSON.parse(JSON.stringify(fVolumen));
 				fVolBar.forEach(ds => { ds.backgroundColor = ds.borderColor + '80'; delete ds.borderDash; });
 				graficos.volumen.data.datasets = fVolBar;
+				
 				graficos.duracion.options.plugins.annotation = { annotations: annotDuracion };
 				graficos.tamano.options.plugins.annotation = { annotations: annotTamano };
 
 				const scatterDatasets = [];
 				indicesSemanasActivas.forEach(i => {
-					const durData = esc.lineas_duracion[i].data; const tamData = esc.lineas_tamano[i].data; const puntos = [];
-					for (let d = 0; d < 5; d++) { if (durData[d] > 0 && tamData[d] > 0) { puntos.push({ x: tamData[d], y: durData[d] }); } }
+					const durData = esc.lineas_duracion[i].data; 
+					const tamData = esc.lineas_tamano[i].data; 
+					const puntos = [];
+					for (let d = 0; d < 5; d++) { 
+						if (durData[d] > 0 && tamData[d] > 0) { 
+							puntos.push({ x: tamData[d], y: durData[d] }); 
+						} 
+					}
 					scatterDatasets.push({ label: labelsSemana[i], data: puntos, backgroundColor: coloresSemanas[i], pointRadius: 6, pointHoverRadius: 8 });
 				});
+				
 				graficos.correlacion.data.datasets = scatterDatasets;
-				graficos.radar.data = { labels: datosGlobales.labels, datasets: [ { label: 'Volumen Ocupación', data: esc.radar.vol, borderColor: '#38bdf8', backgroundColor: 'rgba(56,189,248,0.2)' }, { label: 'Desempeño Tiempos', data: esc.radar.dur, borderColor: '#fb7185', backgroundColor: 'rgba(251,113,133,0.2)' } ] };
+				
+				graficos.radar.data = { 
+					labels: datosGlobales.labels, 
+					datasets: [ 
+						{ label: 'Volumen Ocupación', data: esc.radar.vol, borderColor: '#38bdf8', backgroundColor: 'rgba(56,189,248,0.2)' }, 
+						{ label: 'Desempeño Tiempos', data: esc.radar.dur, borderColor: '#fb7185', backgroundColor: 'rgba(251,113,133,0.2)' } 
+					] 
+				};
 
-				const minutos = Math.floor(avgGlobalDur); const segundos = Math.round((avgGlobalDur - minutos) * 60);
-				document.getElementById('kpi-duracion').innerText = `${minutos}:${segundos.toString().padStart(2, '0')}`;
-				document.getElementById('kpi-tamano').innerText = avgGlobalTam.toFixed(0);
+				const minutos = Math.floor(avgGlobalDur);
+				const segundos = Math.round((avgGlobalDur - minutos) * 60);
+
+				document.getElementById('kpi-duracion').innerText = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+				
+				document.getElementById('kpi-tamano').innerText = avgGlobalTam.toFixed(2); // Agregué toFixed(2) por limpieza visual, quítalo si lo prefieres entero
 				document.getElementById('kpi-ejecuciones').innerText = volumenTotalGlobal;
+				
 				generarInsights(totalesSemanas, escId);
 				Object.values(graficos).forEach(g => g.update());
 			}
-
 			function generarInsights(statsSemanas, tipoFlujo) {
 				statsSemanas.sort((a, b) => a.idx - b.idx);
 				const deltaHtml = (current, prev, inverseIsGood = true) => {
