@@ -34,12 +34,10 @@ jobs:
       - name: Ejecutar script 2
         run: python scripts/2.py
 
-      # --- NUEVO PASO AÑADIDO AQUÍ ---
       - name: Inyectar Timestamp en HTML
         run: |
-          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          sed -i "s/<span id=\"deploy-timestamp\">.*<\/span>/<span id=\"deploy-timestamp\">$TIMESTAMP<\/span>/g" main.html
-      # -------------------------------
+          TIMESTAMP=$(date -u -d "-3 hours" +"%Y-%m-%d %H:%M:%S UTC")
+          sed -i "s/<span id=\"deploy-timestamp\">.*<\/span>/<span id=\"deploy-timestamp\">$TIMESTAMP<\/span>/g" main.html-
 
       - name: Commit cambios
         run: |
