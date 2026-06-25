@@ -109,7 +109,7 @@
 						<button onclick="switchTab('megara')" id="btn-megara" class="tab-btn  flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces</button>
 						<button onclick="switchTab('reporting')" id="btn-reporting" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 2. Reporting</button>
 						<button onclick="switchTab('infra')" id="btn-infra" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infra & API</button>
-						<button onclick="switchTab('uat')" id="btn-uat" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent"><i data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT<span class="ml-2 bg-indigo-500/20 text-indigo-400 py-0.5 px-2.5 rounded font-mono text-xs border border-indigo-500/30">12</span></button>
+						<button onclick="switchTab('uat')" id="btn-uat" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent"><i data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT<span class="ml-2 bg-indigo-500/20 text-indigo-400 py-0.5 px-2.5 rounded font-mono text-xs border border-indigo-500/30">13</span></button>
 						<button onclick="switchTab('graficas')" id="btn-graficas" class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 5. Analytics Hub</button>
 						<button onclick="switchTab('datos')" id="btn-datos" class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i data-lucide="file-json" class="w-5 h-5 mr-2"></i> 6. Datos Post-ETL</button>
 					</nav>
@@ -155,11 +155,11 @@
 								<label class="flex items-center space-x-2 cursor-pointer text-rose-400">
 									<input type="checkbox" value="2" class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500" checked><span>W24 (Prev-2)</span>
 								</label>
-								<label class="flex items-center space-x-2 cursor-pointer text-rose-400">
-									<input type="checkbox" value="3" class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500" checked><span>W23 (Prev-3)</span>
+								<label class="flex items-center space-x-2 cursor-pointer text-jade-400">
+									<input type="checkbox" value="3" class="chk-semana form-checkbox bg-slate-800 border-jade-500 rounded text-jade-500 focus:ring-jade-500" checked><span>W23 (Prev-3)</span>
 								</label>
-								<label class="flex items-center space-x-2 cursor-pointer text-rose-400">
-									<input type="checkbox" value="4" class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500" checked><span>W22 (Prev-4)</span>
+								<label class="flex items-center space-x-2 cursor-pointer text-teal-400">
+									<input type="checkbox" value="4" class="chk-semana form-checkbox bg-slate-800 border-teal-500 rounded text-teal-500 focus:ring-teal-500" checked><span>W22 (Prev-4)</span>
 								</label>
 								
 							</div>
@@ -278,7 +278,7 @@
 						<table class="min-w-full divide-y divide-cyan-900/30">
 							<thead class="bg-[#04060a] sticky top-0 z-10">
 								<tr>
-									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">ID Camda</th>
+									<th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">No Ejecucion</th>
 									<th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tipo</th>
 									<th class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Semana</th>
                                     <th class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Día (Inglés)</th>
@@ -343,8 +343,8 @@
                         `;
                     }
 
-                    if (datos.length > 500) {
-                        html += `<tr><td colspan="7" class="px-8 py-5 text-center text-slate-500 font-mono text-xs italic">Mostrando los primeros 500 registros (de ${datos.length} totales generados por ETL).</td></tr>`;
+                    if (datos.length > 800) {
+                        html += `<tr><td colspan="7" class="px-8 py-5 text-center text-slate-500 font-mono text-xs italic">Mostrando los primeros 800 registros (de ${datos.length} totales generados por ETL).</td></tr>`;
                     }
                     document.getElementById('tbody-datos').innerHTML = html;
                 } catch(e) {
@@ -395,7 +395,7 @@
 
 			let datosGlobales;
 			let graficos = {};
-			const coloresSemanas = ["#38bdf8", "#818cf8", "#fb7185"];
+			const coloresSemanas = ["#38bdf8", "#818cf8", "#fb7185",'#00A36C','#008080'];
 			const labelsSemana = ["W26", "W25", "W24","W23","W22"];
 
 			Chart.defaults.color = '#94a3b8';
