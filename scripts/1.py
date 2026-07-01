@@ -98,11 +98,16 @@ def procesar():
         df_final = df[df['año_semana'].isin(semanas_top)].copy()
         
         dias_orden = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-        
+        ultimo_deploy = (
+        df_final['inicio_dt']
+        .max()
+        .strftime('%Y-%m-%d %H:%M:%S')
+           )
         # Generar Escenarios
         resultado = {
             "labels": ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
             "semanas": semanas_top,
+            "ultimo_deploy": ultimo_deploy,
             "escenarios": {
                 "todos": generar_escenario(df_final, semanas_top, dias_orden),
                 "solo_auto": generar_escenario(df_final[df_final['tipo'].str.lower() == 'automatica'], semanas_top, dias_orden),

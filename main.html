@@ -100,7 +100,10 @@
     </h1>
     <p class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Advanced Telemetry & Analytics</p>
 	<!-- <p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">ÚLTIMO DEPLOY BRT: <span id="deploy-timestamp">2026-06-25 14:15:49 UTC</span></p> -->
-		<p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">ÚLTIMO DEPLOY BRT: <span id="deploy-timestamp">2026-06-25 14:15:49 UTC</span></p>
+		<p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">
+    ÚLTIMO DEPLOY BRT:
+    <span id="deploy-timestamp"></span>
+</p>
 
 </div>
 				</div>
@@ -148,19 +151,19 @@
 							<span class="text-[10px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Filtro Semanal</span>
 							<div class="flex space-x-4 font-mono text-sm" id="filtroSemanas">
 								<label class="flex items-center space-x-2 cursor-pointer text-sky-400">
-									<input type="checkbox" value="0" class="chk-semana form-checkbox bg-slate-800 border-sky-500 rounded text-sky-500 focus:ring-sky-500" checked><span>W26 (Actual)</span>
+									<input type="checkbox" value="0" class="chk-semana form-checkbox bg-slate-800 border-sky-500 rounded text-sky-500 focus:ring-sky-500" checked><span>W27 (Actual)</span>
 								</label>
 								<label class="flex items-center space-x-2 cursor-pointer text-indigo-400">
-									<input type="checkbox" value="1" class="chk-semana form-checkbox bg-slate-800 border-indigo-500 rounded text-indigo-500 focus:ring-indigo-500" checked><span>W25 (Prev)</span>
+									<input type="checkbox" value="1" class="chk-semana form-checkbox bg-slate-800 border-indigo-500 rounded text-indigo-500 focus:ring-indigo-500" checked><span>W26 (Prev)</span>
 								</label>
 								<label class="flex items-center space-x-2 cursor-pointer text-rose-400">
-									<input type="checkbox" value="2" class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500" checked><span>W24 (Prev-2)</span>
+									<input type="checkbox" value="2" class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500" checked><span>W25 (Prev-2)</span>
 								</label>
 								<label class="flex items-center space-x-2 cursor-pointer text-jade-400">
-									<input type="checkbox" value="3" class="chk-semana form-checkbox bg-slate-800 border-jade-500 rounded text-jade-500 focus:ring-jade-500" checked><span>W23 (Prev-3)</span>
+									<input type="checkbox" value="3" class="chk-semana form-checkbox bg-slate-800 border-jade-500 rounded text-jade-500 focus:ring-jade-500" checked><span>W24 (Prev-3)</span>
 								</label>
 								<label class="flex items-center space-x-2 cursor-pointer text-teal-400">
-									<input type="checkbox" value="4" class="chk-semana form-checkbox bg-slate-800 border-teal-500 rounded text-teal-500 focus:ring-teal-500" checked><span>W22 (Prev-4)</span>
+									<input type="checkbox" value="4" class="chk-semana form-checkbox bg-slate-800 border-teal-500 rounded text-teal-500 focus:ring-teal-500" checked><span>W23 (Prev-4)</span>
 								</label>
 								
 							</div>
@@ -397,7 +400,7 @@
 			let datosGlobales;
 			let graficos = {};
 			const coloresSemanas = ["#38bdf8", "#818cf8", "#fb7185",'#00A36C','#008080'];
-			const labelsSemana = ["W26", "W25", "W24","W23","W22"];
+			const labelsSemana = ["W27", "W26", "W25","W24","W23"];
 
 			Chart.defaults.color = '#94a3b8';
 			Chart.defaults.borderColor = 'rgba(255,255,255,0.05)';
@@ -423,6 +426,7 @@
 				try {
 					const response = await fetch('datos_dashboard.json');
 					datosGlobales = await response.json();
+					document.getElementById('deploy-timestamp').textContent = datosGlobales.ultimo_deploy;
 					document.getElementById('subtitulo-graficas').innerText = `Telemetría recibida: ${datosGlobales.semanas.join(' | ')} - Evaluando estado...`;
 					graficos.duracion = new Chart(document.getElementById('chartDuracion'), { type: 'line', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Minutos') });
 					graficos.tamano = new Chart(document.getElementById('chartTamano'), { type: 'line', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Bytes') });
