@@ -1,5 +1,14 @@
 [
     {
+        "id_camda": "69501",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 10:43:15",
+        "duracion_min": 3.5120274833333336,
+        "tamano": 570699
+    },
+    {
         "id_camda": "69500",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W27",
