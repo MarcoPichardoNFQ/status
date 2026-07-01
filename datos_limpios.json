@@ -1,0 +1,1496 @@
+[
+    {
+        "id_camda": "69428",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 03:05:01",
+        "duracion_min": 5.510477183333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69424",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 01:32:37",
+        "duracion_min": 6.1206229,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69423",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 01:04:42",
+        "duracion_min": 6.927209166666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69422",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 00:24:33",
+        "duracion_min": 6.82023375,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69421",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 22:50:58",
+        "duracion_min": 63.2141891,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69420",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 21:45:01",
+        "duracion_min": 46.74936603333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69419",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 21:07:06",
+        "duracion_min": 25.94249608333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69414",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 19:42:30",
+        "duracion_min": 6.630923983333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69413",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 19:27:13",
+        "duracion_min": 3.5655148833333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69412",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 19:14:06",
+        "duracion_min": 1.1776036499999998,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69411",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 19:01:07",
+        "duracion_min": 2.24929885,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69409",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 18:24:20",
+        "duracion_min": 5.651199083333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69408",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 18:10:38",
+        "duracion_min": 3.751430883333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69407",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 17:43:21",
+        "duracion_min": 17.330875250000002,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69394",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 13:45:25",
+        "duracion_min": 5.869842066666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69296",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 03:08:06",
+        "duracion_min": 6.372707833333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69295",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 02:33:22",
+        "duracion_min": 7.925623900000001,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69294",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-30 02:02:03",
+        "duracion_min": 9.217381466666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69285",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 23:10:09",
+        "duracion_min": 7.456561366666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69282",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 21:22:22",
+        "duracion_min": 5.391817866666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69276",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 20:20:26",
+        "duracion_min": 4.114548216666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69249",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 16:22:18",
+        "duracion_min": 3.5800856666666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69245",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 15:39:04",
+        "duracion_min": 4.164181266666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69238",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 14:05:52",
+        "duracion_min": 5.740778083333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69233",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 12:47:43",
+        "duracion_min": 3.4335246833333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69069",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 00:33:29",
+        "duracion_min": 4.88765755,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69068",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 00:25:18",
+        "duracion_min": 3.3268588833333337,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69067",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 00:16:52",
+        "duracion_min": 3.442912733333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "69065",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-29 00:04:43",
+        "duracion_min": 3.3664738,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68674",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 23:16:15",
+        "duracion_min": 6.378088133333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68673",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 22:41:40",
+        "duracion_min": 7.574636683333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68672",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 22:11:56",
+        "duracion_min": 12.858125283333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68668",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 21:04:52",
+        "duracion_min": 5.515383383333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68667",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 20:40:35",
+        "duracion_min": 6.502956833333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68643",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 15:07:50",
+        "duracion_min": 1.1516272833333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68629",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 12:39:09",
+        "duracion_min": 3.0841603833333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68510",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-26 00:12:04",
+        "duracion_min": 5.726958416666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68508",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-25 23:22:17",
+        "duracion_min": 6.275233883333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68507",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-25 22:48:18",
+        "duracion_min": 7.74278645,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68506",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-25 22:20:20",
+        "duracion_min": 9.016176250000001,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68504",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-25 20:39:30",
+        "duracion_min": 56.06730566666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68465",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-25 12:26:43",
+        "duracion_min": 3.1695424500000002,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68357",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-25 00:04:51",
+        "duracion_min": 6.424325116666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68356",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-24 23:39:04",
+        "duracion_min": 7.253678716666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68355",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-24 23:10:04",
+        "duracion_min": 13.969783483333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68309",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-24 13:06:54",
+        "duracion_min": 4.317087516666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68304",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-24 12:00:28",
+        "duracion_min": 4.86991095,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68203",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 23:05:58",
+        "duracion_min": 6.048136683333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68202",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 22:40:00",
+        "duracion_min": 7.420590266666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68201",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 22:08:08",
+        "duracion_min": 8.6649903,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68197",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 21:13:31",
+        "duracion_min": 4.7515906999999995,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68188",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 18:58:54",
+        "duracion_min": 6.258345266666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68073",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 03:55:59",
+        "duracion_min": 5.592002766666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68072",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 03:38:32",
+        "duracion_min": 7.71432935,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68071",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-23 03:10:57",
+        "duracion_min": 9.120816016666668,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68033",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-22 19:01:13",
+        "duracion_min": 3.3911827333333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68023",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-22 17:32:44",
+        "duracion_min": 4.505333966666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68011",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-22 15:13:30",
+        "duracion_min": 3.4080664833333336,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68004",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-22 13:22:37",
+        "duracion_min": 3.4595862,
+        "tamano": 0
+    },
+    {
+        "id_camda": "68001",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W26",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-22 12:27:20",
+        "duracion_min": 5.415294383333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67295",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 23:00:28",
+        "duracion_min": 6.94779445,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67294",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 22:28:54",
+        "duracion_min": 10.808690666666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67293",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 22:06:00",
+        "duracion_min": 9.27293135,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67292",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 21:40:19",
+        "duracion_min": 4.07191345,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67290",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 20:57:33",
+        "duracion_min": 3.20616575,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67289",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 20:34:45",
+        "duracion_min": 6.07121065,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67284",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 19:03:06",
+        "duracion_min": 8.5544235,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67261",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 14:06:46",
+        "duracion_min": 3.3169351833333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67248",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-19 12:29:25",
+        "duracion_min": 3.1597728166666665,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67131",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 23:23:45",
+        "duracion_min": 23.80456213333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67130",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 22:51:07",
+        "duracion_min": 7.077903366666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67129",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 22:29:15",
+        "duracion_min": 6.571220966666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67128",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 22:09:26",
+        "duracion_min": 8.085486083333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67126",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 21:43:03",
+        "duracion_min": 2.8907480666666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67114",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 20:07:07",
+        "duracion_min": 4.434003383333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67092",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 16:51:59",
+        "duracion_min": 5.097191933333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67074",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 13:19:16",
+        "duracion_min": 6.529581883333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67073",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 12:57:17",
+        "duracion_min": 7.19717115,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67072",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 12:14:51",
+        "duracion_min": 8.8041939,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67071",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 11:13:27",
+        "duracion_min": 5.698837883333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "67070",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 10:54:08",
+        "duracion_min": 6.394396016666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66992",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-18 00:06:54",
+        "duracion_min": 6.5501047833333335,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66991",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 23:35:08",
+        "duracion_min": 10.802615233333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66990",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 22:57:20",
+        "duracion_min": 12.381954316666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66989",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 22:36:00",
+        "duracion_min": 10.159601149999999,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66988",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 22:13:50",
+        "duracion_min": 7.3753925166666665,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66987",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 21:45:50",
+        "duracion_min": 3.578068033333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66984",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 20:58:44",
+        "duracion_min": 4.628940266666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66983",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 20:39:56",
+        "duracion_min": 5.895855549999999,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66949",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 15:46:45",
+        "duracion_min": 4.9176099,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66946",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 15:03:00",
+        "duracion_min": 8.909487933333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66929",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 12:39:06",
+        "duracion_min": 3.2099587166666668,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66919",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 10:22:20",
+        "duracion_min": 5.2266292666666665,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66918",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 10:08:18",
+        "duracion_min": 7.179989683333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66855",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 04:28:44",
+        "duracion_min": 5.523865116666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66854",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 04:08:20",
+        "duracion_min": 6.917809516666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66838",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-17 01:25:06",
+        "duracion_min": 9.250449966666668,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66814",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-16 20:41:02",
+        "duracion_min": 2.864207433333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66777",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-16 15:21:07",
+        "duracion_min": 2.92426685,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66760",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-16 13:22:28",
+        "duracion_min": 5.09791155,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66753",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-16 11:18:31",
+        "duracion_min": 4.489928333333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66752",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-16 11:06:52",
+        "duracion_min": 5.22567925,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66751",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-16 10:50:54",
+        "duracion_min": 9.055200683333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66681",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-16 03:02:58",
+        "duracion_min": 4.724698816666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66636",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-15 17:29:01",
+        "duracion_min": 6.503282166666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66603",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W25",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-15 11:33:52",
+        "duracion_min": 6.492729683333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66332",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 18:53:49",
+        "duracion_min": 7.852399566666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66272",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 11:50:09",
+        "duracion_min": 2.4943860666666664,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66189",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 04:42:54",
+        "duracion_min": 4.372883766666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66188",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 04:31:30",
+        "duracion_min": 5.365467716666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66187",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 04:20:29",
+        "duracion_min": 3.2071018666666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66186",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 04:07:12",
+        "duracion_min": 3.0680126333333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66185",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 03:53:04",
+        "duracion_min": 4.38464135,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66184",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 03:28:00",
+        "duracion_min": 4.561538083333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66183",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 03:08:59",
+        "duracion_min": 3.072374916666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66182",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 02:56:45",
+        "duracion_min": 3.962237866666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66181",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 02:47:01",
+        "duracion_min": 3.2036163333333336,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66180",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 02:37:15",
+        "duracion_min": 3.3072731666666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66179",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 02:27:13",
+        "duracion_min": 3.2194716833333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66178",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 02:16:47",
+        "duracion_min": 3.10182205,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66177",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 02:05:20",
+        "duracion_min": 3.0495137166666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66176",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 01:50:30",
+        "duracion_min": 4.507398483333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66175",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 01:30:46",
+        "duracion_min": 5.110688766666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66174",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 01:10:19",
+        "duracion_min": 4.831809216666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66173",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 00:56:40",
+        "duracion_min": 2.94416565,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66172",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 00:46:03",
+        "duracion_min": 2.915408466666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66171",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 00:36:24",
+        "duracion_min": 3.0491350333333336,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66170",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 00:26:08",
+        "duracion_min": 2.8065671,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66169",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-12 00:15:12",
+        "duracion_min": 4.825759266666666,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66168",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 23:59:20",
+        "duracion_min": 4.457562883333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66167",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 23:32:12",
+        "duracion_min": 4.472337316666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66166",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 23:04:57",
+        "duracion_min": 4.809129166666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66162",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 22:04:24",
+        "duracion_min": 2.89896,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66160",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 21:19:59",
+        "duracion_min": 3.1858617,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66156",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 20:01:35",
+        "duracion_min": 5.737853666666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66096",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 12:22:31",
+        "duracion_min": 2.99563025,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66059",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 09:34:29",
+        "duracion_min": 2.1121552833333332,
+        "tamano": 0
+    },
+    {
+        "id_camda": "66056",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-06-11 09:16:23",
+        "duracion_min": 2.1002224166666665,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65945",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 23:56:51",
+        "duracion_min": 5.6526518,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65944",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 23:32:33",
+        "duracion_min": 5.10151245,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65943",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 23:19:34",
+        "duracion_min": 5.2698402333333325,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65932",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 21:03:56",
+        "duracion_min": 4.906590583333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65885",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 14:02:11",
+        "duracion_min": 3.02241705,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65881",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 13:30:24",
+        "duracion_min": 4.891043066666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65876",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 12:18:44",
+        "duracion_min": 16.33438575,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65875",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 11:30:36",
+        "duracion_min": 11.939945666666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65874",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 11:26:02",
+        "duracion_min": 6.981909,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65873",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-10 11:01:51",
+        "duracion_min": 9.7373446,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65721",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-09 18:39:41",
+        "duracion_min": 5.4900002,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65669",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-09 12:33:18",
+        "duracion_min": 3.2768092999999996,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65628",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-09 09:01:51",
+        "duracion_min": 1.7441425333333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "65506",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W24",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-08 12:26:16",
+        "duracion_min": 3.1042680833333334,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64970",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-05 13:29:42",
+        "duracion_min": 5.26124975,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64964",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-06-05 12:35:49",
+        "duracion_min": 3.48854855,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64453",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-03 18:04:37",
+        "duracion_min": 3.409936266666667,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64435",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-03 16:07:02",
+        "duracion_min": 1.3254686833333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64426",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-06-03 14:44:16",
+        "duracion_min": 4.121334783333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64270",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-02 19:31:51",
+        "duracion_min": 4.60073065,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64241",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-02 16:00:27",
+        "duracion_min": 4.757536849999999,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64216",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-02 12:33:40",
+        "duracion_min": 5.13979645,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64165",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-06-02 08:03:58",
+        "duracion_min": 1.1845748,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64043",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-01 19:03:08",
+        "duracion_min": 3.5306932,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64026",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-01 17:00:39",
+        "duracion_min": 2.9328106166666665,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64025",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-01 16:47:22",
+        "duracion_min": 3.9991064499999998,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64024",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-01 16:31:57",
+        "duracion_min": 4.528744133333333,
+        "tamano": 0
+    },
+    {
+        "id_camda": "64003",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W23",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-06-01 13:30:04",
+        "duracion_min": 3.6100462500000003,
+        "tamano": 0
+    }
+]
