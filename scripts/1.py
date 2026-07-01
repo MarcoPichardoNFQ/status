@@ -52,7 +52,7 @@ def generar_escenario(df_datos, semanas_top, dias_orden):
     }
 
 def procesar():
-    print("🚀 Iniciando procesamiento de datos...")
+    print(" Iniciando procesamiento de datos...")
     try:
         # Carga robusta de CSV
         df = pd.read_csv(CONFIG["archivo_entrada"], sep='|', dtype=str, quotechar='"')
@@ -125,10 +125,10 @@ def procesar():
             json.dump(datos_limpios, f, indent=4)
         # ========================================================
         
-        print(f"✅ Archivo {CONFIG['archivo_json']} y datos_limpios.json generados con éxito.")
+        print(f" Archivo {CONFIG['archivo_json']} y datos_limpios.json generados con éxito.")
 
     except Exception as e:
-        print(f"❌ ERROR CRÍTICO: {e}")
+        print(f" ERROR CRÍTICO: {e}")
 
 if __name__ == "__main__":
     procesar()
