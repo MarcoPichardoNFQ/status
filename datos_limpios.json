@@ -1,5 +1,86 @@
 [
     {
+        "id_camda": "69442",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:49:32",
+        "duracion_min": 5.519660933333333,
+        "tamano": 367581
+    },
+    {
+        "id_camda": "69441",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:43:22",
+        "duracion_min": 6.17175365,
+        "tamano": 177336
+    },
+    {
+        "id_camda": "69440",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:35:24",
+        "duracion_min": 7.9612064,
+        "tamano": 309927
+    },
+    {
+        "id_camda": "69439",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:29:58",
+        "duracion_min": 5.433041650000001,
+        "tamano": 264166
+    },
+    {
+        "id_camda": "69438",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:24:07",
+        "duracion_min": 5.84277245,
+        "tamano": 208328
+    },
+    {
+        "id_camda": "69437",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:18:38",
+        "duracion_min": 5.4842521500000005,
+        "tamano": 244058
+    },
+    {
+        "id_camda": "69436",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:13:17",
+        "duracion_min": 5.361757600000001,
+        "tamano": 306595
+    },
+    {
+        "id_camda": "69435",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:07:16",
+        "duracion_min": 6.0074055333333325,
+        "tamano": 378792
+    },
+    {
+        "id_camda": "69434",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W27",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-07-01 04:01:24",
+        "duracion_min": 5.8674424499999995,
+        "tamano": 261743
+    },
+    {
         "id_camda": "69433",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W27",
