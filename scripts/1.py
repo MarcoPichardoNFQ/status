@@ -67,15 +67,16 @@ def procesar():
         # 1. FIX ZONA HORARIA (Bug del Viernes)
         # Cortamos a 19 caracteres para ignorar el offset -0600 y mantener hora local literal
         # Elimina el timezone conservando la fecha, hora y fracción de segundo.
+   
         fecha = (
             df['inicio_ejecucion']
-            .str.replace(r'([+-]\d{2}:\d{2})$', '', regex=True)  # -03:00
-            .str.replace(r'\s([+-]\d{4})$', '', regex=True)      # -0600
-            .str.strip()
+            .str.replace(r'([+-]\d{2}:\d{2})$', '', regex=True)
+            .str.replace(r'\.(\d{6})', '', regex=True)
         )
 
         df['inicio_dt'] = pd.to_datetime(
             fecha,
+            format='%Y-%m-%d %H:%M:%S',
             errors='coerce'
         )
         c=df['inicio_dt']
