@@ -80,375 +80,436 @@
 
 		<header
 			class="relative z-50 bg-[#04060a]/90 backdrop-blur-md border-b border-cyan-900/50 shadow-lg sticky top-0">
-			<div class="w-11/12 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex justify-between items-center h-24">
-					<div class="flex items-center space-x-6">
-						<svg width="48" height="48" viewBox="0 0 100 100" fill="none"
-							class="drop-shadow-[0_0_10px_rgba(250,204,21,0.6)]">
-							<circle cx="50" cy="50" r="46" fill="#040814" stroke="#facc15"
-								stroke-width="2"
-								stroke-dasharray="4 2" class="animate-[spin_20s_linear_infinite]" />
-							<circle cx="50" cy="50" r="38" fill="#0f172a" stroke="#1e293b"
-								stroke-width="1" />
-							<path d="M30 65 C 20 40, 40 20, 70 30" stroke="#facc15"
-								stroke-width="1.5"
-								stroke-dasharray="3 3" fill="none" />
-							<path d="M55 25 L 65 15 L 75 25 L 70 55 L 60 55 Z" fill="#e2e8f0"
-								stroke="#ffffff"
-								stroke-width="1" />
-							<circle cx="35" cy="65" r="8" fill="#1e293b" stroke="#475569"
-								stroke-width="1" />
-							<circle cx="33" cy="63" r="2" fill="#334155" />
-						</svg>
-						<div>
-							<h1
-								class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
-								Misión Apollo-Aldrin
-							</h1>
-							<p
-								class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Advanced
-								Telemetry & Analytics</p>
-							<!-- <p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">ÚLTIMO DEPLOY BRT: <span id="deploy-timestamp">2026-06-25 14:15:49 UTC</span></p> -->
-							<p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">
-								ÚLTIMO DEPLOY BRT:
-								<span id="deploy-timestamp"></span>
-							</p>
-						</div>
+			<!--<div class="w-11/12 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">-->
+			<div class="w-full px-3"></div>
+			<div class="flex justify-between items-center h-24">
+				<div class="flex items-center space-x-6">
+					<svg width="48" height="48" viewBox="0 0 100 100" fill="none"
+						class="drop-shadow-[0_0_10px_rgba(250,204,21,0.6)]">
+						<circle cx="50" cy="50" r="46" fill="#040814" stroke="#facc15"
+							stroke-width="2"
+							stroke-dasharray="4 2" class="animate-[spin_20s_linear_infinite]" />
+						<circle cx="50" cy="50" r="38" fill="#0f172a" stroke="#1e293b"
+							stroke-width="1" />
+						<path d="M30 65 C 20 40, 40 20, 70 30" stroke="#facc15"
+							stroke-width="1.5"
+							stroke-dasharray="3 3" fill="none" />
+						<path d="M55 25 L 65 15 L 75 25 L 70 55 L 60 55 Z" fill="#e2e8f0"
+							stroke="#ffffff"
+							stroke-width="1" />
+						<circle cx="35" cy="65" r="8" fill="#1e293b" stroke="#475569"
+							stroke-width="1" />
+						<circle cx="33" cy="63" r="2" fill="#334155" />
+					</svg>
+					<div>
+						<h1
+							class="text-2xl font-bold text-white tracking-wider flex items-center uppercase">
+							Misión Apollo-Aldrin
+						</h1>
+						<p
+							class="text-xs text-slate-400 font-mono tracking-widest uppercase mt-1">Advanced
+							Telemetry & Analytics</p>
+						<!-- <p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">ÚLTIMO DEPLOY BRT: <span id="deploy-timestamp">2026-06-25 14:15:49 UTC</span></p> -->
+						<p class="text-[10px] text-cyan-500 font-mono tracking-widest mt-1">
+							ÚLTIMO DEPLOY BRT:
+							<span id="deploy-timestamp"></span>
+						</p>
 					</div>
+				</div>
 
-					<div class="flex items-center space-x-8 overflow-x-auto pb-2 xl:pb-0">
-						<nav
-							class="flex space-x-3 bg-[#0b1221] p-2 rounded-xl border border-cyan-900/30 shadow-inner whitespace-nowrap">
-							<button onclick="switchTab('megara')" id="btn-megara"
-								class="tab-btn  flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
-									data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces</button>
-							<button onclick="switchTab('reporting')" id="btn-reporting"
-								class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
-									data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 2.
-								Reporting</button>
-							<button onclick="switchTab('infra')" id="btn-infra"
-								class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
-									data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infra & API</button>
-							<button onclick="switchTab('uat')" id="btn-uat"
-								class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent"><i
-									data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT<span
-									class="ml-2 bg-indigo-500/20 text-indigo-400 py-0.5 px-2.5 rounded font-mono text-xs border border-indigo-500/30">13</span></button>
-							<button onclick="switchTab('graficas')" id="btn-graficas"
-								class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
-									data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 5. Analytics
-								Hub</button>
-							<button onclick="switchTab('datos')" id="btn-datos"
-								class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
-									data-lucide="file-json" class="w-5 h-5 mr-2"></i> 6. Datos
-								Post-ETL</button>
-						</nav>
-						<div
-							class="hidden lg:flex items-center space-x-6 border-l border-cyan-900/50 pl-8 h-12">
-							<img
-								src="https://lh3.googleusercontent.com/d/13_MI7hp3FM5zOgxBYPU-2pq-kRuICS6_"
-								alt="Logo Cliente"
-								class="h-10 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
-							<img
-								src="https://lh3.googleusercontent.com/d/1ZWZ7TzS5FsxCjvfCOtSfymWEnk7Cwb09"
-								alt="Logo Partner"
-								class="h-9 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
-						</div>
+				<div class="flex items-center space-x-8 overflow-x-auto pb-2 xl:pb-0">
+					<nav
+						class="flex space-x-3 bg-[#0b1221] p-2 rounded-xl border border-cyan-900/30 shadow-inner whitespace-nowrap">
+						<button onclick="switchTab('megara')" id="btn-megara"
+							class="tab-btn  flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
+								data-lucide="database" class="w-5 h-5 mr-2"></i> 1. Interfaces</button>
+						<button onclick="switchTab('reporting')" id="btn-reporting"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
+								data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 2.
+							Reporting</button>
+						<button onclick="switchTab('infra')" id="btn-infra"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
+								data-lucide="server" class="w-5 h-5 mr-2"></i> 3. Infra & API</button>
+						<button onclick="switchTab('uat')" id="btn-uat"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-indigo-200 hover:bg-slate-800/50 border border-transparent"><i
+								data-lucide="list-todo" class="w-5 h-5 mr-2"></i> 4. Backlog UAT<span
+								class="ml-2 bg-indigo-500/20 text-indigo-400 py-0.5 px-2.5 rounded font-mono text-xs border border-indigo-500/30">13</span></button>
+						<button onclick="switchTab('graficas')" id="btn-graficas"
+							class="tab-btn active flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
+								data-lucide="bar-chart-2" class="w-5 h-5 mr-2"></i> 5. Analytics
+							Hub</button>
+						<button onclick="switchTab('datos')" id="btn-datos"
+							class="tab-btn flex items-center px-4 py-2.5 rounded-lg text-sm font-mono font-bold tracking-widest uppercase transition-all duration-200 text-slate-500 hover:text-cyan-200 hover:bg-slate-800/50 border border-transparent"><i
+								data-lucide="file-json" class="w-5 h-5 mr-2"></i> 6. Datos
+							Post-ETL</button>
+					</nav>
+					<div
+						class="hidden lg:flex items-center space-x-6 border-l border-cyan-900/50 pl-8 h-12">
+						<img
+							src="https://lh3.googleusercontent.com/d/13_MI7hp3FM5zOgxBYPU-2pq-kRuICS6_"
+							alt="Logo Cliente"
+							class="h-10 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
+						<img
+							src="https://lh3.googleusercontent.com/d/1ZWZ7TzS5FsxCjvfCOtSfymWEnk7Cwb09"
+							alt="Logo Partner"
+							class="h-9 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.3)] transition-all">
 					</div>
 				</div>
 			</div>
-			<main class="relative z-10 w-11/12 max-w-[1600px] mx-auto px-4 py-10">
-				<div id="tab-megara" class="tab-pane space-y-8"><div
-						class="glass-panel rounded-2xl overflow-hidden"><table
-							class="min-w-full divide-y divide-cyan-900/30"><tbody id="tbody-megara"
-								class="divide-y divide-cyan-900/20"></tbody></table></div></div>
-				<div id="tab-reporting" class="tab-pane space-y-8"><div
-						class="glass-panel rounded-2xl overflow-hidden"><table
-							class="min-w-full divide-y divide-cyan-900/30"><tbody
-								id="tbody-reporting"
-								class="divide-y divide-cyan-900/20"></tbody></table></div></div>
-				<div id="tab-infra" class="tab-pane space-y-8"><div
-						class="glass-panel rounded-2xl overflow-hidden"><table
-							class="min-w-full divide-y divide-cyan-900/30"><tbody id="tbody-infra"
-								class="divide-y divide-cyan-900/20"></tbody></table></div></div>
-				<div id="tab-uat" class="tab-pane space-y-8"><div
-						class="glass-panel rounded-2xl overflow-hidden"><table
-							class="min-w-full divide-y divide-900/30"><tbody id="tbody-uat"
-								class="divide-y divide-900/20"></tbody></table></div></div>
+		</div>
+		<main class="relative z-10 w-full max-w-[1900px] mx-auto px-3 py-10">
+			<div id="tab-megara" class="tab-pane space-y-8"><div
+					class="glass-panel rounded-2xl overflow-hidden"><table class="min-w-full table-fixed divide-y divide-cyan-900/30">
+    <thead class="bg-[#04060a] sticky top-0 z-10">
+        <tr>
+            <th class="w-[30%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Tarea
+            </th>
+            <th class="w-[15%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Estado
+            </th>
+            <th class="w-[30%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Comentario
+            </th>
+            <th class="w-[25%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Próximos Pasos
+            </th>
+        </tr>
+						</thead><tbody id="tbody-megara"
+							class="divide-y divide-cyan-900/20"></tbody></table></div></div>
+			<div id="tab-reporting" class="tab-pane space-y-8"><div
+					class="glass-panel rounded-2xl overflow-hidden"><table class="min-w-full table-fixed divide-y divide-cyan-900/30">
+    <thead class="bg-[#04060a] sticky top-0 z-10">
+        <tr>
+            <th class="w-[30%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Tarea
+            </th>
+            <th class="w-[15%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Estado
+            </th>
+            <th class="w-[30%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Comentario
+            </th>
+            <th class="w-[25%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Próximos Pasos
+            </th>
+        </tr>
+						</thead><tbody
+							id="tbody-reporting"
+							class="divide-y divide-cyan-900/20"></tbody></table></div></div>
+			<div id="tab-infra" class="tab-pane space-y-8"><div
+					class="glass-panel rounded-2xl overflow-hidden"><table class="min-w-full table-fixed divide-y divide-cyan-900/30">
+    <thead class="bg-[#04060a] sticky top-0 z-10">
+        <tr>
+            <th class="w-[30%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Tarea
+            </th>
+            <th class="w-[15%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Estado
+            </th>
+            <th class="w-[30%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Comentario
+            </th>
+            <th class="w-[25%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Próximos Pasos
+            </th>
+        </tr>
+						</thead><tbody id="tbody-infra"
+							class="divide-y divide-cyan-900/20"></tbody></table></div></div>
+			<div id="tab-uat" class="tab-pane space-y-8"><div
+					class="glass-panel rounded-2xl overflow-hidden"><table class="min-w-full table-fixed divide-y divide-cyan-900/30">
+    <thead class="bg-[#04060a] sticky top-0 z-10">
+        <tr>
+            <th class="w-[30%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Tarea
+            </th>
+            <th class="w-[15%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Estado
+            </th>
+            <th class="w-[30%] px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Comentario
+            </th>
+            <th class="w-[25%] px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">
+                Próximos Pasos
+            </th>
+        </tr>
+						</thead><tbody id="tbody-uat"
+							class="divide-y divide-900/20"></tbody></table></div></div>
 
-				<div id="tab-graficas" class="tab-pane space-y-8 active">
+			<div id="tab-graficas" class="tab-pane space-y-8 active">
+				<div
+					class="glass-panel p-6 rounded-2xl flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 shadow-2xl border-t-4 border-t-fuchsia-500  sticky top-30">
+					<div>
+						<h2
+							class="text-3xl font-bold text-white mb-2 uppercase tracking-wider font-space">Centro
+							de Análisis ETL</h2>
+						<p id="subtitulo-graficas"
+							class="text-fuchsia-400 font-mono text-sm uppercase">Cargando
+							telemetría...</p>
+					</div>
+
 					<div
-						class="glass-panel p-6 rounded-2xl flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 shadow-2xl border-t-4 border-t-fuchsia-500  sticky top-30">
-						<div>
-							<h2
-								class="text-3xl font-bold text-white mb-2 uppercase tracking-wider font-space">Centro
-								de Análisis ETL</h2>
-							<p id="subtitulo-graficas"
-								class="text-fuchsia-400 font-mono text-sm uppercase">Cargando
-								telemetría...</p>
+						class="flex flex-wrap lg:flex-nowrap items-center gap-4 bg-[#080d1a] p-3 rounded-xl border border-cyan-900/50">
+						<div class="flex flex-col px-3 border-r border-cyan-900/50">
+							<span
+								class="text-[10px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Tipo
+								de Ejecución</span>
+							<select id="filtroDatos"
+								class="bg-transparent text-white border-none font-mono text-sm outline-none cursor-pointer">
+								<option value="todos">Todas (Auto + Manual)</option>
+								<option value="solo_auto">Únicamente Automáticas</option>
+								<option value="solo_ma">Únicamente Manuales</option>
+							</select>
 						</div>
 
-						<div
-							class="flex flex-wrap lg:flex-nowrap items-center gap-4 bg-[#080d1a] p-3 rounded-xl border border-cyan-900/50">
-							<div class="flex flex-col px-3 border-r border-cyan-900/50">
-								<span
-									class="text-[10px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Tipo
-									de Ejecución</span>
-								<select id="filtroDatos"
-									class="bg-transparent text-white border-none font-mono text-sm outline-none cursor-pointer">
-									<option value="todos">Todas (Auto + Manual)</option>
-									<option value="solo_auto">Únicamente Automáticas</option>
-									<option value="solo_ma">Únicamente Manuales</option>
-								</select>
-							</div>
+						<div class="flex flex-col px-3">
+							<span
+								class="text-[10px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Filtro
+								Semanal</span>
+							<div class="flex space-x-4 font-mono text-sm" id="filtroSemanas">
+								<label class="flex items-center space-x-2 cursor-pointer text-sky-400">
+									<input type="checkbox" value="0"
+										class="chk-semana form-checkbox bg-slate-800 border-sky-500 rounded text-sky-500 focus:ring-sky-500"
+										checked><span>W27 (Actual)</span>
+								</label>
+								<label
+									class="flex items-center space-x-2 cursor-pointer text-indigo-400">
+									<input type="checkbox" value="1"
+										class="chk-semana form-checkbox bg-slate-800 border-indigo-500 rounded text-indigo-500 focus:ring-indigo-500"
+										checked><span>W26 (Prev)</span>
+								</label>
+								<label
+									class="flex items-center space-x-2 cursor-pointer text-rose-400">
+									<input type="checkbox" value="2"
+										class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500"
+										checked><span>W25 (Prev-2)</span>
+								</label>
+								<label
+									class="flex items-center space-x-2 cursor-pointer text-jade-400">
+									<input type="checkbox" value="3"
+										class="chk-semana form-checkbox bg-slate-800 border-jade-500 rounded text-jade-500 focus:ring-jade-500"
+										checked><span>W24 (Prev-3)</span>
+								</label>
+								<label
+									class="flex items-center space-x-2 cursor-pointer text-teal-400">
+									<input type="checkbox" value="4"
+										class="chk-semana form-checkbox bg-slate-800 border-teal-500 rounded text-teal-500 focus:ring-teal-500"
+										checked><span>W23 (Prev-4)</span>
+								</label>
 
-							<div class="flex flex-col px-3">
-								<span
-									class="text-[10px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Filtro
-									Semanal</span>
-								<div class="flex space-x-4 font-mono text-sm" id="filtroSemanas">
-									<label class="flex items-center space-x-2 cursor-pointer text-sky-400">
-										<input type="checkbox" value="0"
-											class="chk-semana form-checkbox bg-slate-800 border-sky-500 rounded text-sky-500 focus:ring-sky-500"
-											checked><span>W27 (Actual)</span>
-									</label>
-									<label
-										class="flex items-center space-x-2 cursor-pointer text-indigo-400">
-										<input type="checkbox" value="1"
-											class="chk-semana form-checkbox bg-slate-800 border-indigo-500 rounded text-indigo-500 focus:ring-indigo-500"
-											checked><span>W26 (Prev)</span>
-									</label>
-									<label
-										class="flex items-center space-x-2 cursor-pointer text-rose-400">
-										<input type="checkbox" value="2"
-											class="chk-semana form-checkbox bg-slate-800 border-rose-500 rounded text-rose-500 focus:ring-rose-500"
-											checked><span>W25 (Prev-2)</span>
-									</label>
-									<label
-										class="flex items-center space-x-2 cursor-pointer text-jade-400">
-										<input type="checkbox" value="3"
-											class="chk-semana form-checkbox bg-slate-800 border-jade-500 rounded text-jade-500 focus:ring-jade-500"
-											checked><span>W24 (Prev-3)</span>
-									</label>
-									<label
-										class="flex items-center space-x-2 cursor-pointer text-teal-400">
-										<input type="checkbox" value="4"
-											class="chk-semana form-checkbox bg-slate-800 border-teal-500 rounded text-teal-500 focus:ring-teal-500"
-											checked><span>W23 (Prev-4)</span>
-									</label>
-
-								</div>
 							</div>
-						</div>
-					</div>
-
-					<div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
-						<div class="xl:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
-							<div
-								class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-cyan-400 flex flex-col justify-between">
-								<div>
-									<p
-										class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
-												data-lucide="clock" class="w-3 h-3 inline mr-1"></i> Duración
-											Media</span></p>
-									<h4 id="kpi-duracion"
-										class="text-4xl font-bold text-white font-space mt-2">0.0</h4>
-									<p class="text-sm text-cyan-500 font-mono">minutos / ejecución</p>
-								</div>
-								<div id="delta-duracion"
-									class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center"></div>
-							</div>
-							<div
-								class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-indigo-400 flex flex-col justify-between">
-								<div>
-									<p
-										class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
-												data-lucide="hard-drive" class="w-3 h-3 inline mr-1"></i> Tamaño
-											Medio</span></p>
-									<h4 id="kpi-tamano"
-										class="text-4xl font-bold text-white font-space mt-2">0</h4>
-									<p class="text-sm text-indigo-500 font-mono">bytes procesados</p>
-								</div>
-								<div id="delta-tamano"
-									class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center"></div>
-							</div>
-							<div
-								class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-rose-400 flex flex-col justify-between">
-								<div>
-									<p
-										class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
-												data-lucide="activity" class="w-3 h-3 inline mr-1"></i> Volumen
-											Eventos</span></p>
-									<h4 id="kpi-ejecuciones"
-										class="text-4xl font-bold text-white font-space mt-2">0</h4>
-									<p class="text-sm text-rose-500 font-mono">cargas totales</p>
-								</div>
-								<div id="delta-volumen"
-									class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center"></div>
-							</div>
-
-							<div
-								class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-amber-400 flex flex-col justify-between">
-								<div>
-									<p
-										class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
-												data-lucide="alert-triangle" class="w-3 h-3 inline mr-1"></i>
-											Duración Pico</span></p>
-									<h4 id="kpi-max-duracion"
-										class="text-4xl font-bold text-white font-space mt-2">0.0</h4>
-									<p class="text-sm text-amber-500 font-mono">minutos (máx)</p>
-								</div>
-							</div>
-							<div
-								class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-fuchsia-400 flex flex-col justify-between">
-								<div>
-									<p
-										class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
-												data-lucide="database-zap" class="w-3 h-3 inline mr-1"></i> Data
-											Total Acumulada</span></p>
-									<h4 id="kpi-total-tamano"
-										class="text-4xl font-bold text-white font-space mt-2">0</h4>
-									<p id="kpi-total-tamano-unidad"
-										class="text-sm text-fuchsia-500 font-mono">bytes totales</p>
-								</div>
-							</div>
-							<div
-								class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-emerald-400 flex flex-col justify-between">
-								<div>
-									<p
-										class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
-												data-lucide="bar-chart" class="w-3 h-3 inline mr-1"></i> Promedio
-											Diario</span></p>
-									<h4 id="kpi-avg-eventos"
-										class="text-4xl font-bold text-white font-space mt-2">0</h4>
-									<p class="text-sm text-emerald-500 font-mono">eventos / día</p>
-								</div>
-							</div>
-						</div>
-						<div
-							class="glass-panel rounded-xl p-5 border border-amber-500/30 bg-gradient-to-br from-[#0b1221] to-amber-900/10">
-							<h3
-								class="text-amber-500 font-space font-bold uppercase tracking-widest text-xs mb-3 flex items-center"><i
-									data-lucide="cpu" class="w-4 h-4 mr-2"></i> Insights Automáticos</h3>
-							<div id="insight-text"
-								class="text-sm text-slate-300 leading-relaxed font-inter space-y-3">Cargando
-								análisis...</div>
-						</div>
-					</div>
-
-					<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-						<div class="glass-panel rounded-2xl p-6 lg:col-span-2 relative">
-							<div class="flex justify-between items-center mb-4">
-								<h3
-									class="text-sky-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia
-									de Tiempos de Ejecución (Minutos)</h3>
-								<span
-									class="text-[10px] text-slate-500 uppercase font-mono tracking-wider border border-slate-700 px-2 py-1 rounded">Incluye
-									4 líneas promedio (Dinámicas)</span>
-							</div>
-							<div class="h-[300px] w-full"><canvas id="chartDuracion"></canvas></div>
-						</div>
-						<div class="glass-panel rounded-2xl p-6 relative">
-							<h3
-								class="text-indigo-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Evolución
-								de Pesos/Tamaños (Bytes)</h3>
-							<div class="h-[280px] w-full"><canvas id="chartTamano"></canvas></div>
-						</div>
-						<div class="glass-panel rounded-2xl p-6 relative">
-							<div class="flex justify-between items-center mb-4">
-								<h3
-									class="text-amber-400 font-space font-bold uppercase tracking-widest text-sm">Correlación:
-									Tamaño vs Duración</h3>
-							</div>
-							<div class="h-[280px] w-full"><canvas
-									id="chartCorrelacion"></canvas></div>
-						</div>
-						<div class="glass-panel rounded-2xl p-6">
-							<h3
-								class="text-rose-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Volumetría
-								de Cargas (Eventos por día)</h3>
-							<div class="h-[250px] w-full"><canvas id="chartVolumen"></canvas></div>
-						</div>
-						<div class="glass-panel rounded-2xl p-6 flex flex-col">
-							<h3
-								class="text-emerald-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Huella
-								de Desempeño Multivariable</h3>
-							<div class="h-[250px] w-full flex-grow"><canvas
-									id="chartRadar"></canvas></div>
-						</div>
-
-						<div class="glass-panel rounded-2xl p-6 lg:col-span-2 relative">
-							<div class="flex justify-between items-center mb-4">
-								<h3
-									class="text-fuchsia-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia
-									Histórica Continua (Tiempos de Ejecución)</h3>
-								<span
-									class="text-[10px] text-slate-500 uppercase font-mono tracking-wider border border-slate-700 px-2 py-1 rounded">Línea
-									de tiempo única</span>
-							</div>
-							<div class="h-[300px] w-full"><canvas
-									id="chartHistoricoDuracion"></canvas></div>
-						</div>
-						<div class="glass-panel rounded-2xl p-6 lg:col-span-2 relative">
-							<div class="flex justify-between items-center mb-4">
-								<h3
-									class="text-emerald-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia
-									Histórica Continua (Tamaños de Archivos)</h3>
-								<span
-									class="text-[10px] text-slate-500 uppercase font-mono tracking-wider border border-slate-700 px-2 py-1 rounded">Línea
-									de tiempo única</span>
-							</div>
-							<div class="h-[300px] w-full"><canvas
-									id="chartHistoricoTamano"></canvas></div>
 						</div>
 					</div>
 				</div>
 
-				<div id="tab-datos" class="tab-pane space-y-8">
-					<div
-						class="flex justify-between items-end mb-6 border-l-4 border-yellow-500 pl-5">
-						<div>
-							<h2
-								class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">6.
-								Datos Post-ETL (Auditoría)</h2>
-							<p
-								class="text-yellow-400 font-mono text-sm uppercase tracking-widest">Registros
-								limpiados y agrupados antes de alimentar gráficas</p>
+				<div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
+					<div class="xl:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-cyan-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
+											data-lucide="clock" class="w-3 h-3 inline mr-1"></i> Duración
+										Media</span></p>
+								<h4 id="kpi-duracion"
+									class="text-4xl font-bold text-white font-space mt-2">0.0</h4>
+								<p class="text-sm text-cyan-500 font-mono">minutos / ejecución</p>
+							</div>
+							<div id="delta-duracion"
+								class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center"></div>
+						</div>
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-indigo-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
+											data-lucide="hard-drive" class="w-3 h-3 inline mr-1"></i> Tamaño
+										Medio</span></p>
+								<h4 id="kpi-tamano"
+									class="text-4xl font-bold text-white font-space mt-2">0</h4>
+								<p class="text-sm text-indigo-500 font-mono">bytes procesados</p>
+							</div>
+							<div id="delta-tamano"
+								class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center"></div>
+						</div>
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-rose-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
+											data-lucide="activity" class="w-3 h-3 inline mr-1"></i> Volumen
+										Eventos</span></p>
+								<h4 id="kpi-ejecuciones"
+									class="text-4xl font-bold text-white font-space mt-2">0</h4>
+								<p class="text-sm text-rose-500 font-mono">cargas totales</p>
+							</div>
+							<div id="delta-volumen"
+								class="mt-4 text-xs font-mono rounded bg-slate-800/50 p-2 text-center"></div>
+						</div>
+
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-amber-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
+											data-lucide="alert-triangle" class="w-3 h-3 inline mr-1"></i>
+										Duración Pico</span></p>
+								<h4 id="kpi-max-duracion"
+									class="text-4xl font-bold text-white font-space mt-2">0.0</h4>
+								<p class="text-sm text-amber-500 font-mono">minutos (máx)</p>
+							</div>
+						</div>
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-fuchsia-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
+											data-lucide="database-zap" class="w-3 h-3 inline mr-1"></i> Data
+										Total Acumulada</span></p>
+								<h4 id="kpi-total-tamano"
+									class="text-4xl font-bold text-white font-space mt-2">0</h4>
+								<p id="kpi-total-tamano-unidad"
+									class="text-sm text-fuchsia-500 font-mono">bytes totales</p>
+							</div>
+						</div>
+						<div
+							class="glass-panel card-kpi rounded-xl p-5 border-l-4 border-emerald-400 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-xs text-slate-400 font-mono uppercase tracking-widest mb-1 flex items-center justify-between"><span><i
+											data-lucide="bar-chart" class="w-3 h-3 inline mr-1"></i> Promedio
+										Diario</span></p>
+								<h4 id="kpi-avg-eventos"
+									class="text-4xl font-bold text-white font-space mt-2">0</h4>
+								<p class="text-sm text-emerald-500 font-mono">eventos / día</p>
+							</div>
 						</div>
 					</div>
-					<div class="glass-panel rounded-2xl overflow-hidden">
-						<div class="overflow-y-auto max-h-[600px] w-full">
-							<table class="min-w-full divide-y divide-cyan-900/30">
-								<thead class="bg-[#04060a] sticky top-0 z-10">
-									<tr>
-										<th
-											class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">No
-											Ejecucion</th>
-										<th
-											class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tipo</th>
-										<th
-											class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Semana</th>
-										<th
-											class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Día
-											(Inglés)</th>
-										<th
-											class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Fecha
-											Exacta</th>
-										<th
-											class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Duración
-											(Min)</th>
-										<th
-											class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tamaño
-											(Bytes)</th>
-									</tr>
-								</thead>
-								<tbody id="tbody-datos" class="divide-y divide-cyan-900/20"></tbody>
-							</table>
-						</div>
+					<div
+						class="glass-panel rounded-xl p-5 border border-amber-500/30 bg-gradient-to-br from-[#0b1221] to-amber-900/10">
+						<h3
+							class="text-amber-500 font-space font-bold uppercase tracking-widest text-xs mb-3 flex items-center"><i
+								data-lucide="cpu" class="w-4 h-4 mr-2"></i> Insights Automáticos</h3>
+						<div id="insight-text"
+							class="text-sm text-slate-300 leading-relaxed font-inter space-y-3">Cargando
+							análisis...</div>
 					</div>
 				</div>
-			</main>
 
-			<script>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+					<div class="glass-panel rounded-2xl p-6 lg:col-span-2 relative">
+						<div class="flex justify-between items-center mb-4">
+							<h3
+								class="text-sky-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia
+								de Tiempos de Ejecución (Minutos)</h3>
+							<span
+								class="text-[10px] text-slate-500 uppercase font-mono tracking-wider border border-slate-700 px-2 py-1 rounded">Incluye
+								4 líneas promedio (Dinámicas)</span>
+						</div>
+						<div class="h-[300px] w-full"><canvas id="chartDuracion"></canvas></div>
+					</div>
+					<div class="glass-panel rounded-2xl p-6 relative">
+						<h3
+							class="text-indigo-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Evolución
+							de Pesos/Tamaños (Bytes)</h3>
+						<div class="h-[280px] w-full"><canvas id="chartTamano"></canvas></div>
+					</div>
+					<div class="glass-panel rounded-2xl p-6 relative">
+						<div class="flex justify-between items-center mb-4">
+							<h3
+								class="text-amber-400 font-space font-bold uppercase tracking-widest text-sm">Correlación:
+								Tamaño vs Duración</h3>
+						</div>
+						<div class="h-[280px] w-full"><canvas
+								id="chartCorrelacion"></canvas></div>
+					</div>
+					<div class="glass-panel rounded-2xl p-6">
+						<h3
+							class="text-rose-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Volumetría
+							de Cargas (Eventos por día)</h3>
+						<div class="h-[250px] w-full"><canvas id="chartVolumen"></canvas></div>
+					</div>
+					<div class="glass-panel rounded-2xl p-6 flex flex-col">
+						<h3
+							class="text-emerald-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Huella
+							de Desempeño Multivariable</h3>
+						<div class="h-[250px] w-full flex-grow"><canvas
+								id="chartRadar"></canvas></div>
+					</div>
+
+					<div class="glass-panel rounded-2xl p-6 lg:col-span-2 relative">
+						<div class="flex justify-between items-center mb-4">
+							<h3
+								class="text-fuchsia-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia
+								Histórica Continua (Tiempos de Ejecución)</h3>
+							<span
+								class="text-[10px] text-slate-500 uppercase font-mono tracking-wider border border-slate-700 px-2 py-1 rounded">Línea
+								de tiempo única</span>
+						</div>
+						<div class="h-[300px] w-full"><canvas
+								id="chartHistoricoDuracion"></canvas></div>
+					</div>
+					<div class="glass-panel rounded-2xl p-6 lg:col-span-2 relative">
+						<div class="flex justify-between items-center mb-4">
+							<h3
+								class="text-emerald-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia
+								Histórica Continua (Tamaños de Archivos)</h3>
+							<span
+								class="text-[10px] text-slate-500 uppercase font-mono tracking-wider border border-slate-700 px-2 py-1 rounded">Línea
+								de tiempo única</span>
+						</div>
+						<div class="h-[300px] w-full"><canvas
+								id="chartHistoricoTamano"></canvas></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="tab-datos" class="tab-pane space-y-8">
+				<div
+					class="flex justify-between items-end mb-6 border-l-4 border-yellow-500 pl-5">
+					<div>
+						<h2
+							class="text-3xl font-bold text-white mb-2 uppercase tracking-wider">6.
+							Datos Post-ETL (Auditoría)</h2>
+						<p
+							class="text-yellow-400 font-mono text-sm uppercase tracking-widest">Registros
+							limpiados y agrupados antes de alimentar gráficas</p>
+					</div>
+				</div>
+				<div class="glass-panel rounded-2xl overflow-hidden">
+					<div class="overflow-y-auto max-h-[600px] w-full">
+						<table class="min-w-full divide-y divide-cyan-900/30">
+							<thead class="bg-[#04060a] sticky top-0 z-10">
+								<tr>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">No
+										Ejecucion</th>
+									<th
+										class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tipo</th>
+									<th
+										class="px-8 py-5 text-center text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Semana</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Día
+										(Inglés)</th>
+									<th
+										class="px-8 py-5 text-left text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Fecha
+										Exacta</th>
+									<th
+										class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Duración
+										(Min)</th>
+									<th
+										class="px-8 py-5 text-right text-sm font-space font-bold text-amber-500 uppercase tracking-widest">Tamaño
+										(Bytes)</th>
+								</tr>
+							</thead>
+							<tbody id="tbody-datos" class="divide-y divide-cyan-900/20"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script>
 			let dbMegara = [];
 			let dbReporting = [];
 			let dbInfra = [];
@@ -824,6 +885,6 @@
                 switchTab('megara');
             };
 		</script>
-		</body>
+	</body>
 
-	</html>
+</html>
