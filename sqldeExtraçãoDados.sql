@@ -121,11 +121,11 @@ SELECT
     inicio_ejecucion + INTERVAL '3 hours' AS inicio_ejecucion,
     duracion,
     CASE
-        WHEN orden = 1 THEN 0
+        WHEN orden = 1 THEN tamano
         ELSE tamano
     END AS tamano
 FROM final_calc
-WHERE rn > 1
+WHERE rn >= 1
 ORDER BY
     id_camda DESC,
     orden DESC;
