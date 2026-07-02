@@ -558,8 +558,8 @@
                         `;
                     }
 
-                    if (datos.length > 800) {
-                        html += `<tr><td colspan="7" class="px-8 py-5 text-center text-slate-500 font-mono text-xs italic">Mostrando los primeros 800 registros (de ${datos.length} totales generados por ETL).</td></tr>`;
+                    if (datos.length > 500) {
+                        html += `<tr><td colspan="7" class="px-8 py-5 text-center text-slate-500 font-mono text-xs italic">Mostrando los primeros 500 registros (de ${datos.length} totales generados por ETL).</td></tr>`;
                     }
                     document.getElementById('tbody-datos').innerHTML = html;
                 } catch(e) {
