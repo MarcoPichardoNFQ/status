@@ -99,7 +99,7 @@ def procesar():
         df_final = df[df['año_semana'].isin(semanas_top)].copy()
         
         dias_orden = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-        ultimo_deploy = (df_final['inicio_dt'].max() - pd.Timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S')
+        ultimo_deploy = (df_final['inicio_dt'].max()).strftime('%Y-%m-%d %H:%M:%S')
            
         # Generar Escenarios
         resultado = {
