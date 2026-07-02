@@ -491,7 +491,7 @@
                                 <td class="px-8 py-4 text-sm font-mono text-indigo-300 text-center">${row.año_semana}</td>
                                 <td class="px-8 py-4 text-sm font-mono text-sky-400">${row.dia_nombre_en}</td>
                                 <td class="px-8 py-4 text-sm font-mono text-slate-400">${row.inicio_dt}</td>
-                                <td class="px-8 py-4 text-sm font-mono text-amber-400/80 text-right">${row.duracion_min !== null ? parseFloat(row.duracion_min).toFixed(2) : '-'}</td>
+                                <td class="px-8 py-4 text-sm font-mono text-amber-400/80 text-right">${row.duracion_min !== null ? `${String(Math.floor(parseFloat(row.duracion_min))).padStart(2, '0')}:${String(Math.round((parseFloat(row.duracion_min) % 1) * 60)).padStart(2, '0')}` : '-'}</td>
                                 <td class="px-8 py-4 text-sm font-mono text-emerald-400/80 text-right">${row.tamano !== null ? parseFloat(row.tamano).toFixed(0) : '-'}</td>
                             </tr>
                         `;
