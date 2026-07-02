@@ -79,6 +79,7 @@ def procesar():
             format='%Y-%m-%d %H:%M:%S',
             errors='coerce'
         )
+        df['inicio_dt']= df['inicio_dt'] - pd.Timedelta(hours=3)
         c=df['inicio_dt']
 
         # 2. Conversión de métricas
