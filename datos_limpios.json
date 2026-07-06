@@ -1,11 +1,29 @@
 [
     {
+        "id_camda": "70764",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W28",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-07-06 11:35:10",
+        "duracion_min": null,
+        "tamano": 488477
+    },
+    {
+        "id_camda": "70764",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W28",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-07-06 11:31:18",
+        "duracion_min": 3.8673509166666666,
+        "tamano": 488477
+    },
+    {
         "id_camda": "70763",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W28",
         "dia_nombre_en": "Monday",
         "inicio_dt": "2026-07-06 11:14:32",
-        "duracion_min": null,
+        "duracion_min": 16.76353655,
         "tamano": 320190
     },
     {
