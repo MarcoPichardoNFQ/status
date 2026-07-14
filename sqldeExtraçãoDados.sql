@@ -10,12 +10,12 @@ WITH tiempos AS (
         LEAD(ca."data") OVER (
             ORDER BY ca.id_camda ASC
         ) AS momento_ejecucion_despues,
-        AVG(ci.tamanho_interfaz) AS prom_tamano
+        sum(ci.tamanho_interfaz) AS prom_tamano
     FROM stg_s3.controlflag_arquivos ca
     LEFT JOIN trf_s3.tmp_controlflag_interfaces ci
         ON ca.id_camda = ci.id_camda
        AND ca.nome_base = ci.nome_flag_geral
-    WHERE ci.tamanho_interfaz >= 400 AND ci.TAMANHO_INTERFAZ IS NOT null
+    WHERE ci.TAMANHO_INTERFAZ IS NOT null
     GROUP BY
         ca.id_camda,
         ca."data"                       ORDER by     ca.ID_CAMDA DESC
