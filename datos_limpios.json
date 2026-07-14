@@ -1,11 +1,20 @@
 [
     {
+        "id_camda": "72273",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W29",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-07-14 07:13:15",
+        "duracion_min": null,
+        "tamano": 3524759
+    },
+    {
         "id_camda": "72272",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W29",
         "dia_nombre_en": "Tuesday",
         "inicio_dt": "2026-07-14 07:05:59",
-        "duracion_min": null,
+        "duracion_min": 7.2798407166666665,
         "tamano": 4086963
     },
     {
