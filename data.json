@@ -2,123 +2,173 @@
     "dbMegara": [
         {
             "tema": "Sustitución Rundeck.",
-            "flujo": "En proceso",
+            "flujo": "En progreso",
             "entorno": "",
             "inv": "NFQ / S3",
             "tarea": "Creacion de solucion",
             "comentarios": ". Aguardando extracciones de interfaces especificas.",
-            "fecha": "09/04/2026",
+            "fecha": "20/07/2026",
             "pasos": "S3 compartira archivos necesarios"
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completada",
+            "flujo": "Finalizada",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_pos_rf_t\" que carrega a tabela SAC_RF_POS",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "23/06/2026",
+            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_pos_rv_em_t\" que carrega a tabela SAC_RV_EM_POS",
+            "comentarios": "Finalizada",
+            "fecha": "16/07/2026",
             "pasos": ""
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completada",
+            "flujo": "Finalizada",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "[ALDRIN] Ajuste na função \"function_meg_sac_pl_cl_patrrf_t\" que carrega a tabela SAC_CL_PATRRF",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "22/06/2026",
+            "tarea": "Ajuste na função \"function_meg_cart_caixa_cpr_t3\" que carrega a tabela SAC_CL_CPR (Lending / Borrowing Operations)",
+            "comentarios": "Finalizada",
+            "fecha": "16/07/2026",
             "pasos": ""
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "Aguardando Respuesta",
+            "flujo": "Finalizada",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "ENC: [EXTERNAL] RES: [Aldrin] ContractualClien extraction - Fund Classification and Fund Sub Classification fields",
-            "comentarios": "Fue identificado error por parte de vermeg",
-            "fecha": "18/06/2026",
-            "pasos": "Aguardando Respuesta por parte de S3"
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completada",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "[ALDRIN] Ajuste na função \"function_meg_sac_pl_cl_patrfut_t_cgc\" que carrega a tabela SAC_CL_PATRFUT",
-            "comentarios": "- Ajuste funcion de mapeamento",
-            "fecha": "24/06/2026",
-            "pasos": "Aguardando Respuesta por parte de S3"
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completada",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_pos_fu_t_cgc\" que carrega a tabela SAC_FU_POS",
-            "comentarios": "Fue activada la function en PRD",
-            "fecha": "18/06/2027",
+            "tarea": "Ajuste na função \"function_meg_sac_stat_rv_cadpap_t1\" que carrega a tabela RV_CADPAP",
+            "comentarios": "Finalizada",
+            "fecha": "17/07/2026",
             "pasos": ""
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "Aguardando Respuesta",
+            "flujo": "Finalizada",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "ENC: [EXTERNAL] RES: JIRA SC-9861: Campo código SubClasse não é preenchido no Megara",
-            "comentarios": "Fue liberado en uat",
-            "fecha": "27/05/2026",
-            "pasos": "Aguardando Respuesta por parte de S3"
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Aguardando Respuesta",
-            "entorno": "UAT",
-            "inv": "NFQ / S3",
-            "tarea": "Correção na carga de campos na tabela “sss_est_com_mgc_t”",
-            "comentarios": "- Configuración de Rundeck para la interfaz de opciones",
-            "fecha": "17/06/2026",
-            "pasos": "Aguardando Respuesta por parte de S3"
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completada",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_caixa_cpr_t10\" que carrega a tabela SAC_CL_CPR (Corporate Actions)",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "09/06/2026",
+            "tarea": "[ALDRIN] Ajuste na função \"function_meg_sac_pos_rv_em_rem_t\" que carrega a tabela SAC_RV_EM_POS_REMUNERACAO",
+            "comentarios": "Finalizada",
+            "fecha": "17/07/2026",
             "pasos": ""
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completada",
-            "entorno": "",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "[MEGARA X ALDRIN] Alteração da função cs_detcash_flow_transf_pc",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "09/06/2026",
+            "tarea": "[ALDRIN] Ajuste na função \"function_meg_sac_stat_rv_em_pos_ta_re_t\" que carrega a tabela SAC_RV_EM_POS_TAXA_REGISTRO",
+            "comentarios": "Finalizada",
+            "fecha": "17/07/2026",
             "pasos": ""
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completada",
-            "entorno": "",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_pos_rv_intermedia_t\" que carrega a tabela RV_POS",
-            "comentarios": "- Fue ajustada funcion de mapeamento",
-            "fecha": "09/06/2026",
+            "tarea": "function_meg_cart_pos_rv_em_t",
+            "comentarios": "Finalizada",
+            "fecha": "17/07/2026",
             "pasos": ""
         },
         {
-            "tema": "Ajuste Api",
-            "flujo": "En proceso",
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizada",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "Ajuste de api papel",
-            "comentarios": "Se  modificara la logica de api para informaciones de orgen megara",
-            "fecha": "09/06/2026",
-            "pasos": "El dia de hoy se liberara desarrollo en UAT"
+            "tarea": "Ajuste na função \"function_meg_sac_pos_rv_emp_acoes_t\" que carrega a tabela SAC_RV_EMPRESTIMO_ACOES",
+            "comentarios": "Finalizada",
+            "fecha": "17/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_pos_rv_em_t\" que carrega a tabela SAC_RV_EM_POS",
+            "comentarios": "Finalizada",
+            "fecha": "20/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_pos_rv_em_t\" que carrega a tabela SAC_RV_EM_POS",
+            "comentarios": "Finalizada",
+            "fecha": "23/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Novo mapeamento \"function_meg_cart_pos_fi_t_cc()\"",
+            "comentarios": "Finalizada",
+            "fecha": "24/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Ajuste na função \"function_meg_sac_cl_patr\" que carrega a tabela SAC_CL_PATR",
+            "comentarios": "Finalizada",
+            "fecha": "28/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
+            "inv": "NFQ / S4",
+            "tarea": "Ajuste na função  \"function_meg_sac_pos_rv_em_rem_t\" que carrega a tabela SAC_RV_EM_POS_REMUNERACAO.",
+            "comentarios": "Finalizada",
+            "fecha": "29/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
+            "inv": "NFQ / S5",
+            "tarea": "Ajuste na função  \"function_meg_sac_pos_rv_emp_acoes_t\" que carrega a tabela SAC_RV_EMPRESTIMO_ACOES (sac_pos_rv_emp_acoes_t)",
+            "comentarios": "Finalizada",
+            "fecha": "29/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizado",
+            "entorno": "PRD",
+            "inv": "NFQ / S6",
+            "tarea": "ajustar a função \"function_meg_cart_pos_rv_em_t \" ",
+            "comentarios": "Finalizado",
+            "fecha": "23/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "Finalizado",
+            "entorno": "PRD",
+            "inv": "NFQ / S7",
+            "tarea": "Novo mapeamento \"function_meg_sac_pl_cl_patrfi_t_cc()\"",
+            "comentarios": "Finalizado",
+            "fecha": "29/07/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Ajuste Proceso de Carga",
+            "flujo": "PRD",
+            "entorno": "PRD",
+            "inv": "NFQ / S8",
+            "tarea": "Favor ajustar a função \"function_meg_sac_stat_rv_em_pos_ta_re_t\" que carrega a tabela SAC_RV_EM_POS_TAXA_REGISTRO.",
+            "comentarios": "Finalizado",
+            "fecha": "29/07/2026",
+            "pasos": ""
         }
     ],
     "dbReporting": [
@@ -133,14 +183,14 @@
             "pasos": "Esperando respuesta de Guilherme"
         },
         {
-            "tema": "Ajuste Informe ",
+            "tema": "Informes Estoque Fundos Private",
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "Fluxo de Caixa",
-            "comentarios": "Informe Disponibilizado en PRD",
-            "fecha": "7/13/26",
-            "pasos": ""
+            "tarea": "Relatorios de Estoques",
+            "comentarios": "Validados en UAT, se encontraron divergencias en PRD, en ajsute de logca",
+            "fecha": "27/05/2027",
+            "pasos": "En desarrollo"
         },
         {
             "tema": "Ajuste Informe ",
@@ -149,18 +199,8 @@
             "inv": "NFQ / S3",
             "tarea": "Demontrativo de Caixa",
             "comentarios": "Ajuste de logica en relacion a fecha de procesamiento del fondo",
-            "fecha": "7/22/26",
+            "fecha": "27/05/2028",
             "pasos": ""
-        },
-        {
-            "tema": "Infores Estoque Fundos Private",
-            "flujo": "En progreso",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Validacion Informes",
-            "comentarios": "Bruna ha mandado una lamada para verificar informes, sin detalles compartidos",
-            "fecha": "7/23/26",
-            "pasos": "Se llevara a cabo reunin con Bruna y Jefferson"
         }
     ],
     "dbInfra": [
@@ -171,7 +211,7 @@
             "inv": "S3 / VERMEG",
             "tarea": "Modulos Megara",
             "comentarios": "- Caida de MegaCustody Intraday",
-            "fecha": "7/14/26",
+            "fecha": "24/3/2026",
             "pasos": "- Se seguirá compartiendo alerta"
         },
         {
@@ -180,18 +220,18 @@
             "entorno": "PRD",
             "inv": "S3 / VERMEG",
             "tarea": "Llamada de MEGARA desde Rundeck",
-            "comentarios": "- NFQ ha implementado solución y se encuentra operativa en PRD - Fallas ocasionaes de lado de Megara (Durante la implementación de las interfaces, Megacustody se bloqueó) - La activación manual de Scheduled Megara mientras la API estaba activada ha provocado problemas",
+            "comentarios": "Error en ClientInstruction al recibir xml con formato erroneo",
             "fecha": "24/3/2026",
             "pasos": "- S3 alineará internamente"
         },
         {
-            "tema": "Option",
-            "flujo": "En proceso",
-            "entorno": "UAT",
-            "inv": "S3 / NFQ",
+            "tema": "Infraestructura",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "S3 / NFQ /NTT",
             "tarea": "Creacion de estrategia para tratamiento de Optios",
-            "comentarios": "Se esta desarrollando nueva estrategia para tratamiento de multiples archivos de Option en una sola distribucion con respecto a Opton",
-            "fecha": "",
+            "comentarios": "Bug de Infra ocasiona fichero no existente en pasta innotech",
+            "fecha": "24/3/2026",
             "pasos": ""
         }
     ],
@@ -252,7 +292,7 @@
             "entorno": "S3",
             "inv": "CA_details_intr",
             "tarea": "- Ajuste de formatos de datos",
-            "comentarios": "- Ajuste de formatos de datos_x000d_",
+            "comentarios": "- Ajuste de formatos de datos_x000D_",
             "fecha": "05/09/2025",
             "pasos": "Validación de lado S3"
         },
@@ -262,7 +302,7 @@
             "entorno": "NFQ / S3",
             "inv": "Nuevos Mapeos",
             "tarea": "-Se encuentra en development 3 novos mapeos que utilizaran la extracción InvestCompanyInstitute",
-            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000d_",
+            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000D_",
             "fecha": "28/10/2025",
             "pasos": "Validación de lado S3"
         },
@@ -292,7 +332,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Interfaz Equity",
             "tarea": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD",
-            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000d_",
+            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000D_",
             "fecha": "21/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -302,7 +342,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Carga ScriptByClient",
             "tarea": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT",
-            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000d_",
+            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000D_",
             "fecha": "28/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -312,7 +352,7 @@
             "entorno": "NFQ / S3",
             "inv": "Monitoreamento de cargas",
             "tarea": "- Se requerirá de validaciones de informação por causa de los mapeos en UAT",
-            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000d_",
+            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000D_",
             "fecha": "31/10/2025",
             "pasos": "- S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de projeto."
         },
