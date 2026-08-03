@@ -16,7 +16,6 @@ WITH tiempos AS (
         ON ca.id_camda = ci.id_camda
        AND ca.nome_base = ci.nome_flag_geral
     WHERE ci.TAMANHO_INTERFAZ IS NOT null
-and ci.TAMANHO_INTERFAZ >=500
     GROUP BY
         ca.id_camda,
         ca."data"                       ORDER by     ca.ID_CAMDA DESC
