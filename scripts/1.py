@@ -148,4 +148,5 @@ def procesar():
 
 
 if __name__ == "__main__":
+    logger.info("Iniciando procesamiento de datos. desde 1")
     procesar()
