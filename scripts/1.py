@@ -90,7 +90,7 @@ def procesar():
         mask = (
             (hora > 23) |
             ((hora == 23) & (minuto >= 30)) |
-            (hora < 8)
+            (hora < 5)
         )
 
         df = df[~mask]
