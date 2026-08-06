@@ -89,6 +89,18 @@ def procesar():
         df['inicio_dt']= df['inicio_dt'] - pd.Timedelta(hours=3)
         logger.info("el df se ve asi: ")
         logger.info(df.head())
+        hora = df["inicio_dt"].dt.hour
+        minuto = df["inicio_dt"].dt.minute
+
+        mask = (
+            (hora > 23) |
+            ((hora == 23) & (minuto >= 30)) |
+            (hora < 8)
+        )
+
+        df = df[~mask]
+        logger.info("el df se ve asi: ")
+        logger.info(df.head())
         c=df['inicio_dt']
         logger.info("Zona horaria ajustada y columna 'inicio_dt' creada.")
 
