@@ -1,5 +1,32 @@
 [
     {
+        "id_camda": "75211",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W32",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-08-06 02:36:11",
+        "duracion_min": 10.718215383333334,
+        "tamano": 207998
+    },
+    {
+        "id_camda": "75210",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W32",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-08-06 02:25:09",
+        "duracion_min": 11.036339816666667,
+        "tamano": 188517
+    },
+    {
+        "id_camda": "75209",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W32",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-08-06 02:09:32",
+        "duracion_min": 15.616270649999999,
+        "tamano": 321280
+    },
+    {
         "id_camda": "75208",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W32",

@@ -55,17 +55,18 @@ def generar_escenario(df_datos, semanas_top, dias_orden):
     }
 
 def procesar():
-    #print(" Iniciando procesamiento de datos...")
+    logger.info("Iniciando procesamiento de datos.")
     try:
-        # Carga robusta de CSV
+        logger.info(f"Cargando archivo CSV: {CONFIG['archivo_entrada']}")
         df = pd.read_csv(CONFIG["archivo_entrada"], sep='|', dtype=str, quotechar='"')
         df.columns = [c.strip().lower() for c in df.columns]
+        logger.info("CSV cargado y columnas limpiadas.")
         
-        # Limpieza de comillas y espacios
         for col in df.columns:
             df[col] = df[col].astype(str).str.replace('"', '').str.strip()
             c= col
             #print(c)
+        logger.info("Comillas y espacios eliminados de todas las columnas.")
 
         # 1. FIX ZONA HORARIA (Bug del Viernes)
         # Cortamos a 19 caracteres para ignorar el offset -0600 y mantener hora local literal
@@ -84,27 +85,34 @@ def procesar():
         )
         df['inicio_dt']= df['inicio_dt'] - pd.Timedelta(hours=3)
         c=df['inicio_dt']
+        logger.info("Zona horaria ajustada y columna 'inicio_dt' creada.")
 
         # 2. Conversión de métricas
         df['duracion_min'] = pd.to_timedelta(df['duracion'], errors='coerce').dt.total_seconds() / 60.0
         df['tamano'] = pd.to_numeric(df['tamano'], errors='coerce').fillna(0)
+        logger.info("Métricas 'duracion_min' y 'tamano' convertidas.")
         
         df = df.dropna(subset=['inicio_dt'])
+        logger.info(f"Filas con 'inicio_dt' nulo eliminadas. Filas restantes: {len(df)}")
         # 3. Clasificación temporal
         df['año_semana'] = df['inicio_dt'].dt.strftime('%G-W%V')
         df['dia_num'] = df['inicio_dt'].dt.dayofweek
         df['dia_nombre_en'] = df['inicio_dt'].dt.day_name()
         df.to_csv('datos_usuarios.csv', index=False, encoding='utf-8')
+        logger.info("Clasificación temporal ('año_semana', 'dia_num', 'dia_nombre_en') aplicada y 'datos_usuarios.csv' guardado.")
         # Filtrar solo Lunes a Viernes (0 a 4)
         df = df[df['dia_num'] < 5].copy()
+        logger.info(f"Filtrando datos para incluir solo días de semana (Lunes-Viernes). Filas restantes: {len(df)}")
         
         semanas_top = sorted(df['año_semana'].unique(), reverse=True)[:CONFIG["semanas_a_mostrar"]]
         df_final = df[df['año_semana'].isin(semanas_top)].copy()
+        logger.info(f"Semanas a mostrar: {semanas_top}. DataFrame final preparado con {len(df_final)} filas.")
         
         dias_orden = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
         ultimo_deploy = (df_final['inicio_dt'].max()).strftime('%Y-%m-%d %H:%M:%S') 
            
         # Generar Escenarios
+        logger.info("Generando escenarios para duracion, tamano y volumen.")
         resultado = {
             "labels": ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
             "semanas": semanas_top,
@@ -118,6 +126,7 @@ def procesar():
 
         with open(CONFIG["archivo_json"], "w", encoding="utf-8") as f:
             json.dump(resultado, f, indent=4)
+        logger.info(f"Archivo {CONFIG['archivo_json']} generado con éxito.")
             
         # ========================================================
         # NUEVO: Exportar registros limpios para la Tab 6 (Auditoría)
@@ -130,12 +139,13 @@ def procesar():
         
         with open("datos_limpios.json", "w", encoding="utf-8") as f:
             json.dump(datos_limpios, f, indent=4)
+        logger.info("Archivo 'datos_limpios.json' generado con éxito.")
         # ========================================================
         
-        #print(f" Archivo {CONFIG['archivo_json']} y datos_limpios.json generados con éxito.")
-
+        logger.info("Procesamiento de datos completado exitosamente.")
     except Exception as e:
-        print(f" ERROR CRÍTICO: {e}")
+        logger.error(f"ERROR CRÍTICO durante el procesamiento de datos: {e}", exc_info=True)
+
 
 if __name__ == "__main__":
     procesar()
