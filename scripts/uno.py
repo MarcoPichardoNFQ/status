@@ -87,7 +87,7 @@ def procesar():
             errors='coerce'
         )
         df['inicio_dt']= df['inicio_dt'] - pd.Timedelta(hours=3)
-        logger.info("el df se ve asi: ",df)
+        logger.info("el df se ve asi: ")
         c=df['inicio_dt']
         logger.info("Zona horaria ajustada y columna 'inicio_dt' creada.")
 
