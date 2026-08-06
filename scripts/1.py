@@ -56,9 +56,6 @@ def generar_escenario(df_datos, semanas_top, dias_orden):
     }
 
 def procesar():
-    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    logger.info("Iniciando procesamiento de datos. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    logger.info("Iniciando procesamiento de datos.")
     try:
         logger.info(f"Cargando archivo CSV: {CONFIG['archivo_entrada']}")
         df = pd.read_csv(CONFIG["archivo_entrada"], sep='|', dtype=str, quotechar='"')
@@ -87,6 +84,16 @@ def procesar():
             errors='coerce'
         )
         df['inicio_dt']= df['inicio_dt'] - pd.Timedelta(hours=3)
+        hora = df["inicio_dt"].dt.hour
+        minuto = df["inicio_dt"].dt.minute
+
+        mask = (
+            (hora > 23) |
+            ((hora == 23) & (minuto >= 30)) |
+            (hora < 8)
+        )
+
+        df = df[~mask]
         c=df['inicio_dt']
         logger.info("Zona horaria ajustada y columna 'inicio_dt' creada.")
 
