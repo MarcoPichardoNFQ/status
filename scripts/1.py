@@ -57,6 +57,7 @@ def generar_escenario(df_datos, semanas_top, dias_orden):
 
 def procesar():
     print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    logger.info("Iniciando procesamiento de datos. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     logger.info("Iniciando procesamiento de datos.")
     try:
         logger.info(f"Cargando archivo CSV: {CONFIG['archivo_entrada']}")
