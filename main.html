@@ -495,6 +495,7 @@
 			let datosGlobales;
 			let graficos = {};
 			const coloresSemanas = ["#38bdf8", "#818cf8", "#fb7185",'#00A36C','#008080'];
+	
 			const labelsSemana = ["W32", "W31", "W30","W29","W28"];
 
 			Chart.defaults.color = '#94a3b8';
@@ -516,14 +517,28 @@
                     }
                 };
             }
-
+            function getCommonOptions2(yAxisLabel = "") {
+                return {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    spanGaps: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { textAlign: 'center',usePointStyle: true, boxWidth: 8 } ,tittle: { display: true, text:'ss'}},
+                        tooltip: { backgroundColor: 'rgba(11,18,33,0.95)', titleColor: '#38bdf8', borderColor: 'rgba(56,189,248,0.3)', borderWidth: 1 }
+                    },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { size: 10 } }, title: { display: true, text: 'Semana', color: 'rgba(255,255,255,0.5)', font: { size: 10 } } },
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { size: 10 } }, title: { display: !!yAxisLabel, text: yAxisLabel , color: 'rgba(255,255,255,0.5)', font: { size: 10 } } }
+                    }
+                };
+            }
 			async function init() {
 				try {
 					const response = await fetch('datos_dashboard.json');
 					datosGlobales = await response.json();
 					document.getElementById('deploy-timestamp').textContent = datosGlobales.ultimo_deploy;
 					document.getElementById('subtitulo-graficas').innerText = `Telemetría recibida: ${datosGlobales.semanas.join(' | ')} - Evaluando estado...`;
-					graficos.duracion = new Chart(document.getElementById('chartDuracion'), { type: 'line', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Minutos') });
+					graficos.duracion = new Chart(document.getElementById('chartDuracion'), { type: 'line', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions2('Minutos') });
 					graficos.tamano = new Chart(document.getElementById('chartTamano'), { type: 'line', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Bytes') });
 					graficos.volumen = new Chart(document.getElementById('chartVolumen'), { type: 'bar', data: { labels: datosGlobales.labels, datasets: [] }, options: getCommonOptions('Eventos') });
 					graficos.correlacion = new Chart(document.getElementById('chartCorrelacion'), { type: 'scatter', data: { datasets: [] }, options: { responsive: true, maintainAspectRatio: false, plugins: { tooltip: { callbacks: { label: (ctx) => `Tamaño: ${ctx.raw.x.toFixed(0)}B | Duración: ${ctx.raw.y.toFixed(2)}m` } } }, scales: { x: { title: { display: true, text: 'Tamaño (Bytes)' } }, y: { title: { display: true, text: 'Duración (Min)' } } } } });
@@ -549,7 +564,7 @@
 			}
 			function calcularSumaValida(arrayData) { return arrayData.reduce((a, b) => a + b, 0); }
 			function createAnnotationLine(valor, color, labelText, type = 'semana') {
-				return { type: 'line', yMin: valor, yMax: valor, borderColor: color, borderWidth: type === 'global' ? 2 : 1, borderDash: type === 'global' ? [5, 5] : [2, 2], label: { display: true, content: labelText, position: type === 'global' ? 'end' : 'start', backgroundColor: type === 'global' ? 'rgba(250, 204, 21, 0.2)' : color + '40', color: type === 'global' ? '#facc15' : color, font: { size: 9, family: 'monospace' }, padding: 4 } };
+				return { type: 'line', yMin: valor, yMax: valor, borderColor: color, borderWidth: type === 'global' ? 2 : 1, borderDash: type === 'global' ? [5, 5] : [2, 2], label: { display: true, content: labelText, position: type === 'global' ? 'end' : 'start', backgroundColor: type === 'global' ? 'rgba(250, 204, 21, 0.2)' : color + '40', color: type === 'global' ? '#facc15' : color, font: { size: 15, family: 'monospace' }, padding: 4 } };
 			}
 
 			function actualizarDashboard() {
@@ -601,7 +616,7 @@
 					
 					totalesSemanas.push({ semana: labelsSemana[idxOriginal], avgDur, avgTam, sumVol, idx: idxOriginal });
 					
-					annotDuracion[`sem_${idxOriginal}`] = createAnnotationLine(avgDur, ds.borderColor, `Avg ${labelsSemana[idxOriginal]}`);
+					annotDuracion[`sem_${idxOriginal}`] = createAnnotationLine(avgDur, ds.borderColor, `Avg ${labelsSemana[idxOriginal]} ${avgDur.toFixed(2)}m`);
 					annotTamano[`sem_${idxOriginal}`] = createAnnotationLine(avgTam, dsTam.borderColor, `Avg ${labelsSemana[idxOriginal]}`);
 				});
 
