@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import json
+import logging
 import sys
 
 # CONFIGURACIÓN
@@ -10,8 +11,10 @@ CONFIG = {
     "semanas_a_mostrar": 5,
     "colores": ["#38bdf8", "#818cf8", "#fb7185", "#34d399", "#fbbf24"]
 }
+logger = logging.getLogger(__name__)
 
 def generar_escenario(df_datos, semanas_top, dias_orden):
+    logger.info(f"Generando escenario para semanas: {semanas_top}")
     d_duracion, d_tamano, d_vol = [], [], []
     
     for i, sem in enumerate(semanas_top):
