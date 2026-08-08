@@ -6,29 +6,19 @@
             "entorno": "",
             "inv": "NFQ / S3",
             "tarea": "Creacion de solucion",
-            "comentarios": ". Aguardando extracciones de interfaces especificas.",
+            "comentarios": ". Ayer recibimos extracciiones especificas",
             "fecha": "20/07/2026",
             "pasos": "S3 compartira archivos necesarios"
         },
         {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Finalizada",
+            "tema": "Option",
+            "flujo": "En progreso",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "[ALDRIN] Ajuste na função \"function_meg_cart_pos_rv_em_t\" que carrega a tabela SAC_RV_EM_POS",
-            "comentarios": "Finalizada",
+            "tarea": "Implementacion de tratamiento para cargas manuales",
+            "comentarios": "En implementacion de Solucion",
             "fecha": "16/07/2026",
-            "pasos": ""
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Finalizada",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Ajuste na função \"function_meg_cart_caixa_cpr_t3\" que carrega a tabela SAC_CL_CPR (Lending / Borrowing Operations)",
-            "comentarios": "Finalizada",
-            "fecha": "16/07/2026",
-            "pasos": ""
+            "pasos": "Despues de implementar S3 validara y se promocionara a PRD"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -39,6 +29,16 @@
             "comentarios": "Finalizada",
             "fecha": "17/07/2026",
             "pasos": ""
+        },
+        {
+            "tema": "Rllagem Futuros",
+            "flujo": "Finalizada",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Ajuste de API",
+            "comentarios": "Se ha modificado un item referente a futuros",
+            "fecha": "17/07/2026",
+            "pasos": "Esperando validacio prar promocionar a prd"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -162,7 +162,7 @@
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "PRD",
+            "flujo": "Finalizado",
             "entorno": "PRD",
             "inv": "NFQ / S8",
             "tarea": "Favor ajustar a função \"function_meg_sac_stat_rv_em_pos_ta_re_t\" que carrega a tabela SAC_RV_EM_POS_TAXA_REGISTRO.",
@@ -187,8 +187,8 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "Relatorios de Estoques",
-            "comentarios": "Validados en UAT, se encontraron divergencias en PRD, en ajsute de logca",
+            "tarea": "Relatorios de Estoque",
+            "comentarios": "Todos los informes han sido entregados, a la espera de rspuesta",
             "fecha": "27/05/2027",
             "pasos": "En desarrollo"
         },
@@ -197,30 +197,30 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "Demontrativo de Caixa",
-            "comentarios": "Ajuste de logica en relacion a fecha de procesamiento del fondo",
+            "tarea": "Demontrativo de Caixa Robot",
+            "comentarios": "Ajustando filtro por defecto",
             "fecha": "27/05/2028",
-            "pasos": ""
+            "pasos": "S3 validaá  y despues se llevara a PRD"
         }
     ],
     "dbInfra": [
         {
-            "tema": "Archivos Carga",
+            "tema": "ClientInstruction",
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "S3 / VERMEG",
             "tarea": "Modulos Megara",
-            "comentarios": "- Caida de MegaCustody Intraday",
+            "comentarios": " Error en formato xml / Registros Duplicados",
             "fecha": "24/3/2026",
             "pasos": "- Se seguirá compartiendo alerta"
         },
         {
-            "tema": "API",
+            "tema": "DDBB",
             "flujo": "En proceso",
             "entorno": "PRD",
-            "inv": "S3 / VERMEG",
-            "tarea": "Llamada de MEGARA desde Rundeck",
-            "comentarios": "Error en ClientInstruction al recibir xml con formato erroneo",
+            "inv": "S3 /NTT",
+            "tarea": "Conexión a la base de datos",
+            "comentarios": "Error en conexión a la base de datos Rundeck",
             "fecha": "24/3/2026",
             "pasos": "- S3 alineará internamente"
         },
@@ -228,9 +228,9 @@
             "tema": "Infraestructura",
             "flujo": "Completado",
             "entorno": "PRD",
-            "inv": "S3 / NFQ /NTT",
-            "tarea": "Creacion de estrategia para tratamiento de Optios",
-            "comentarios": "Bug de Infra ocasiona fichero no existente en pasta innotech",
+            "inv": "SE / NTT",
+            "tarea": "Maquina Montada",
+            "comentarios": "Error en maquina montada de Rundeck",
             "fecha": "24/3/2026",
             "pasos": ""
         }
