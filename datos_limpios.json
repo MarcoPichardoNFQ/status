@@ -1,5 +1,23 @@
 [
     {
+        "id_camda": "75928",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W33",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-08-12 12:17:15",
+        "duracion_min": 3.717133083333333,
+        "tamano": 1627177
+    },
+    {
+        "id_camda": "75927",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W33",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-08-12 11:58:27",
+        "duracion_min": 18.791061366666668,
+        "tamano": 747386
+    },
+    {
         "id_camda": "75927",
         "tipo": "Manual",
         "a\u00f1o_semana": "2026-W33",
