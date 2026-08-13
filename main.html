@@ -905,17 +905,43 @@ function calculateMetrics(scenario, weekIndices) {
             }
         }
     });
+let globalWeightedDurationSum = 0;
+    let globalWeightedDurationCount = 0;
 
-    const clean = extractCleanSamples();
+    if (scenario && scenario.duration) {
+        scenario.duration.forEach((ds, i) => {
+            const volDs = scenario.volume[i];
+            const d = normalizeSeries(ds);
+            const v = normalizeSeries(volDs);
+
+            for (let j = 0; j < d.length; j++) {
+                const duration = d[j];
+                const volume = Number(v[j]) || 0;
+                
+                if (volume > 0 && Number.isFinite(duration) && duration > 0) {
+                    globalWeightedDurationSum += duration * volume;
+                    globalWeightedDurationCount += volume;
+                }
+            }
+        });
+    }
+	const clean = extractCleanSamples();
 
     const durationsForStats = clean.durations.length ? clean.durations : dailyDuration.filter(v => v > 0);
     const sizesForStats = clean.sizes.length ? clean.sizes : dailySize.filter(v => v > 0);
 
+    // 2. Calculamos avgDuration PRIMERO
     const avgDuration =
         weightedDurationCount > 0
             ? weightedDurationSum / weightedDurationCount
             : mean(durationsForStats);
 
+    // 3. AHORA SÍ calculamos historicalAvg, porque avgDuration ya existe
+    const historicalAvg = globalWeightedDurationCount > 0 
+        ? globalWeightedDurationSum / globalWeightedDurationCount 
+        : avgDuration;
+
+    // 4. Calculamos avgSize y lo demás...
     const avgSize =
         weightedSizeCount > 0
             ? weightedSizeSum / weightedSizeCount
@@ -936,6 +962,7 @@ function calculateMetrics(scenario, weekIndices) {
 
     const stats = {
         avgDuration,
+        historicalAvg, // <-- ¡El nuevo promedio global/histórico!
         avgSize,
         durationP50,
         durationP95,
@@ -965,6 +992,7 @@ function calculateMetrics(scenario, weekIndices) {
 function calculateHealth(metrics) {
     let score = 100;
 
+    // 1. Penalización por picos de lentitud (P95 vs Promedio)
     if (metrics.durationP95 > 0 && metrics.avgDuration > 0) {
         const ratio = metrics.durationP95 / metrics.avgDuration;
         if (ratio > 3) score -= 22;
@@ -973,25 +1001,46 @@ function calculateHealth(metrics) {
         else if (ratio > 1.7) score -= 5;
     }
 
-    if (metrics.durationCV > .75) score -= 20;
-    else if (metrics.durationCV > .50) score -= 13;
-    else if (metrics.durationCV > .30) score -= 7;
-    else if (metrics.durationCV > .20) score -= 3;
+    // 2. Evaluación de Variabilidad con soporte para MEJORAS
+    if (metrics.durationCV > .20) {
+        let cvImpact = 0;
+        
+        // Asignamos el peso del impacto según la magnitud del coeficiente
+        if (metrics.durationCV > .75) cvImpact = 20;
+        else if (metrics.durationCV > .50) cvImpact = 13;
+        else if (metrics.durationCV > .30) cvImpact = 7;
+        else if (metrics.durationCV > .20) cvImpact = 3;
 
+        // Verificamos si la variación se debe a una mejora (tiempo actual menor al histórico)
+        const isImprovement = metrics.historicalAvg && (metrics.avgDuration < metrics.historicalAvg);
+
+        if (isImprovement) {
+            score += cvImpact; // ¡Premio por optimización del ETL!
+        } else {
+            score -= cvImpact; // Penalización por inestabilidad negativa o desconocida
+        }
+    }
+
+    // 3. Penalización por correlación anómala
     if (Math.abs(metrics.correlation) > .85) score -= 2;
     else if (Math.abs(metrics.correlation) > .70) score -= 1;
 
-    const scenario = getSelectedScenario();
+    // 4. Verificación de volumen de datos
+    // Nota: Asegúrate de que getSelectedScenario() esté definido en el entorno de tu código
+    const scenario = typeof getSelectedScenario === 'function' ? getSelectedScenario() : null; 
     const volume = metrics.totalVolume;
     if (!volume) score -= 12;
 
+    // 5. Ajuste para asegurar que la calificación se mantenga entre 0 y 100
     score = Math.max(0, Math.min(100, Math.round(score)));
 
+    // 6. Clasificación Final
     let label, color, description;
     if (score >= 90) {
         label = "Excelente";
         color = "#34d399";
-        description = "El comportamiento del ETL se encuentra dentro de un rango estable y con baja señal de riesgo.";
+        // Actualicé un poco la descripción para reflejar que puede haber mejoras
+        description = "El comportamiento del ETL se encuentra estable o muestra mejoras de rendimiento con baja señal de riesgo.";
     } else if (score >= 75) {
         label = "Estable";
         color = "#22d3ee";
@@ -1008,7 +1057,6 @@ function calculateHealth(metrics) {
 
     return { score, label, color, description };
 }
-
 /* =========================================================
    CHART DEFAULTS
 ========================================================= */
