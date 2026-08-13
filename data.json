@@ -31,6 +31,16 @@
             "pasos": "Despues de implementar S3 validara y se promocionara a PRD"
         },
         {
+            "tema": "API",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "PORTAL - Activos de futuros",
+            "comentarios": "Fueron realizados dos ustes en la logica de API:\nCantidad de registros a ser mostrados\nHomologacion de formato SAC/Megara",
+            "fecha": "11/08/2026",
+            "pasos": "N / A"
+        },
+        {
             "tema": "Ajuste Proceso de Carga",
             "flujo": "Completado",
             "entorno": "PRD",
@@ -38,7 +48,7 @@
             "tarea": " Tabla: RV_CADPAP",
             "comentarios": "function_meg_sac_stat_rv_cadpap_t1",
             "fecha": "17/07/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -48,7 +58,7 @@
             "tarea": "Ajuste de función: \"refresh_summary_netasset_calculations\"",
             "comentarios": "refresh_summary_netasset_calculations",
             "fecha": "05/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -58,17 +68,7 @@
             "tarea": " Tabla: RV_CADPAP",
             "comentarios": "function_meg_sac_stat_rv_cadpap_t1",
             "fecha": "05/08/2026",
-            "pasos": ""
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Resolución: PORTAL - Activos de futuros (SAC)",
-            "comentarios": "",
-            "fecha": "05/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -78,7 +78,7 @@
             "tarea": " Tabla: BAS_CAD_EMP",
             "comentarios": "function_meg_sac_stat_bas_cad_emp_t",
             "fecha": "06/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -88,7 +88,7 @@
             "tarea": "Ajuste de función: \"function_meg_sac_stat_fu_ativo_t\"",
             "comentarios": "function_meg_sac_stat_fu_ativo_t",
             "fecha": "07/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -98,7 +98,7 @@
             "tarea": " Tabla: SAC_FU_POS",
             "comentarios": "function_meg_cart_pos_fu_t",
             "fecha": "07/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -108,7 +108,7 @@
             "tarea": " Tabla: SAC_CL_PATRFUT",
             "comentarios": "function_meg_sac_pl_cl_patrfut_t",
             "fecha": "10/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -118,7 +118,7 @@
             "tarea": " Tabla: SAC_CL_PATRFUT",
             "comentarios": "function_meg_sac_pl_cl_patrfut_t",
             "fecha": "11/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -128,17 +128,7 @@
             "tarea": " Tabla: SAC_FU_POS",
             "comentarios": "function_meg_cart_pos_fu_t",
             "fecha": "11/08/2026",
-            "pasos": ""
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
-            "flujo": "En curso",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Query para Extração do Relatório Mapa de Evolução de Cotas do Portal",
-            "comentarios": "",
-            "fecha": "12/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -148,7 +138,7 @@
             "tarea": " Tabla: SAC_RV_EM_POS",
             "comentarios": "function_meg_cart_pos_rv_em_t",
             "fecha": "12/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -158,7 +148,7 @@
             "tarea": " Tabla: MT_CAIXA",
             "comentarios": "function_meg_cart_caixa_mt_t",
             "fecha": "12/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -168,19 +158,39 @@
             "tarea": " Tabla: CART_CAIXA_SALDO",
             "comentarios": "function_meg_cart_caixa_saldo_t",
             "fecha": "12/08/2026",
-            "pasos": ""
+            "pasos": "N / A"
         }
     ],
     "dbReporting": [
         {
             "tema": "Demonstrativo de Caixa",
             "flujo": "En curso",
-            "entorno": "UAT",
+            "entorno": "PRD UAT",
             "inv": "NFQ / S3",
             "tarea": "Manejo de diferentes currency",
-            "comentarios": "Se incluiran nuevas monedas a ser mostradas en la extraccion del informe, actualmente en fase 1 (liitar a BRL)",
+            "comentarios": "Se incluiran nuevas monedas a ser mostradas en la extraccion del informe, actualmente en fase 1 (filtrar a BRL)",
             "fecha": "12/08/2026",
-            "pasos": ""
+            "pasos": "Fase 2 contempla el modo multicuenta"
+        },
+        {
+            "tema": "Demonstrativo de Caixa",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Filtro predeterminado para idioma",
+            "comentarios": "Desarrollo concluido en DEV.",
+            "fecha": "10/08/2026",
+            "pasos": "Es necesario ayuda de s3 para  coordinar pruebas de aceptacion"
+        },
+        {
+            "tema": "Demonstraivo de Caixa",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Optimizacion",
+            "comentarios": "Se efectuó optimización diminuyendo de los 20 min originales a 2:40",
+            "fecha": "12/08/2026",
+            "pasos": "Es necesario coordinacion con s3 para pruebas de datos"
         },
         {
             "tema": "Assincronos",
@@ -193,56 +203,66 @@
             "pasos": "Esperando respuesta de Guilherme"
         },
         {
-            "tema": "",
-            "flujo": "",
-            "entorno": "",
-            "inv": "",
-            "tarea": "",
-            "comentarios": "",
-            "fecha": "",
-            "pasos": ""
-        },
-        {
-            "tema": "Informes Estoque Fundos Private",
+            "tema": "Estoque Fundos Private",
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
             "tarea": "Relatorios de Estoque",
-            "comentarios": "Todos los informes han sido entregados, a la espera de rspuesta",
+            "comentarios": "Todos los informes han sido entregados y validados",
             "fecha": "27/05/2027",
-            "pasos": "En desarrollo"
+            "pasos": "N / A"
         },
         {
-            "tema": "Ajuste Informe ",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Demontrativo de Caixa Robot",
-            "comentarios": "Ajustando filtro por defecto",
-            "fecha": "27/05/2028",
-            "pasos": "S3 validaá  y despues se llevara a PRD"
-        },
-        {
-            "tema": "Ajuste Proceso de Carga",
+            "tema": "Mapa de Evolucao de Cotas",
             "flujo": "En curso",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "Query para Extração do Relatório Mapa de Evolução de Cotas do Portal",
-            "comentarios": "Work in progress",
+            "tarea": "Logica de construccion",
+            "comentarios": "Fue compartdo con S3 la logica de construccion del informe ",
             "fecha": "12/08/2026",
-            "pasos": ""
+            "pasos": "NA ? "
+        },
+        {
+            "tema": "Operacoes com TRF",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Verificacion de logica",
+            "comentarios": "Se ha compartido con S3 la lgica implementada para obtencion de valor \"Valor Liquido\"",
+            "fecha": "12/08/2026",
+            "pasos": "A la espera de resppuesta de s3"
+        },
+        {
+            "tema": "Operacoes com TRF",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Verificacion de logica",
+            "comentarios": "Se analizara logica impleentada para integración SAC/Megara",
+            "fecha": "12/08/2026",
+            "pasos": "NFQ compartirá logica realizada en el informe"
         }
     ],
     "dbInfra": [
         {
             "tema": "ClientInstruction",
-            "flujo": "Completado",
+            "flujo": "En curso",
             "entorno": "PRD",
             "inv": "S3 / VERMEG",
-            "tarea": "Modulos Megara",
+            "tarea": "Error en interfaz",
             "comentarios": " Error en formato xml / Registros Duplicados",
             "fecha": "24/3/2026",
-            "pasos": "- Se seguirá compartiendo alerta"
+            "pasos": " Se seguirá compartiendo alerta\n- Se modificara desarrollo interno para aceptaacion de la itnerfaz"
+        },
+        {
+            "tema": "CashTransferOrder",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "S3 / VERMEG",
+            "tarea": "Error en interfaz",
+            "comentarios": " Error en formato xml",
+            "fecha": "11/08/2026",
+            "pasos": "Se modificara desarrollo interno para aceptaacion de la itnerfaz"
         },
         {
             "tema": "DDBB",
@@ -255,14 +275,14 @@
             "pasos": "- S3 alineará internamente"
         },
         {
-            "tema": "Infraestructura",
-            "flujo": "Completado",
+            "tema": "Megara",
+            "flujo": "En curso",
             "entorno": "PRD",
-            "inv": "SE / NTT",
-            "tarea": "Maquina Montada",
-            "comentarios": "Error en maquina montada de Rundeck",
-            "fecha": "24/3/2026",
-            "pasos": ""
+            "inv": "S3 / VERMEG ",
+            "tarea": "Modulos",
+            "comentarios": "Caida de modulos MEACUSTODY",
+            "fecha": "11/08/2026",
+            "pasos": "S3 verificará con proovedor"
         }
     ],
     "dbUAT": [
