@@ -6,9 +6,19 @@
             "entorno": "",
             "inv": "NFQ / S3",
             "tarea": "Creacion de solucion",
-            "comentarios": ". Ayer recibimos extracciiones especificas",
-            "fecha": "7/20/26",
-            "pasos": "S3 compartira archivos necesarios"
+            "comentarios": "El conjunto de archivos compartido se encontraba incompleto, a la esperade nuevo paquete de interfaces\nPantalla gráfica V2 concluida.",
+            "fecha": "20/07/2026",
+            "pasos": "S3 necesita compartir todos los conjuntos de archivos con informaciones."
+        },
+        {
+            "tema": "Tiempos de carga",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Ajustes para disminucion de tiempos",
+            "comentarios": "Se han realizado ajustes a proceso de carga NFQ.\nEjecuciones  en  < 5 min.",
+            "fecha": "11/07/2026",
+            "pasos": "Ajuste de mapeo cart_pos_rf_t"
         },
         {
             "tema": "Option",
@@ -17,7 +27,7 @@
             "inv": "NFQ / S3",
             "tarea": "Implementación: Tratamiento para cargas manuales",
             "comentarios": "En implementacion de Solucion",
-            "fecha": "7/16/26",
+            "fecha": "16/07/2026",
             "pasos": "Despues de implementar S3 validara y se promocionara a PRD"
         },
         {
@@ -25,10 +35,10 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: RV_CADPAP)",
+            "tarea": " Tabla: RV_CADPAP",
             "comentarios": "function_meg_sac_stat_rv_cadpap_t1",
-            "fecha": "7/17/26",
-            "pasos": "NAAA"
+            "fecha": "17/07/2026",
+            "pasos": ""
         },
         {
             "tema": "Ajuste Proceso de Carga",
@@ -37,7 +47,7 @@
             "inv": "NFQ / S3",
             "tarea": "Ajuste de función: \"refresh_summary_netasset_calculations\"",
             "comentarios": "refresh_summary_netasset_calculations",
-            "fecha": "8/5/26",
+            "fecha": "05/08/2026",
             "pasos": ""
         },
         {
@@ -45,9 +55,9 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: RV_CADPAP)",
+            "tarea": " Tabla: RV_CADPAP",
             "comentarios": "function_meg_sac_stat_rv_cadpap_t1",
-            "fecha": "8/5/26",
+            "fecha": "05/08/2026",
             "pasos": ""
         },
         {
@@ -57,7 +67,7 @@
             "inv": "NFQ / S3",
             "tarea": "Resolución: PORTAL - Activos de futuros (SAC)",
             "comentarios": "",
-            "fecha": "8/5/26",
+            "fecha": "05/08/2026",
             "pasos": ""
         },
         {
@@ -65,9 +75,9 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: BAS_CAD_EMP)",
+            "tarea": " Tabla: BAS_CAD_EMP",
             "comentarios": "function_meg_sac_stat_bas_cad_emp_t",
-            "fecha": "8/6/26",
+            "fecha": "06/08/2026",
             "pasos": ""
         },
         {
@@ -77,7 +87,7 @@
             "inv": "NFQ / S3",
             "tarea": "Ajuste de función: \"function_meg_sac_stat_fu_ativo_t\"",
             "comentarios": "function_meg_sac_stat_fu_ativo_t",
-            "fecha": "8/7/26",
+            "fecha": "07/08/2026",
             "pasos": ""
         },
         {
@@ -85,9 +95,9 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: SAC_FU_POS)",
+            "tarea": " Tabla: SAC_FU_POS",
             "comentarios": "function_meg_cart_pos_fu_t",
-            "fecha": "8/7/26 16:52",
+            "fecha": "07/08/2026",
             "pasos": ""
         },
         {
@@ -95,9 +105,9 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: SAC_CL_PATRFUT)",
+            "tarea": " Tabla: SAC_CL_PATRFUT",
             "comentarios": "function_meg_sac_pl_cl_patrfut_t",
-            "fecha": "8/10/26",
+            "fecha": "10/08/2026",
             "pasos": ""
         },
         {
@@ -105,9 +115,9 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: SAC_CL_PATRFUT)",
+            "tarea": " Tabla: SAC_CL_PATRFUT",
             "comentarios": "function_meg_sac_pl_cl_patrfut_t",
-            "fecha": "8/11/26",
+            "fecha": "11/08/2026",
             "pasos": ""
         },
         {
@@ -115,9 +125,9 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: SAC_FU_POS)",
+            "tarea": " Tabla: SAC_FU_POS",
             "comentarios": "function_meg_cart_pos_fu_t",
-            "fecha": "8/11/26",
+            "fecha": "11/08/2026",
             "pasos": ""
         },
         {
@@ -127,7 +137,7 @@
             "inv": "NFQ / S3",
             "tarea": "Query para Extração do Relatório Mapa de Evolução de Cotas do Portal",
             "comentarios": "",
-            "fecha": "8/12/26 19:38",
+            "fecha": "12/08/2026",
             "pasos": ""
         },
         {
@@ -135,9 +145,9 @@
             "flujo": "En curso",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: SAC_RV_EM_POS)",
+            "tarea": " Tabla: SAC_RV_EM_POS",
             "comentarios": "function_meg_cart_pos_rv_em_t",
-            "fecha": "8/12/26 17:22",
+            "fecha": "12/08/2026",
             "pasos": ""
         },
         {
@@ -145,9 +155,9 @@
             "flujo": "En curso",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: MT_CAIXA)",
+            "tarea": " Tabla: MT_CAIXA",
             "comentarios": "function_meg_cart_caixa_mt_t",
-            "fecha": "8/12/26 21:10",
+            "fecha": "12/08/2026",
             "pasos": ""
         },
         {
@@ -155,13 +165,23 @@
             "flujo": "En curso",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": " (Tabla: CART_CAIXA_SALDO)",
+            "tarea": " Tabla: CART_CAIXA_SALDO",
             "comentarios": "function_meg_cart_caixa_saldo_t",
-            "fecha": "8/12/26 21:47",
+            "fecha": "12/08/2026",
             "pasos": ""
         }
     ],
     "dbReporting": [
+        {
+            "tema": "Demonstrativo de Caixa",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Manejo de diferentes currency",
+            "comentarios": "Se incluiran nuevas monedas a ser mostradas en la extraccion del informe, actualmente en fase 1 (liitar a BRL)",
+            "fecha": "12/08/2026",
+            "pasos": ""
+        },
         {
             "tema": "Assincronos",
             "flujo": "Esperando respuesta",
@@ -171,6 +191,16 @@
             "comentarios": "A la espera de instrucciones por parte de Guilherme ",
             "fecha": "27/05/2026",
             "pasos": "Esperando respuesta de Guilherme"
+        },
+        {
+            "tema": "",
+            "flujo": "",
+            "entorno": "",
+            "inv": "",
+            "tarea": "",
+            "comentarios": "",
+            "fecha": "",
+            "pasos": ""
         },
         {
             "tema": "Informes Estoque Fundos Private",
@@ -194,12 +224,12 @@
         },
         {
             "tema": "Ajuste Proceso de Carga",
-            "flujo": "En progreso",
+            "flujo": "En curso",
             "entorno": "PRD",
             "inv": "NFQ / S3",
             "tarea": "Query para Extração do Relatório Mapa de Evolução de Cotas do Portal",
             "comentarios": "Work in progress",
-            "fecha": "8/12/26 19:38",
+            "fecha": "12/08/2026",
             "pasos": ""
         }
     ],
@@ -216,7 +246,7 @@
         },
         {
             "tema": "DDBB",
-            "flujo": "En proceso",
+            "flujo": "En curso",
             "entorno": "PRD",
             "inv": "S3 /NTT",
             "tarea": "Conexión a la base de datos",
@@ -292,7 +322,7 @@
             "entorno": "S3",
             "inv": "CA_details_intr",
             "tarea": "- Ajuste de formatos de datos",
-            "comentarios": "- Ajuste de formatos de datos_x000d_",
+            "comentarios": "- Ajuste de formatos de datos_x000D_",
             "fecha": "05/09/2025",
             "pasos": "Validación de lado S3"
         },
@@ -302,7 +332,7 @@
             "entorno": "NFQ / S3",
             "inv": "Nuevos Mapeos",
             "tarea": "-Se encuentra en development 3 novos mapeos que utilizaran la extracción InvestCompanyInstitute",
-            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000d_",
+            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000D_",
             "fecha": "28/10/2025",
             "pasos": "Validación de lado S3"
         },
@@ -332,7 +362,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Interfaz Equity",
             "tarea": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD",
-            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000d_",
+            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000D_",
             "fecha": "21/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -342,7 +372,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Carga ScriptByClient",
             "tarea": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT",
-            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000d_",
+            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000D_",
             "fecha": "28/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -352,7 +382,7 @@
             "entorno": "NFQ / S3",
             "inv": "Monitoreamento de cargas",
             "tarea": "- Se requerirá de validaciones de informação por causa de los mapeos en UAT",
-            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000d_",
+            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000D_",
             "fecha": "31/10/2025",
             "pasos": "- S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de projeto."
         },
