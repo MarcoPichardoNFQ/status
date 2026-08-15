@@ -189,8 +189,11 @@ canvas { max-width:100%; }
 					                    <button class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap" onclick="switchTab('reporting')" id="btn-reporting">
                         <i data-lucide="database" class="w-4 h-4 mr-2"></i> Reporting
                     </button>
-                    <button class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap" onclick="switchTab('Megara')" id="btn-Megara">
+                    <button class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap" onclick="switchTab('megara')" id="btn-megara">
                         <i data-lucide="database" class="w-4 h-4 mr-2"></i> Megara
+                    </button>
+                                        <button class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap" onclick="switchTab('Infra')" id="btn-Infra">
+                        <i data-lucide="database" class="w-4 h-4 mr-2"></i> Infra
                     </button>
                     <button class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap" onclick="switchTab('uat')" id="btn-uat">
                         <i data-lucide="list-todo" class="w-4 h-4 mr-2"></i> UAT
@@ -433,11 +436,9 @@ canvas { max-width:100%; }
     <!-- reporting / EXISTING WORKSTREAM TABLE -->
     <section id="tab-reporting" class="tab-pane space-y-6">
         <div>
-            <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider"></h2>
-            <p class="text-cyan-400 text-xs font-mono uppercase tracking-widest mt-1">Estado operativo del flujo</p>
-			   <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Reporting</h2>
-            <p class="text-indigo-400 text-xs font-mono uppercase tracking-widest mt-1">Reprtes Qlik /Assincronos</p>
-        </div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Reporting</h2>
+    <p class="text-indigo-400 text-xs font-mono uppercase tracking-widest mt-1">Reportes Qlik / Asíncronos</p>
+</div>
 
         <div class="glass-panel rounded-2xl overflow-hidden">
             <div class="table-wrap">
@@ -455,9 +456,31 @@ canvas { max-width:100%; }
             </div>
         </div>
     </section>
+<!-- Infra / EXISTING WORKSTREAM TABLE -->
+    <section id="tab-Infra" class="tab-pane space-y-6">
+        <div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Infra</h2>
+    <p class="text-indigo-400 text-xs font-mono uppercase tracking-widest mt-1">Reportes Qlik / Asíncronos</p>
+</div>
 
+        <div class="glass-panel rounded-2xl overflow-hidden">
+            <div class="table-wrap">
+                <table class="w-full min-w-[1000px]">
+                    <thead class="bg-[#04060a] sticky top-0 z-10">
+                        <tr class="border-b border-cyan-900/30">
+                            <th class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Tarea</th>
+                            <th class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Estado</th>
+                            <th class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Comentario</th>
+                            <th class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Próximos pasos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-Infra" class="divide-y divide-cyan-900/20"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
     <!-- Megara / EXISTING WORKSTREAM TABLE -->
-    <section id="tab-Megara" class="tab-pane space-y-6">
+    <section id="tab-megara" class="tab-pane space-y-6">
         <div>
             <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Megara</h2>
             <p class="text-cyan-400 text-xs font-mono uppercase tracking-widest mt-1">Estado operativo del flujo</p>
@@ -566,7 +589,7 @@ const state = {
     workstreams: {
         Megara: [],
         reporting: [],
-        infra: [],
+        Infra: [],
         uat: []
     },
     charts: {},
@@ -746,7 +769,7 @@ async function loadAllData() {
     if (data) {
         state.workstreams.Megara = data.dbMegara || [];
         state.workstreams.reporting = data.dbReporting || [];
-        state.workstreams.infra = data.dbInfra || [];
+        state.workstreams.Infra = data.dbInfra || [];
         state.workstreams.uat = data.dbUAT || [];
     }
 
@@ -908,9 +931,9 @@ function calculateMetrics(scenario, weekIndices) {
 let globalWeightedDurationSum = 0;
     let globalWeightedDurationCount = 0;
 
-    if (scenario && scenario.duration) {
-        scenario.duration.forEach((ds, i) => {
-            const volDs = scenario.volume[i];
+    if (scenario && scenario.lineas_duracion) {
+    scenario.lineas_duracion.forEach((ds, i) => {
+        const volDs = scenario.lineas_volumen[i];
             const d = normalizeSeries(ds);
             const v = normalizeSeries(volDs);
 
@@ -1027,7 +1050,7 @@ function calculateHealth(metrics) {
 
     // 4. Verificación de volumen de datos
     // Nota: Asegúrate de que getSelectedScenario() esté definido en el entorno de tu código
-    const scenario = typeof getSelectedScenario === 'function' ? getSelectedScenario() : null; 
+    const scenario = getSelectedScenario();
     const volume = metrics.totalVolume;
     if (!volume) score -= 12;
 
@@ -1726,6 +1749,8 @@ function renderWorkstreamTable(targetId, rows) {
 
 function renderWorkstreams() {
     renderWorkstreamTable("tbody-Megara", state.workstreams.Megara);
+        renderWorkstreamTable("tbody-Infra", state.workstreams.Infra);
+
     renderWorkstreamTable("tbody-uat", state.workstreams.uat);
 	renderWorkstreamTable("tbody-reporting", state.workstreams.reporting);
     const all = state.workstreams.Megara;
