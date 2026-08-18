@@ -208,7 +208,30 @@ canvas { max-width:100%; }
 </header>
 
 <main class="max-w-[1900px] mx-auto px-4 sm:px-6 py-6 md:py-8">
+<!-- FILTERS (AHORA ES GLOBAL) -->
+<div id="global-filters" class="glass-panel rounded-2xl p-4 md:p-5 mb-6 sticky top-[140px] xl:top-[92px] z-40 shadow-xl">        <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+            <div>
+                <h2 class="text-lg font-bold text-white uppercase tracking-wider">Filtros de análisis</h2>
+                <p id="subtitle" class="text-xs text-slate-500 font-mono uppercase mt-1">Cargando telemetría...</p>
+            </div>
 
+            <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+                <label class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-2">
+                    <span class="block text-[9px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Tipo de ejecución</span>
+                    <select id="filter-type" class="bg-transparent text-white text-sm font-mono outline-none w-full sm:w-auto">
+                        <option value="todos">Todas</option>
+                        <option value="solo_auto">Automáticas</option>
+                        <option value="solo_ma">Manuales</option>
+                    </select>
+                </label>
+
+                <div class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-2">
+                    <span class="block text-[9px] text-cyan-500 uppercase tracking-widest font-bold mb-2">Semanas</span>
+                    <div id="week-filters" class="flex flex-wrap gap-3 text-xs font-mono"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- OVERVIEW -->
     <section id="tab-overview" class="tab-pane active space-y-6">
 
@@ -253,31 +276,7 @@ canvas { max-width:100%; }
             </div>
         </div>
 
-        <!-- FILTERS -->
-        <div class="glass-panel rounded-2xl p-4 md:p-5">
-            <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-lg font-bold text-white uppercase tracking-wider">Filtros de análisis</h2>
-                    <p id="subtitle" class="text-xs text-slate-500 font-mono uppercase mt-1">Cargando telemetría...</p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row flex-wrap gap-3">
-                    <label class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-2">
-                        <span class="block text-[9px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Tipo de ejecución</span>
-                        <select id="filter-type" class="bg-transparent text-white text-sm font-mono outline-none w-full sm:w-auto">
-                            <option value="todos">Todas</option>
-                            <option value="solo_auto">Automáticas</option>
-                            <option value="solo_ma">Manuales</option>
-                        </select>
-                    </label>
-
-                    <div class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-2">
-                        <span class="block text-[9px] text-cyan-500 uppercase tracking-widest font-bold mb-2">Semanas</span>
-                        <div id="week-filters" class="flex flex-wrap gap-3 text-xs font-mono"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+ 
 
         <!-- KPIs -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-4">
@@ -852,18 +851,37 @@ function buildSelectedSeries(scenario, indices) {
 function extractCleanSamples() {
     const rows = state.cleanData;
 
+    // 1. Obtenemos los filtros activos de la UI
+    const typeFilter = document.getElementById("filter-type").value;
+    const selectedWeekNames = getSelectedWeekIndices().map(i => getWeekNames()[i]);
+
     const durations = [];
     const sizes = [];
     const types = [];
 
     for (const row of rows) {
-        const duration = parseDuration(row.duracion_min);
-        const size = Number(row.tamano);
+        // 2. Evaluamos si la fila cumple con los filtros
+        const rType = String(row.tipo || "").toLowerCase();
+        let matchType = true;
+        if (typeFilter === 'solo_auto') matchType = rType.includes('auto');
+        if (typeFilter === 'solo_ma') matchType = rType.includes('man');
 
-        if (Number.isFinite(duration) && duration >= 0) durations.push(duration);
-        if (Number.isFinite(size) && size >= 0) sizes.push(size);
+        let matchWeek = false;
+        const rWeek = String(row.año_semana || "");
+        if (selectedWeekNames.some(w => rWeek === w || rWeek.includes(w) || w.includes(rWeek))) {
+            matchWeek = true;
+        }
 
-        types.push(String(row.tipo || "").toLowerCase());
+        // 3. Si pasa el filtro, extraemos sus valores
+        if (matchType && matchWeek) {
+            const duration = parseDuration(row.duracion_min);
+            const size = Number(row.tamano);
+
+            if (Number.isFinite(duration) && duration >= 0) durations.push(duration);
+            if (Number.isFinite(size) && size >= 0) sizes.push(size);
+
+            types.push(rType);
+        }
     }
 
     return { durations, sizes, types };
@@ -1264,13 +1282,17 @@ function renderCorrelationChart(metrics) {
         <span>n = <strong class="text-white">${points.length.toLocaleString("es-MX")}</strong></span>
     `;
 }
-
-function histogram(values, bins = 8) {
-    const arr = values.filter(Number.isFinite);
+function histogram(values, bins = 10) {
+    // 1. Filtramos y ordenamos el arreglo de menor a mayor
+    const arr = values.filter(Number.isFinite).sort((a, b) => a - b);
     if (!arr.length) return { labels: [], counts: [] };
 
-    const min = Math.min(...arr);
-    const max = Math.max(...arr);
+    const min = arr[0];
+    
+    // 2. Calculamos el "max" usando el percentil 98 en lugar del máximo absoluto.
+    // Esto recorta la cola infinita generada por los outliers.
+    const p98Index = Math.floor((arr.length - 1) * 0.98);
+    const max = arr[p98Index];
 
     if (min === max) {
         return { labels: [min.toFixed(2)], counts: [arr.length] };
@@ -1279,15 +1301,27 @@ function histogram(values, bins = 8) {
     const width = (max - min) / bins;
     const counts = Array(bins).fill(0);
 
+    // 3. Llenamos las cubetas
     arr.forEach(v => {
         let idx = Math.floor((v - min) / width);
-        if (idx >= bins) idx = bins - 1;
+        
+        // Si el valor supera nuestro percentil 98 (outlier), 
+        // lo metemos a la fuerza en la última cubeta
+        if (idx >= bins) idx = bins - 1; 
+        if (idx < 0) idx = 0; // Por seguridad
+        
         counts[idx]++;
     });
 
-    const labels = counts.map((_,i) => {
+    // 4. Generamos las etiquetas
+    const labels = counts.map((_, i) => {
         const a = min + i * width;
         const b = min + (i + 1) * width;
+        
+        // Al último bloque le ponemos un "+" para indicar que contiene 
+        // ese rango y cualquier valor atípico superior
+        if (i === bins - 1) return `${a.toFixed(1)}+`;
+        
         return `${a.toFixed(1)}–${b.toFixed(1)}`;
     });
 
@@ -1298,8 +1332,8 @@ function renderDistributionCharts(metrics) {
     destroyChart("durationDistribution");
     destroyChart("sizeDistribution");
 
-    const dHist = histogram(metrics.durationsForStats, 10);
-    const sHist = histogram(metrics.sizesForStats, 10);
+    const dHist = histogram(metrics.durationsForStats, 15);
+    const sHist = histogram(metrics.sizesForStats, 15);
 
     state.charts.durationDistribution = new Chart(
         document.getElementById("chart-duration-distribution"),
@@ -1764,14 +1798,36 @@ function renderWorkstreams() {
 }
 
 function renderAudit() {
-    const rows = state.cleanData;
-    document.getElementById("audit-count").textContent = rows.length.toLocaleString("es-MX");
+    // 1. Obtenemos los filtros activos de la UI
+    const typeFilter = document.getElementById("filter-type").value;
+    const selectedWeekNames = getSelectedWeekIndices().map(i => getWeekNames()[i]);
 
-    const limit = Math.min(rows.length, 500);
+    // 2. Filtramos la data pura en memoria
+    const filteredRows = state.cleanData.filter(row => {
+        // Filtrar por tipo (automática vs manual)
+        const rType = String(row.tipo || "").toLowerCase();
+        let matchType = true;
+        if (typeFilter === 'solo_auto') matchType = rType.includes('auto');
+        if (typeFilter === 'solo_ma') matchType = rType.includes('man'); // Asume que la manual incluye 'man'
 
-    document.getElementById("tbody-audit").innerHTML = rows.slice(0, limit).map(row => {
+        // Filtrar por semana
+        let matchWeek = false;
+        const rWeek = String(row.año_semana || "");
+        if (selectedWeekNames.some(w => rWeek === w || rWeek.includes(w) || w.includes(rWeek))) {
+            matchWeek = true;
+        }
+
+        return matchType && matchWeek;
+    });
+
+    // 3. Pintamos la tabla con los datos ya filtrados
+    document.getElementById("audit-count").textContent = filteredRows.length.toLocaleString("es-MX");
+
+    const limit = Math.min(filteredRows.length, 500);
+
+    document.getElementById("tbody-audit").innerHTML = filteredRows.slice(0, limit).map(row => {
         const type = String(row.tipo || "");
-        const automatic = type.toLowerCase() === "automatica";
+        const automatic = type.toLowerCase() === "automatica" || type.toLowerCase().includes("auto");
         const badge = automatic
             ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30"
             : "bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/30";
@@ -1789,14 +1845,13 @@ function renderAudit() {
                 <td class="px-5 py-3 font-mono text-sm text-emerald-400 text-right">${formatNumber(row.tamano)}</td>
             </tr>
         `;
-    }).join("") + (rows.length > 500 ? `
+    }).join("") + (filteredRows.length > 500 ? `
         <tr>
             <td colspan="7" class="px-5 py-4 text-center text-xs text-slate-600 font-mono">
-                Mostrando 500 de ${rows.length.toLocaleString("es-MX")} registros.
+                Mostrando 500 de ${filteredRows.length.toLocaleString("es-MX")} registros filtrados.
             </td>
         </tr>` : "");
 }
-
 /* =========================================================
    DATA FRESHNESS
 ========================================================= */
@@ -1857,6 +1912,9 @@ function updateDashboard() {
         renderCorrelationChart(metrics);
         renderDistributionCharts(metrics);
         renderHistoryChart(scenario, weekIndices, state.historyMetric);
+        
+        // ¡Agregamos el render de auditoría aquí!
+        renderAudit();
 
         const weeks = getWeekNames();
         document.getElementById("subtitle").textContent =
@@ -1879,6 +1937,16 @@ function switchTab(tabId) {
 
     document.getElementById(`tab-${tabId}`)?.classList.add("active");
     document.getElementById(`btn-${tabId}`)?.classList.add("active");
+
+    // Lógica para mostrar los filtros globales solo en pestañas compatibles
+    const filters = document.getElementById("global-filters");
+    if (filters) {
+        if (['overview', 'performance', 'audit'].includes(tabId)) {
+            filters.style.display = 'block';
+        } else {
+            filters.style.display = 'none';
+        }
+    }
 }
 
 /* =========================================================

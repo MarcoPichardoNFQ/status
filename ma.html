@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark">
+        <title>Misión Apollo-Aldrin | ETL Health Monitor</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+
+        <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+    --bg: #040814;
+    --panel: rgba(11,18,33,.88);
+    --panel-2: rgba(8,13,26,.92);
+    --border: rgba(8,145,178,.28);
+    --text: #cbd5e1;
+    --muted: #64748b;
+    --cyan: #22d3ee;
+    --amber: #facc15;
+    --green: #34d399;
+    --red: #fb7185;
+    --purple: #d946ef;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(8,145,178,.08), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(217,70,239,.06), transparent 25%),
+        var(--bg);
+    color: var(--text);
+}
+
+h1,h2,h3,h4,.font-space { font-family: 'Space Grotesk', sans-serif; }
+
+.glass-panel {
+    background: var(--panel);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 35px rgba(0,0,0,.18);
+}
+
+.card-kpi {
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.card-kpi:hover {
+    transform: translateY(-3px);
+    border-color: rgba(34,211,238,.5);
+    box-shadow: 0 12px 30px rgba(8,145,178,.12);
+}
+
+.tab-pane { display:none; }
+.tab-pane.active {
+    display:block;
+    animation: fadeIn .25s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(6px); }
+    to { opacity:1; transform:translateY(0); }
+}
+
+.tab-btn.active {
+    background: rgba(8,47,73,.7);
+    color: var(--cyan);
+    border-color: rgba(8,145,178,.5);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    display: inline-block;
+    box-shadow: 0 0 12px currentColor;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: rgba(4,8,20,.5); }
+::-webkit-scrollbar-thumb { background: rgba(8,145,178,.45); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(8,145,178,.75); }
+
+.table-wrap { overflow:auto; max-height:650px; }
+
+.alert-item {
+    border-left: 3px solid currentColor;
+    background: rgba(15,23,42,.45);
+}
+
+.health-ring {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle at center, #07101f 58%, transparent 59%),
+        conic-gradient(var(--health-color) var(--health-pct), rgba(51,65,85,.35) 0);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--health-color) 20%, transparent);
+}
+
+.health-ring::after {
+    content:"";
+    position:absolute;
+    width:108px;
+    height:108px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.metric-badge {
+    border:1px solid rgba(148,163,184,.2);
+    background:rgba(15,23,42,.55);
+}
+
+.data-error {
+    border:1px solid rgba(251,113,133,.35);
+    background:rgba(127,29,29,.12);
+}
+
+select, button, input { font: inherit; }
+
+canvas { max-width:100%; }
+
+@media (max-width: 768px) {
+    .mobile-scroll { overflow-x:auto; }
+    .desktop-only { display:none !important; }
+}
+</style>
+    </head>
+
+    <body class="pb-10">
+
+        <header
+            class="sticky top-0 z-50 bg-[#04060a]/92 backdrop-blur-xl border-b border-cyan-900/40">
+            <div class="max-w-[1900px] mx-auto px-4 sm:px-6">
+                <div
+                    class="min-h-[92px] py-4 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+
+                    <div class="flex items-center gap-4 shrink-0">
+                        <div
+                            class="w-12 h-12 rounded-full border border-amber-400/80 flex items-center justify-center relative shadow-[0_0_18px_rgba(250,204,21,.12)]">
+                            <i data-lucide="orbit"
+                                class="w-7 h-7 text-amber-400"></i>
+                        </div>
+                        <div>
+                            <h1
+                                class="text-xl sm:text-2xl font-bold text-white tracking-wider uppercase">
+                                Misión Apollo-Aldrin
+                            </h1>
+                            <!-- <p class="text-[10px] text-slate-500 font-mono tracking-[.2em] uppercase mt-1">                        ETL Health Monitor </p> -->
+                            <div
+                                class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-[10px] font-mono uppercase tracking-widest">
+                                <span class="text-cyan-500">
+                                    Deploy:
+                                    <span id="deploy-timestamp"
+                                        class="text-slate-300">--</span>
+                                </span>
+                                <span class="text-emerald-500">
+                                    Datos:
+                                    <span id="data-timestamp"
+                                        class="text-slate-300">--</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-center gap-3 xl:gap-5 w-full xl:w-auto">
+                        <div id="freshness-badge"
+                            class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-700 bg-slate-900/60 text-xs font-mono uppercase whitespace-nowrap">
+                            <span id="freshness-dot"
+                                class="status-dot text-emerald-400 bg-emerald-400"></span>
+                            <span id="freshness-text">Verificando
+                                datos...</span>
+                        </div>
+
+                        <nav
+                            class="flex gap-2 bg-[#0b1221] p-2 rounded-xl border border-cyan-900/30 overflow-x-auto w-full xl:w-auto">
+                            <button
+                                class="tab-btn active flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('overview')"
+                                id="btn-overview">
+                                <i data-lucide="layout-dashboard"
+                                    class="w-4 h-4 mr-2"></i> Overview
+                            </button>
+                            <button
+                                class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('performance')"
+                                id="btn-performance">
+                                <i data-lucide="activity"
+                                    class="w-4 h-4 mr-2"></i> Performance
+                            </button>
+                            <button
+                                class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('reporting')"
+                                id="btn-reporting">
+                                <i data-lucide="database"
+                                    class="w-4 h-4 mr-2"></i> Reporting
+                            </button>
+                            <button
+                                class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('megara')" id="btn-megara">
+                                <i data-lucide="database"
+                                    class="w-4 h-4 mr-2"></i> Megara
+                            </button>
+                            <button
+                                class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('Infra')" id="btn-Infra">
+                                <i data-lucide="database"
+                                    class="w-4 h-4 mr-2"></i> Infra
+                            </button>
+                            <button
+                                class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('uat')" id="btn-uat">
+                                <i data-lucide="list-todo"
+                                    class="w-4 h-4 mr-2"></i> UAT
+                            </button>
+                            <button
+                                class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('audit')" id="btn-audit">
+                                <i data-lucide="file-search"
+                                    class="w-4 h-4 mr-2"></i> Auditoría
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- <main class="max-w-[1900px] mx-auto px-4 sm:px-6 py-6 md:py-8"> -->
+        <main class="max-w-[1900px] mx-auto px-4 sm:px-6 py-6 md:py-8" style="
+    padding-top: 8px;
+">
+            <!-- FILTERS (AHORA ES GLOBAL) -->
+            <div id="global-filters"
+                class="glass-panel rounded-2xl p-1 md:p-5 mb-6 sticky top-[140px] xl:top-[92px] z-10 shadow-xl">
+                <div
+                    class="flex flex-col xl:flex-row xl:items-center justify-between gap-1">
+                    <div>
+                        <h2
+                            class="text-lg font-bold text-white uppercase tracking-wider">Filtros
+                            de análisis</h2>
+                        <p id="subtitle"
+                            class="text-xs text-slate-500 font-mono uppercase mt-1">Cargando
+                            telemetría...</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-5">
+                        <label
+                            class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-2">
+                            <span
+                                class="block text-[9px] text-cyan-500 uppercase tracking-widest font-bold mb-1">Tipo
+                                de ejecución</span>
+                            <select id="filter-type"
+                                class="bg-transparent text-white text-sm font-mono outline-none w-full sm:w-auto">
+                                <option value="todos">Todas</option>
+                                <option value="solo_auto">Automáticas</option>
+                                <option value="solo_ma">Manuales</option>
+                            </select>
+                        </label>
+
+                        <div
+                            class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-2">
+                            <span
+                                class="block text-[9px] text-cyan-500 uppercase tracking-widest font-bold mb-2">Semanas</span>
+                            <div id="week-filters"
+                                class="flex flex-wrap gap-3 text-xs font-mono"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- OVERVIEW -->
+            <section id="tab-overview" class="tab-pane active space-y-6">
+
+                <div class="glass-panel rounded-2xl p-5 md:p-6">
+                    <div
+                        class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                        <div class="flex items-center gap-6">
+                            <div class="relative">
+                                <div id="health-ring"
+                                    class="health-ring relative"
+                                    style="--health-color:#34d399;--health-pct:82%;">
+                                    <div class="text-center relative z-10">
+                                        <div id="health-score"
+                                            class="text-4xl font-bold text-white font-space">--</div>
+                                        <div
+                                            class="text-[9px] text-slate-500 font-mono uppercase tracking-widest">/
+                                            100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p
+                                    class="text-[10px] text-amber-400 font-mono font-bold uppercase tracking-[.2em]">Estado
+                                    general</p>
+                                <h2 id="health-label"
+                                    class="text-3xl font-bold text-white uppercase mt-1">Evaluando</h2>
+                                <p id="health-description"
+                                    class="text-sm text-slate-400 mt-2 max-w-xl">
+                                    Calculando salud del ETL a partir de
+                                    duración, variabilidad, volumen, tamaño y
+                                    comportamiento.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full lg:w-auto">
+                            <div
+                                class="metric-badge rounded-lg p-3 min-w-[120px]">
+                                <div
+                                    class="text-[9px] text-slate-500 uppercase font-mono">Duración</div>
+                                <div id="health-duration"
+                                    class="text-lg font-bold text-cyan-300 mt-1">--</div>
+                            </div>
+                            <div
+                                class="metric-badge rounded-lg p-3 min-w-[120px]">
+                                <div
+                                    class="text-[9px] text-slate-500 uppercase font-mono">Variabilidad</div>
+                                <div id="health-cv"
+                                    class="text-lg font-bold text-indigo-300 mt-1">--</div>
+                            </div>
+                            <div
+                                class="metric-badge rounded-lg p-3 min-w-[120px]">
+                                <div
+                                    class="text-[9px] text-slate-500 uppercase font-mono">Volumen</div>
+                                <div id="health-volume"
+                                    class="text-lg font-bold text-rose-300 mt-1">--</div>
+                            </div>
+                            <div
+                                class="metric-badge rounded-lg p-3 min-w-[120px]">
+                                <div
+                                    class="text-[9px] text-slate-500 uppercase font-mono">Correlación</div>
+                                <div id="health-correlation"
+                                    class="text-lg font-bold text-fuchsia-300 mt-1">--</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-4">
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-cyan-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase font-mono tracking-widest">Duración
+                            ponderada</p>
+                        <h3 id="kpi-duration"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p
+                            class="text-[10px] text-cyan-500 font-mono uppercase">/
+                            ejecución</p>
+                        <div id="delta-duration" class="text-[10px] mt-3"></div>
+                    </div>
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-sky-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase font-mono tracking-widest">P95
+                            duración</p>
+                        <h3 id="kpi-p95-duration"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p
+                            class="text-[10px] text-sky-500 font-mono uppercase">cola
+                            superior</p>
+                    </div>
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-indigo-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">Tamaño
+                            promedio</p>
+                        <h3 id="kpi-size"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p id="kpi-size-unit"
+                            class="text-[10px] text-indigo-500 font-mono uppercase">/
+                            ejecución</p>
+                        <div id="delta-size" class="text-[10px] mt-3"></div>
+                    </div>
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-fuchsia-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">P95
+                            tamaño</p>
+                        <h3 id="kpi-p95-size"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p
+                            class="text-[10px] text-fuchsia-500 font-mono uppercase">cola
+                            superior</p>
+                    </div>
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-rose-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">Eventos</p>
+                        <h3 id="kpi-volume"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p
+                            class="text-[10px] text-rose-500 font-mono uppercase">cargas
+                            totales</p>
+                        <div id="delta-volume" class="text-[10px] mt-3"></div>
+                    </div>
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-amber-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">Pico
+                            promedio diario</p>
+                        <h3 id="kpi-peak"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p
+                            class="text-[10px] text-amber-500 font-mono uppercase">máximo
+                            promedio</p>
+                    </div>
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-emerald-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">Eventos
+                            / día</p>
+                        <h3 id="kpi-daily"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p
+                            class="text-[10px] text-emerald-500 font-mono uppercase">días
+                            con actividad</p>
+                    </div>
+
+                    <div
+                        class="glass-panel card-kpi rounded-xl p-4 border-l-4 border-purple-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">Data
+                            acumulada</p>
+                        <h3 id="kpi-total-size"
+                            class="text-2xl font-bold text-white mt-2">--</h3>
+                        <p id="kpi-total-size-unit"
+                            class="text-[10px] text-fuchsia-500 font-mono uppercase">--</p>
+                    </div>
+                </div>
+
+                <!-- ALERTS + INSIGHTS -->
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                    <div class="glass-panel rounded-2xl p-5 lg:col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3
+                                class="text-rose-400 font-space font-bold uppercase tracking-widest text-sm flex items-center">
+                                <i data-lucide="siren" class="w-4 h-4 mr-2"></i>
+                                Alertas activas
+                            </h3>
+                            <span id="alert-count"
+                                class="text-[10px] font-mono px-2 py-1 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">0</span>
+                        </div>
+                        <div id="alerts-container" class="space-y-3"></div>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-5 lg:col-span-3">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3
+                                class="text-amber-400 font-space font-bold uppercase tracking-widest text-sm flex items-center">
+                                <i data-lucide="cpu" class="w-4 h-4 mr-2"></i>
+                                Insights automáticos
+                            </h3>
+                            <span
+                                class="text-[9px] text-slate-500 uppercase font-mono">motor
+                                estadístico</span>
+                        </div>
+                        <div id="insights-container"
+                            class="space-y-3 text-sm text-slate-300"></div>
+                    </div>
+                </div>
+
+                <!-- OVERVIEW CHARTS -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="glass-panel rounded-2xl p-5 lg:col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3
+                                class="text-cyan-400 font-space font-bold uppercase tracking-widest text-sm">Tendencia
+                                de duración — promedio diario</h3>
+                            <span
+                                class="text-[9px] text-slate-500 font-mono uppercase">W
+                                → día</span>
+                        </div>
+                        <div class="h-[330px]"><canvas
+                                id="chart-duration"></canvas></div>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-5">
+                        <h3
+                            class="text-indigo-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Tamaño
+                            y volumen</h3>
+                        <div class="h-[300px]"><canvas
+                                id="chart-size-volume"></canvas></div>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-5">
+                        <h3
+                            class="text-fuchsia-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Correlación
+                            tamaño → duración</h3>
+                        <div class="h-[300px]"><canvas
+                                id="chart-correlation"></canvas></div>
+                        <div id="correlation-stats"
+                            class="flex gap-4 mt-3 text-xs font-mono text-slate-400"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PERFORMANCE -->
+            <section id="tab-performance" class="tab-pane space-y-6">
+                <div class="flex items-end justify-between">
+                    <div>
+                        <h2
+                            class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Performance</h2>
+                        <p
+                            class="text-cyan-400 text-xs font-mono uppercase tracking-widest mt-1">Distribución,
+                            variabilidad y comportamiento temporal</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="glass-panel rounded-2xl p-5">
+                        <h3
+                            class="text-sky-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Distribución
+                            de duración</h3>
+                        <div class="h-[320px]"><canvas
+                                id="chart-duration-distribution"></canvas></div>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-5">
+                        <h3
+                            class="text-emerald-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Distribución
+                            de tamaños</h3>
+                        <div class="h-[320px]"><canvas
+                                id="chart-size-distribution"></canvas></div>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-5 lg:col-span-2">
+                        <div
+                            class="flex flex-col sm:flex-row justify-between gap-3 mb-4">
+                            <h3 id="history-title"
+                                class="text-purple-400 font-space font-bold uppercase tracking-widest text-sm">Histórico
+                                continuo</h3>
+                            <div class="flex gap-2">
+                                <button
+                                    class="history-btn px-3 py-1.5 rounded text-[10px] font-mono uppercase border border-cyan-500/30 text-cyan-300 bg-cyan-500/10"
+                                    data-metric="duration">Duración</button>
+                                <button
+                                    class="history-btn px-3 py-1.5 rounded text-[10px] font-mono uppercase border border-slate-700 text-slate-400"
+                                    data-metric="size">Tamaño</button>
+                                <button
+                                    class="history-btn px-3 py-1.5 rounded text-[10px] font-mono uppercase border border-slate-700 text-slate-400"
+                                    data-metric="volume">Volumen</button>
+                            </div>
+                        </div>
+                        <div class="h-[340px]"><canvas
+                                id="chart-history"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-5">
+                    <h3
+                        class="text-amber-400 font-space font-bold uppercase tracking-widest text-sm mb-4">Resumen
+                        estadístico</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr
+                                    class="border-b border-slate-800 text-[10px] uppercase font-mono text-slate-500">
+                                    <th class="text-left py-3">Métrica</th>
+                                    <th class="text-right py-3">Promedio</th>
+                                    <th class="text-right py-3">P50</th>
+                                    <th class="text-right py-3">P95</th>
+                                    <th class="text-right py-3">Máximo</th>
+                                    <th class="text-right py-3">Desv. Std.</th>
+                                    <th class="text-right py-3">CV</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stats-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!-- reporting / EXISTING WORKSTREAM TABLE -->
+            <section id="tab-reporting" class="tab-pane space-y-6">
+                <div>
+                    <h2
+                        class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Reporting</h2>
+                    <p
+                        class="text-indigo-400 text-xs font-mono uppercase tracking-widest mt-1">Reportes
+                        Qlik / Asíncronos</p>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden">
+                    <div class="table-wrap">
+                        <table class="w-full min-w-[1000px]">
+                            <thead class="bg-[#04060a] sticky top-0 z-10">
+                                <tr class="border-b border-cyan-900/30">
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Tarea</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Estado</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Comentario</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Próximos
+                                        pasos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-reporting"
+                                class="divide-y divide-cyan-900/20"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!-- Infra / EXISTING WORKSTREAM TABLE -->
+            <section id="tab-Infra" class="tab-pane space-y-6">
+                <div>
+                    <h2
+                        class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Infra</h2>
+                    <p
+                        class="text-indigo-400 text-xs font-mono uppercase tracking-widest mt-1">Reportes
+                        Qlik / Asíncronos</p>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden">
+                    <div class="table-wrap">
+                        <table class="w-full min-w-[1000px]">
+                            <thead class="bg-[#04060a] sticky top-0 z-10">
+                                <tr class="border-b border-cyan-900/30">
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Tarea</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Estado</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Comentario</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Próximos
+                                        pasos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-Infra"
+                                class="divide-y divide-cyan-900/20"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!-- Megara / EXISTING WORKSTREAM TABLE -->
+            <section id="tab-megara" class="tab-pane space-y-6">
+                <div>
+                    <h2
+                        class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Megara</h2>
+                    <p
+                        class="text-cyan-400 text-xs font-mono uppercase tracking-widest mt-1">Estado
+                        operativo del flujo</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div
+                        class="glass-panel rounded-xl p-4 border-l-4 border-emerald-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase font-mono">Completados</p>
+                        <h3 id="interface-completed"
+                            class="text-3xl font-bold text-white mt-1">0</h3>
+                    </div>
+                    <div
+                        class="glass-panel rounded-xl p-4 border-l-4 border-cyan-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase font-mono">En
+                            curso</p>
+                        <h3 id="interface-progress"
+                            class="text-3xl font-bold text-white mt-1">0</h3>
+                    </div>
+                    <div
+                        class="glass-panel rounded-xl p-4 border-l-4 border-rose-400">
+                        <p
+                            class="text-[10px] text-slate-500 uppercase font-mono">Requieren
+                            atención</p>
+                        <h3 id="interface-critical"
+                            class="text-3xl font-bold text-white mt-1">0</h3>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden">
+                    <div class="table-wrap">
+                        <table class="w-full min-w-[1000px]">
+                            <thead class="bg-[#04060a] sticky top-0 z-10">
+                                <tr class="border-b border-cyan-900/30">
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Tarea</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Estado</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Comentario</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Próximos
+                                        pasos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-Megara"
+                                class="divide-y divide-cyan-900/20"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- UAT -->
+            <section id="tab-uat" class="tab-pane space-y-6">
+                <div>
+                    <h2
+                        class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Backlog
+                        UAT</h2>
+                    <p
+                        class="text-indigo-400 text-xs font-mono uppercase tracking-widest mt-1">Pendientes
+                        y validaciones de usuario</p>
+                </div>
+                <div class="glass-panel rounded-2xl overflow-hidden">
+                    <div class="table-wrap">
+                        <table class="w-full min-w-[1000px]">
+                            <thead class="bg-[#04060a] sticky top-0 z-10">
+                                <tr class="border-b border-cyan-900/30">
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Tarea</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Estado</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Comentario</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Próximos
+                                        pasos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-uat"
+                                class="divide-y divide-cyan-900/20"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AUDIT -->
+            <section id="tab-audit" class="tab-pane space-y-6">
+                <div
+                    class="flex flex-col sm:flex-row justify-between sm:items-end gap-3">
+                    <div>
+                        <h2
+                            class="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">Datos
+                            Post-ETL</h2>
+                        <p
+                            class="text-amber-400 text-xs font-mono uppercase tracking-widest mt-1">Auditoría
+                            de registros limpiados y agrupados</p>
+                    </div>
+                    <div class="text-xs font-mono text-slate-500">
+                        <span id="audit-count">0</span> registros disponibles
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden">
+                    <div class="table-wrap">
+                        <table class="w-full min-w-[1100px]">
+                            <thead class="bg-[#04060a] sticky top-0 z-10">
+                                <tr class="border-b border-cyan-900/30">
+                                    <th
+                                        class="px-5 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Ejecución</th>
+                                    <th
+                                        class="px-5 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Tipo</th>
+                                    <th
+                                        class="px-5 py-4 text-center text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Semana</th>
+                                    <th
+                                        class="px-5 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Día</th>
+                                    <th
+                                        class="px-5 py-4 text-left text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Fecha</th>
+                                    <th
+                                        class="px-5 py-4 text-right text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Duración</th>
+                                    <th
+                                        class="px-5 py-4 text-right text-xs font-space font-bold text-amber-500 uppercase tracking-widest">Tamaño</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-audit"
+                                class="divide-y divide-cyan-900/20"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <script>
+"use strict";
+
+/* =========================================================
+   STATE
+========================================================= */
+
+const state = {
+    dashboard: null,
+    cleanData: [],
+    workstreams: {
+        Megara: [],
+        reporting: [],
+        Infra: [],
+        uat: []
+    },
+    charts: {},
+    historyMetric: "duration",
+    lastUpdate: null
+};
+
+const WEEK_COLORS = [
+    "#38bdf8",
+    "#818cf8",
+    "#fb7185",
+    "#34d399",
+    "#f59e0b",
+    "#d946ef",
+    "#14b8a6",
+    "#f97316"
+];
+
+/* =========================================================
+   SECURITY / FORMATTERS
+========================================================= */
+
+function escapeHtml(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function formatNumber(value, decimals = 0) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return "--";
+    return n.toLocaleString("es-MX", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+    });
+}
+
+function formatBytes(bytes) {
+    const n = Number(bytes);
+    if (!Number.isFinite(n) || n < 0) return { value: "--", unit: "bytes" };
+    if (n >= 1073741824) return { value: (n / 1073741824).toFixed(2), unit: "GB" };
+    if (n >= 1048576) return { value: (n / 1048576).toFixed(2), unit: "MB" };
+    if (n >= 1024) return { value: (n / 1024).toFixed(2), unit: "KB" };
+    return { value: n.toFixed(0), unit: "bytes" };
+}
+
+function formatDurationMinutes(minutes) {
+    const n = Number(minutes);
+    if (!Number.isFinite(n)) return "--";
+    const totalSeconds = Math.max(0, Math.round(n * 60));
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+    if (h > 0) return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+    return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+
+function parseDuration(value) {
+    if (value == null || value === "") return null;
+    if (typeof value === "number") return Number.isFinite(value) ? value : null;
+    const text = String(value).trim();
+    if (!text) return null;
+
+    if (/^\d+:\d{2}:\d{2}(\.\d+)?$/.test(text)) {
+        const [h,m,s] = text.split(":");
+        return Number(h) * 60 + Number(m) + Number(s);
+    }
+
+    if (/^\d+:\d{2}(\.\d+)?$/.test(text)) {
+        const [m,s] = text.split(":");
+        return Number(m) + Number(s) / 60;
+    }
+
+    const n = Number(text.replace(",", "."));
+    return Number.isFinite(n) ? n : null;
+}
+
+function percentile(values, p) {
+    const arr = values.filter(Number.isFinite).sort((a,b) => a-b);
+    if (!arr.length) return 0;
+    if (arr.length === 1) return arr[0];
+    const index = (arr.length - 1) * p;
+    const lower = Math.floor(index);
+    const upper = Math.ceil(index);
+    if (lower === upper) return arr[lower];
+    return arr[lower] + (arr[upper] - arr[lower]) * (index - lower);
+}
+
+function mean(values) {
+    const arr = values.filter(Number.isFinite);
+    return arr.length ? arr.reduce((a,b) => a+b, 0) / arr.length : 0;
+}
+
+function stddev(values) {
+    const arr = values.filter(Number.isFinite);
+    if (arr.length < 2) return 0;
+    const avg = mean(arr);
+    return Math.sqrt(arr.reduce((sum,v) => sum + Math.pow(v-avg,2), 0) / arr.length);
+}
+
+function coefficientVariation(values) {
+    const avg = mean(values);
+    return avg > 0 ? stddev(values) / avg : 0;
+}
+
+function correlation(xs, ys) {
+    const pairs = [];
+    for (let i = 0; i < Math.min(xs.length, ys.length); i++) {
+        if (Number.isFinite(xs[i]) && Number.isFinite(ys[i])) {
+            pairs.push([xs[i], ys[i]]);
+        }
+    }
+    if (pairs.length < 2) return 0;
+
+    const xMean = mean(pairs.map(p => p[0]));
+    const yMean = mean(pairs.map(p => p[1]));
+
+    let num = 0, dx = 0, dy = 0;
+    for (const [x,y] of pairs) {
+        const a = x - xMean;
+        const b = y - yMean;
+        num += a*b;
+        dx += a*a;
+        dy += b*b;
+    }
+
+    if (dx === 0 || dy === 0) return 0;
+    return num / Math.sqrt(dx * dy);
+}
+
+function formatPercent(value, decimals = 1) {
+    if (!Number.isFinite(value)) return "--";
+    return `${(value * 100).toFixed(decimals)}%`;
+}
+
+function deltaHtml(current, previous, inverseGood = true) {
+    if (!Number.isFinite(current) || !Number.isFinite(previous) || previous === 0) {
+        return `<span class="text-slate-600">N/A</span>`;
+    }
+    const delta = (current - previous) / previous;
+    if (Math.abs(delta) < 0.0001) {
+        return `<span class="text-slate-500">■ 0%</span>`;
+    }
+    const positive = delta > 0;
+    const good = inverseGood ? !positive : positive;
+    const color = good ? "text-emerald-400" : "text-rose-400";
+    const arrow = positive ? "▲" : "▼";
+    return `<span class="${color} font-bold">${arrow} ${Math.abs(delta*100).toFixed(1)}% vs anterior</span>`;
+}
+
+/* =========================================================
+   DATA LOADING
+========================================================= */
+
+async function fetchJson(path, required = true) {
+    const response = await fetch(`${path}?t=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) {
+        if (required) throw new Error(`${path}: HTTP ${response.status}`);
+        return null;
+    }
+    return response.json();
+}
+
+async function loadAllData() {
+    const [dashboard, data, clean] = await Promise.all([
+        fetchJson("datos_dashboard.json", true),
+        fetchJson("data.json", false),
+        fetchJson("datos_limpios.json", false)
+    ]);
+
+    state.dashboard = dashboard;
+    state.cleanData = Array.isArray(clean) ? clean : [];
+
+    if (data) {
+        state.workstreams.Megara = data.dbMegara || [];
+        state.workstreams.reporting = data.dbReporting || [];
+        state.workstreams.Infra = data.dbInfra || [];
+        state.workstreams.uat = data.dbUAT || [];
+    }
+
+    state.lastUpdate =
+        dashboard.fecha_datos ||
+        dashboard.ultima_actualizacion ||
+        dashboard.ultimo_deploy ||
+        null;
+}
+
+/* =========================================================
+   SCENARIO / RAW DATA NORMALIZATION
+========================================================= */
+
+function getSelectedScenario() {
+    const type = document.getElementById("filter-type").value;
+    const scenarios = state.dashboard?.escenarios || {};
+    return scenarios[type] || scenarios.todos || Object.values(scenarios)[0] || null;
+}
+
+function getWeekNames() {
+    const d = state.dashboard || {};
+    if (Array.isArray(d.semanas) && d.semanas.length) return d.semanas;
+    if (Array.isArray(d.labels_semana) && d.labels_semana.length) return d.labels_semana;
+
+    const scenario = Object.values(d.escenarios || {})[0];
+    const count = scenario?.lineas_duracion?.length || 0;
+    return Array.from({length: count}, (_,i) => `W${i+1}`);
+}
+
+function buildWeekFilters() {
+    const container = document.getElementById("week-filters");
+    const weeks = getWeekNames();
+
+    container.innerHTML = weeks.map((week, i) => `
+        <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox"
+                   class="week-check accent-cyan-400"
+                   value="${i}"
+                   checked>
+            <span style="color:${WEEK_COLORS[i % WEEK_COLORS.length]}">${escapeHtml(week)}</span>
+        </label>
+    `).join("");
+
+    container.querySelectorAll(".week-check").forEach(el => {
+        el.addEventListener("change", updateDashboard);
+    });
+}
+
+function getSelectedWeekIndices() {
+    const indices = [...document.querySelectorAll(".week-check:checked")]
+        .map(x => Number(x.value));
+
+    if (indices.length) return indices;
+
+    const first = document.querySelector(".week-check");
+    if (first) first.checked = true;
+    return first ? [0] : [];
+}
+
+function normalizeSeries(series) {
+    if (!series) return [];
+    return Array.isArray(series.data) ? series.data.map(Number) : [];
+}
+
+function buildSelectedSeries(scenario, indices) {
+    const duration = [];
+    const size = [];
+    const volume = [];
+
+    indices.forEach(index => {
+        if (scenario.lineas_duracion?.[index]) duration.push(scenario.lineas_duracion[index]);
+        if (scenario.lineas_tamano?.[index]) size.push(scenario.lineas_tamano[index]);
+        if (scenario.lineas_volumen?.[index]) volume.push(scenario.lineas_volumen[index]);
+    });
+
+    return { duration, size, volume };
+}
+
+function extractCleanSamples() {
+    const rows = state.cleanData;
+
+    // 1. Obtenemos los filtros activos de la UI
+    const typeFilter = document.getElementById("filter-type").value;
+    const selectedWeekNames = getSelectedWeekIndices().map(i => getWeekNames()[i]);
+
+    const durations = [];
+    const sizes = [];
+    const types = [];
+
+    for (const row of rows) {
+        // 2. Evaluamos si la fila cumple con los filtros
+        const rType = String(row.tipo || "").toLowerCase();
+        let matchType = true;
+        if (typeFilter === 'solo_auto') matchType = rType.includes('auto');
+        if (typeFilter === 'solo_ma') matchType = rType.includes('man');
+
+        let matchWeek = false;
+        const rWeek = String(row.año_semana || "");
+        if (selectedWeekNames.some(w => rWeek === w || rWeek.includes(w) || w.includes(rWeek))) {
+            matchWeek = true;
+        }
+
+        // 3. Si pasa el filtro, extraemos sus valores
+        if (matchType && matchWeek) {
+            const duration = parseDuration(row.duracion_min);
+            const size = Number(row.tamano);
+
+            if (Number.isFinite(duration) && duration >= 0) durations.push(duration);
+            if (Number.isFinite(size) && size >= 0) sizes.push(size);
+
+            types.push(rType);
+        }
+    }
+
+    return { durations, sizes, types };
+}
+
+/* =========================================================
+   METRICS
+========================================================= */
+
+function calculateMetrics(scenario, weekIndices) {
+    const labels = state.dashboard?.labels || [];
+    const selected = buildSelectedSeries(scenario, weekIndices);
+
+    const dailyDuration = [];
+    const dailySize = [];
+    const dailyVolume = [];
+
+    let weightedDurationSum = 0;
+    let weightedDurationCount = 0;
+    let weightedSizeSum = 0;
+    let weightedSizeCount = 0;
+    let totalVolume = 0;
+    let daysWithEvents = 0;
+    let peakDailyDuration = 0;
+    let totalBytes = 0;
+
+    selected.duration.forEach((ds, i) => {
+        const sizeDs = selected.size[i];
+        const volDs = selected.volume[i];
+
+        const d = normalizeSeries(ds);
+        const s = normalizeSeries(sizeDs);
+        const v = normalizeSeries(volDs);
+
+        dailyDuration.push(...d);
+        dailySize.push(...s);
+        dailyVolume.push(...v);
+
+        for (let j = 0; j < d.length; j++) {
+            const duration = d[j];
+            const size = s[j];
+            const volume = Number(v[j]) || 0;
+
+            if (volume > 0) {
+                daysWithEvents++;
+                totalVolume += volume;
+
+                if (Number.isFinite(duration) && duration > 0) {
+                    weightedDurationSum += duration * volume;
+                    weightedDurationCount += volume;
+                }
+
+                if (Number.isFinite(size) && size > 0) {
+                    weightedSizeSum += size * volume;
+                    weightedSizeCount += volume;
+                    totalBytes += size * volume;
+                }
+
+                if (Number.isFinite(duration)) {
+                    peakDailyDuration = Math.max(peakDailyDuration, duration);
+                }
+            }
+        }
+    });
+let globalWeightedDurationSum = 0;
+    let globalWeightedDurationCount = 0;
+
+    if (scenario && scenario.lineas_duracion) {
+    scenario.lineas_duracion.forEach((ds, i) => {
+        const volDs = scenario.lineas_volumen[i];
+            const d = normalizeSeries(ds);
+            const v = normalizeSeries(volDs);
+
+            for (let j = 0; j < d.length; j++) {
+                const duration = d[j];
+                const volume = Number(v[j]) || 0;
+                
+                if (volume > 0 && Number.isFinite(duration) && duration > 0) {
+                    globalWeightedDurationSum += duration * volume;
+                    globalWeightedDurationCount += volume;
+                }
+            }
+        });
+    }
+	const clean = extractCleanSamples();
+
+    const durationsForStats = clean.durations.length ? clean.durations : dailyDuration.filter(v => v > 0);
+    const sizesForStats = clean.sizes.length ? clean.sizes : dailySize.filter(v => v > 0);
+
+    // 2. Calculamos avgDuration PRIMERO
+    const avgDuration =
+        weightedDurationCount > 0
+            ? weightedDurationSum / weightedDurationCount
+            : mean(durationsForStats);
+
+    // 3. AHORA SÍ calculamos historicalAvg, porque avgDuration ya existe
+    const historicalAvg = globalWeightedDurationCount > 0 
+        ? globalWeightedDurationSum / globalWeightedDurationCount 
+        : avgDuration;
+
+    // 4. Calculamos avgSize y lo demás...
+    const avgSize =
+        weightedSizeCount > 0
+            ? weightedSizeSum / weightedSizeCount
+            : mean(sizesForStats);
+
+    const durationP95 = percentile(durationsForStats, .95);
+    const sizeP95 = percentile(sizesForStats, .95);
+    const durationP50 = percentile(durationsForStats, .50);
+    const sizeP50 = percentile(sizesForStats, .50);
+
+    const durationStd = stddev(durationsForStats);
+    const sizeStd = stddev(sizesForStats);
+
+    const durationCV = coefficientVariation(durationsForStats);
+    const sizeCV = coefficientVariation(sizesForStats);
+
+    const r = correlation(sizesForStats, durationsForStats);
+
+    const stats = {
+        avgDuration,
+        historicalAvg, // <-- ¡El nuevo promedio global/histórico!
+        avgSize,
+        durationP50,
+        durationP95,
+        durationStd,
+        durationCV,
+        sizeP50,
+        sizeP95,
+        sizeStd,
+        sizeCV,
+        correlation: r,
+        totalVolume,
+        daysWithEvents,
+        avgEventsPerDay: daysWithEvents ? totalVolume / daysWithEvents : 0,
+        peakDailyDuration,
+        totalBytes,
+        dailyDuration,
+        dailySize,
+        dailyVolume,
+        durationsForStats,
+        sizesForStats,
+        labels
+    };
+
+    return stats;
+}
+
+function calculateHealth(metrics) {
+    let score = 100;
+
+    // 1. Penalización por picos de lentitud (P95 vs Promedio)
+    if (metrics.durationP95 > 0 && metrics.avgDuration > 0) {
+        const ratio = metrics.durationP95 / metrics.avgDuration;
+        if (ratio > 3) score -= 22;
+        else if (ratio > 2.5) score -= 16;
+        else if (ratio > 2) score -= 10;
+        else if (ratio > 1.7) score -= 5;
+    }
+
+    // 2. Evaluación de Variabilidad con soporte para MEJORAS
+    if (metrics.durationCV > .20) {
+        let cvImpact = 0;
+        
+        // Asignamos el peso del impacto según la magnitud del coeficiente
+        if (metrics.durationCV > .75) cvImpact = 20;
+        else if (metrics.durationCV > .50) cvImpact = 13;
+        else if (metrics.durationCV > .30) cvImpact = 7;
+        else if (metrics.durationCV > .20) cvImpact = 3;
+
+        // Verificamos si la variación se debe a una mejora (tiempo actual menor al histórico)
+        const isImprovement = metrics.historicalAvg && (metrics.avgDuration < metrics.historicalAvg);
+
+        if (isImprovement) {
+            score += cvImpact; // ¡Premio por optimización del ETL!
+        } else {
+            score -= cvImpact; // Penalización por inestabilidad negativa o desconocida
+        }
+    }
+
+    // 3. Penalización por correlación anómala
+    if (Math.abs(metrics.correlation) > .85) score -= 2;
+    else if (Math.abs(metrics.correlation) > .70) score -= 1;
+
+    // 4. Verificación de volumen de datos
+    // Nota: Asegúrate de que getSelectedScenario() esté definido en el entorno de tu código
+    const scenario = getSelectedScenario();
+    const volume = metrics.totalVolume;
+    if (!volume) score -= 12;
+
+    // 5. Ajuste para asegurar que la calificación se mantenga entre 0 y 100
+    score = Math.max(0, Math.min(100, Math.round(score)));
+
+    // 6. Clasificación Final
+    let label, color, description;
+    if (score >= 90) {
+        label = "Excelente";
+        color = "#34d399";
+        // Actualicé un poco la descripción para reflejar que puede haber mejoras
+        description = "El comportamiento del ETL se encuentra estable o muestra mejoras de rendimiento con baja señal de riesgo.";
+    } else if (score >= 75) {
+        label = "Estable";
+        color = "#22d3ee";
+        description = "El ETL opera de forma aceptable, aunque existen señales que conviene seguir monitoreando.";
+    } else if (score >= 60) {
+        label = "Atención";
+        color = "#facc15";
+        description = "Se detectan desviaciones relevantes en rendimiento o variabilidad.";
+    } else {
+        label = "Crítico";
+        color = "#fb7185";
+        description = "Las métricas presentan señales significativas de degradación o comportamiento anómalo.";
+    }
+
+    return { score, label, color, description };
+}
+/* =========================================================
+   CHART DEFAULTS
+========================================================= */
+
+Chart.defaults.color = "#94a3b8";
+Chart.defaults.borderColor = "rgba(255,255,255,.05)";
+Chart.defaults.font.family = "'Inter', sans-serif";
+
+function commonOptions(yTitle = "") {
+    return {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+            legend: {
+                position: "bottom",
+                labels: { usePointStyle: true, boxWidth: 8, padding: 16 }
+            },
+            tooltip: {
+                backgroundColor: "rgba(11,18,33,.97)",
+                borderColor: "rgba(56,189,248,.3)",
+                borderWidth: 1,
+                padding: 10
+            }
+        },
+        scales: {
+            x: {
+                grid: { color: "rgba(255,255,255,.04)" },
+                ticks: { color: "#64748b", font: { size: 10 } }
+            },
+            y: {
+                beginAtZero: true,
+                grid: { color: "rgba(255,255,255,.04)" },
+                ticks: { color: "#64748b", font: { size: 10 } },
+                title: yTitle ? {
+                    display: true,
+                    text: yTitle,
+                    color: "#64748b",
+                    font: { size: 10 }
+                } : undefined
+            }
+        }
+    };
+}
+
+function destroyChart(name) {
+    if (state.charts[name]) {
+        state.charts[name].destroy();
+        delete state.charts[name];
+    }
+}
+
+/* =========================================================
+   CHARTS
+========================================================= */
+
+function renderDurationChart(scenario, weekIndices) {
+    destroyChart("duration");
+
+    const labels = state.dashboard?.labels || [];
+    const datasets = weekIndices.map((idx, n) => {
+        const ds = scenario.lineas_duracion?.[idx];
+        return {
+            label: ds?.label || getWeekNames()[idx] || `Semana ${idx+1}`,
+            data: normalizeSeries(ds),
+            borderColor: ds?.borderColor || WEEK_COLORS[idx % WEEK_COLORS.length],
+            backgroundColor: "transparent",
+            borderWidth: 2,
+            pointRadius: 3,
+            tension: .3,
+            spanGaps: true
+        };
+    });
+
+    state.charts.duration = new Chart(
+        document.getElementById("chart-duration"),
+        {
+            type: "line",
+            data: { labels, datasets },
+            options: commonOptions("Minutos")
+        }
+    );
+}
+
+function renderSizeVolumeChart(scenario, weekIndices) {
+    destroyChart("sizeVolume");
+
+    const labels = state.dashboard?.labels || [];
+    const datasets = [];
+
+    weekIndices.forEach(idx => {
+        const size = scenario.lineas_tamano?.[idx];
+        if (size) {
+            datasets.push({
+                type: "line",
+                label: `${getWeekNames()[idx]} · Tamaño`,
+                data: normalizeSeries(size),
+                borderColor: size.borderColor || WEEK_COLORS[idx % WEEK_COLORS.length],
+                backgroundColor: "transparent",
+                borderWidth: 2,
+                pointRadius: 2,
+                tension: .3,
+                yAxisID: "y"
+            });
+        }
+    });
+
+    state.charts.sizeVolume = new Chart(
+        document.getElementById("chart-size-volume"),
+        {
+            type: "line",
+            data: { labels, datasets },
+            options: {
+                ...commonOptions("Bytes"),
+                scales: {
+                    ...commonOptions("Bytes").scales,
+                    y: {
+                        ...commonOptions("Bytes").scales.y,
+                        title: { display:true, text:"Bytes" }
+                    }
+                }
+            }
+        }
+    );
+}
+
+function renderCorrelationChart(metrics) {
+    destroyChart("correlation");
+
+    const xs = metrics.sizesForStats;
+    const ys = metrics.durationsForStats;
+    const n = Math.min(xs.length, ys.length, 1500);
+
+    const points = [];
+    for (let i = 0; i < n; i++) {
+        points.push({ x: xs[i], y: ys[i] });
+    }
+
+    state.charts.correlation = new Chart(
+        document.getElementById("chart-correlation"),
+        {
+            type: "scatter",
+            data: {
+                datasets: [{
+                    label: "Observaciones",
+                    data: points,
+                    backgroundColor: "rgba(217,70,239,.45)",
+                    borderColor: "#d946ef",
+                    pointRadius: 3,
+                    pointHoverRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position:"bottom", labels:{usePointStyle:true,boxWidth:8} },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx =>
+                                `Tamaño: ${formatNumber(ctx.raw.x)} B | Duración: ${ctx.raw.y.toFixed(2)} min`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: { display:true, text:"Tamaño (Bytes)" },
+                        grid: { color:"rgba(255,255,255,.04)" }
+                    },
+                    y: {
+                        title: { display:true, text:"Duración (Min)" },
+                        grid: { color:"rgba(255,255,255,.04)" }
+                    }
+                }
+            }
+        }
+    );
+
+    document.getElementById("correlation-stats").innerHTML = `
+        <span>r = <strong class="text-white">${metrics.correlation.toFixed(3)}</strong></span>
+        <span>|r| = <strong class="text-white">${Math.abs(metrics.correlation).toFixed(3)}</strong></span>
+        <span>n = <strong class="text-white">${points.length.toLocaleString("es-MX")}</strong></span>
+    `;
+}
+function histogram(values, bins = 10) {
+    // 1. Filtramos y ordenamos el arreglo de menor a mayor
+    const arr = values.filter(Number.isFinite).sort((a, b) => a - b);
+    if (!arr.length) return { labels: [], counts: [] };
+
+    const min = arr[0];
+    
+    // 2. Calculamos el "max" usando el percentil 98 en lugar del máximo absoluto.
+    // Esto recorta la cola infinita generada por los outliers.
+    const p98Index = Math.floor((arr.length - 1) * 0.98);
+    const max = arr[p98Index];
+
+    if (min === max) {
+        return { labels: [min.toFixed(2)], counts: [arr.length] };
+    }
+
+    const width = (max - min) / bins;
+    const counts = Array(bins).fill(0);
+
+    // 3. Llenamos las cubetas
+    arr.forEach(v => {
+        let idx = Math.floor((v - min) / width);
+        
+        // Si el valor supera nuestro percentil 98 (outlier), 
+        // lo metemos a la fuerza en la última cubeta
+        if (idx >= bins) idx = bins - 1; 
+        if (idx < 0) idx = 0; // Por seguridad
+        
+        counts[idx]++;
+    });
+
+    // 4. Generamos las etiquetas
+    const labels = counts.map((_, i) => {
+        const a = min + i * width;
+        const b = min + (i + 1) * width;
+        
+        // Al último bloque le ponemos un "+" para indicar que contiene 
+        // ese rango y cualquier valor atípico superior
+        if (i === bins - 1) return `${a.toFixed(1)}+`;
+        
+        return `${a.toFixed(1)}–${b.toFixed(1)}`;
+    });
+
+    return { labels, counts };
+}
+
+function renderDistributionCharts(metrics) {
+    destroyChart("durationDistribution");
+    destroyChart("sizeDistribution");
+
+    const dHist = histogram(metrics.durationsForStats, 15);
+    const sHist = histogram(metrics.sizesForStats, 15);
+
+    state.charts.durationDistribution = new Chart(
+        document.getElementById("chart-duration-distribution"),
+        {
+            type: "bar",
+            data: {
+                labels: dHist.labels,
+                datasets: [{
+                    label: "Ejecuciones",
+                    data: dHist.counts,
+                    backgroundColor: "rgba(56,189,248,.45)",
+                    borderColor: "#38bdf8",
+                    borderWidth: 1
+                }]
+            },
+            options: commonOptions("Ejecuciones")
+        }
+    );
+
+    state.charts.sizeDistribution = new Chart(
+        document.getElementById("chart-size-distribution"),
+        {
+            type: "bar",
+            data: {
+                labels: sHist.labels,
+                datasets: [{
+                    label: "Observaciones",
+                    data: sHist.counts,
+                    backgroundColor: "rgba(52,211,153,.4)",
+                    borderColor: "#34d399",
+                    borderWidth: 1
+                }]
+            },
+            options: commonOptions("Observaciones")
+        }
+    );
+}
+
+function renderHistoryChart(scenario, weekIndices, metric = state.historyMetric) {
+    destroyChart("history");
+
+    const labels = [];
+    const data = [];
+
+    const weeks = getWeekNames();
+    const ordered = [...weekIndices].sort((a,b) => b-a);
+    const sourceKey =
+        metric === "duration" ? "lineas_duracion" :
+        metric === "size" ? "lineas_tamano" :
+        "lineas_volumen";
+
+    ordered.forEach(idx => {
+        const series = scenario[sourceKey]?.[idx];
+        const values = normalizeSeries(series);
+        values.forEach((value, dayIndex) => {
+            labels.push(`${weeks[idx] || `W${idx+1}`} · ${state.dashboard?.labels?.[dayIndex] || dayIndex+1}`);
+            data.push(value);
+        });
+    });
+
+    const config = {
+        duration: {
+            title: "Histórico continuo — duración promedio diaria",
+            color: "#d946ef",
+            y: "Minutos"
+        },
+        size: {
+            title: "Histórico continuo — tamaño promedio diario",
+            color: "#34d399",
+            y: "Bytes"
+        },
+        volume: {
+            title: "Histórico continuo — volumen diario",
+            color: "#fb7185",
+            y: "Eventos"
+        }
+    }[metric];
+
+    document.getElementById("history-title").textContent = config.title;
+
+    state.charts.history = new Chart(
+        document.getElementById("chart-history"),
+        {
+            type: "line",
+            data: {
+                labels,
+                datasets: [{
+                    label: config.title,
+                    data,
+                    borderColor: config.color,
+                    backgroundColor: `${config.color}18`,
+                    fill: true,
+                    borderWidth: 2,
+                    pointRadius: 2,
+                    tension: .25
+                }]
+            },
+            options: commonOptions(config.y)
+        }
+    );
+}
+
+/* =========================================================
+   KPI / HEALTH / ALERTS / INSIGHTS
+========================================================= */
+
+function renderKPIs(metrics) {
+    const previousIndex = 1;
+    const weeks = getSelectedWeekIndices();
+    const scenario = getSelectedScenario();
+
+    let current = null;
+    let previous = null;
+
+    if (weeks.includes(0) && scenario?.lineas_duracion?.[0]) {
+        current = {
+            duration: mean(normalizeSeries(scenario.lineas_duracion[0]).filter(v => v > 0)),
+            size: mean(normalizeSeries(scenario.lineas_tamano?.[0]).filter(v => v > 0)),
+            volume: normalizeSeries(scenario.lineas_volumen?.[0]).reduce((a,b)=>a+b,0)
+        };
+    }
+
+    if (weeks.includes(previousIndex) && scenario?.lineas_duracion?.[previousIndex]) {
+        previous = {
+            duration: mean(normalizeSeries(scenario.lineas_duracion[previousIndex]).filter(v => v > 0)),
+            size: mean(normalizeSeries(scenario.lineas_tamano?.[previousIndex]).filter(v => v > 0)),
+            volume: normalizeSeries(scenario.lineas_volumen?.[previousIndex]).reduce((a,b)=>a+b,0)
+        };
+    }
+
+    document.getElementById("kpi-duration").textContent = formatDurationMinutes(metrics.avgDuration);
+    document.getElementById("kpi-p95-duration").textContent = formatDurationMinutes(metrics.durationP95);
+
+    const avgSize = formatBytes(metrics.avgSize);
+    const p95Size = formatBytes(metrics.sizeP95);
+
+    document.getElementById("kpi-size").textContent = avgSize.value;
+    document.getElementById("kpi-size-unit").textContent = `${avgSize.unit} / ejecución`;
+    document.getElementById("kpi-p95-size").textContent = `${p95Size.value} ${p95Size.unit}`;
+
+    document.getElementById("kpi-volume").textContent = formatNumber(metrics.totalVolume);
+    document.getElementById("kpi-peak").textContent = formatDurationMinutes(metrics.peakDailyDuration);
+    document.getElementById("kpi-daily").textContent = formatNumber(metrics.avgEventsPerDay, 1);
+
+    const total = formatBytes(metrics.totalBytes);
+    document.getElementById("kpi-total-size").textContent = total.value;
+    document.getElementById("kpi-total-size-unit").textContent = `${total.unit} acumulados`;
+
+    document.getElementById("delta-duration").innerHTML =
+        current && previous ? deltaHtml(current.duration, previous.duration, true) : "";
+    document.getElementById("delta-size").innerHTML =
+        current && previous ? deltaHtml(current.size, previous.size, true) : "";
+    document.getElementById("delta-volume").innerHTML =
+        current && previous ? deltaHtml(current.volume, previous.volume, false) : "";
+}
+
+function renderHealth(metrics) {
+    const health = calculateHealth(metrics);
+
+    const ring = document.getElementById("health-ring");
+    ring.style.setProperty("--health-color", health.color);
+    ring.style.setProperty("--health-pct", `${health.score}%`);
+
+    document.getElementById("health-score").textContent = health.score;
+    document.getElementById("health-label").textContent = health.label;
+    document.getElementById("health-label").style.color = health.color;
+    document.getElementById("health-description").textContent = health.description;
+
+    document.getElementById("health-duration").textContent = formatDurationMinutes(metrics.avgDuration);
+    document.getElementById("health-cv").textContent = formatPercent(metrics.durationCV);
+    document.getElementById("health-volume").textContent = formatNumber(metrics.totalVolume);
+    document.getElementById("health-correlation").textContent = metrics.correlation.toFixed(2);
+}
+
+function buildAlerts(metrics) {
+    const alerts = [];
+
+    const p95Ratio = metrics.avgDuration > 0
+        ? metrics.durationP95 / metrics.avgDuration
+        : 0;
+
+    if (p95Ratio > 2.5) {
+        alerts.push({
+            level: "critical",
+            title: "Cola de duración elevada",
+            text: `P95 es ${p95Ratio.toFixed(1)}x el promedio.`
+        });
+    } else if (p95Ratio > 2) {
+        alerts.push({
+            level: "warning",
+            title: "Variación en duración",
+            text: `P95 es ${p95Ratio.toFixed(1)}x el promedio.`
+        });
+    }
+
+    if (metrics.durationCV > .50) {
+        alerts.push({
+            level: "critical",
+            title: "Alta variabilidad",
+            text: `CV de duración: ${formatPercent(metrics.durationCV)}.`
+        });
+    } else if (metrics.durationCV > .30) {
+        alerts.push({
+            level: "warning",
+            title: "Variabilidad moderada",
+            text: `CV de duración: ${formatPercent(metrics.durationCV)}.`
+        });
+    }
+
+    if (Math.abs(metrics.correlation) >= .80) {
+        alerts.push({
+            level: "info",
+            title: "Correlación fuerte",
+            text: `Tamaño y duración presentan r = ${metrics.correlation.toFixed(2)}.`
+        });
+    }
+
+    if (metrics.totalVolume === 0) {
+        alerts.push({
+            level: "critical",
+            title: "Sin actividad",
+            text: "No se detectaron eventos en el conjunto seleccionado."
+        });
+    }
+
+    return alerts;
+}
+
+function renderAlerts(metrics) {
+    const alerts = buildAlerts(metrics);
+    const container = document.getElementById("alerts-container");
+
+    document.getElementById("alert-count").textContent = alerts.length;
+
+    if (!alerts.length) {
+        container.innerHTML = `
+            <div class="alert-item text-emerald-400 rounded-lg p-4">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 shrink-0"></i>
+                    <div>
+                        <div class="font-bold text-sm">Sin alertas relevantes</div>
+                        <div class="text-xs text-slate-400 mt-1">No se detectaron desviaciones significativas con los criterios actuales.</div>
+                    </div>
+                </div>
+            </div>`;
+        return;
+    }
+
+    const classes = {
+        critical: "text-rose-400",
+        warning: "text-amber-400",
+        info: "text-cyan-400"
+    };
+
+    const icons = {
+        critical: "alert-octagon",
+        warning: "alert-triangle",
+        info: "info"
+    };
+
+    container.innerHTML = alerts.map(alert => `
+        <div class="alert-item ${classes[alert.level]} rounded-lg p-3">
+            <div class="flex items-start gap-3">
+                <i data-lucide="${icons[alert.level]}" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                <div>
+                    <div class="font-bold text-xs uppercase">${escapeHtml(alert.title)}</div>
+                    <div class="text-xs text-slate-400 mt-1">${escapeHtml(alert.text)}</div>
+                </div>
+            </div>
+        </div>
+    `).join("");
+}
+
+function renderInsights(metrics) {
+    const insights = [];
+
+    const ratio = metrics.avgDuration > 0 ? metrics.durationP95 / metrics.avgDuration : 0;
+
+    if (ratio > 2.5) {
+        insights.push(`<strong class="text-rose-400">Riesgo de cola:</strong> el P95 de duración está muy separado del promedio, señal de ejecuciones lentas.`);
+    } else if (ratio > 2) {
+        insights.push(`<strong class="text-amber-400">Variabilidad:</strong> existe una cola superior relevante en las duraciones.`);
+    } else {
+        insights.push(`<strong class="text-emerald-400">Duración:</strong> la distribución superior permanece relativamente contenida respecto al promedio.`);
+    }
+
+    if (metrics.correlation >= .8) {
+        insights.push(`<strong class="text-fuchsia-400">Tamaño → duración:</strong> correlación fuerte positiva (r=${metrics.correlation.toFixed(2)}). El volumen de datos es un candidato importante para explicar el tiempo.`);
+    } else if (metrics.correlation <= -.8) {
+        insights.push(`<strong class="text-cyan-400">Relación inversa:</strong> se observa una correlación negativa fuerte (r=${metrics.correlation.toFixed(2)}). Conviene revisar la naturaleza de la muestra.`);
+    } else {
+        insights.push(`<strong class="text-slate-300">Correlación:</strong> la relación entre tamaño y duración no es suficientemente fuerte para atribuir causalidad directamente.`);
+    }
+
+    if (metrics.durationCV > .5) {
+        insights.push(`<strong class="text-rose-400">Estabilidad:</strong> CV=${formatPercent(metrics.durationCV)} indica comportamiento altamente variable.`);
+    } else if (metrics.durationCV > .3) {
+        insights.push(`<strong class="text-amber-400">Estabilidad:</strong> CV=${formatPercent(metrics.durationCV)} indica variabilidad moderada.`);
+    } else {
+        insights.push(`<strong class="text-emerald-400">Estabilidad:</strong> CV=${formatPercent(metrics.durationCV)} indica comportamiento relativamente estable.`);
+    }
+
+    insights.push(`<strong class="text-cyan-400">Volumetría:</strong> ${formatNumber(metrics.totalVolume)} eventos en ${metrics.daysWithEvents} días con actividad, equivalente a ${formatNumber(metrics.avgEventsPerDay,1)} eventos/día.`);
+
+    document.getElementById("insights-container").innerHTML = insights.map(text => `
+        <div class="rounded-lg bg-slate-900/45 border border-slate-800 p-3 leading-relaxed">
+            ${text}
+        </div>
+    `).join("");
+}
+
+function renderStatsTable(metrics) {
+    const rows = [
+        {
+            name: "Duración (min)",
+            avg: metrics.avgDuration,
+            p50: metrics.durationP50,
+            p95: metrics.durationP95,
+            max: Math.max(...(metrics.durationsForStats.length ? metrics.durationsForStats : [0])),
+            std: metrics.durationStd,
+            cv: metrics.durationCV,
+            format: formatDurationMinutes
+        },
+        {
+            name: "Tamaño (bytes)",
+            avg: metrics.avgSize,
+            p50: metrics.sizeP50,
+            p95: metrics.sizeP95,
+            max: Math.max(...(metrics.sizesForStats.length ? metrics.sizesForStats : [0])),
+            std: metrics.sizeStd,
+            cv: metrics.sizeCV,
+            format: v => {
+                const x = formatBytes(v);
+                return `${x.value} ${x.unit}`;
+            }
+        }
+    ];
+
+    document.getElementById("stats-table").innerHTML = rows.map(r => `
+        <tr class="border-b border-slate-800/60">
+            <td class="py-3 text-slate-300 font-medium">${r.name}</td>
+            <td class="py-3 text-right font-mono text-white">${r.format(r.avg)}</td>
+            <td class="py-3 text-right font-mono text-slate-300">${r.format(r.p50)}</td>
+            <td class="py-3 text-right font-mono text-amber-300">${r.format(r.p95)}</td>
+            <td class="py-3 text-right font-mono text-rose-300">${r.format(r.max)}</td>
+            <td class="py-3 text-right font-mono text-slate-400">${r.format(r.std)}</td>
+            <td class="py-3 text-right font-mono text-indigo-300">${formatPercent(r.cv)}</td>
+        </tr>
+    `).join("");
+}
+
+/* =========================================================
+   WORKSTREAM TABLES
+========================================================= */
+
+function flowBadge(flow) {
+    const f = String(flow || "");
+    const map = {
+        "Completado": ["text-emerald-400","check-circle-2","COMPLETADO"],
+        "En curso": ["text-cyan-400","play-circle","EN CURSO"],
+        "Crítico": ["text-rose-500","alert-octagon","CRÍTICO"],
+        "Requiere atención": ["text-rose-500","siren","REQUIERE ATENCIÓN"],
+        "En cola": ["text-amber-400","clock-3","EN COLA"],
+        "Bloqueado": ["text-amber-400","ban","BLOQUEADO"],
+        "Planificado": ["text-slate-400","minus-circle","PLANIFICADO"],
+        "No iniciado": ["text-slate-400","minus-circle","NO INICIADO"]
+    };
+
+    const item = map[f] || ["text-slate-500","circle","UNKNOWN"];
+
+    return `
+        <span class="inline-flex items-center gap-1.5 ${item[0]} text-xs font-bold uppercase tracking-widest">
+            <i data-lucide="${item[1]}" class="w-4 h-4"></i>${item[2]}
+        </span>`;
+}
+
+function envBadge(env) {
+    const e = String(env || "N/A");
+    let cls = "bg-slate-800 text-slate-400 border-slate-600";
+    if (e.includes("PRD") && !e.includes("UAT")) cls = "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
+    else if (e.includes("UAT")) cls = "bg-indigo-500/10 text-indigo-400 border-indigo-500/30";
+
+    return `<span class="inline-flex px-2 py-1 rounded border ${cls} text-[10px] font-mono font-bold uppercase">${escapeHtml(e)}</span>`;
+}
+
+function formatParagraphs(text, cls = "text-sm text-slate-300") {
+    if (!text || !String(text).trim()) return `<span class="text-slate-600">-</span>`;
+
+    const normalized = String(text).replace(/\r/g,"");
+    const parts = normalized
+        .split("⫸")
+        .map(x => x.trim())
+        .filter(Boolean);
+
+    const finalParts = parts.length
+        ? parts
+        : normalized.split(/\n{2,}/).map(x => x.trim()).filter(Boolean);
+
+    return `<div class="space-y-2">${finalParts.map(p => `
+        <div class="flex items-start gap-2">
+            <span class="text-cyan-500 font-bold">•</span>
+            <span class="${cls}">${escapeHtml(p).replace(/\n/g,"<br>")}</span>
+        </div>
+    `).join("")}</div>`;
+}
+
+function renderWorkstreamTable(targetId, rows) {
+    const tbody = document.getElementById(targetId);
+
+    if (!rows.length) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="4" class="px-6 py-10 text-center text-slate-600 font-mono text-sm">
+                    No hay registros.
+                </td>
+            </tr>`;
+        return;
+    }
+
+    tbody.innerHTML = rows.map(row => `
+        <tr class="hover:bg-cyan-900/10 transition-colors align-top">
+            <td class="px-6 py-5">
+                <div class="font-bold text-slate-200">${escapeHtml(row.tema)}</div>
+                <div class="text-xs font-mono text-cyan-500 mt-1">${escapeHtml(row.tarea)}</div>
+                <div class="flex flex-wrap gap-2 mt-3">
+                    ${String(row.inv || "").split("/").map(x => x.trim()).filter(Boolean).map(name =>
+                        `<span class="px-2 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-300 text-[10px] font-mono uppercase">${escapeHtml(name)}</span>`
+                    ).join("")}
+                </div>
+            </td>
+            <td class="px-6 py-5 text-center">
+                <div class="flex justify-center">${flowBadge(row.flujo)}</div>
+                <div class="flex justify-center mt-3">${envBadge(row.entorno)}</div>
+            </td>
+            <td class="px-6 py-5">
+                ${formatParagraphs(row.comentarios)}
+                <div class="text-[10px] font-mono text-slate-600 mt-4 pt-3 border-t border-slate-800">
+                    Fecha: ${escapeHtml(row.fecha)}
+                </div>
+            </td>
+            <td class="px-6 py-5 bg-[#080d1a]/45">
+                ${formatParagraphs(row.pasos, "text-sm text-amber-100/80")}
+            </td>
+        </tr>
+    `).join("");
+}
+
+function renderWorkstreams() {
+    renderWorkstreamTable("tbody-Megara", state.workstreams.Megara);
+        renderWorkstreamTable("tbody-Infra", state.workstreams.Infra);
+
+    renderWorkstreamTable("tbody-uat", state.workstreams.uat);
+	renderWorkstreamTable("tbody-reporting", state.workstreams.reporting);
+    const all = state.workstreams.Megara;
+    const completed = all.filter(x => x.flujo === "Completado").length;
+    const progress = all.filter(x => x.flujo === "En curso").length;
+    const critical = all.filter(x => ["Crítico","Requiere atención"].includes(x.flujo)).length;
+
+    document.getElementById("interface-completed").textContent = completed;
+    document.getElementById("interface-progress").textContent = progress;
+    document.getElementById("interface-critical").textContent = critical;
+}
+
+function renderAudit() {
+    // 1. Obtenemos los filtros activos de la UI
+    const typeFilter = document.getElementById("filter-type").value;
+    const selectedWeekNames = getSelectedWeekIndices().map(i => getWeekNames()[i]);
+
+    // 2. Filtramos la data pura en memoria
+    const filteredRows = state.cleanData.filter(row => {
+        // Filtrar por tipo (automática vs manual)
+        const rType = String(row.tipo || "").toLowerCase();
+        let matchType = true;
+        if (typeFilter === 'solo_auto') matchType = rType.includes('auto');
+        if (typeFilter === 'solo_ma') matchType = rType.includes('man'); // Asume que la manual incluye 'man'
+
+        // Filtrar por semana
+        let matchWeek = false;
+        const rWeek = String(row.año_semana || "");
+        if (selectedWeekNames.some(w => rWeek === w || rWeek.includes(w) || w.includes(rWeek))) {
+            matchWeek = true;
+        }
+
+        return matchType && matchWeek;
+    });
+
+    // 3. Pintamos la tabla con los datos ya filtrados
+    document.getElementById("audit-count").textContent = filteredRows.length.toLocaleString("es-MX");
+
+    const limit = Math.min(filteredRows.length, 500);
+
+    document.getElementById("tbody-audit").innerHTML = filteredRows.slice(0, limit).map(row => {
+        const type = String(row.tipo || "");
+        const automatic = type.toLowerCase() === "automatica" || type.toLowerCase().includes("auto");
+        const badge = automatic
+            ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30"
+            : "bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/30";
+
+        return `
+            <tr class="hover:bg-cyan-900/10">
+                <td class="px-5 py-3 font-mono text-sm text-slate-300">${escapeHtml(row.id_camda)}</td>
+                <td class="px-5 py-3 text-center">
+                    <span class="inline-flex px-2 py-1 rounded border ${badge} text-[10px] font-mono uppercase">${escapeHtml(type)}</span>
+                </td>
+                <td class="px-5 py-3 text-center font-mono text-sm text-indigo-300">${escapeHtml(row.año_semana)}</td>
+                <td class="px-5 py-3 font-mono text-sm text-sky-400">${escapeHtml(row.dia_nombre_en)}</td>
+                <td class="px-5 py-3 font-mono text-sm text-slate-400">${escapeHtml(row.inicio_dt)}</td>
+                <td class="px-5 py-3 font-mono text-sm text-amber-400 text-right">${formatDurationMinutes(row.duracion_min)}</td>
+                <td class="px-5 py-3 font-mono text-sm text-emerald-400 text-right">${formatNumber(row.tamano)}</td>
+            </tr>
+        `;
+    }).join("") + (filteredRows.length > 500 ? `
+        <tr>
+            <td colspan="7" class="px-5 py-4 text-center text-xs text-slate-600 font-mono">
+                Mostrando 500 de ${filteredRows.length.toLocaleString("es-MX")} registros filtrados.
+            </td>
+        </tr>` : "");
+}
+/* =========================================================
+   DATA FRESHNESS
+========================================================= */
+
+function updateFreshness() {
+    const value = state.lastUpdate;
+
+    if (!value) {
+        document.getElementById("freshness-text").textContent = "Fecha no disponible";
+        return;
+    }
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+        document.getElementById("freshness-text").textContent = String(value);
+        return;
+    }
+
+    document.getElementById("data-timestamp").textContent =
+        date.toLocaleString("es-MX", { dateStyle:"short", timeStyle:"short" });
+
+    const ageMinutes = Math.max(0, (Date.now() - date.getTime()) / 60000);
+    const dot = document.getElementById("freshness-dot");
+    const text = document.getElementById("freshness-text");
+
+    if (ageMinutes <= 10) {
+        dot.className = "status-dot text-emerald-400 bg-emerald-400";
+        text.textContent = `Datos actualizados · ${Math.round(ageMinutes)} min`;
+    } else if (ageMinutes <= 30) {
+        dot.className = "status-dot text-amber-400 bg-amber-400";
+        text.textContent = `Datos con retraso · ${Math.round(ageMinutes)} min`;
+    } else {
+        dot.className = "status-dot text-rose-400 bg-rose-400";
+        text.textContent = `Datos desactualizados · ${Math.round(ageMinutes)} min`;
+    }
+}
+
+/* =========================================================
+   MAIN UPDATE
+========================================================= */
+
+function updateDashboard() {
+    try {
+        const scenario = getSelectedScenario();
+        if (!scenario) throw new Error("No existe un escenario compatible.");
+
+        const weekIndices = getSelectedWeekIndices();
+        const metrics = calculateMetrics(scenario, weekIndices);
+
+        renderKPIs(metrics);
+        renderHealth(metrics);
+        renderAlerts(metrics);
+        renderInsights(metrics);
+        renderStatsTable(metrics);
+
+        renderDurationChart(scenario, weekIndices);
+        renderSizeVolumeChart(scenario, weekIndices);
+        renderCorrelationChart(metrics);
+        renderDistributionCharts(metrics);
+        renderHistoryChart(scenario, weekIndices, state.historyMetric);
+        
+        // ¡Agregamos el render de auditoría aquí!
+        renderAudit();
+
+        const weeks = getWeekNames();
+        document.getElementById("subtitle").textContent =
+            `Telemetría: ${weeks.filter((_,i) => weekIndices.includes(i)).join(" | ")} · escenario: ${document.getElementById("filter-type").selectedOptions[0].text}`;
+
+        lucide.createIcons();
+    } catch (error) {
+        console.error(error);
+        document.getElementById("subtitle").textContent = `ERROR: ${error.message}`;
+    }
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function switchTab(tabId) {
+    document.querySelectorAll(".tab-pane").forEach(el => el.classList.remove("active"));
+    document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+
+    document.getElementById(`tab-${tabId}`)?.classList.add("active");
+    document.getElementById(`btn-${tabId}`)?.classList.add("active");
+
+    // Lógica para mostrar los filtros globales solo en pestañas compatibles
+    const filters = document.getElementById("global-filters");
+    if (filters) {
+        if (['overview', 'performance', 'audit'].includes(tabId)) {
+            filters.style.display = 'block';
+        } else {
+            filters.style.display = 'none';
+        }
+    }
+}
+
+/* =========================================================
+   INIT
+========================================================= */
+
+async function init() {
+    try {
+        await loadAllData();
+
+        const deploy =
+            state.dashboard?.ultimo_deploy ||
+            state.dashboard?.ultimoDeploy ||
+            "--";
+
+        document.getElementById("deploy-timestamp").textContent = deploy;
+
+        buildWeekFilters();
+        renderWorkstreams();
+        renderAudit();
+        updateFreshness();
+
+        document.getElementById("filter-type")
+            .addEventListener("change", updateDashboard);
+
+        document.querySelectorAll(".history-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                state.historyMetric = btn.dataset.metric;
+
+                document.querySelectorAll(".history-btn").forEach(x => {
+                    x.classList.remove("border-cyan-500/30","text-cyan-300","bg-cyan-500/10");
+                    x.classList.add("border-slate-700","text-slate-400");
+                });
+
+                btn.classList.remove("border-slate-700","text-slate-400");
+                btn.classList.add("border-cyan-500/30","text-cyan-300","bg-cyan-500/10");
+
+                updateDashboard();
+            });
+        });
+
+        updateDashboard();
+
+        setInterval(updateFreshness, 60000);
+
+        lucide.createIcons();
+    } catch (error) {
+        console.error("Error inicializando dashboard:", error);
+
+        document.getElementById("subtitle").textContent =
+            "ERROR: no se pudo cargar datos_dashboard.json";
+
+        document.getElementById("alerts-container").innerHTML = `
+            <div class="data-error rounded-lg p-4 text-rose-400">
+                <div class="font-bold uppercase text-sm">Fuente de datos no disponible</div>
+                <div class="text-xs text-slate-400 mt-2">
+                    ${escapeHtml(error.message)}
+                </div>
+            </div>`;
+    }
+}
+
+window.addEventListener("DOMContentLoaded", init);
+</script>
+    </body>
+</html>
