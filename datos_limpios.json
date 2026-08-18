@@ -1,5 +1,1607 @@
 [
     {
+        "id_camda": "76902",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 23:28:42",
+        "duracion_min": 3.1457194,
+        "tamano": 590404
+    },
+    {
+        "id_camda": "76902",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 23:26:57",
+        "duracion_min": 1.7542806000000002,
+        "tamano": 590404
+    },
+    {
+        "id_camda": "76901",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 23:22:36",
+        "duracion_min": 4.342982433333333,
+        "tamano": 852506
+    },
+    {
+        "id_camda": "76901",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 23:18:12",
+        "duracion_min": 4.407017566666667,
+        "tamano": 852506
+    },
+    {
+        "id_camda": "76900",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 23:13:25",
+        "duracion_min": 4.776096933333333,
+        "tamano": 379030
+    },
+    {
+        "id_camda": "76900",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 23:08:33",
+        "duracion_min": 4.873903066666667,
+        "tamano": 379030
+    },
+    {
+        "id_camda": "76899",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 23:03:05",
+        "duracion_min": 5.455754916666667,
+        "tamano": 795572
+    },
+    {
+        "id_camda": "76899",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:57:56",
+        "duracion_min": 5.1609117499999995,
+        "tamano": 795572
+    },
+    {
+        "id_camda": "76898",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:50:50",
+        "duracion_min": 7.083347066666667,
+        "tamano": 670071
+    },
+    {
+        "id_camda": "76898",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:46:51",
+        "duracion_min": 3.999986266666667,
+        "tamano": 670071
+    },
+    {
+        "id_camda": "76897",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:40:44",
+        "duracion_min": 6.104424166666666,
+        "tamano": 630673
+    },
+    {
+        "id_camda": "76897",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:36:22",
+        "duracion_min": 4.378909166666667,
+        "tamano": 630673
+    },
+    {
+        "id_camda": "76896",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:29:23",
+        "duracion_min": 6.9768831166666665,
+        "tamano": 615678
+    },
+    {
+        "id_camda": "76896",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:28:04",
+        "duracion_min": 1.3231168833333333,
+        "tamano": 615678
+    },
+    {
+        "id_camda": "76895",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:23:14",
+        "duracion_min": 4.8310855,
+        "tamano": 336073
+    },
+    {
+        "id_camda": "76895",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:21:26",
+        "duracion_min": 1.8022478333333334,
+        "tamano": 336073
+    },
+    {
+        "id_camda": "76894",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:17:38",
+        "duracion_min": 3.7970135666666667,
+        "tamano": 416369
+    },
+    {
+        "id_camda": "76893",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:14:13",
+        "duracion_min": 3.40634505,
+        "tamano": 255904
+    },
+    {
+        "id_camda": "76892",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:10:52",
+        "duracion_min": 3.3560803666666668,
+        "tamano": 345636
+    },
+    {
+        "id_camda": "76891",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:07:33",
+        "duracion_min": 3.3099536666666665,
+        "tamano": 388418
+    },
+    {
+        "id_camda": "76890",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:03:48",
+        "duracion_min": 3.758874,
+        "tamano": 352840
+    },
+    {
+        "id_camda": "76889",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 22:00:30",
+        "duracion_min": 3.299756133333333,
+        "tamano": 273166
+    },
+    {
+        "id_camda": "76888",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:57:31",
+        "duracion_min": 2.982516166666667,
+        "tamano": 529759
+    },
+    {
+        "id_camda": "76887",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:53:46",
+        "duracion_min": 3.7503747833333336,
+        "tamano": 294449
+    },
+    {
+        "id_camda": "76887",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:52:10",
+        "duracion_min": 1.6057529333333334,
+        "tamano": 294449
+    },
+    {
+        "id_camda": "76886",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:49:22",
+        "duracion_min": 2.7894358666666665,
+        "tamano": 337528
+    },
+    {
+        "id_camda": "76886",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:44:01",
+        "duracion_min": 5.360564133333333,
+        "tamano": 337528
+    },
+    {
+        "id_camda": "76885",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:40:19",
+        "duracion_min": 3.69441795,
+        "tamano": 746075
+    },
+    {
+        "id_camda": "76885",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:35:56",
+        "duracion_min": 4.388915383333333,
+        "tamano": 746075
+    },
+    {
+        "id_camda": "76884",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:31:23",
+        "duracion_min": 4.537526850000001,
+        "tamano": 746170
+    },
+    {
+        "id_camda": "76883",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:26:11",
+        "duracion_min": 5.195974516666666,
+        "tamano": 1018720
+    },
+    {
+        "id_camda": "76883",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:20:00",
+        "duracion_min": 6.199831966666666,
+        "tamano": 1018720
+    },
+    {
+        "id_camda": "76882",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:14:05",
+        "duracion_min": 5.910014733333333,
+        "tamano": 2050096
+    },
+    {
+        "id_camda": "76882",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:11:29",
+        "duracion_min": 2.606651933333333,
+        "tamano": 2050096
+    },
+    {
+        "id_camda": "76881",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 21:02:49",
+        "duracion_min": 8.665556833333333,
+        "tamano": 2090890
+    },
+    {
+        "id_camda": "76881",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:59:09",
+        "duracion_min": 3.6677765,
+        "tamano": 2090890
+    },
+    {
+        "id_camda": "76880",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:51:32",
+        "duracion_min": 7.6022282,
+        "tamano": 2064358
+    },
+    {
+        "id_camda": "76880",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:45:23",
+        "duracion_min": 6.164438466666667,
+        "tamano": 2064358
+    },
+    {
+        "id_camda": "76879",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:36:36",
+        "duracion_min": 8.77696635,
+        "tamano": 1904359
+    },
+    {
+        "id_camda": "76879",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:35:09",
+        "duracion_min": 1.4563669833333333,
+        "tamano": 1904359
+    },
+    {
+        "id_camda": "76878",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:25:15",
+        "duracion_min": 9.88870025,
+        "tamano": 743815
+    },
+    {
+        "id_camda": "76878",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:23:36",
+        "duracion_min": 1.6612997500000002,
+        "tamano": 743815
+    },
+    {
+        "id_camda": "76877",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:12:29",
+        "duracion_min": 11.111390716666667,
+        "tamano": 964895
+    },
+    {
+        "id_camda": "76877",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 20:08:03",
+        "duracion_min": 4.438609283333333,
+        "tamano": 964895
+    },
+    {
+        "id_camda": "76876",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:54:21",
+        "duracion_min": 13.689191416666667,
+        "tamano": 507159
+    },
+    {
+        "id_camda": "76876",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:51:18",
+        "duracion_min": 3.0608085833333334,
+        "tamano": 507159
+    },
+    {
+        "id_camda": "76875",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:42:35",
+        "duracion_min": 8.71254755,
+        "tamano": 898593
+    },
+    {
+        "id_camda": "76874",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:34:10",
+        "duracion_min": 8.418776783333334,
+        "tamano": 464086
+    },
+    {
+        "id_camda": "76874",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:30:40",
+        "duracion_min": 3.502009,
+        "tamano": 464086
+    },
+    {
+        "id_camda": "76873",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:24:27",
+        "duracion_min": 6.211661033333333,
+        "tamano": 436592
+    },
+    {
+        "id_camda": "76872",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:17:43",
+        "duracion_min": 6.723703683333333,
+        "tamano": 819830
+    },
+    {
+        "id_camda": "76872",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:10:12",
+        "duracion_min": 7.53130195,
+        "tamano": 819830
+    },
+    {
+        "id_camda": "76871",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 19:01:18",
+        "duracion_min": 8.885186333333333,
+        "tamano": 1891746
+    },
+    {
+        "id_camda": "76871",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:54:07",
+        "duracion_min": 7.1981470000000005,
+        "tamano": 1891746
+    },
+    {
+        "id_camda": "76870",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:46:47",
+        "duracion_min": 7.3299519,
+        "tamano": 665007
+    },
+    {
+        "id_camda": "76870",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:38:35",
+        "duracion_min": 8.203381433333332,
+        "tamano": 665007
+    },
+    {
+        "id_camda": "76869",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:31:07",
+        "duracion_min": 7.4560105000000005,
+        "tamano": 729760
+    },
+    {
+        "id_camda": "76869",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:28:15",
+        "duracion_min": 2.8773228333333334,
+        "tamano": 729760
+    },
+    {
+        "id_camda": "76868",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:20:45",
+        "duracion_min": 7.486041316666667,
+        "tamano": 530810
+    },
+    {
+        "id_camda": "76868",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:07:47",
+        "duracion_min": 12.98062535,
+        "tamano": 530810
+    },
+    {
+        "id_camda": "76867",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 18:01:32",
+        "duracion_min": 6.246651866666666,
+        "tamano": 580381
+    },
+    {
+        "id_camda": "76867",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:59:14",
+        "duracion_min": 2.303348133333333,
+        "tamano": 580381
+    },
+    {
+        "id_camda": "76866",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:50:58",
+        "duracion_min": 8.253322866666666,
+        "tamano": 503034
+    },
+    {
+        "id_camda": "76866",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:38:20",
+        "duracion_min": 12.646677133333332,
+        "tamano": 503034
+    },
+    {
+        "id_camda": "76865",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:30:29",
+        "duracion_min": 7.835751766666666,
+        "tamano": 481465
+    },
+    {
+        "id_camda": "76864",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:23:48",
+        "duracion_min": 6.690323683333333,
+        "tamano": 329540
+    },
+    {
+        "id_camda": "76864",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:18:12",
+        "duracion_min": 5.607257883333333,
+        "tamano": 329540
+    },
+    {
+        "id_camda": "76863",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:09:40",
+        "duracion_min": 8.52399505,
+        "tamano": 274457
+    },
+    {
+        "id_camda": "76863",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 17:04:31",
+        "duracion_min": 5.159338283333333,
+        "tamano": 274457
+    },
+    {
+        "id_camda": "76862",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:56:08",
+        "duracion_min": 8.378509816666668,
+        "tamano": 279827
+    },
+    {
+        "id_camda": "76861",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:48:49",
+        "duracion_min": 7.316171383333333,
+        "tamano": 293369
+    },
+    {
+        "id_camda": "76860",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:38:48",
+        "duracion_min": 10.021158366666667,
+        "tamano": 202993
+    },
+    {
+        "id_camda": "76860",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:35:18",
+        "duracion_min": 3.5008271,
+        "tamano": 202993
+    },
+    {
+        "id_camda": "76859",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:28:34",
+        "duracion_min": 6.725955716666666,
+        "tamano": 309216
+    },
+    {
+        "id_camda": "76859",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:26:33",
+        "duracion_min": 2.024044283333333,
+        "tamano": 309216
+    },
+    {
+        "id_camda": "76858",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:15:39",
+        "duracion_min": 10.8920616,
+        "tamano": 500132
+    },
+    {
+        "id_camda": "76857",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 16:02:42",
+        "duracion_min": 12.942677183333332,
+        "tamano": 370449
+    },
+    {
+        "id_camda": "76857",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:58:19",
+        "duracion_min": 4.39859455,
+        "tamano": 370449
+    },
+    {
+        "id_camda": "76856",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:51:05",
+        "duracion_min": 7.218131366666666,
+        "tamano": 283230
+    },
+    {
+        "id_camda": "76855",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:42:44",
+        "duracion_min": 8.358079983333333,
+        "tamano": 222567
+    },
+    {
+        "id_camda": "76854",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:32:25",
+        "duracion_min": 10.31354165,
+        "tamano": 152202
+    },
+    {
+        "id_camda": "76854",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:30:23",
+        "duracion_min": 2.0435803333333333,
+        "tamano": 152202
+    },
+    {
+        "id_camda": "76853",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:26:30",
+        "duracion_min": 3.8805193333333334,
+        "tamano": 194368
+    },
+    {
+        "id_camda": "76852",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:21:18",
+        "duracion_min": 5.201390566666666,
+        "tamano": 249693
+    },
+    {
+        "id_camda": "76852",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:19:06",
+        "duracion_min": 2.2014234333333333,
+        "tamano": 249693
+    },
+    {
+        "id_camda": "76851",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:14:41",
+        "duracion_min": 4.408157916666667,
+        "tamano": 236574
+    },
+    {
+        "id_camda": "76850",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:10:04",
+        "duracion_min": 4.611515466666666,
+        "tamano": 194651
+    },
+    {
+        "id_camda": "76849",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 15:01:40",
+        "duracion_min": 8.404443116666666,
+        "tamano": 224626
+    },
+    {
+        "id_camda": "76848",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:56:06",
+        "duracion_min": 5.573386616666666,
+        "tamano": 315501
+    },
+    {
+        "id_camda": "76848",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:53:17",
+        "duracion_min": 2.81916355,
+        "tamano": 315501
+    },
+    {
+        "id_camda": "76847",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:40:56",
+        "duracion_min": 12.337589633333332,
+        "tamano": 230706
+    },
+    {
+        "id_camda": "76847",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:39:38",
+        "duracion_min": 1.3124103666666669,
+        "tamano": 230706
+    },
+    {
+        "id_camda": "76846",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:23:55",
+        "duracion_min": 15.702899766666667,
+        "tamano": 268875
+    },
+    {
+        "id_camda": "76845",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:15:52",
+        "duracion_min": 8.048431166666667,
+        "tamano": 346691
+    },
+    {
+        "id_camda": "76845",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:14:42",
+        "duracion_min": 1.1820023999999998,
+        "tamano": 346691
+    },
+    {
+        "id_camda": "76844",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 14:06:45",
+        "duracion_min": 7.94651825,
+        "tamano": 529997
+    },
+    {
+        "id_camda": "76843",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 13:41:40",
+        "duracion_min": 25.074783333333336,
+        "tamano": 331187
+    },
+    {
+        "id_camda": "76843",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 13:34:55",
+        "duracion_min": 6.76203175,
+        "tamano": 331187
+    },
+    {
+        "id_camda": "76842",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 13:21:39",
+        "duracion_min": 13.260017183333334,
+        "tamano": 334563
+    },
+    {
+        "id_camda": "76841",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 13:15:50",
+        "duracion_min": 5.820648583333334,
+        "tamano": 283253
+    },
+    {
+        "id_camda": "76840",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 13:10:00",
+        "duracion_min": 5.824864266666666,
+        "tamano": 326819
+    },
+    {
+        "id_camda": "76839",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 13:04:18",
+        "duracion_min": 5.708556116666667,
+        "tamano": 377439
+    },
+    {
+        "id_camda": "76838",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:58:40",
+        "duracion_min": 5.629380533333333,
+        "tamano": 277438
+    },
+    {
+        "id_camda": "76838",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:56:08",
+        "duracion_min": 2.53986665,
+        "tamano": 277438
+    },
+    {
+        "id_camda": "76837",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:51:34",
+        "duracion_min": 4.550987866666667,
+        "tamano": 311996
+    },
+    {
+        "id_camda": "76836",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:46:40",
+        "duracion_min": 4.9082265666666665,
+        "tamano": 237279
+    },
+    {
+        "id_camda": "76836",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:43:49",
+        "duracion_min": 2.8574522333333334,
+        "tamano": 237279
+    },
+    {
+        "id_camda": "76835",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:39:52",
+        "duracion_min": 3.9355731,
+        "tamano": 201985
+    },
+    {
+        "id_camda": "76835",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:38:23",
+        "duracion_min": 1.4977602333333333,
+        "tamano": 201985
+    },
+    {
+        "id_camda": "76834",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:33:31",
+        "duracion_min": 4.85033005,
+        "tamano": 223499
+    },
+    {
+        "id_camda": "76834",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:31:34",
+        "duracion_min": 1.9663366166666667,
+        "tamano": 223499
+    },
+    {
+        "id_camda": "76833",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:27:22",
+        "duracion_min": 4.193392333333334,
+        "tamano": 206971
+    },
+    {
+        "id_camda": "76833",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:24:57",
+        "duracion_min": 2.423274333333333,
+        "tamano": 206971
+    },
+    {
+        "id_camda": "76832",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:20:56",
+        "duracion_min": 4.0090832,
+        "tamano": 194277
+    },
+    {
+        "id_camda": "76831",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:16:29",
+        "duracion_min": 4.449516116666667,
+        "tamano": 180297
+    },
+    {
+        "id_camda": "76830",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:13:09",
+        "duracion_min": 3.3257082666666666,
+        "tamano": 235120
+    },
+    {
+        "id_camda": "76829",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:09:31",
+        "duracion_min": 3.63497675,
+        "tamano": 195896
+    },
+    {
+        "id_camda": "76828",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:06:20",
+        "duracion_min": 3.1853292,
+        "tamano": 176684
+    },
+    {
+        "id_camda": "76827",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 12:02:22",
+        "duracion_min": 3.962980416666667,
+        "tamano": 185537
+    },
+    {
+        "id_camda": "76826",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:58:35",
+        "duracion_min": 3.7927530333333332,
+        "tamano": 213873
+    },
+    {
+        "id_camda": "76825",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:54:20",
+        "duracion_min": 4.247412450000001,
+        "tamano": 162780
+    },
+    {
+        "id_camda": "76824",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:49:42",
+        "duracion_min": 4.62664155,
+        "tamano": 153853
+    },
+    {
+        "id_camda": "76823",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:44:00",
+        "duracion_min": 5.710774383333333,
+        "tamano": 245072
+    },
+    {
+        "id_camda": "76822",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:39:30",
+        "duracion_min": 4.498893866666666,
+        "tamano": 260536
+    },
+    {
+        "id_camda": "76821",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:35:44",
+        "duracion_min": 3.771924583333333,
+        "tamano": 153297
+    },
+    {
+        "id_camda": "76820",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:32:15",
+        "duracion_min": 3.4792807999999997,
+        "tamano": 173975
+    },
+    {
+        "id_camda": "76819",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:28:23",
+        "duracion_min": 3.8584061333333333,
+        "tamano": 160935
+    },
+    {
+        "id_camda": "76818",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:25:23",
+        "duracion_min": 3.0055916999999996,
+        "tamano": 133046
+    },
+    {
+        "id_camda": "76817",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:20:49",
+        "duracion_min": 4.573562366666667,
+        "tamano": 208257
+    },
+    {
+        "id_camda": "76817",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:18:54",
+        "duracion_min": 1.9171651833333334,
+        "tamano": 208257
+    },
+    {
+        "id_camda": "76816",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:14:38",
+        "duracion_min": 4.2574757666666665,
+        "tamano": 209143
+    },
+    {
+        "id_camda": "76816",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:12:53",
+        "duracion_min": 1.7591909000000001,
+        "tamano": 209143
+    },
+    {
+        "id_camda": "76815",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:07:30",
+        "duracion_min": 5.371853816666667,
+        "tamano": 244340
+    },
+    {
+        "id_camda": "76814",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 11:00:59",
+        "duracion_min": 6.522845149999999,
+        "tamano": 222711
+    },
+    {
+        "id_camda": "76814",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:58:18",
+        "duracion_min": 2.6886343666666668,
+        "tamano": 222711
+    },
+    {
+        "id_camda": "76813",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:53:01",
+        "duracion_min": 5.282351683333333,
+        "tamano": 419743
+    },
+    {
+        "id_camda": "76812",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:47:36",
+        "duracion_min": 5.4167201,
+        "tamano": 311703
+    },
+    {
+        "id_camda": "76811",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:43:21",
+        "duracion_min": 4.240314566666666,
+        "tamano": 300089
+    },
+    {
+        "id_camda": "76810",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:38:34",
+        "duracion_min": 4.792285166666667,
+        "tamano": 323668
+    },
+    {
+        "id_camda": "76809",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:34:20",
+        "duracion_min": 4.219365233333333,
+        "tamano": 202251
+    },
+    {
+        "id_camda": "76808",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:30:26",
+        "duracion_min": 3.8995840333333334,
+        "tamano": 175690
+    },
+    {
+        "id_camda": "76807",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:26:52",
+        "duracion_min": 3.5820214833333335,
+        "tamano": 229544
+    },
+    {
+        "id_camda": "76806",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:23:57",
+        "duracion_min": 2.907827666666667,
+        "tamano": 281029
+    },
+    {
+        "id_camda": "76805",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:21:15",
+        "duracion_min": 2.7031920499999997,
+        "tamano": 268550
+    },
+    {
+        "id_camda": "76804",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:18:30",
+        "duracion_min": 2.74815515,
+        "tamano": 257163
+    },
+    {
+        "id_camda": "76803",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:15:49",
+        "duracion_min": 2.6874593166666667,
+        "tamano": 296787
+    },
+    {
+        "id_camda": "76802",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:12:42",
+        "duracion_min": 3.1136532333333333,
+        "tamano": 300246
+    },
+    {
+        "id_camda": "76801",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:10:09",
+        "duracion_min": 2.54907885,
+        "tamano": 292735
+    },
+    {
+        "id_camda": "76800",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:07:11",
+        "duracion_min": 2.96403755,
+        "tamano": 1075027
+    },
+    {
+        "id_camda": "76799",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:04:03",
+        "duracion_min": 3.1364942499999997,
+        "tamano": 241042
+    },
+    {
+        "id_camda": "76798",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 10:00:01",
+        "duracion_min": 4.025190533333333,
+        "tamano": 276963
+    },
+    {
+        "id_camda": "76797",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:56:10",
+        "duracion_min": 3.8637202833333335,
+        "tamano": 417578
+    },
+    {
+        "id_camda": "76796",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:53:21",
+        "duracion_min": 2.8081214500000002,
+        "tamano": 375784
+    },
+    {
+        "id_camda": "76795",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:45:10",
+        "duracion_min": 8.1819686,
+        "tamano": 273939
+    },
+    {
+        "id_camda": "76794",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:37:02",
+        "duracion_min": 8.128887516666667,
+        "tamano": 296802
+    },
+    {
+        "id_camda": "76793",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:30:17",
+        "duracion_min": 6.750084333333334,
+        "tamano": 251366
+    },
+    {
+        "id_camda": "76792",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:24:56",
+        "duracion_min": 5.3592309,
+        "tamano": 226310
+    },
+    {
+        "id_camda": "76792",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:19:31",
+        "duracion_min": 5.423589383333334,
+        "tamano": 226310
+    },
+    {
+        "id_camda": "76791",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:14:03",
+        "duracion_min": 5.450710166666667,
+        "tamano": 296687
+    },
+    {
+        "id_camda": "76790",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:09:14",
+        "duracion_min": 4.819006483333334,
+        "tamano": 266994
+    },
+    {
+        "id_camda": "76789",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:04:30",
+        "duracion_min": 4.737985800000001,
+        "tamano": 266557
+    },
+    {
+        "id_camda": "76788",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 09:00:18",
+        "duracion_min": 4.1985374,
+        "tamano": 1079506
+    },
+    {
+        "id_camda": "76787",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:57:10",
+        "duracion_min": 3.13779365,
+        "tamano": 3184778
+    },
+    {
+        "id_camda": "76786",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:54:10",
+        "duracion_min": 2.9976807166666664,
+        "tamano": 1605590
+    },
+    {
+        "id_camda": "76785",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:51:02",
+        "duracion_min": 3.1352923,
+        "tamano": 1592603
+    },
+    {
+        "id_camda": "76784",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:48:13",
+        "duracion_min": 2.821084116666667,
+        "tamano": 1592610
+    },
+    {
+        "id_camda": "76783",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:45:46",
+        "duracion_min": 2.4431091499999997,
+        "tamano": 1592610
+    },
+    {
+        "id_camda": "76782",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:43:15",
+        "duracion_min": 2.5142608666666666,
+        "tamano": 641464
+    },
+    {
+        "id_camda": "76781",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:40:41",
+        "duracion_min": 2.570678383333333,
+        "tamano": 803369
+    },
+    {
+        "id_camda": "76780",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:38:20",
+        "duracion_min": 2.354551483333333,
+        "tamano": 1615756
+    },
+    {
+        "id_camda": "76779",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:35:54",
+        "duracion_min": 2.429849283333333,
+        "tamano": 3184778
+    },
+    {
+        "id_camda": "76778",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:33:23",
+        "duracion_min": 2.520744716666667,
+        "tamano": 3184778
+    },
+    {
+        "id_camda": "76777",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:31:10",
+        "duracion_min": 2.2119077333333332,
+        "tamano": 1600795
+    },
+    {
+        "id_camda": "76776",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:28:49",
+        "duracion_min": 2.349383766666667,
+        "tamano": 572183
+    },
+    {
+        "id_camda": "76776",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:24:19",
+        "duracion_min": 4.507423983333334,
+        "tamano": 572183
+    },
+    {
+        "id_camda": "76775",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:21:51",
+        "duracion_min": 2.4659036166666666,
+        "tamano": 351904
+    },
+    {
+        "id_camda": "76775",
+        "tipo": "Manual",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:05:52",
+        "duracion_min": 15.984096383333334,
+        "tamano": 351904
+    },
+    {
+        "id_camda": "76774",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Monday",
+        "inicio_dt": "2026-08-17 08:01:43",
+        "duracion_min": 4.149298616666667,
+        "tamano": 457393
+    },
+    {
         "id_camda": "76405",
         "tipo": "Manual",
         "a\u00f1o_semana": "2026-W33",
@@ -21886,4811 +23488,5 @@
         "inicio_dt": "2026-07-20 05:02:34",
         "duracion_min": 3.9382629833333334,
         "tamano": 1468177
-    },
-    {
-        "id_camda": "72707",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 23:13:04",
-        "duracion_min": 20.630335983333335,
-        "tamano": 705105
-    },
-    {
-        "id_camda": "72706",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 22:58:47",
-        "duracion_min": 14.294783416666666,
-        "tamano": 634957
-    },
-    {
-        "id_camda": "72705",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 22:37:54",
-        "duracion_min": 20.873678266666666,
-        "tamano": 721253
-    },
-    {
-        "id_camda": "72704",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 22:10:50",
-        "duracion_min": 27.06493621666667,
-        "tamano": 852181
-    },
-    {
-        "id_camda": "72703",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 21:52:21",
-        "duracion_min": 18.493972366666664,
-        "tamano": 571907
-    },
-    {
-        "id_camda": "72702",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 21:37:22",
-        "duracion_min": 14.971734516666666,
-        "tamano": 342935
-    },
-    {
-        "id_camda": "72701",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 21:24:31",
-        "duracion_min": 12.851888766666667,
-        "tamano": 384085
-    },
-    {
-        "id_camda": "72700",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 21:11:35",
-        "duracion_min": 12.930459733333333,
-        "tamano": 957874
-    },
-    {
-        "id_camda": "72699",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 20:53:53",
-        "duracion_min": 17.7008237,
-        "tamano": 1917435
-    },
-    {
-        "id_camda": "72698",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 20:38:43",
-        "duracion_min": 15.1737467,
-        "tamano": 1729852
-    },
-    {
-        "id_camda": "72697",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 20:23:24",
-        "duracion_min": 15.313983633333333,
-        "tamano": 1633585
-    },
-    {
-        "id_camda": "72696",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 20:09:13",
-        "duracion_min": 14.190326833333334,
-        "tamano": 602580
-    },
-    {
-        "id_camda": "72695",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 19:53:22",
-        "duracion_min": 15.847391483333332,
-        "tamano": 1103288
-    },
-    {
-        "id_camda": "72694",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 19:28:21",
-        "duracion_min": 25.017569299999998,
-        "tamano": 1111629
-    },
-    {
-        "id_camda": "72693",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 19:10:43",
-        "duracion_min": 17.629772083333332,
-        "tamano": 1075745
-    },
-    {
-        "id_camda": "72692",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 18:57:44",
-        "duracion_min": 12.985049283333332,
-        "tamano": 560638
-    },
-    {
-        "id_camda": "72692",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 18:50:18",
-        "duracion_min": 7.440394333333333,
-        "tamano": 560638
-    },
-    {
-        "id_camda": "72691",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 18:33:15",
-        "duracion_min": 17.047833583333333,
-        "tamano": 688982
-    },
-    {
-        "id_camda": "72690",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 18:14:12",
-        "duracion_min": 19.038191649999998,
-        "tamano": 734772
-    },
-    {
-        "id_camda": "72689",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 17:56:50",
-        "duracion_min": 17.36674095,
-        "tamano": 623135
-    },
-    {
-        "id_camda": "72688",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 17:40:37",
-        "duracion_min": 16.230161533333334,
-        "tamano": 691745
-    },
-    {
-        "id_camda": "72687",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 17:22:39",
-        "duracion_min": 17.96097605,
-        "tamano": 509798
-    },
-    {
-        "id_camda": "72686",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 17:07:44",
-        "duracion_min": 14.91795665,
-        "tamano": 552178
-    },
-    {
-        "id_camda": "72685",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 16:49:29",
-        "duracion_min": 18.238675883333332,
-        "tamano": 551218
-    },
-    {
-        "id_camda": "72684",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 16:35:57",
-        "duracion_min": 13.547146783333334,
-        "tamano": 634136
-    },
-    {
-        "id_camda": "72683",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 16:17:31",
-        "duracion_min": 18.434121833333332,
-        "tamano": 513328
-    },
-    {
-        "id_camda": "72682",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 16:00:50",
-        "duracion_min": 16.682523433333333,
-        "tamano": 367405
-    },
-    {
-        "id_camda": "72681",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 15:44:09",
-        "duracion_min": 16.683582816666664,
-        "tamano": 401030
-    },
-    {
-        "id_camda": "72680",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 15:30:10",
-        "duracion_min": 13.9774355,
-        "tamano": 351445
-    },
-    {
-        "id_camda": "72679",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 15:16:16",
-        "duracion_min": 13.891836233333333,
-        "tamano": 290873
-    },
-    {
-        "id_camda": "72678",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 15:06:10",
-        "duracion_min": 10.110884566666666,
-        "tamano": 239433
-    },
-    {
-        "id_camda": "72677",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 14:54:55",
-        "duracion_min": 11.246812383333333,
-        "tamano": 258506
-    },
-    {
-        "id_camda": "72676",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 14:39:34",
-        "duracion_min": 15.355709583333333,
-        "tamano": 316405
-    },
-    {
-        "id_camda": "72675",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 14:28:25",
-        "duracion_min": 11.142079950000001,
-        "tamano": 274060
-    },
-    {
-        "id_camda": "72674",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 14:19:15",
-        "duracion_min": 9.163208216666668,
-        "tamano": 277165
-    },
-    {
-        "id_camda": "72673",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 14:05:55",
-        "duracion_min": 13.340077433333333,
-        "tamano": 398931
-    },
-    {
-        "id_camda": "72672",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 13:50:24",
-        "duracion_min": 15.520662566666665,
-        "tamano": 644499
-    },
-    {
-        "id_camda": "72671",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 13:36:03",
-        "duracion_min": 14.352438616666666,
-        "tamano": 324727
-    },
-    {
-        "id_camda": "72670",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 13:15:05",
-        "duracion_min": 20.962098066666666,
-        "tamano": 642030
-    },
-    {
-        "id_camda": "72669",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 13:02:58",
-        "duracion_min": 12.107148883333334,
-        "tamano": 374062
-    },
-    {
-        "id_camda": "72669",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 12:53:29",
-        "duracion_min": 9.4983635,
-        "tamano": 374062
-    },
-    {
-        "id_camda": "72668",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 12:42:03",
-        "duracion_min": 11.422080033333334,
-        "tamano": 384688
-    },
-    {
-        "id_camda": "72667",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 12:27:11",
-        "duracion_min": 14.877847983333334,
-        "tamano": 252102
-    },
-    {
-        "id_camda": "72666",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 12:07:41",
-        "duracion_min": 19.49782575,
-        "tamano": 456525
-    },
-    {
-        "id_camda": "72665",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 11:45:17",
-        "duracion_min": 22.402171983333336,
-        "tamano": 530416
-    },
-    {
-        "id_camda": "72664",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 11:27:10",
-        "duracion_min": 18.107172783333333,
-        "tamano": 700816
-    },
-    {
-        "id_camda": "72663",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 11:09:00",
-        "duracion_min": 18.16294645,
-        "tamano": 791964
-    },
-    {
-        "id_camda": "72662",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 10:54:20",
-        "duracion_min": 14.674689966666667,
-        "tamano": 552592
-    },
-    {
-        "id_camda": "72661",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 10:34:55",
-        "duracion_min": 19.406322,
-        "tamano": 407597
-    },
-    {
-        "id_camda": "72660",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 10:13:20",
-        "duracion_min": 21.586674416666664,
-        "tamano": 321638
-    },
-    {
-        "id_camda": "72659",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 10:00:41",
-        "duracion_min": 12.646701866666666,
-        "tamano": 234758
-    },
-    {
-        "id_camda": "72658",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 09:48:55",
-        "duracion_min": 11.774585683333333,
-        "tamano": 715705
-    },
-    {
-        "id_camda": "72657",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 09:38:04",
-        "duracion_min": 10.8512423,
-        "tamano": 812264
-    },
-    {
-        "id_camda": "72656",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 09:24:53",
-        "duracion_min": 13.17816725,
-        "tamano": 1086952
-    },
-    {
-        "id_camda": "72655",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 09:05:52",
-        "duracion_min": 19.015935916666667,
-        "tamano": 298146
-    },
-    {
-        "id_camda": "72654",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 08:55:52",
-        "duracion_min": 10.005732583333334,
-        "tamano": 238332
-    },
-    {
-        "id_camda": "72653",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 08:43:25",
-        "duracion_min": 12.440911849999999,
-        "tamano": 167918
-    },
-    {
-        "id_camda": "72652",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 08:32:03",
-        "duracion_min": 11.371958916666667,
-        "tamano": 608649
-    },
-    {
-        "id_camda": "72651",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 08:23:11",
-        "duracion_min": 8.864397516666665,
-        "tamano": 390037
-    },
-    {
-        "id_camda": "72650",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 08:14:58",
-        "duracion_min": 8.217077066666667,
-        "tamano": 262755
-    },
-    {
-        "id_camda": "72649",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 08:07:26",
-        "duracion_min": 7.535294983333333,
-        "tamano": 196982
-    },
-    {
-        "id_camda": "72648",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 08:00:26",
-        "duracion_min": 7.0013067,
-        "tamano": 1005852
-    },
-    {
-        "id_camda": "72647",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:54:33",
-        "duracion_min": 5.885732666666667,
-        "tamano": 740684
-    },
-    {
-        "id_camda": "72646",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:47:56",
-        "duracion_min": 6.611192983333334,
-        "tamano": 1000131
-    },
-    {
-        "id_camda": "72645",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:41:57",
-        "duracion_min": 5.9801119499999995,
-        "tamano": 740035
-    },
-    {
-        "id_camda": "72644",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:37:01",
-        "duracion_min": 4.9451579,
-        "tamano": 1495523
-    },
-    {
-        "id_camda": "72643",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:31:34",
-        "duracion_min": 5.4393447,
-        "tamano": 980071
-    },
-    {
-        "id_camda": "72642",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:27:07",
-        "duracion_min": 4.458594416666667,
-        "tamano": 1003677
-    },
-    {
-        "id_camda": "72641",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:22:26",
-        "duracion_min": 4.676921383333333,
-        "tamano": 736344
-    },
-    {
-        "id_camda": "72640",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:18:03",
-        "duracion_min": 4.380176966666666,
-        "tamano": 604148
-    },
-    {
-        "id_camda": "72639",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:12:13",
-        "duracion_min": 5.835743033333333,
-        "tamano": 413762
-    },
-    {
-        "id_camda": "72638",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:06:18",
-        "duracion_min": 5.922475516666666,
-        "tamano": 674909
-    },
-    {
-        "id_camda": "72637",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 07:01:59",
-        "duracion_min": 4.322436266666667,
-        "tamano": 736237
-    },
-    {
-        "id_camda": "72636",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:58:02",
-        "duracion_min": 3.9476359333333333,
-        "tamano": 2928999
-    },
-    {
-        "id_camda": "72635",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:53:22",
-        "duracion_min": 4.657607166666667,
-        "tamano": 504549
-    },
-    {
-        "id_camda": "72634",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:44:58",
-        "duracion_min": 8.4042459,
-        "tamano": 328682
-    },
-    {
-        "id_camda": "72633",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:35:34",
-        "duracion_min": 9.4055385,
-        "tamano": 663797
-    },
-    {
-        "id_camda": "72632",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:27:21",
-        "duracion_min": 8.208038833333333,
-        "tamano": 208014
-    },
-    {
-        "id_camda": "72631",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:19:53",
-        "duracion_min": 7.474856166666667,
-        "tamano": 299040
-    },
-    {
-        "id_camda": "72630",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:13:14",
-        "duracion_min": 6.64614085,
-        "tamano": 392004
-    },
-    {
-        "id_camda": "72629",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:07:40",
-        "duracion_min": 5.571470633333333,
-        "tamano": 523913
-    },
-    {
-        "id_camda": "72628",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 06:02:51",
-        "duracion_min": 4.804540633333334,
-        "tamano": 461484
-    },
-    {
-        "id_camda": "72627",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:58:27",
-        "duracion_min": 4.4012573,
-        "tamano": 1003677
-    },
-    {
-        "id_camda": "72626",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:53:35",
-        "duracion_min": 4.872697816666667,
-        "tamano": 753428
-    },
-    {
-        "id_camda": "72625",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:45:51",
-        "duracion_min": 7.737439566666667,
-        "tamano": 311541
-    },
-    {
-        "id_camda": "72624",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:33:42",
-        "duracion_min": 12.139344966666666,
-        "tamano": 161260
-    },
-    {
-        "id_camda": "72623",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:24:03",
-        "duracion_min": 9.655586483333334,
-        "tamano": 738809
-    },
-    {
-        "id_camda": "72622",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:18:52",
-        "duracion_min": 5.189639916666667,
-        "tamano": 739948
-    },
-    {
-        "id_camda": "72621",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:14:36",
-        "duracion_min": 4.261001366666666,
-        "tamano": 1494956
-    },
-    {
-        "id_camda": "72620",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:10:30",
-        "duracion_min": 4.0935999333333335,
-        "tamano": 983232
-    },
-    {
-        "id_camda": "72619",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:06:25",
-        "duracion_min": 4.0837245,
-        "tamano": 1001425
-    },
-    {
-        "id_camda": "72618",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Friday",
-        "inicio_dt": "2026-07-17 05:01:48",
-        "duracion_min": 4.6217451333333335,
-        "tamano": 987782
-    },
-    {
-        "id_camda": "72575",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 23:25:07",
-        "duracion_min": 14.605431833333334,
-        "tamano": 617453
-    },
-    {
-        "id_camda": "72574",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 23:03:49",
-        "duracion_min": 21.300826466666667,
-        "tamano": 712002
-    },
-    {
-        "id_camda": "72573",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 22:44:46",
-        "duracion_min": 19.05145245,
-        "tamano": 667628
-    },
-    {
-        "id_camda": "72572",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 22:22:35",
-        "duracion_min": 22.189246683333334,
-        "tamano": 787014
-    },
-    {
-        "id_camda": "72572",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 22:16:39",
-        "duracion_min": 5.937945366666667,
-        "tamano": 787014
-    },
-    {
-        "id_camda": "72571",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 21:51:58",
-        "duracion_min": 24.66782733333333,
-        "tamano": 1818575
-    },
-    {
-        "id_camda": "72571",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 21:40:04",
-        "duracion_min": 11.915505999999999,
-        "tamano": 1818575
-    },
-    {
-        "id_camda": "72570",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 21:01:00",
-        "duracion_min": 39.062797233333335,
-        "tamano": 3897573
-    },
-    {
-        "id_camda": "72570",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 20:52:33",
-        "duracion_min": 8.453869433333333,
-        "tamano": 3897573
-    },
-    {
-        "id_camda": "72569",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 20:26:04",
-        "duracion_min": 26.482100933333335,
-        "tamano": 1767718
-    },
-    {
-        "id_camda": "72569",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 20:11:46",
-        "duracion_min": 14.3012324,
-        "tamano": 1767718
-    },
-    {
-        "id_camda": "72568",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 19:52:34",
-        "duracion_min": 19.19215331666667,
-        "tamano": 1506912
-    },
-    {
-        "id_camda": "72567",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 19:38:28",
-        "duracion_min": 14.093205983333332,
-        "tamano": 435375
-    },
-    {
-        "id_camda": "72566",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 19:27:38",
-        "duracion_min": 10.835409016666667,
-        "tamano": 265267
-    },
-    {
-        "id_camda": "72566",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 19:23:40",
-        "duracion_min": 3.9792316833333334,
-        "tamano": 265267
-    },
-    {
-        "id_camda": "72565",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 19:16:32",
-        "duracion_min": 7.129226116666667,
-        "tamano": 246595
-    },
-    {
-        "id_camda": "72565",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 19:12:13",
-        "duracion_min": 4.320773883333334,
-        "tamano": 246595
-    },
-    {
-        "id_camda": "72564",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 19:04:57",
-        "duracion_min": 7.264524383333334,
-        "tamano": 287881
-    },
-    {
-        "id_camda": "72563",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 18:56:51",
-        "duracion_min": 8.096818,
-        "tamano": 283892
-    },
-    {
-        "id_camda": "72562",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 18:49:11",
-        "duracion_min": 7.664079833333333,
-        "tamano": 300708
-    },
-    {
-        "id_camda": "72561",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 18:40:08",
-        "duracion_min": 9.0569423,
-        "tamano": 381073
-    },
-    {
-        "id_camda": "72560",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 18:30:13",
-        "duracion_min": 9.9043876,
-        "tamano": 299396
-    },
-    {
-        "id_camda": "72559",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 18:18:31",
-        "duracion_min": 11.7019874,
-        "tamano": 431590
-    },
-    {
-        "id_camda": "72558",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 18:08:29",
-        "duracion_min": 10.037987033333334,
-        "tamano": 310751
-    },
-    {
-        "id_camda": "72557",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 17:52:29",
-        "duracion_min": 16.001226466666665,
-        "tamano": 458456
-    },
-    {
-        "id_camda": "72556",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 17:36:41",
-        "duracion_min": 15.80185145,
-        "tamano": 379197
-    },
-    {
-        "id_camda": "72556",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 17:32:48",
-        "duracion_min": 3.8868622000000004,
-        "tamano": 379197
-    },
-    {
-        "id_camda": "72555",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 17:20:09",
-        "duracion_min": 12.6388217,
-        "tamano": 475916
-    },
-    {
-        "id_camda": "72554",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 17:06:18",
-        "duracion_min": 13.851110799999999,
-        "tamano": 540135
-    },
-    {
-        "id_camda": "72553",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 16:45:26",
-        "duracion_min": 20.876256416666667,
-        "tamano": 726289
-    },
-    {
-        "id_camda": "72552",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 16:29:02",
-        "duracion_min": 16.392180933333332,
-        "tamano": 629083
-    },
-    {
-        "id_camda": "72551",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 16:13:58",
-        "duracion_min": 15.061286983333334,
-        "tamano": 676069
-    },
-    {
-        "id_camda": "72550",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 15:56:42",
-        "duracion_min": 17.274570566666668,
-        "tamano": 466546
-    },
-    {
-        "id_camda": "72549",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 15:41:14",
-        "duracion_min": 15.472313883333333,
-        "tamano": 287355
-    },
-    {
-        "id_camda": "72549",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 15:33:17",
-        "duracion_min": 7.950125383333333,
-        "tamano": 287355
-    },
-    {
-        "id_camda": "72548",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 15:23:22",
-        "duracion_min": 9.911727266666666,
-        "tamano": 186228
-    },
-    {
-        "id_camda": "72548",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 15:16:39",
-        "duracion_min": 6.721606066666666,
-        "tamano": 186228
-    },
-    {
-        "id_camda": "72547",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 15:02:26",
-        "duracion_min": 14.211932166666665,
-        "tamano": 246449
-    },
-    {
-        "id_camda": "72546",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 14:51:38",
-        "duracion_min": 10.798444216666667,
-        "tamano": 338936
-    },
-    {
-        "id_camda": "72546",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 14:47:25",
-        "duracion_min": 4.22295695,
-        "tamano": 338936
-    },
-    {
-        "id_camda": "72545",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 14:35:31",
-        "duracion_min": 11.899219166666667,
-        "tamano": 509829
-    },
-    {
-        "id_camda": "72545",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 14:28:32",
-        "duracion_min": 6.984114166666667,
-        "tamano": 509829
-    },
-    {
-        "id_camda": "72544",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 14:12:40",
-        "duracion_min": 15.8540573,
-        "tamano": 577593
-    },
-    {
-        "id_camda": "72543",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 14:00:54",
-        "duracion_min": 11.76697915,
-        "tamano": 402508
-    },
-    {
-        "id_camda": "72542",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 13:48:39",
-        "duracion_min": 12.254146716666666,
-        "tamano": 298094
-    },
-    {
-        "id_camda": "72541",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 13:37:10",
-        "duracion_min": 11.484505366666667,
-        "tamano": 396883
-    },
-    {
-        "id_camda": "72540",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 13:18:12",
-        "duracion_min": 18.958514233333336,
-        "tamano": 639593
-    },
-    {
-        "id_camda": "72539",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 12:48:34",
-        "duracion_min": 29.639627299999997,
-        "tamano": 1265044
-    },
-    {
-        "id_camda": "72538",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 12:36:42",
-        "duracion_min": 11.862044666666666,
-        "tamano": 288315
-    },
-    {
-        "id_camda": "72537",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 12:20:06",
-        "duracion_min": 16.612003666666666,
-        "tamano": 210479
-    },
-    {
-        "id_camda": "72536",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 12:08:00",
-        "duracion_min": 12.090892616666668,
-        "tamano": 447389
-    },
-    {
-        "id_camda": "72535",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 11:52:33",
-        "duracion_min": 15.449274483333333,
-        "tamano": 503732
-    },
-    {
-        "id_camda": "72534",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 11:28:18",
-        "duracion_min": 24.24924425,
-        "tamano": 570217
-    },
-    {
-        "id_camda": "72533",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 11:07:28",
-        "duracion_min": 20.838749099999998,
-        "tamano": 682932
-    },
-    {
-        "id_camda": "72532",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 10:51:13",
-        "duracion_min": 16.25257045,
-        "tamano": 366788
-    },
-    {
-        "id_camda": "72531",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 10:40:58",
-        "duracion_min": 10.252571883333333,
-        "tamano": 286817
-    },
-    {
-        "id_camda": "72530",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 10:29:47",
-        "duracion_min": 11.173609883333334,
-        "tamano": 333349
-    },
-    {
-        "id_camda": "72529",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 10:14:52",
-        "duracion_min": 14.912665966666667,
-        "tamano": 365376
-    },
-    {
-        "id_camda": "72528",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 10:01:02",
-        "duracion_min": 13.835869316666667,
-        "tamano": 667627
-    },
-    {
-        "id_camda": "72527",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 09:52:51",
-        "duracion_min": 8.1881895,
-        "tamano": 467963
-    },
-    {
-        "id_camda": "72526",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 09:38:55",
-        "duracion_min": 13.929011833333334,
-        "tamano": 738574
-    },
-    {
-        "id_camda": "72525",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 09:27:01",
-        "duracion_min": 11.898027283333333,
-        "tamano": 864069
-    },
-    {
-        "id_camda": "72524",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 09:17:18",
-        "duracion_min": 9.724043516666667,
-        "tamano": 597679
-    },
-    {
-        "id_camda": "72523",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 09:10:07",
-        "duracion_min": 7.1749059,
-        "tamano": 466806
-    },
-    {
-        "id_camda": "72522",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 09:02:32",
-        "duracion_min": 7.594866833333333,
-        "tamano": 340174
-    },
-    {
-        "id_camda": "72521",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:56:20",
-        "duracion_min": 6.195645116666666,
-        "tamano": 386115
-    },
-    {
-        "id_camda": "72520",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:52:36",
-        "duracion_min": 3.7264542333333335,
-        "tamano": 1472057
-    },
-    {
-        "id_camda": "72519",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:45:50",
-        "duracion_min": 6.769863233333334,
-        "tamano": 344716
-    },
-    {
-        "id_camda": "72518",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:41:38",
-        "duracion_min": 4.198302066666667,
-        "tamano": 492736
-    },
-    {
-        "id_camda": "72517",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:37:48",
-        "duracion_min": 3.8346653500000003,
-        "tamano": 2932398
-    },
-    {
-        "id_camda": "72516",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:33:59",
-        "duracion_min": 3.8185871833333334,
-        "tamano": 1472057
-    },
-    {
-        "id_camda": "72515",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:29:57",
-        "duracion_min": 4.026840333333333,
-        "tamano": 2932398
-    },
-    {
-        "id_camda": "72514",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:26:02",
-        "duracion_min": 3.9197957666666667,
-        "tamano": 613268
-    },
-    {
-        "id_camda": "72513",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:21:52",
-        "duracion_min": 4.1653556499999995,
-        "tamano": 508826
-    },
-    {
-        "id_camda": "72512",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:17:16",
-        "duracion_min": 4.605438566666667,
-        "tamano": 1468215
-    },
-    {
-        "id_camda": "72511",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:13:24",
-        "duracion_min": 3.8743543333333337,
-        "tamano": 757385
-    },
-    {
-        "id_camda": "72510",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:09:34",
-        "duracion_min": 3.8264189833333333,
-        "tamano": 1508698
-    },
-    {
-        "id_camda": "72509",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:04:56",
-        "duracion_min": 4.62933205,
-        "tamano": 737359
-    },
-    {
-        "id_camda": "72508",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 08:00:57",
-        "duracion_min": 3.9811785166666667,
-        "tamano": 738145
-    },
-    {
-        "id_camda": "72507",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:57:04",
-        "duracion_min": 3.88744775,
-        "tamano": 2932398
-    },
-    {
-        "id_camda": "72506",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:53:33",
-        "duracion_min": 3.52139695,
-        "tamano": 1472057
-    },
-    {
-        "id_camda": "72505",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:48:31",
-        "duracion_min": 5.02854455,
-        "tamano": 324818
-    },
-    {
-        "id_camda": "72504",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:44:05",
-        "duracion_min": 4.432086183333333,
-        "tamano": 590852
-    },
-    {
-        "id_camda": "72503",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:39:19",
-        "duracion_min": 4.775137383333333,
-        "tamano": 1472057
-    },
-    {
-        "id_camda": "72502",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:34:55",
-        "duracion_min": 4.39031985,
-        "tamano": 2932398
-    },
-    {
-        "id_camda": "72501",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:30:12",
-        "duracion_min": 4.728231916666667,
-        "tamano": 981702
-    },
-    {
-        "id_camda": "72500",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:25:10",
-        "duracion_min": 5.031257916666666,
-        "tamano": 1473237
-    },
-    {
-        "id_camda": "72499",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:20:02",
-        "duracion_min": 5.1309084,
-        "tamano": 984121
-    },
-    {
-        "id_camda": "72498",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:14:51",
-        "duracion_min": 5.175442616666667,
-        "tamano": 520927
-    },
-    {
-        "id_camda": "72497",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:09:20",
-        "duracion_min": 5.523982833333333,
-        "tamano": 869575
-    },
-    {
-        "id_camda": "72496",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 07:03:50",
-        "duracion_min": 5.504834266666666,
-        "tamano": 636486
-    },
-    {
-        "id_camda": "72495",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:58:58",
-        "duracion_min": 4.854735516666667,
-        "tamano": 1470324
-    },
-    {
-        "id_camda": "72494",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:54:31",
-        "duracion_min": 4.458530183333334,
-        "tamano": 1472057
-    },
-    {
-        "id_camda": "72493",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:49:29",
-        "duracion_min": 5.028786866666667,
-        "tamano": 751239
-    },
-    {
-        "id_camda": "72492",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:43:02",
-        "duracion_min": 6.4453553333333335,
-        "tamano": 530867
-    },
-    {
-        "id_camda": "72491",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:36:00",
-        "duracion_min": 7.037831483333333,
-        "tamano": 651217
-    },
-    {
-        "id_camda": "72490",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:27:35",
-        "duracion_min": 8.422319,
-        "tamano": 221484
-    },
-    {
-        "id_camda": "72489",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:19:35",
-        "duracion_min": 8.001210616666667,
-        "tamano": 275770
-    },
-    {
-        "id_camda": "72488",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:12:40",
-        "duracion_min": 6.918478533333333,
-        "tamano": 359875
-    },
-    {
-        "id_camda": "72487",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:07:00",
-        "duracion_min": 5.654144433333333,
-        "tamano": 509120
-    },
-    {
-        "id_camda": "72486",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 06:01:22",
-        "duracion_min": 5.6410683,
-        "tamano": 271673
-    },
-    {
-        "id_camda": "72485",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:54:36",
-        "duracion_min": 6.76032755,
-        "tamano": 181585
-    },
-    {
-        "id_camda": "72484",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:48:28",
-        "duracion_min": 6.131111066666667,
-        "tamano": 198517
-    },
-    {
-        "id_camda": "72483",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:43:00",
-        "duracion_min": 5.4784652666666664,
-        "tamano": 304443
-    },
-    {
-        "id_camda": "72482",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:38:01",
-        "duracion_min": 4.970505116666667,
-        "tamano": 1470324
-    },
-    {
-        "id_camda": "72481",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:33:15",
-        "duracion_min": 4.767992633333334,
-        "tamano": 981514
-    },
-    {
-        "id_camda": "72480",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:28:53",
-        "duracion_min": 4.380236616666666,
-        "tamano": 2932398
-    },
-    {
-        "id_camda": "72479",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:24:01",
-        "duracion_min": 4.8522232,
-        "tamano": 738968
-    },
-    {
-        "id_camda": "72478",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:18:43",
-        "duracion_min": 5.3010844666666666,
-        "tamano": 981779
-    },
-    {
-        "id_camda": "72477",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:13:46",
-        "duracion_min": 4.957555683333334,
-        "tamano": 984121
-    },
-    {
-        "id_camda": "72476",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:08:54",
-        "duracion_min": 4.8627492,
-        "tamano": 2932398
-    },
-    {
-        "id_camda": "72475",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Thursday",
-        "inicio_dt": "2026-07-16 05:03:52",
-        "duracion_min": 5.03840475,
-        "tamano": 983349
-    },
-    {
-        "id_camda": "72430",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 23:27:49",
-        "duracion_min": 17.475000533333333,
-        "tamano": 860824
-    },
-    {
-        "id_camda": "72429",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 23:16:46",
-        "duracion_min": 11.052959666666668,
-        "tamano": 508158
-    },
-    {
-        "id_camda": "72428",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 23:02:37",
-        "duracion_min": 14.152763316666666,
-        "tamano": 720045
-    },
-    {
-        "id_camda": "72427",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 22:46:50",
-        "duracion_min": 15.784519233333333,
-        "tamano": 458846
-    },
-    {
-        "id_camda": "72426",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 22:26:01",
-        "duracion_min": 20.819301399999997,
-        "tamano": 832528
-    },
-    {
-        "id_camda": "72425",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 22:04:21",
-        "duracion_min": 21.661193183333335,
-        "tamano": 890371
-    },
-    {
-        "id_camda": "72424",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 21:52:03",
-        "duracion_min": 12.303549866666666,
-        "tamano": 494073
-    },
-    {
-        "id_camda": "72424",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 21:46:57",
-        "duracion_min": 5.106355566666666,
-        "tamano": 494073
-    },
-    {
-        "id_camda": "72423",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 21:31:54",
-        "duracion_min": 15.042552283333332,
-        "tamano": 995744
-    },
-    {
-        "id_camda": "72423",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 21:20:41",
-        "duracion_min": 11.224114383333333,
-        "tamano": 995744
-    },
-    {
-        "id_camda": "72422",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 20:58:46",
-        "duracion_min": 21.90976285,
-        "tamano": 963245
-    },
-    {
-        "id_camda": "72422",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 20:51:03",
-        "duracion_min": 7.723570483333333,
-        "tamano": 963245
-    },
-    {
-        "id_camda": "72421",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 20:29:38",
-        "duracion_min": 21.4143906,
-        "tamano": 1548488
-    },
-    {
-        "id_camda": "72421",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 20:20:24",
-        "duracion_min": 9.2356094,
-        "tamano": 1548488
-    },
-    {
-        "id_camda": "72420",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 19:50:40",
-        "duracion_min": 29.725164866666667,
-        "tamano": 1407111
-    },
-    {
-        "id_camda": "72419",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 19:25:41",
-        "duracion_min": 24.982955383333334,
-        "tamano": 2128206
-    },
-    {
-        "id_camda": "72418",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 19:10:13",
-        "duracion_min": 15.463668266666668,
-        "tamano": 569773
-    },
-    {
-        "id_camda": "72417",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:57:41",
-        "duracion_min": 12.542485083333334,
-        "tamano": 429393
-    },
-    {
-        "id_camda": "72416",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:51:22",
-        "duracion_min": 6.31136085,
-        "tamano": 317290
-    },
-    {
-        "id_camda": "72415",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:43:51",
-        "duracion_min": 7.5146257,
-        "tamano": 306532
-    },
-    {
-        "id_camda": "72414",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:34:38",
-        "duracion_min": 9.2252354,
-        "tamano": 381807
-    },
-    {
-        "id_camda": "72413",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:25:45",
-        "duracion_min": 8.869085116666668,
-        "tamano": 396236
-    },
-    {
-        "id_camda": "72413",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:22:49",
-        "duracion_min": 2.9487526666666666,
-        "tamano": 396236
-    },
-    {
-        "id_camda": "72412",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:12:01",
-        "duracion_min": 10.796201766666666,
-        "tamano": 467373
-    },
-    {
-        "id_camda": "72412",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 18:08:39",
-        "duracion_min": 3.3704649,
-        "tamano": 467373
-    },
-    {
-        "id_camda": "72411",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 17:54:51",
-        "duracion_min": 13.797379933333334,
-        "tamano": 793579
-    },
-    {
-        "id_camda": "72410",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 17:43:32",
-        "duracion_min": 11.30764245,
-        "tamano": 410128
-    },
-    {
-        "id_camda": "72409",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 17:29:25",
-        "duracion_min": 14.11252335,
-        "tamano": 371449
-    },
-    {
-        "id_camda": "72408",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 17:19:08",
-        "duracion_min": 10.288168766666667,
-        "tamano": 455485
-    },
-    {
-        "id_camda": "72407",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 17:08:45",
-        "duracion_min": 10.381196383333334,
-        "tamano": 349571
-    },
-    {
-        "id_camda": "72407",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 17:04:48",
-        "duracion_min": 3.9630891166666666,
-        "tamano": 349571
-    },
-    {
-        "id_camda": "72406",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:53:12",
-        "duracion_min": 11.59529235,
-        "tamano": 442332
-    },
-    {
-        "id_camda": "72406",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:49:34",
-        "duracion_min": 3.638040983333333,
-        "tamano": 442332
-    },
-    {
-        "id_camda": "72405",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:40:30",
-        "duracion_min": 9.050694366666667,
-        "tamano": 397889
-    },
-    {
-        "id_camda": "72405",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:35:43",
-        "duracion_min": 4.799305633333334,
-        "tamano": 397889
-    },
-    {
-        "id_camda": "72404",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:23:59",
-        "duracion_min": 11.7223148,
-        "tamano": 295773
-    },
-    {
-        "id_camda": "72403",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:14:47",
-        "duracion_min": 9.194750749999999,
-        "tamano": 470285
-    },
-    {
-        "id_camda": "72402",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:07:52",
-        "duracion_min": 6.923557483333334,
-        "tamano": 210492
-    },
-    {
-        "id_camda": "72401",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 16:01:46",
-        "duracion_min": 6.101703316666667,
-        "tamano": 209454
-    },
-    {
-        "id_camda": "72400",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 15:55:02",
-        "duracion_min": 6.73391445,
-        "tamano": 181192
-    },
-    {
-        "id_camda": "72399",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 15:46:21",
-        "duracion_min": 8.683663733333333,
-        "tamano": 282102
-    },
-    {
-        "id_camda": "72398",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 15:32:02",
-        "duracion_min": 14.319030516666666,
-        "tamano": 373480
-    },
-    {
-        "id_camda": "72397",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 15:21:55",
-        "duracion_min": 10.110424483333333,
-        "tamano": 324800
-    },
-    {
-        "id_camda": "72396",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 15:05:30",
-        "duracion_min": 16.418435,
-        "tamano": 278565
-    },
-    {
-        "id_camda": "72395",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 14:53:29",
-        "duracion_min": 12.022660316666666,
-        "tamano": 341713
-    },
-    {
-        "id_camda": "72394",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 14:37:44",
-        "duracion_min": 15.746473466666666,
-        "tamano": 274587
-    },
-    {
-        "id_camda": "72393",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 14:21:23",
-        "duracion_min": 16.346302366666666,
-        "tamano": 545876
-    },
-    {
-        "id_camda": "72392",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 14:07:57",
-        "duracion_min": 13.430099266666668,
-        "tamano": 397318
-    },
-    {
-        "id_camda": "72392",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 14:01:14",
-        "duracion_min": 6.730003383333334,
-        "tamano": 397318
-    },
-    {
-        "id_camda": "72391",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 13:46:56",
-        "duracion_min": 14.299612349999999,
-        "tamano": 466599
-    },
-    {
-        "id_camda": "72390",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 13:34:24",
-        "duracion_min": 12.51749565,
-        "tamano": 290538
-    },
-    {
-        "id_camda": "72390",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 13:29:05",
-        "duracion_min": 5.332892,
-        "tamano": 290538
-    },
-    {
-        "id_camda": "72389",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 13:16:44",
-        "duracion_min": 12.34806235,
-        "tamano": 283912
-    },
-    {
-        "id_camda": "72388",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 12:59:10",
-        "duracion_min": 17.56751016666667,
-        "tamano": 311829
-    },
-    {
-        "id_camda": "72387",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 12:41:56",
-        "duracion_min": 17.218911516666665,
-        "tamano": 508956
-    },
-    {
-        "id_camda": "72386",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 12:25:12",
-        "duracion_min": 16.743456583333334,
-        "tamano": 483948
-    },
-    {
-        "id_camda": "72385",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 12:10:19",
-        "duracion_min": 14.873564499999999,
-        "tamano": 541362
-    },
-    {
-        "id_camda": "72384",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 11:59:54",
-        "duracion_min": 10.431549783333333,
-        "tamano": 361477
-    },
-    {
-        "id_camda": "72383",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 11:48:34",
-        "duracion_min": 11.333365266666668,
-        "tamano": 317128
-    },
-    {
-        "id_camda": "72382",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 11:34:35",
-        "duracion_min": 13.980010066666667,
-        "tamano": 523713
-    },
-    {
-        "id_camda": "72381",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 11:23:49",
-        "duracion_min": 10.755451733333333,
-        "tamano": 301209
-    },
-    {
-        "id_camda": "72380",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 11:09:08",
-        "duracion_min": 14.693136366666666,
-        "tamano": 370134
-    },
-    {
-        "id_camda": "72379",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 10:51:29",
-        "duracion_min": 17.64746105,
-        "tamano": 448996
-    },
-    {
-        "id_camda": "72378",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 10:36:36",
-        "duracion_min": 14.880580516666667,
-        "tamano": 301578
-    },
-    {
-        "id_camda": "72377",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 10:22:29",
-        "duracion_min": 14.124176666666667,
-        "tamano": 343240
-    },
-    {
-        "id_camda": "72376",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 10:12:02",
-        "duracion_min": 10.4462913,
-        "tamano": 265413
-    },
-    {
-        "id_camda": "72375",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 09:58:26",
-        "duracion_min": 13.599226166666666,
-        "tamano": 257021
-    },
-    {
-        "id_camda": "72374",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 09:48:43",
-        "duracion_min": 9.708341483333333,
-        "tamano": 506720
-    },
-    {
-        "id_camda": "72373",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 09:36:55",
-        "duracion_min": 11.8138081,
-        "tamano": 753248
-    },
-    {
-        "id_camda": "72372",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 09:27:42",
-        "duracion_min": 9.211724633333334,
-        "tamano": 629929
-    },
-    {
-        "id_camda": "72371",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 09:17:07",
-        "duracion_min": 10.574206816666667,
-        "tamano": 543212
-    },
-    {
-        "id_camda": "72370",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 09:11:09",
-        "duracion_min": 5.965950483333333,
-        "tamano": 653420
-    },
-    {
-        "id_camda": "72369",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 09:05:00",
-        "duracion_min": 6.159059350000001,
-        "tamano": 327695
-    },
-    {
-        "id_camda": "72368",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 08:58:39",
-        "duracion_min": 6.346366933333333,
-        "tamano": 282874
-    },
-    {
-        "id_camda": "72367",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 08:53:13",
-        "duracion_min": 5.432500666666667,
-        "tamano": 342573
-    },
-    {
-        "id_camda": "72366",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 08:46:14",
-        "duracion_min": 6.986656583333333,
-        "tamano": 164350
-    },
-    {
-        "id_camda": "72365",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 08:38:05",
-        "duracion_min": 8.157465716666668,
-        "tamano": 134285
-    },
-    {
-        "id_camda": "72364",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 08:21:41",
-        "duracion_min": 16.38879435,
-        "tamano": 181674
-    },
-    {
-        "id_camda": "72363",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 07:57:28",
-        "duracion_min": 24.22368625,
-        "tamano": 1006581
-    },
-    {
-        "id_camda": "72363",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 07:43:04",
-        "duracion_min": 14.405351266666665,
-        "tamano": 1006581
-    },
-    {
-        "id_camda": "72361",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 06:18:45",
-        "duracion_min": 17.63714125,
-        "tamano": 236774
-    },
-    {
-        "id_camda": "72361",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 06:08:04",
-        "duracion_min": 10.696192083333333,
-        "tamano": 236774
-    },
-    {
-        "id_camda": "72360",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-07-15 05:46:24",
-        "duracion_min": 21.66526951666667,
-        "tamano": 901260
-    },
-    {
-        "id_camda": "72353",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 23:21:16",
-        "duracion_min": 15.517076466666667,
-        "tamano": 645316
-    },
-    {
-        "id_camda": "72352",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 23:09:39",
-        "duracion_min": 11.614091283333332,
-        "tamano": 493532
-    },
-    {
-        "id_camda": "72351",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 23:00:57",
-        "duracion_min": 8.70009535,
-        "tamano": 265711
-    },
-    {
-        "id_camda": "72350",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 22:46:30",
-        "duracion_min": 14.449060483333334,
-        "tamano": 444784
-    },
-    {
-        "id_camda": "72349",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 22:30:01",
-        "duracion_min": 16.480715933333332,
-        "tamano": 640271
-    },
-    {
-        "id_camda": "72348",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 22:10:39",
-        "duracion_min": 19.369045683333333,
-        "tamano": 806988
-    },
-    {
-        "id_camda": "72347",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 21:55:02",
-        "duracion_min": 15.612458666666667,
-        "tamano": 514322
-    },
-    {
-        "id_camda": "72346",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 21:41:24",
-        "duracion_min": 13.636672449999999,
-        "tamano": 496195
-    },
-    {
-        "id_camda": "72345",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 21:29:38",
-        "duracion_min": 11.770363266666667,
-        "tamano": 913154
-    },
-    {
-        "id_camda": "72344",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 21:14:04",
-        "duracion_min": 15.55277455,
-        "tamano": 1035861
-    },
-    {
-        "id_camda": "72343",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 20:52:56",
-        "duracion_min": 21.139716816666667,
-        "tamano": 2214687
-    },
-    {
-        "id_camda": "72342",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 20:24:44",
-        "duracion_min": 28.195838316666666,
-        "tamano": 2051870
-    },
-    {
-        "id_camda": "72342",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 20:17:40",
-        "duracion_min": 7.080999033333333,
-        "tamano": 2051870
-    },
-    {
-        "id_camda": "72341",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 19:59:40",
-        "duracion_min": 17.997403483333336,
-        "tamano": 995139
-    },
-    {
-        "id_camda": "72341",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 19:50:15",
-        "duracion_min": 9.419263183333333,
-        "tamano": 995139
-    },
-    {
-        "id_camda": "72340",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 19:22:52",
-        "duracion_min": 27.3808574,
-        "tamano": 2449122
-    },
-    {
-        "id_camda": "72340",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 19:13:22",
-        "duracion_min": 9.502475933333333,
-        "tamano": 2449122
-    },
-    {
-        "id_camda": "72339",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 18:57:13",
-        "duracion_min": 16.14196905,
-        "tamano": 626696
-    },
-    {
-        "id_camda": "72339",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 18:50:29",
-        "duracion_min": 6.741364283333334,
-        "tamano": 626696
-    },
-    {
-        "id_camda": "72338",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 18:31:07",
-        "duracion_min": 19.3539709,
-        "tamano": 866891
-    },
-    {
-        "id_camda": "72338",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 18:26:09",
-        "duracion_min": 4.979362433333334,
-        "tamano": 866891
-    },
-    {
-        "id_camda": "72337",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 17:54:09",
-        "duracion_min": 31.988467083333333,
-        "tamano": 325871
-    },
-    {
-        "id_camda": "72336",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 17:46:45",
-        "duracion_min": 7.408155816666667,
-        "tamano": 379389
-    },
-    {
-        "id_camda": "72335",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 17:38:48",
-        "duracion_min": 7.947726149999999,
-        "tamano": 396867
-    },
-    {
-        "id_camda": "72334",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 17:31:25",
-        "duracion_min": 7.387180266666666,
-        "tamano": 253747
-    },
-    {
-        "id_camda": "72333",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 17:19:57",
-        "duracion_min": 11.45853925,
-        "tamano": 564976
-    },
-    {
-        "id_camda": "72332",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 17:00:50",
-        "duracion_min": 19.117979216666665,
-        "tamano": 505054
-    },
-    {
-        "id_camda": "72332",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 16:55:30",
-        "duracion_min": 5.341952216666667,
-        "tamano": 505054
-    },
-    {
-        "id_camda": "72331",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 16:39:28",
-        "duracion_min": 16.018091083333335,
-        "tamano": 519078
-    },
-    {
-        "id_camda": "72330",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 16:28:33",
-        "duracion_min": 10.915576566666665,
-        "tamano": 439470
-    },
-    {
-        "id_camda": "72329",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 16:16:08",
-        "duracion_min": 12.423627933333334,
-        "tamano": 501905
-    },
-    {
-        "id_camda": "72328",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 15:58:34",
-        "duracion_min": 17.5603635,
-        "tamano": 522661
-    },
-    {
-        "id_camda": "72327",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 15:44:14",
-        "duracion_min": 14.336169433333334,
-        "tamano": 778830
-    },
-    {
-        "id_camda": "72326",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 15:32:32",
-        "duracion_min": 11.712510933333334,
-        "tamano": 460719
-    },
-    {
-        "id_camda": "72325",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 15:20:25",
-        "duracion_min": 12.105590416666667,
-        "tamano": 568038
-    },
-    {
-        "id_camda": "72325",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 15:14:34",
-        "duracion_min": 5.861403466666667,
-        "tamano": 568038
-    },
-    {
-        "id_camda": "72324",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 14:56:13",
-        "duracion_min": 18.33405825,
-        "tamano": 682684
-    },
-    {
-        "id_camda": "72323",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 14:45:07",
-        "duracion_min": 11.1122855,
-        "tamano": 550208
-    },
-    {
-        "id_camda": "72322",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 14:35:49",
-        "duracion_min": 9.296191683333332,
-        "tamano": 196807
-    },
-    {
-        "id_camda": "72321",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 14:21:56",
-        "duracion_min": 13.882130733333334,
-        "tamano": 378336
-    },
-    {
-        "id_camda": "72320",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 14:07:33",
-        "duracion_min": 14.384363500000001,
-        "tamano": 521180
-    },
-    {
-        "id_camda": "72319",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 13:51:11",
-        "duracion_min": 16.3591455,
-        "tamano": 868996
-    },
-    {
-        "id_camda": "72318",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 13:34:40",
-        "duracion_min": 16.5264755,
-        "tamano": 809894
-    },
-    {
-        "id_camda": "72317",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 13:16:49",
-        "duracion_min": 17.84401881666667,
-        "tamano": 731107
-    },
-    {
-        "id_camda": "72316",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 13:01:03",
-        "duracion_min": 15.7765653,
-        "tamano": 587454
-    },
-    {
-        "id_camda": "72316",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 12:55:48",
-        "duracion_min": 5.251431883333334,
-        "tamano": 587454
-    },
-    {
-        "id_camda": "72315",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 12:41:13",
-        "duracion_min": 14.574414266666668,
-        "tamano": 479137
-    },
-    {
-        "id_camda": "72314",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 12:24:19",
-        "duracion_min": 16.89925505,
-        "tamano": 591363
-    },
-    {
-        "id_camda": "72313",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 12:03:48",
-        "duracion_min": 20.511678383333333,
-        "tamano": 558408
-    },
-    {
-        "id_camda": "72313",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 11:57:17",
-        "duracion_min": 6.5313189666666664,
-        "tamano": 558408
-    },
-    {
-        "id_camda": "72312",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 11:43:05",
-        "duracion_min": 14.197964616666667,
-        "tamano": 536523
-    },
-    {
-        "id_camda": "72311",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 11:27:58",
-        "duracion_min": 15.109005966666667,
-        "tamano": 532964
-    },
-    {
-        "id_camda": "72310",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 11:14:04",
-        "duracion_min": 13.904900933333332,
-        "tamano": 447568
-    },
-    {
-        "id_camda": "72309",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 10:56:17",
-        "duracion_min": 17.780435716666666,
-        "tamano": 507005
-    },
-    {
-        "id_camda": "72308",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 10:41:52",
-        "duracion_min": 14.421524699999999,
-        "tamano": 378191
-    },
-    {
-        "id_camda": "72307",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 10:32:16",
-        "duracion_min": 9.595964400000002,
-        "tamano": 260781
-    },
-    {
-        "id_camda": "72306",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 10:24:23",
-        "duracion_min": 7.8818339,
-        "tamano": 291176
-    },
-    {
-        "id_camda": "72305",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 10:15:45",
-        "duracion_min": 8.627626383333334,
-        "tamano": 237233
-    },
-    {
-        "id_camda": "72305",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 10:12:03",
-        "duracion_min": 3.714076716666667,
-        "tamano": 237233
-    },
-    {
-        "id_camda": "72304",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 10:05:14",
-        "duracion_min": 6.804725633333334,
-        "tamano": 235410
-    },
-    {
-        "id_camda": "72303",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 09:57:26",
-        "duracion_min": 7.799827766666667,
-        "tamano": 185119
-    },
-    {
-        "id_camda": "72302",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 09:49:17",
-        "duracion_min": 8.15039775,
-        "tamano": 239721
-    },
-    {
-        "id_camda": "72301",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 09:38:05",
-        "duracion_min": 11.205479583333332,
-        "tamano": 730291
-    },
-    {
-        "id_camda": "72300",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 09:24:06",
-        "duracion_min": 13.98151515,
-        "tamano": 605209
-    },
-    {
-        "id_camda": "72299",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 09:15:49",
-        "duracion_min": 8.2866047,
-        "tamano": 615271
-    },
-    {
-        "id_camda": "72298",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 09:09:12",
-        "duracion_min": 6.61454795,
-        "tamano": 703500
-    },
-    {
-        "id_camda": "72297",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 09:03:21",
-        "duracion_min": 5.8534353,
-        "tamano": 303295
-    },
-    {
-        "id_camda": "72296",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:58:35",
-        "duracion_min": 4.769565316666667,
-        "tamano": 206742
-    },
-    {
-        "id_camda": "72295",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:53:45",
-        "duracion_min": 4.82589505,
-        "tamano": 237801
-    },
-    {
-        "id_camda": "72294",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:48:24",
-        "duracion_min": 5.34837295,
-        "tamano": 295250
-    },
-    {
-        "id_camda": "72293",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:43:52",
-        "duracion_min": 4.5371846,
-        "tamano": 454573
-    },
-    {
-        "id_camda": "72292",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:40:14",
-        "duracion_min": 3.6329067833333335,
-        "tamano": 452689
-    },
-    {
-        "id_camda": "72291",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:36:24",
-        "duracion_min": 3.8296325,
-        "tamano": 484796
-    },
-    {
-        "id_camda": "72290",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:32:37",
-        "duracion_min": 3.792134283333333,
-        "tamano": 504839
-    },
-    {
-        "id_camda": "72289",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:27:59",
-        "duracion_min": 4.633020233333334,
-        "tamano": 291223
-    },
-    {
-        "id_camda": "72288",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:23:04",
-        "duracion_min": 4.914518183333333,
-        "tamano": 194542
-    },
-    {
-        "id_camda": "72287",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:18:33",
-        "duracion_min": 4.51676395,
-        "tamano": 266541
-    },
-    {
-        "id_camda": "72286",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:13:41",
-        "duracion_min": 4.857986133333333,
-        "tamano": 232079
-    },
-    {
-        "id_camda": "72285",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:08:55",
-        "duracion_min": 4.777067216666667,
-        "tamano": 319259
-    },
-    {
-        "id_camda": "72284",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 08:03:43",
-        "duracion_min": 5.193645500000001,
-        "tamano": 226978
-    },
-    {
-        "id_camda": "72283",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:59:48",
-        "duracion_min": 3.9123714,
-        "tamano": 1037317
-    },
-    {
-        "id_camda": "72282",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:55:13",
-        "duracion_min": 4.58610175,
-        "tamano": 289810
-    },
-    {
-        "id_camda": "72281",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:51:35",
-        "duracion_min": 3.6394757833333333,
-        "tamano": 1476303
-    },
-    {
-        "id_camda": "72280",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:47:32",
-        "duracion_min": 4.052162683333333,
-        "tamano": 522582
-    },
-    {
-        "id_camda": "72279",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:43:21",
-        "duracion_min": 4.173876966666667,
-        "tamano": 390466
-    },
-    {
-        "id_camda": "72278",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:39:29",
-        "duracion_min": 3.869441283333333,
-        "tamano": 394163
-    },
-    {
-        "id_camda": "72277",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:35:09",
-        "duracion_min": 4.338064950000001,
-        "tamano": 448038
-    },
-    {
-        "id_camda": "72276",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:30:37",
-        "duracion_min": 4.535383133333334,
-        "tamano": 642316
-    },
-    {
-        "id_camda": "72275",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:25:03",
-        "duracion_min": 5.563672816666667,
-        "tamano": 547460
-    },
-    {
-        "id_camda": "72274",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:19:22",
-        "duracion_min": 5.6725399,
-        "tamano": 668426
-    },
-    {
-        "id_camda": "72273",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:13:15",
-        "duracion_min": 6.1182885,
-        "tamano": 438746
-    },
-    {
-        "id_camda": "72272",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:05:59",
-        "duracion_min": 7.2798407166666665,
-        "tamano": 313280
-    },
-    {
-        "id_camda": "72271",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 07:00:37",
-        "duracion_min": 5.355988516666667,
-        "tamano": 537747
-    },
-    {
-        "id_camda": "72270",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:55:58",
-        "duracion_min": 4.660040983333333,
-        "tamano": 650421
-    },
-    {
-        "id_camda": "72269",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:52:17",
-        "duracion_min": 3.6689377666666667,
-        "tamano": 613279
-    },
-    {
-        "id_camda": "72268",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:48:41",
-        "duracion_min": 3.60594085,
-        "tamano": 761247
-    },
-    {
-        "id_camda": "72267",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:44:39",
-        "duracion_min": 4.029705,
-        "tamano": 518823
-    },
-    {
-        "id_camda": "72266",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:41:00",
-        "duracion_min": 3.6572153666666667,
-        "tamano": 612177
-    },
-    {
-        "id_camda": "72265",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:35:57",
-        "duracion_min": 5.05405435,
-        "tamano": 198061
-    },
-    {
-        "id_camda": "72264",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:30:54",
-        "duracion_min": 5.035637566666667,
-        "tamano": 199412
-    },
-    {
-        "id_camda": "72263",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:25:03",
-        "duracion_min": 5.862562466666666,
-        "tamano": 289845
-    },
-    {
-        "id_camda": "72262",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:19:00",
-        "duracion_min": 6.045763016666667,
-        "tamano": 201834
-    },
-    {
-        "id_camda": "72261",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:15:11",
-        "duracion_min": 3.821194583333333,
-        "tamano": 1522405
-    },
-    {
-        "id_camda": "72260",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:10:08",
-        "duracion_min": 5.0381512666666675,
-        "tamano": 224404
-    },
-    {
-        "id_camda": "72259",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 06:04:56",
-        "duracion_min": 5.20267015,
-        "tamano": 183083
-    },
-    {
-        "id_camda": "72258",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:59:42",
-        "duracion_min": 5.236075866666667,
-        "tamano": 189501
-    },
-    {
-        "id_camda": "72257",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:56:12",
-        "duracion_min": 3.4972271333333333,
-        "tamano": 1011221
-    },
-    {
-        "id_camda": "72256",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:52:30",
-        "duracion_min": 3.7016185,
-        "tamano": 1015079
-    },
-    {
-        "id_camda": "72255",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:48:02",
-        "duracion_min": 4.4630778,
-        "tamano": 779188
-    },
-    {
-        "id_camda": "72254",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:39:55",
-        "duracion_min": 8.11913095,
-        "tamano": 778490
-    },
-    {
-        "id_camda": "72253",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:36:09",
-        "duracion_min": 3.766222866666667,
-        "tamano": 2944568
-    },
-    {
-        "id_camda": "72252",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:32:54",
-        "duracion_min": 3.259618816666667,
-        "tamano": 1522405
-    },
-    {
-        "id_camda": "72251",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:29:23",
-        "duracion_min": 3.5083232666666664,
-        "tamano": 1031850
-    },
-    {
-        "id_camda": "72250",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:25:45",
-        "duracion_min": 3.63436375,
-        "tamano": 1516618
-    },
-    {
-        "id_camda": "72249",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:22:09",
-        "duracion_min": 3.59401175,
-        "tamano": 762793
-    },
-    {
-        "id_camda": "72248",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:17:57",
-        "duracion_min": 4.212038783333333,
-        "tamano": 775880
-    },
-    {
-        "id_camda": "72247",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:14:27",
-        "duracion_min": 3.4875663500000003,
-        "tamano": 1516618
-    },
-    {
-        "id_camda": "72246",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:10:26",
-        "duracion_min": 4.024913199999999,
-        "tamano": 1522405
-    },
-    {
-        "id_camda": "72245",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:06:53",
-        "duracion_min": 3.5481287833333335,
-        "tamano": 1031665
-    },
-    {
-        "id_camda": "72244",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Tuesday",
-        "inicio_dt": "2026-07-14 05:03:17",
-        "duracion_min": 3.6021623833333334,
-        "tamano": 1016915
-    },
-    {
-        "id_camda": "72189",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 23:09:05",
-        "duracion_min": 24.304208416666665,
-        "tamano": 1304541
-    },
-    {
-        "id_camda": "72188",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:55:07",
-        "duracion_min": 13.974787233333332,
-        "tamano": 407067
-    },
-    {
-        "id_camda": "72187",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:45:34",
-        "duracion_min": 9.540149283333333,
-        "tamano": 295456
-    },
-    {
-        "id_camda": "72186",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:38:24",
-        "duracion_min": 7.170839433333333,
-        "tamano": 259442
-    },
-    {
-        "id_camda": "72186",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:33:51",
-        "duracion_min": 4.561799566666666,
-        "tamano": 259442
-    },
-    {
-        "id_camda": "72185",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:27:44",
-        "duracion_min": 6.106865099999999,
-        "tamano": 227298
-    },
-    {
-        "id_camda": "72184",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:21:25",
-        "duracion_min": 6.3211833833333335,
-        "tamano": 309388
-    },
-    {
-        "id_camda": "72183",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:15:22",
-        "duracion_min": 6.04987265,
-        "tamano": 455772
-    },
-    {
-        "id_camda": "72182",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 22:07:35",
-        "duracion_min": 7.778011916666667,
-        "tamano": 322397
-    },
-    {
-        "id_camda": "72181",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 21:50:12",
-        "duracion_min": 17.380129166666666,
-        "tamano": 695096
-    },
-    {
-        "id_camda": "72180",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 21:16:39",
-        "duracion_min": 33.55614015,
-        "tamano": 2997121
-    },
-    {
-        "id_camda": "72179",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 20:54:56",
-        "duracion_min": 21.719217833333335,
-        "tamano": 1697183
-    },
-    {
-        "id_camda": "72179",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 20:48:45",
-        "duracion_min": 6.1885798,
-        "tamano": 1697183
-    },
-    {
-        "id_camda": "72178",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 20:21:50",
-        "duracion_min": 26.90587855,
-        "tamano": 1459483
-    },
-    {
-        "id_camda": "72177",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 20:05:03",
-        "duracion_min": 16.779214,
-        "tamano": 1415382
-    },
-    {
-        "id_camda": "72176",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 19:51:17",
-        "duracion_min": 13.773123550000001,
-        "tamano": 397268
-    },
-    {
-        "id_camda": "72176",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 19:47:48",
-        "duracion_min": 3.4917839,
-        "tamano": 397268
-    },
-    {
-        "id_camda": "72175",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 19:24:43",
-        "duracion_min": 23.071877283333333,
-        "tamano": 1611547
-    },
-    {
-        "id_camda": "72174",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 19:09:16",
-        "duracion_min": 15.4486311,
-        "tamano": 639452
-    },
-    {
-        "id_camda": "72173",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 18:56:22",
-        "duracion_min": 12.8982994,
-        "tamano": 568875
-    },
-    {
-        "id_camda": "72172",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 18:47:38",
-        "duracion_min": 8.745213766666666,
-        "tamano": 380000
-    },
-    {
-        "id_camda": "72171",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 18:39:03",
-        "duracion_min": 8.585118099999999,
-        "tamano": 288920
-    },
-    {
-        "id_camda": "72170",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 18:28:53",
-        "duracion_min": 10.155708066666667,
-        "tamano": 409302
-    },
-    {
-        "id_camda": "72169",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 18:13:08",
-        "duracion_min": 15.7506267,
-        "tamano": 559921
-    },
-    {
-        "id_camda": "72168",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 18:00:39",
-        "duracion_min": 12.4893838,
-        "tamano": 481637
-    },
-    {
-        "id_camda": "72167",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 17:51:15",
-        "duracion_min": 9.39258295,
-        "tamano": 312501
-    },
-    {
-        "id_camda": "72166",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 17:41:22",
-        "duracion_min": 9.890925583333335,
-        "tamano": 375314
-    },
-    {
-        "id_camda": "72166",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 17:37:06",
-        "duracion_min": 4.27163325,
-        "tamano": 375314
-    },
-    {
-        "id_camda": "72165",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 17:22:29",
-        "duracion_min": 14.600379783333333,
-        "tamano": 393313
-    },
-    {
-        "id_camda": "72164",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 17:09:08",
-        "duracion_min": 13.361135866666666,
-        "tamano": 619946
-    },
-    {
-        "id_camda": "72163",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 16:55:52",
-        "duracion_min": 13.265707966666668,
-        "tamano": 660193
-    },
-    {
-        "id_camda": "72163",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 16:49:25",
-        "duracion_min": 6.456109716666666,
-        "tamano": 660193
-    },
-    {
-        "id_camda": "72162",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 16:28:53",
-        "duracion_min": 20.517576983333335,
-        "tamano": 424499
-    },
-    {
-        "id_camda": "72161",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 16:16:56",
-        "duracion_min": 11.965427183333333,
-        "tamano": 459506
-    },
-    {
-        "id_camda": "72161",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 16:08:30",
-        "duracion_min": 8.4336625,
-        "tamano": 459506
-    },
-    {
-        "id_camda": "72160",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:59:14",
-        "duracion_min": 9.250312766666667,
-        "tamano": 454515
-    },
-    {
-        "id_camda": "72160",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:55:08",
-        "duracion_min": 4.1163539,
-        "tamano": 454515
-    },
-    {
-        "id_camda": "72159",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:43:36",
-        "duracion_min": 11.5247426,
-        "tamano": 422903
-    },
-    {
-        "id_camda": "72159",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:38:45",
-        "duracion_min": 4.858590733333333,
-        "tamano": 422903
-    },
-    {
-        "id_camda": "72158",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:28:39",
-        "duracion_min": 10.093312016666665,
-        "tamano": 288229
-    },
-    {
-        "id_camda": "72157",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:20:28",
-        "duracion_min": 8.17458,
-        "tamano": 250262
-    },
-    {
-        "id_camda": "72156",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:12:06",
-        "duracion_min": 8.3693515,
-        "tamano": 248762
-    },
-    {
-        "id_camda": "72155",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 15:02:58",
-        "duracion_min": 9.144863516666668,
-        "tamano": 291409
-    },
-    {
-        "id_camda": "72154",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 14:54:18",
-        "duracion_min": 8.663907483333332,
-        "tamano": 297125
-    },
-    {
-        "id_camda": "72153",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 14:48:05",
-        "duracion_min": 6.218762766666667,
-        "tamano": 283421
-    },
-    {
-        "id_camda": "72152",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 14:41:47",
-        "duracion_min": 6.289427,
-        "tamano": 291114
-    },
-    {
-        "id_camda": "72151",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 14:33:55",
-        "duracion_min": 7.863301016666667,
-        "tamano": 349758
-    },
-    {
-        "id_camda": "72150",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 14:22:26",
-        "duracion_min": 11.485637599999999,
-        "tamano": 443686
-    },
-    {
-        "id_camda": "72149",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 14:07:47",
-        "duracion_min": 14.651362333333333,
-        "tamano": 398408
-    },
-    {
-        "id_camda": "72148",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 13:55:29",
-        "duracion_min": 12.296870250000001,
-        "tamano": 570787
-    },
-    {
-        "id_camda": "72147",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 13:38:08",
-        "duracion_min": 17.351507599999998,
-        "tamano": 643458
-    },
-    {
-        "id_camda": "72146",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 13:24:12",
-        "duracion_min": 13.93635615,
-        "tamano": 493813
-    },
-    {
-        "id_camda": "72145",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 13:12:32",
-        "duracion_min": 11.675367333333332,
-        "tamano": 495886
-    },
-    {
-        "id_camda": "72144",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 12:59:32",
-        "duracion_min": 12.994692066666666,
-        "tamano": 539802
-    },
-    {
-        "id_camda": "72143",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 12:46:23",
-        "duracion_min": 13.145597383333333,
-        "tamano": 488573
-    },
-    {
-        "id_camda": "72142",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 12:36:17",
-        "duracion_min": 10.09807715,
-        "tamano": 395405
-    },
-    {
-        "id_camda": "72141",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 12:27:06",
-        "duracion_min": 9.187126483333333,
-        "tamano": 344106
-    },
-    {
-        "id_camda": "72140",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 12:16:02",
-        "duracion_min": 11.066194683333332,
-        "tamano": 376038
-    },
-    {
-        "id_camda": "72139",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 12:03:33",
-        "duracion_min": 12.478461033333334,
-        "tamano": 312687
-    },
-    {
-        "id_camda": "72138",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 11:54:58",
-        "duracion_min": 8.584061966666667,
-        "tamano": 305304
-    },
-    {
-        "id_camda": "72137",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 11:45:27",
-        "duracion_min": 9.519302016666668,
-        "tamano": 312636
-    },
-    {
-        "id_camda": "72136",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 11:31:56",
-        "duracion_min": 13.521279566666667,
-        "tamano": 213254
-    },
-    {
-        "id_camda": "72135",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 11:18:08",
-        "duracion_min": 13.791378783333332,
-        "tamano": 226632
-    },
-    {
-        "id_camda": "72134",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 11:04:46",
-        "duracion_min": 13.375115200000002,
-        "tamano": 388318
-    },
-    {
-        "id_camda": "72133",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 10:41:12",
-        "duracion_min": 23.565086483333335,
-        "tamano": 1840142
-    },
-    {
-        "id_camda": "72133",
-        "tipo": "Manual",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 10:36:18",
-        "duracion_min": 4.909020616666667,
-        "tamano": 1840142
-    },
-    {
-        "id_camda": "72132",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 10:21:14",
-        "duracion_min": 15.06010545,
-        "tamano": 300032
-    },
-    {
-        "id_camda": "72131",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 10:09:05",
-        "duracion_min": 12.1528676,
-        "tamano": 282666
-    },
-    {
-        "id_camda": "72130",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 10:01:04",
-        "duracion_min": 8.0069086,
-        "tamano": 283621
-    },
-    {
-        "id_camda": "72129",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 09:53:07",
-        "duracion_min": 7.952627116666666,
-        "tamano": 268154
-    },
-    {
-        "id_camda": "72128",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 09:44:03",
-        "duracion_min": 9.061902733333334,
-        "tamano": 670821
-    },
-    {
-        "id_camda": "72127",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 09:30:33",
-        "duracion_min": 13.501547866666668,
-        "tamano": 591725
-    },
-    {
-        "id_camda": "72126",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 09:22:00",
-        "duracion_min": 8.55426925,
-        "tamano": 518280
-    },
-    {
-        "id_camda": "72125",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 09:15:53",
-        "duracion_min": 6.117230216666667,
-        "tamano": 642194
-    },
-    {
-        "id_camda": "72124",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 09:08:33",
-        "duracion_min": 7.33914325,
-        "tamano": 775905
-    },
-    {
-        "id_camda": "72123",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 09:01:26",
-        "duracion_min": 7.108640233333333,
-        "tamano": 193194
-    },
-    {
-        "id_camda": "72122",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:56:29",
-        "duracion_min": 4.94818275,
-        "tamano": 349144
-    },
-    {
-        "id_camda": "72121",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:50:54",
-        "duracion_min": 5.594839483333333,
-        "tamano": 209165
-    },
-    {
-        "id_camda": "72120",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:45:13",
-        "duracion_min": 5.675003183333333,
-        "tamano": 226365
-    },
-    {
-        "id_camda": "72119",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:41:34",
-        "duracion_min": 3.6538564166666663,
-        "tamano": 767150
-    },
-    {
-        "id_camda": "72118",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:35:08",
-        "duracion_min": 6.4327367833333335,
-        "tamano": 185518
-    },
-    {
-        "id_camda": "72117",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:30:10",
-        "duracion_min": 4.963783783333333,
-        "tamano": 361002
-    },
-    {
-        "id_camda": "72116",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:24:39",
-        "duracion_min": 5.522496516666666,
-        "tamano": 208454
-    },
-    {
-        "id_camda": "72115",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:21:02",
-        "duracion_min": 3.6089770999999997,
-        "tamano": 622056
-    },
-    {
-        "id_camda": "72114",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:15:43",
-        "duracion_min": 5.3175993833333335,
-        "tamano": 266938
-    },
-    {
-        "id_camda": "72113",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:10:18",
-        "duracion_min": 5.422122066666666,
-        "tamano": 219295
-    },
-    {
-        "id_camda": "72112",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 08:04:16",
-        "duracion_min": 6.033751816666666,
-        "tamano": 247111
-    },
-    {
-        "id_camda": "72111",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:59:59",
-        "duracion_min": 4.2810561,
-        "tamano": 770065
-    },
-    {
-        "id_camda": "72110",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:56:02",
-        "duracion_min": 3.9501428833333336,
-        "tamano": 1012608
-    },
-    {
-        "id_camda": "72109",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:52:06",
-        "duracion_min": 3.92437765,
-        "tamano": 1038289
-    },
-    {
-        "id_camda": "72108",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:48:19",
-        "duracion_min": 3.7936548500000002,
-        "tamano": 1032265
-    },
-    {
-        "id_camda": "72107",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:43:49",
-        "duracion_min": 4.505208049999999,
-        "tamano": 389413
-    },
-    {
-        "id_camda": "72106",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:39:25",
-        "duracion_min": 4.398118316666666,
-        "tamano": 519497
-    },
-    {
-        "id_camda": "72105",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:34:21",
-        "duracion_min": 5.06110105,
-        "tamano": 630430
-    },
-    {
-        "id_camda": "72104",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:28:50",
-        "duracion_min": 5.522151983333333,
-        "tamano": 550643
-    },
-    {
-        "id_camda": "72103",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:21:48",
-        "duracion_min": 7.020879283333333,
-        "tamano": 435806
-    },
-    {
-        "id_camda": "72102",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:14:45",
-        "duracion_min": 7.060185116666667,
-        "tamano": 371774
-    },
-    {
-        "id_camda": "72101",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:07:47",
-        "duracion_min": 6.964785283333333,
-        "tamano": 311609
-    },
-    {
-        "id_camda": "72100",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 07:01:42",
-        "duracion_min": 6.0847378,
-        "tamano": 465852
-    },
-    {
-        "id_camda": "72099",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:55:49",
-        "duracion_min": 5.874278416666667,
-        "tamano": 545453
-    },
-    {
-        "id_camda": "72098",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:51:39",
-        "duracion_min": 4.168480316666667,
-        "tamano": 764911
-    },
-    {
-        "id_camda": "72097",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:47:10",
-        "duracion_min": 4.482665433333334,
-        "tamano": 510707
-    },
-    {
-        "id_camda": "72096",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:40:09",
-        "duracion_min": 7.01949995,
-        "tamano": 201698
-    },
-    {
-        "id_camda": "72095",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:30:14",
-        "duracion_min": 9.9242941,
-        "tamano": 192742
-    },
-    {
-        "id_camda": "72094",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:23:40",
-        "duracion_min": 6.556131183333333,
-        "tamano": 229285
-    },
-    {
-        "id_camda": "72093",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:18:13",
-        "duracion_min": 5.4592791,
-        "tamano": 397439
-    },
-    {
-        "id_camda": "72092",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:14:25",
-        "duracion_min": 3.7897186666666665,
-        "tamano": 778079
-    },
-    {
-        "id_camda": "72091",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:10:39",
-        "duracion_min": 3.7751652166666667,
-        "tamano": 1012608
-    },
-    {
-        "id_camda": "72090",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:07:03",
-        "duracion_min": 3.6039717166666665,
-        "tamano": 1014536
-    },
-    {
-        "id_camda": "72089",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 06:03:14",
-        "duracion_min": 3.8142864333333337,
-        "tamano": 518025
-    },
-    {
-        "id_camda": "72088",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:59:26",
-        "duracion_min": 3.799418766666667,
-        "tamano": 1515805
-    },
-    {
-        "id_camda": "72087",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:55:49",
-        "duracion_min": 3.613912083333333,
-        "tamano": 1521591
-    },
-    {
-        "id_camda": "72086",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:52:02",
-        "duracion_min": 3.7850508666666665,
-        "tamano": 775186
-    },
-    {
-        "id_camda": "72085",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:48:17",
-        "duracion_min": 3.7490418333333335,
-        "tamano": 1515805
-    },
-    {
-        "id_camda": "72084",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:44:42",
-        "duracion_min": 3.57698205,
-        "tamano": 514772
-    },
-    {
-        "id_camda": "72083",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:41:08",
-        "duracion_min": 3.572116133333333,
-        "tamano": 505703
-    },
-    {
-        "id_camda": "72082",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:37:43",
-        "duracion_min": 3.416508,
-        "tamano": 1515805
-    },
-    {
-        "id_camda": "72081",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:34:25",
-        "duracion_min": 3.303032066666667,
-        "tamano": 1521591
-    },
-    {
-        "id_camda": "72080",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:30:42",
-        "duracion_min": 3.7200875,
-        "tamano": 775186
-    },
-    {
-        "id_camda": "72079",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:27:11",
-        "duracion_min": 3.5130259833333333,
-        "tamano": 1521591
-    },
-    {
-        "id_camda": "72078",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:23:10",
-        "duracion_min": 4.018782366666667,
-        "tamano": 1016372
-    },
-    {
-        "id_camda": "72077",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:19:43",
-        "duracion_min": 3.4417507333333335,
-        "tamano": 1031416
-    },
-    {
-        "id_camda": "72076",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:16:12",
-        "duracion_min": 3.5262408166666663,
-        "tamano": 1503796
-    },
-    {
-        "id_camda": "72075",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:12:51",
-        "duracion_min": 3.3385556666666667,
-        "tamano": 1515805
-    },
-    {
-        "id_camda": "72074",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:09:15",
-        "duracion_min": 3.6083118,
-        "tamano": 775115
-    },
-    {
-        "id_camda": "72073",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:05:52",
-        "duracion_min": 3.3832351333333337,
-        "tamano": 1521591
-    },
-    {
-        "id_camda": "72072",
-        "tipo": "Automatica",
-        "a\u00f1o_semana": "2026-W29",
-        "dia_nombre_en": "Monday",
-        "inicio_dt": "2026-07-13 05:02:33",
-        "duracion_min": 3.3186449999999996,
-        "tamano": 1012515
     }
 ]
