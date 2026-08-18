@@ -1,5 +1,14 @@
 [
     {
+        "id_camda": "77002",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W34",
+        "dia_nombre_en": "Tuesday",
+        "inicio_dt": "2026-08-18 07:08:29",
+        "duracion_min": 3.3745574499999997,
+        "tamano": 692266
+    },
+    {
         "id_camda": "77001",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W34",
