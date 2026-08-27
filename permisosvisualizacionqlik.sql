@@ -64,6 +64,24 @@ UNION ALL
     af.internalcodefund AS "REDUCTION_CLIENTE",
     'NFQ'::text AS tipo_cliente,
     NULL::text AS pf_code
+   FROM ( SELECT 'T000362'::text AS login_) ucv
+     JOIN exp_s3.api_fund af ON 1 = 1
+UNION ALL
+ SELECT DISTINCT 'USER'::text AS "ROL_QS",
+    'CLOUD\'::text || ucv.login_ AS "USERID",
+    af.fundcnpj AS "REDUCTION_CNPJ",
+    af.internalcodefund AS "REDUCTION_CLIENTE",
+    'NFQ'::text AS tipo_cliente,
+    NULL::text AS pf_code
+   FROM ( SELECT 'T000367'::text AS login_) ucv
+     JOIN exp_s3.api_fund af ON 1 = 1
+UNION ALL
+ SELECT DISTINCT 'USER'::text AS "ROL_QS",
+    'CLOUD\'::text || ucv.login_ AS "USERID",
+    af.fundcnpj AS "REDUCTION_CNPJ",
+    af.internalcodefund AS "REDUCTION_CLIENTE",
+    'NFQ'::text AS tipo_cliente,
+    NULL::text AS pf_code
    FROM ( SELECT 'svc.prd.qlikrobo'::text AS login_) ucv
      JOIN exp_s3.api_fund af ON 1 = 1
 UNION ALL
