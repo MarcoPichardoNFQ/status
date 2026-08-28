@@ -1,6 +1,15 @@
 [
     {
         "id_camda": "79796",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W35",
+        "dia_nombre_en": "Thursday",
+        "inicio_dt": "2026-08-27 23:50:18",
+        "duracion_min": 17.9469417,
+        "tamano": 719312
+    },
+    {
+        "id_camda": "79796",
         "tipo": "Manual",
         "a\u00f1o_semana": "2026-W35",
         "dia_nombre_en": "Thursday",
