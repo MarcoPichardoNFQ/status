@@ -623,7 +623,7 @@ function escapeHtml(value) {
 function formatNumber(value, decimals = 0) {
     const n = Number(value);
     if (!Number.isFinite(n)) return "--";
-    return n.toLocaleString("es-MX", {
+    return n.toLocaleString("pt-BR", {
         minimumFractionDigits: decimals,
         maximumFractionDigits: decimals
     });
@@ -1279,7 +1279,7 @@ function renderCorrelationChart(metrics) {
     document.getElementById("correlation-stats").innerHTML = `
         <span>r = <strong class="text-white">${metrics.correlation.toFixed(3)}</strong></span>
         <span>|r| = <strong class="text-white">${Math.abs(metrics.correlation).toFixed(3)}</strong></span>
-        <span>n = <strong class="text-white">${points.length.toLocaleString("es-MX")}</strong></span>
+        <span>n = <strong class="text-white">${points.length.toLocaleString("pt-BR")}</strong></span>
     `;
 }
 function histogram(values, bins = 10) {
@@ -1821,7 +1821,7 @@ function renderAudit() {
     });
 
     // 3. Pintamos la tabla con los datos ya filtrados
-    document.getElementById("audit-count").textContent = filteredRows.length.toLocaleString("es-MX");
+    document.getElementById("audit-count").textContent = filteredRows.length.toLocaleString("pt-BR");
 
     const limit = Math.min(filteredRows.length, 500);
 
@@ -1848,7 +1848,7 @@ function renderAudit() {
     }).join("") + (filteredRows.length > 500 ? `
         <tr>
             <td colspan="7" class="px-5 py-4 text-center text-xs text-slate-600 font-mono">
-                Mostrando 500 de ${filteredRows.length.toLocaleString("es-MX")} registros filtrados.
+                Mostrando 500 de ${filteredRows.length.toLocaleString("pt-BR")} registros filtrados.
             </td>
         </tr>` : "");
 }
@@ -1871,7 +1871,7 @@ function updateFreshness() {
     }
 
     document.getElementById("data-timestamp").textContent =
-        date.toLocaleString("es-MX", { dateStyle:"short", timeStyle:"short" });
+        date.toLocaleString("pt-BR", { dateStyle:"short", timeStyle:"short" });
 
     const ageMinutes = Math.max(0, (Date.now() - date.getTime()) / 60000);
     const dot = document.getElementById("freshness-dot");
