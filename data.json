@@ -11,16 +11,6 @@
             "pasos": "S3 necesita compartir todos los conjuntos de archivos con informaciones."
         },
         {
-            "tema": "Tiempos de carga",
-            "flujo": "En curso",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Ajustes para disminucion de tiempos",
-            "comentarios": "Se han realizado ajustes a proceso de carga NFQ.\nEjecuciones  en  < 5 min.",
-            "fecha": "11/07/2026",
-            "pasos": "Ajuste de mapeo cart_pos_rf_t"
-        },
-        {
             "tema": "Option",
             "flujo": "En curso",
             "entorno": "PRD",
@@ -31,16 +21,6 @@
             "pasos": "En monitoreamento para carga a PRD"
         },
         {
-            "tema": "API",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "PORTAL - Activos de futuros",
-            "comentarios": "Fueron realizados dos ustes en la logica de API:\nCantidad de registros a ser mostrados\nHomologacion de formato SAC/Megara",
-            "fecha": "11/08/2026",
-            "pasos": "N / A"
-        },
-        {
             "tema": "Interfaces",
             "flujo": "En curso",
             "entorno": "PRD",
@@ -49,6 +29,36 @@
             "comentarios": "Valores de campos demsiado grandes impiden insercion en tablas de la ddbb",
             "fecha": "25/08/2026",
             "pasos": "S3 en comunicación con el usaurio"
+        },
+        {
+            "tema": "Interfaces",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3 / VERMEG",
+            "tarea": "CashTransferORder",
+            "comentarios": "En desarrollo de nueva estructrua de xsd",
+            "fecha": "08/09/2026",
+            "pasos": "S3 validara ajuste"
+        },
+        {
+            "tema": "Interfaces",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3 / VERMEG",
+            "tarea": "Asset",
+            "comentarios": "Cambio de tipo de dato para todas las interfaces",
+            "fecha": "08/09/2026",
+            "pasos": "NFQ terminará desarrollo"
+        },
+        {
+            "tema": "Interfaces",
+            "flujo": "En curso ",
+            "entorno": "UAT",
+            "inv": "NFQ / S3 / VERMEG",
+            "tarea": "NavBankBalance",
+            "comentarios": "En desarrollo de nueva interfaz",
+            "fecha": "09/09/2026",
+            "pasos": "NFQ terminará desarrollo"
         },
         {
             "tema": "Interfaces",
@@ -75,46 +85,6 @@
             "flujo": "Completado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "Tabla: SAC_FI_POS (para grabar totalizada la posicion para mas de una moneda)",
-            "comentarios": "function_meg_cart_pos_fi_t_cc",
-            "fecha": "20/08/2026",
-            "pasos": "N / A"
-        },
-        {
-            "tema": "Mapementos",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Tabla: SAC_RV_EM_POS_REMUNERACAO (PK duplicada)",
-            "comentarios": "function_meg_sac_pos_rv_em_rem_t",
-            "fecha": "20/08/2026",
-            "pasos": "N / A"
-        },
-        {
-            "tema": "Mapementos",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Tabla: BAS_CAD_EMP (Grabar el campo \"cod_emp\")",
-            "comentarios": "function_meg_sac_stat_bas_cad_emp_t",
-            "fecha": "20/08/2026",
-            "pasos": "N / A"
-        },
-        {
-            "tema": "Mapementos",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Tabla: SAC_RV_EM_POS_TAXA_REGISTRO (Pk duplicada)",
-            "comentarios": "function_meg_sac_stat_rv_em_pos_ta_re_t",
-            "fecha": "21/08/2026",
-            "pasos": "N / A"
-        },
-        {
-            "tema": "Mapementos",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
             "tarea": "Duplicados",
             "comentarios": "Duplicados en mapeo de sac_stat_fu_cotativo_t (4000)",
             "fecha": "26/08/2026",
@@ -134,33 +104,13 @@
         },
         {
             "tema": "Demonstrativo de Caixa",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "\"Error\" en generación",
-            "comentarios": "NFQ fue notificado de un valor no esperado por S3, sin embargo, fue constatado que rflejaba correctamente a la informacion presente en la base de datos",
-            "fecha": "24/08/2026",
-            "pasos": "N / A"
-        },
-        {
-            "tema": "Demonstrativo de Caixa",
             "flujo": "En curso",
             "entorno": "UAT",
             "inv": "NFQ / S3",
             "tarea": "Filtro predeterminado para idioma",
-            "comentarios": "Desarrollo concluido en DEV.",
+            "comentarios": "Desarrollo concluido en DEV.\nDesarrollo concluido en UAT",
             "fecha": "10/08/2026",
             "pasos": "Es necesario ayuda de s3 para  coordinar pruebas de aceptacion"
-        },
-        {
-            "tema": "Demonstrativo de Caixa",
-            "flujo": "En curso",
-            "entorno": "UAT",
-            "inv": "NFQ / S3",
-            "tarea": "Optimizacion",
-            "comentarios": "Se efectuó optimización diminuyendo de los 20 min originales a 2:40 min",
-            "fecha": "12/08/2026",
-            "pasos": "Es necesario coordinacion con s3 para pruebas de datos"
         },
         {
             "tema": "Assincronos",
@@ -171,26 +121,6 @@
             "comentarios": "A la espera de instrucciones por parte de Guilherme ",
             "fecha": "27/05/2026",
             "pasos": "Esperando respuesta de Guilherme"
-        },
-        {
-            "tema": "Estoque Fundos Private",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Relatorios de Estoque",
-            "comentarios": "Todos los informes han sido entregados y validados",
-            "fecha": "27/05/2027",
-            "pasos": "N / A"
-        },
-        {
-            "tema": "Mapa de Evolucao de Cotas",
-            "flujo": "En curso",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Logica de construccion",
-            "comentarios": "Fue compartdo con S3 la logica de construccion del informe ",
-            "fecha": "12/08/2026",
-            "pasos": "N / A"
         },
         {
             "tema": "Operacoes com TRF",
@@ -223,16 +153,6 @@
             "comentarios": "Caida de modulos MEACUSTODY",
             "fecha": "11/08/2026",
             "pasos": "S3 verificará con proovedor"
-        },
-        {
-            "tema": "Nuevo Jira NTT",
-            "flujo": "En curso",
-            "entorno": "N / A ",
-            "inv": "S3 /NFQ / NTT",
-            "tarea": "Asigacion de usuario",
-            "comentarios": "NTT ha implementado nuevo flujo de soporte. A la espera de asigancion de usaurios para NFQ",
-            "fecha": "20/08/206",
-            "pasos": "NTT ompartirá usuario.\nSe alineara con s3 el nuevo flujo a ser realizado"
         }
     ],
     "dbUAT": [
