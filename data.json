@@ -36,7 +36,7 @@
             "entorno": "UAT",
             "inv": "NFQ / S3 / VERMEG",
             "tarea": "CashTransferORder",
-            "comentarios": "En desarrollo de nueva estructrua de xsd",
+            "comentarios": "Desarrollo listo en UAT",
             "fecha": "08/09/2026",
             "pasos": "S3 validara ajuste"
         },
@@ -46,9 +46,9 @@
             "entorno": "UAT",
             "inv": "NFQ / S3 / VERMEG",
             "tarea": "Asset",
-            "comentarios": "Cambio de tipo de dato para todas las interfaces",
+            "comentarios": "Desarrollo listo en UAT",
             "fecha": "08/09/2026",
-            "pasos": "NFQ terminará desarrollo"
+            "pasos": "S3 validara ajuste"
         },
         {
             "tema": "Interfaces",
@@ -56,19 +56,29 @@
             "entorno": "UAT",
             "inv": "NFQ / S3 / VERMEG",
             "tarea": "NavBankBalance",
-            "comentarios": "En desarrollo de nueva interfaz",
+            "comentarios": "Desarrollo listo en UAT",
             "fecha": "09/09/2026",
-            "pasos": "NFQ terminará desarrollo"
+            "pasos": "S3 validara ajuste"
         },
         {
             "tema": "Interfaces",
             "flujo": "En curso",
             "entorno": "PRD",
             "inv": "NFQ / S3 / VERMEG",
-            "tarea": "Client Instruction",
+            "tarea": "Client Instruction Tamaño de campos",
             "comentarios": "Valores de campos demsiado grandes impiden insercion en tablas de la ddbb",
             "fecha": "24/08/2026",
             "pasos": "S3 en comunicación con el usaurio"
+        },
+        {
+            "tema": "Interfaces",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3 / VERMEG",
+            "tarea": "Client Instruction (Pk \"duplicada\")",
+            "comentarios": "En tratamiento para correccion de alores duplicados en mapeos a pedido de Meneses",
+            "fecha": "25/08/2026",
+            "pasos": "NFQ entregará el dia de hoy"
         },
         {
             "tema": "Interfaces",
@@ -79,16 +89,6 @@
             "comentarios": "XML con registros duplicados",
             "fecha": "26/08/2026",
             "pasos": "S3 se encuentra en alaisis con VERMEG"
-        },
-        {
-            "tema": "Mapementos",
-            "flujo": "Completado",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "Duplicados",
-            "comentarios": "Duplicados en mapeo de sac_stat_fu_cotativo_t (4000)",
-            "fecha": "26/08/2026",
-            "pasos": "Es necesaria la validacion del codigo de mapeo"
         }
     ],
     "dbReporting": [
@@ -113,12 +113,22 @@
             "pasos": "Es necesario ayuda de s3 para  coordinar pruebas de aceptacion"
         },
         {
+            "tema": "Demonstrativo de Caixa",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Optimizacion de Informe",
+            "comentarios": "El dia de hoy se alinearaá con Marcela el mejor momento para validacion de datos y despliegue",
+            "fecha": "10/08/2026",
+            "pasos": "Se validará y desplegará"
+        },
+        {
             "tema": "Assincronos",
             "flujo": "Esperando respuesta",
             "entorno": "PRD UAT",
             "inv": "NFQ / S3",
             "tarea": "Creacion Assincronos",
-            "comentarios": "A la espera de instrucciones por parte de Guilherme ",
+            "comentarios": "En desarrollo de los informes ",
             "fecha": "27/05/2026",
             "pasos": "Esperando respuesta de Guilherme"
         },
@@ -128,9 +138,19 @@
             "entorno": "PRD",
             "inv": "NFQ / S3",
             "tarea": "Verificacion de logica",
-            "comentarios": "Se ha compartido con S3 la lgica implementada para obtencion de valor \"Valor Liquido\" y Jur/prejuizo",
+            "comentarios": "Se ha revisado con Menses la logica impementada en el informe",
             "fecha": "12/08/2026",
-            "pasos": "A la espera de resppuesta de s3"
+            "pasos": "En analisis de la mejor estrategia a llevar a cabo"
+        },
+        {
+            "tema": "Dividendos Juros Aporpiados",
+            "flujo": "No iniciado ",
+            "entorno": "UAT",
+            "inv": "NFQ / S3",
+            "tarea": "Verificacion de logica",
+            "comentarios": "Fue recibido por parte de S3 apuntamientos de divergencia de informacion",
+            "fecha": "12/08/2026",
+            "pasos": "NFQ se encuentra en analisis de incidencia"
         }
     ],
     "dbInfra": [
@@ -141,18 +161,38 @@
             "inv": "S3 /NTT",
             "tarea": "Conexión a la base de datos",
             "comentarios": "Error en conexión a la base de datos Rundeck",
-            "fecha": "24/3/2026",
+            "fecha": "24/08/2026",
             "pasos": "- S3 alineará internamente"
         },
         {
-            "tema": "Megara",
+            "tema": "Rundeck",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "S3 / NTT / NFQ",
+            "tarea": "Tiempos de carga",
+            "comentarios": "Los tiempos de carga vuelven a encontrarse estables",
+            "fecha": "15/09/2026",
+            "pasos": "- S3 alineará internamente"
+        },
+        {
+            "tema": "Qlik",
+            "flujo": "Ccompletado",
+            "entorno": "UAT",
+            "inv": "S3 / NTT / NFQ",
+            "tarea": "Configuracion cursor",
+            "comentarios": "Se ha modificado configuracion en qlik en relaciona  \"Fetcch\"",
+            "fecha": "16/09/2026",
+            "pasos": "Se analizará impacto de mejora"
+        },
+        {
+            "tema": "DDBB",
             "flujo": "En curso",
             "entorno": "PRD",
-            "inv": "S3 / VERMEG ",
-            "tarea": "Modulos",
-            "comentarios": "Caida de modulos MEACUSTODY",
-            "fecha": "11/08/2026",
-            "pasos": "S3 verificará con proovedor"
+            "inv": "S3 / NTT / NFQ",
+            "tarea": "Validacion de indices",
+            "comentarios": "S3 ha compartido una lista de indices a validar",
+            "fecha": "14/09/2026",
+            "pasos": "NFQ analizará la posibildiad de excluir indices"
         }
     ],
     "dbUAT": [
