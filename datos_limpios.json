@@ -1,6 +1,15 @@
 [
     {
         "id_camda": "83457",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W38",
+        "dia_nombre_en": "Friday",
+        "inicio_dt": "2026-09-18 18:36:08",
+        "duracion_min": 7.042699333333333,
+        "tamano": 237421.0
+    },
+    {
+        "id_camda": "83457",
         "tipo": "Manual",
         "a\u00f1o_semana": "2026-W38",
         "dia_nombre_en": "Friday",
