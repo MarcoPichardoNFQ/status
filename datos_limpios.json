@@ -4,9 +4,9 @@
         "tipo": "Manual",
         "a\u00f1o_semana": "2026-W42",
         "dia_nombre_en": "Wednesday",
-        "inicio_dt": "2026-10-14 13:41:07",
-        "duracion_min": 4.683625916666667,
-        "tamano": 0.0
+        "inicio_dt": "2026-10-14 13:41:38",
+        "duracion_min": 4.16695925,
+        "tamano": 466772.0
     },
     {
         "id_camda": "88961",
@@ -14,7 +14,7 @@
         "a\u00f1o_semana": "2026-W42",
         "dia_nombre_en": "Wednesday",
         "inicio_dt": "2026-10-14 13:28:42",
-        "duracion_min": 12.403631116666666,
+        "duracion_min": 12.920297783333332,
         "tamano": 626900.0
     },
     {
