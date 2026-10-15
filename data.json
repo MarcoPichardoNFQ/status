@@ -69,6 +69,36 @@
             "comentarios": "XML con registros duplicados",
             "fecha": "8/26/26",
             "pasos": "S3 se encuentra en alaisis con VERMEG"
+        },
+        {
+            "tema": "Interfaces",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3 / VERMEG",
+            "tarea": "ClientInstruction",
+            "comentarios": "Vermeg desplegó en PRD sin alineacion previa",
+            "fecha": "10/10/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Interfaces",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3 / VERMEG",
+            "tarea": "ValoriePosition",
+            "comentarios": "Vermeg desplegó en PRD sin alineacion previa",
+            "fecha": "10/10/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Interfaces",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3 / VERMEG",
+            "tarea": "Unit",
+            "comentarios": "Archivo atascado",
+            "fecha": "10/10/2026",
+            "pasos": "NFQ validará"
         }
     ],
     "dbReporting": [
@@ -101,6 +131,46 @@
             "comentarios": "No se llevò a cabo la llamada para la liberacion de logica",
             "fecha": "8/10/26",
             "pasos": "Se validará y desplegará"
+        },
+        {
+            "tema": "Estoque RF",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Validacion datos",
+            "comentarios": "Datos vdiados",
+            "fecha": "15/10/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Estoque RV",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Validacion datos",
+            "comentarios": "Datos validados",
+            "fecha": "15/10/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Estoque Futuros",
+            "flujo": "Completado",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Validacion datos",
+            "comentarios": "Datos validados",
+            "fecha": "15/10/2026",
+            "pasos": ""
+        },
+        {
+            "tema": "Estoque Fundos",
+            "flujo": "En curso",
+            "entorno": "PRD",
+            "inv": "NFQ / S3",
+            "tarea": "Validacion datos",
+            "comentarios": "En alineacion con Guilherme/Meneses",
+            "fecha": "15/10/2026",
+            "pasos": "Se alienara con Meneses query de caga"
         },
         {
             "tema": "Assincronos",
