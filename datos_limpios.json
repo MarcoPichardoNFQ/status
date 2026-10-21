@@ -1,5 +1,14 @@
 [
     {
+        "id_camda": "90091",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W43",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-10-21 05:19:32",
+        "duracion_min": 8.33735465,
+        "tamano": 228591.0
+    },
+    {
         "id_camda": "90090",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W43",
