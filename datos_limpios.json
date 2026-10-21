@@ -1,5 +1,14 @@
 [
     {
+        "id_camda": "90104",
+        "tipo": "Automatica",
+        "a\u00f1o_semana": "2026-W43",
+        "dia_nombre_en": "Wednesday",
+        "inicio_dt": "2026-10-21 07:43:51",
+        "duracion_min": 7.897831633333333,
+        "tamano": 302124.0
+    },
+    {
         "id_camda": "90103",
         "tipo": "Automatica",
         "a\u00f1o_semana": "2026-W43",
