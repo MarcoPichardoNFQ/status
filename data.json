@@ -385,6 +385,16 @@
             "comentarios": "- S3 en análisis de cambio de plantilla para casos sin información. - S3 reporta error en generación de informe. - NFQ hizo ajustes.",
             "fecha": "09/02/2026",
             "pasos": "- S3 analizará cambio de plantilla"
+        },
+        {
+            "tema": "function_meg_sac_pl_cl_patrfut_t",
+            "flujo": "En proceso",
+            "entorno": "UAT",
+            "inv": "NFQ / S3 ",
+            "tarea": "Ajuste en Funcion",
+            "comentarios": "Ajuste necesario para implmentacion de nuevos campos de DAT_VALUAT, DES_OWNER",
+            "fecha": "26/10/2026",
+            "pasos": ""
         }
     ]
 }
