@@ -16,23 +16,23 @@
             "entorno": "PRD",
             "inv": "NFQ / S3",
             "tarea": "Implementación: Tratamiento para cargas manuales",
-            "comentarios": "Liberado en UAT",
+            "comentarios": "En Ajustes en UAT",
             "fecha": "8/20/26",
-            "pasos": "S3 tiene que validar este desarrollo"
+            "pasos": "Se notificará a S3 en cuanto se libere"
+        },
+        {
+            "tema": "Control",
+            "flujo": "En curso",
+            "entorno": "UAT",
+            "inv": "",
+            "tarea": "",
+            "comentarios": "",
+            "fecha": "",
+            "pasos": ""
         },
         {
             "tema": "Interfaces",
-            "flujo": "En curso",
-            "entorno": "PRD",
-            "inv": "NFQ / S3",
-            "tarea": "ParentTicker",
-            "comentarios": "Liberado en PRD. Incidencia en liberacion por falta de coordinación en recibimiento de archivos",
-            "fecha": "8/20/26",
-            "pasos": "En liberaciones posteriores , se alineara junto con VERMEG fecha y hora para despliegues"
-        },
-        {
-            "tema": "Interfaces",
-            "flujo": "En curso",
+            "flujo": "En curso ",
             "entorno": "UAT",
             "inv": "NFQ / S3 / VERMEG",
             "tarea": "CashTransferOrder",
@@ -77,7 +77,7 @@
             "inv": "NFQ / S3 / VERMEG",
             "tarea": "ClientInstruction",
             "comentarios": "Vermeg desplegó en PRD sin alineacion previa",
-            "fecha": "10/10/2026",
+            "fecha": "10/10/26",
             "pasos": ""
         },
         {
@@ -87,7 +87,7 @@
             "inv": "NFQ / S3 / VERMEG",
             "tarea": "ValoriePosition",
             "comentarios": "Vermeg desplegó en PRD sin alineacion previa",
-            "fecha": "10/10/2026",
+            "fecha": "10/10/26",
             "pasos": ""
         },
         {
@@ -97,7 +97,7 @@
             "inv": "NFQ / S3 / VERMEG",
             "tarea": "Unit",
             "comentarios": "Archivo atascado",
-            "fecha": "10/10/2026",
+            "fecha": "10/10/26",
             "pasos": "NFQ validará"
         }
     ],
@@ -139,7 +139,7 @@
             "inv": "NFQ / S3",
             "tarea": "Validacion datos",
             "comentarios": "Datos vdiados",
-            "fecha": "15/10/2026",
+            "fecha": "10/15/26",
             "pasos": ""
         },
         {
@@ -149,7 +149,7 @@
             "inv": "NFQ / S3",
             "tarea": "Validacion datos",
             "comentarios": "Datos validados",
-            "fecha": "15/10/2026",
+            "fecha": "10/15/26",
             "pasos": ""
         },
         {
@@ -159,7 +159,7 @@
             "inv": "NFQ / S3",
             "tarea": "Validacion datos",
             "comentarios": "Datos validados",
-            "fecha": "15/10/2026",
+            "fecha": "10/15/26",
             "pasos": ""
         },
         {
@@ -169,7 +169,7 @@
             "inv": "NFQ / S3",
             "tarea": "Validacion datos",
             "comentarios": "En alineacion con Guilherme/Meneses",
-            "fecha": "15/10/2026",
+            "fecha": "10/15/26",
             "pasos": "Se alienara con Meneses query de caga"
         },
         {
@@ -292,7 +292,7 @@
             "entorno": "S3",
             "inv": "CA_details_intr",
             "tarea": "- Ajuste de formatos de datos",
-            "comentarios": "- Ajuste de formatos de datos_x000D_",
+            "comentarios": "- Ajuste de formatos de datos_x000d_",
             "fecha": "05/09/2025",
             "pasos": "Validación de lado S3"
         },
@@ -302,7 +302,7 @@
             "entorno": "NFQ / S3",
             "inv": "Nuevos Mapeos",
             "tarea": "-Se encuentra en development 3 novos mapeos que utilizaran la extracción InvestCompanyInstitute",
-            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000D_",
+            "comentarios": "-Se encuentra en desarrollo 3 nuevos mapeos que utilizaran la extracción InvestCompanyInstitute_x000d_",
             "fecha": "28/10/2025",
             "pasos": "Validación de lado S3"
         },
@@ -332,7 +332,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Interfaz Equity",
             "tarea": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD",
-            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000D_",
+            "comentarios": "- Fue incluido un nuevo campo, a espera de validación y promoción a PRD_x000d_",
             "fecha": "21/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -342,7 +342,7 @@
             "entorno": "NFQ / S3",
             "inv": "Ajuste de Carga ScriptByClient",
             "tarea": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT",
-            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000D_",
+            "comentarios": "- Fue realizado un ajuste en la carga de las tablas Megara que alimentan el mapeo SAC_BA_SCRIPT_x000d_",
             "fecha": "28/01/2026",
             "pasos": "Validación de lado S3"
         },
@@ -352,7 +352,7 @@
             "entorno": "NFQ / S3",
             "inv": "Monitoreamento de cargas",
             "tarea": "- Se requerirá de validaciones de informação por causa de los mapeos en UAT",
-            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000D_",
+            "comentarios": "- Se requerirá de validaciones de información por causa de los mapeos en UAT_x000d_",
             "fecha": "31/10/2025",
             "pasos": "- S3 junto con NFQ revisará ambiente, a la espera de activación al equipo de projeto."
         },
@@ -393,8 +393,8 @@
             "inv": "NFQ / S3 ",
             "tarea": "Ajuste en Funcion",
             "comentarios": "Ajuste necesario para implmentacion de nuevos campos de DAT_VALUAT, DES_OWNER",
-            "fecha": "26/10/2026",
-            "pasos": ""
+            "fecha": "10/26/26",
+            "pasos": "S3 vadará ajsute de funcion"
         }
     ]
 }
