@@ -24,9 +24,9 @@
             "tema": "Control",
             "flujo": "En curso",
             "entorno": "UAT",
-            "inv": "",
-            "tarea": "",
-            "comentarios": "",
+            "inv": "NFQ / S3",
+            "tarea": "Modificacion Logica ",
+            "comentarios": "S3 ha solicitado cambio de alcance para cuando se informa la tabla",
             "fecha": "",
             "pasos": ""
         },
@@ -128,17 +128,17 @@
             "entorno": "PRD",
             "inv": "NFQ / S3",
             "tarea": "Optimizacion de Informe",
-            "comentarios": "No se llevò a cabo la llamada para la liberacion de logica",
+            "comentarios": "S3 aprobó la optimizacion",
             "fecha": "8/10/26",
-            "pasos": "Se validará y desplegará"
+            "pasos": "Planenado despliegue"
         },
         {
-            "tema": "Estoque RF",
-            "flujo": "Completado",
+            "tema": "Detalhado",
+            "flujo": "No Iniciado",
             "entorno": "PRD",
             "inv": "NFQ / S3",
-            "tarea": "Validacion datos",
-            "comentarios": "Datos vdiados",
+            "tarea": "Inclusion codigo ISIn",
+            "comentarios": "Cambio de layout y datos solcitado por Guilherme",
             "fecha": "10/15/26",
             "pasos": ""
         },
