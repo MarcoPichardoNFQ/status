@@ -7,16 +7,29 @@
         "Viernes"
     ],
     "semanas": [
+        "2026-W46",
         "2026-W45",
         "2026-W44",
         "2026-W43",
-        "2026-W42",
-        "2026-W41"
+        "2026-W42"
     ],
-    "ultimo_deploy": "2026-11-06 23:50:43",
+    "ultimo_deploy": "2026-11-09 19:56:56",
     "escenarios": {
         "todos": {
             "lineas_duracion": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        6.692183254215686,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "tension": 0.3,
+                    "fill": false
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -26,7 +39,7 @@
                         5.533479590562249,
                         5.268953517816092
                     ],
-                    "borderColor": "#38bdf8",
+                    "borderColor": "#818cf8",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -39,7 +52,7 @@
                         6.139372175520833,
                         5.584075797560975
                     ],
-                    "borderColor": "#818cf8",
+                    "borderColor": "#fb7185",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -52,7 +65,7 @@
                         8.52856308436853,
                         9.928688186231884
                     ],
-                    "borderColor": "#fb7185",
+                    "borderColor": "#34d399",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -65,25 +78,26 @@
                         7.088020525601374,
                         8.180425387179486
                     ],
-                    "borderColor": "#34d399",
-                    "tension": 0.3,
-                    "fill": false
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        6.082123627239354,
-                        7.31280482677305,
-                        7.241414792346939,
-                        6.613135267647059,
-                        6.948175228894473
-                    ],
                     "borderColor": "#fbbf24",
                     "tension": 0.3,
                     "fill": false
                 }
             ],
             "lineas_tamano": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        733160.9529411765,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "backgroundColor": "#38bdf820",
+                    "tension": 0.3,
+                    "fill": true
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -93,8 +107,8 @@
                         472846.4979919679,
                         650667.7931034482
                     ],
-                    "borderColor": "#38bdf8",
-                    "backgroundColor": "#38bdf820",
+                    "borderColor": "#818cf8",
+                    "backgroundColor": "#818cf820",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -107,8 +121,8 @@
                         634248.4196428572,
                         488074.1300813008
                     ],
-                    "borderColor": "#818cf8",
-                    "backgroundColor": "#818cf820",
+                    "borderColor": "#fb7185",
+                    "backgroundColor": "#fb718520",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -121,8 +135,8 @@
                         560691.2732919254,
                         585340.2101449275
                     ],
-                    "borderColor": "#fb7185",
-                    "backgroundColor": "#fb718520",
+                    "borderColor": "#34d399",
+                    "backgroundColor": "#34d39920",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -135,20 +149,6 @@
                         518339.706185567,
                         540493.0828402367
                     ],
-                    "borderColor": "#34d399",
-                    "backgroundColor": "#34d39920",
-                    "tension": 0.3,
-                    "fill": true
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        1511798.7533039649,
-                        551812.0159574468,
-                        451207.943877551,
-                        454502.96078431373,
-                        459336.7688442211
-                    ],
                     "borderColor": "#fbbf24",
                     "backgroundColor": "#fbbf2420",
                     "tension": 0.3,
@@ -156,6 +156,19 @@
                 }
             ],
             "lineas_volumen": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        170.0,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "tension": 0.3,
+                    "fill": false
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -165,7 +178,7 @@
                         249,
                         261
                     ],
-                    "borderColor": "#38bdf8",
+                    "borderColor": "#818cf8",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -178,7 +191,7 @@
                         224,
                         246
                     ],
-                    "borderColor": "#818cf8",
+                    "borderColor": "#fb7185",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -191,7 +204,7 @@
                         161,
                         138
                     ],
-                    "borderColor": "#fb7185",
+                    "borderColor": "#34d399",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -204,19 +217,6 @@
                         194,
                         169
                     ],
-                    "borderColor": "#34d399",
-                    "tension": 0.3,
-                    "fill": false
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        227,
-                        188,
-                        196,
-                        204,
-                        199
-                    ],
                     "borderColor": "#fbbf24",
                     "tension": 0.3,
                     "fill": false
@@ -228,36 +228,49 @@
                     "Manual"
                 ],
                 "data": [
-                    4973,
-                    532
+                    4178,
+                    483
                 ]
             },
             "radar": {
                 "vol": [
                     100.0,
-                    74.71098265895954,
-                    75.28901734104046,
-                    74.56647398843931,
-                    73.19364161849711
+                    63.75282592313489,
+                    63.75282592313489,
+                    62.396382818387345,
+                    61.3413715146948
                 ],
                 "dur": [
-                    73.14822041989903,
-                    97.86563648785493,
-                    97.63117435740206,
-                    97.67544704631976,
+                    74.00142788139446,
+                    96.22820818313077,
+                    96.08993183828221,
+                    98.30381880011562,
                     100.0
                 ],
                 "tam": [
                     100.0,
-                    55.580638864331576,
-                    38.578673132257094,
-                    40.201006498234634,
-                    41.713330039593885
+                    63.8557279423419,
+                    43.103466388153514,
+                    45.306582754903204,
+                    47.248715023005786
                 ]
             }
         },
         "solo_auto": {
             "lineas_duracion": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        6.769100658229166,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "tension": 0.3,
+                    "fill": false
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -267,7 +280,7 @@
                         5.654720150507247,
                         5.355430338983051
                     ],
-                    "borderColor": "#38bdf8",
+                    "borderColor": "#818cf8",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -280,7 +293,7 @@
                         7.160108505345913,
                         5.696179031752874
                     ],
-                    "borderColor": "#818cf8",
+                    "borderColor": "#fb7185",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -293,7 +306,7 @@
                         8.842931252348993,
                         10.641914869396551
                     ],
-                    "borderColor": "#fb7185",
+                    "borderColor": "#34d399",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -306,25 +319,26 @@
                         7.647174149900794,
                         8.576441381030701
                     ],
-                    "borderColor": "#34d399",
-                    "tension": 0.3,
-                    "fill": false
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        6.094152746742425,
-                        7.455786176256983,
-                        7.433766356666666,
-                        6.80050258451087,
-                        7.106606770677362
-                    ],
                     "borderColor": "#fbbf24",
                     "tension": 0.3,
                     "fill": false
                 }
             ],
             "lineas_tamano": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        746369.9125,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "backgroundColor": "#38bdf820",
+                    "tension": 0.3,
+                    "fill": true
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -334,8 +348,8 @@
                         459139.14347826084,
                         628700.2881355932
                     ],
-                    "borderColor": "#38bdf8",
-                    "backgroundColor": "#38bdf820",
+                    "borderColor": "#818cf8",
+                    "backgroundColor": "#818cf820",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -348,8 +362,8 @@
                         716039.5094339623,
                         456254.2974137931
                     ],
-                    "borderColor": "#818cf8",
-                    "backgroundColor": "#818cf820",
+                    "borderColor": "#fb7185",
+                    "backgroundColor": "#fb718520",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -362,8 +376,8 @@
                         541724.6510067114,
                         578453.7844827586
                     ],
-                    "borderColor": "#fb7185",
-                    "backgroundColor": "#fb718520",
+                    "borderColor": "#34d399",
+                    "backgroundColor": "#34d39920",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -376,20 +390,6 @@
                         481392.5535714286,
                         556801.9078947369
                     ],
-                    "borderColor": "#34d399",
-                    "backgroundColor": "#34d39920",
-                    "tension": 0.3,
-                    "fill": true
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        1527182.2545454546,
-                        551337.2793296089,
-                        450443.52972972975,
-                        420616.5543478261,
-                        436117.1871657754
-                    ],
                     "borderColor": "#fbbf24",
                     "backgroundColor": "#fbbf2420",
                     "tension": 0.3,
@@ -397,6 +397,19 @@
                 }
             ],
             "lineas_volumen": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        160.0,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "tension": 0.3,
+                    "fill": false
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -406,7 +419,7 @@
                         230,
                         236
                     ],
-                    "borderColor": "#38bdf8",
+                    "borderColor": "#818cf8",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -419,7 +432,7 @@
                         159,
                         232
                     ],
-                    "borderColor": "#818cf8",
+                    "borderColor": "#fb7185",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -432,7 +445,7 @@
                         149,
                         116
                     ],
-                    "borderColor": "#fb7185",
+                    "borderColor": "#34d399",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -445,19 +458,6 @@
                         168,
                         152
                     ],
-                    "borderColor": "#34d399",
-                    "tension": 0.3,
-                    "fill": false
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        220,
-                        179,
-                        185,
-                        184,
-                        187
-                    ],
                     "borderColor": "#fbbf24",
                     "tension": 0.3,
                     "fill": false
@@ -468,35 +468,48 @@
                     "Automatica"
                 ],
                 "data": [
-                    4973
+                    4178
                 ]
             },
             "radar": {
                 "vol": [
                     100.0,
-                    69.6268656716418,
-                    66.19402985074628,
-                    66.4179104477612,
-                    68.88059701492537
+                    58.90625000000001,
+                    54.84375,
+                    55.15624999999999,
+                    57.49999999999999
                 ],
                 "dur": [
-                    70.15419191545931,
-                    96.72968343481458,
+                    70.58111744705559,
+                    94.83651061227482,
+                    98.84531238244509,
                     100.0,
-                    99.07237308856787,
-                    97.9555078880334
+                    97.48627717474608
                 ],
                 "tam": [
                     100.0,
-                    54.1812250975647,
-                    36.30938839182587,
-                    38.64344770316897,
-                    39.62513728886526
+                    62.204070299678364,
+                    40.18984444559651,
+                    44.01423368744265,
+                    44.980860731081286
                 ]
             }
         },
         "solo_ma": {
             "lineas_duracion": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        5.46150479,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "tension": 0.3,
+                    "fill": false
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -506,7 +519,7 @@
                         4.065830707017544,
                         4.452612326000001
                     ],
-                    "borderColor": "#38bdf8",
+                    "borderColor": "#818cf8",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -519,7 +532,7 @@
                         3.6424940764102565,
                         3.72636505952381
                     ],
-                    "borderColor": "#818cf8",
+                    "borderColor": "#fb7185",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -532,7 +545,7 @@
                         4.625158331944444,
                         6.168038402272727
                     ],
-                    "borderColor": "#fb7185",
+                    "borderColor": "#34d399",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -545,25 +558,26 @@
                         3.4750278762820512,
                         4.639576500980392
                     ],
-                    "borderColor": "#34d399",
-                    "tension": 0.3,
-                    "fill": false
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        5.704065585714285,
-                        4.469064653703704,
-                        4.0064112106060605,
-                        4.8893559525,
-                        4.479283702777778
-                    ],
                     "borderColor": "#fbbf24",
                     "tension": 0.3,
                     "fill": false
                 }
             ],
             "lineas_tamano": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        521817.6,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "backgroundColor": "#38bdf820",
+                    "tension": 0.3,
+                    "fill": true
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -573,8 +587,8 @@
                         638777.6315789474,
                         858041.04
                     ],
-                    "borderColor": "#38bdf8",
-                    "backgroundColor": "#38bdf820",
+                    "borderColor": "#818cf8",
+                    "backgroundColor": "#818cf820",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -587,8 +601,8 @@
                         434174.8307692308,
                         1015374.2142857143
                     ],
-                    "borderColor": "#818cf8",
-                    "backgroundColor": "#818cf820",
+                    "borderColor": "#fb7185",
+                    "backgroundColor": "#fb718520",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -601,8 +615,8 @@
                         796193.5,
                         621650.4545454546
                     ],
-                    "borderColor": "#fb7185",
-                    "backgroundColor": "#fb718520",
+                    "borderColor": "#34d399",
+                    "backgroundColor": "#34d39920",
                     "tension": 0.3,
                     "fill": true
                 },
@@ -615,20 +629,6 @@
                         757075.1538461539,
                         394673.0
                     ],
-                    "borderColor": "#34d399",
-                    "backgroundColor": "#34d39920",
-                    "tension": 0.3,
-                    "fill": true
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        1028317.2857142857,
-                        561254.0,
-                        464064.0,
-                        766257.9,
-                        821175.25
-                    ],
                     "borderColor": "#fbbf24",
                     "backgroundColor": "#fbbf2420",
                     "tension": 0.3,
@@ -636,6 +636,19 @@
                 }
             ],
             "lineas_volumen": [
+                {
+                    "label": "2026-W46",
+                    "data": [
+                        10.0,
+                        null,
+                        null,
+                        null,
+                        null
+                    ],
+                    "borderColor": "#38bdf8",
+                    "tension": 0.3,
+                    "fill": false
+                },
                 {
                     "label": "2026-W45",
                     "data": [
@@ -645,7 +658,7 @@
                         19.0,
                         25.0
                     ],
-                    "borderColor": "#38bdf8",
+                    "borderColor": "#818cf8",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -658,7 +671,7 @@
                         65,
                         14
                     ],
-                    "borderColor": "#818cf8",
+                    "borderColor": "#fb7185",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -671,7 +684,7 @@
                         12,
                         22
                     ],
-                    "borderColor": "#fb7185",
+                    "borderColor": "#34d399",
                     "tension": 0.3,
                     "fill": false
                 },
@@ -684,19 +697,6 @@
                         26,
                         17
                     ],
-                    "borderColor": "#34d399",
-                    "tension": 0.3,
-                    "fill": false
-                },
-                {
-                    "label": "2026-W41",
-                    "data": [
-                        7,
-                        9,
-                        11,
-                        20,
-                        12
-                    ],
                     "borderColor": "#fbbf24",
                     "tension": 0.3,
                     "fill": false
@@ -707,30 +707,30 @@
                     "Manual"
                 ],
                 "data": [
-                    532
+                    483
                 ]
             },
             "radar": {
                 "vol": [
-                    28.387096774193548,
-                    65.16129032258064,
+                    32.63888888888889,
+                    63.888888888888886,
                     100.0,
-                    91.61290322580645,
-                    58.06451612903226
+                    84.72222222222221,
+                    54.166666666666664
                 ],
                 "dur": [
-                    81.03387759507528,
-                    90.02661082347181,
-                    78.44761169128986,
-                    81.85209337095793,
+                    81.54152652523973,
+                    88.81410194744304,
+                    77.27201171210973,
+                    77.76993064985004,
                     100.0
                 ],
                 "tam": [
-                    77.0264474114624,
+                    64.92837334546535,
                     100.0,
-                    80.29985875038122,
-                    76.58837171247488,
-                    93.78132826599663
+                    79.7013489120408,
+                    71.10065879266335,
+                    89.56600861743522
                 ]
             }
         }
