@@ -201,6 +201,11 @@ canvas { max-width:100%; }
                     <button class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap" onclick="switchTab('audit')" id="btn-audit">
                         <i data-lucide="file-search" class="w-4 h-4 mr-2"></i> Auditoría
                     </button>
+                    <button
+    class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+    onclick="switchTab('kanban')" id="btn-kanban">
+    <i data-lucide="kanban" class="w-4 h-4 mr-2"></i> Tickets
+</button>
                 </nav>
             </div>
         </div>
@@ -572,7 +577,69 @@ canvas { max-width:100%; }
             </div>
         </div>
     </section>
+<section id="tab-kanban" class="tab-pane space-y-6">
+    <div class="glass-panel rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+        <div>
+            <h2 class="text-base font-bold text-white uppercase tracking-wider">Tablero BAU — Soporte Tickets</h2>
+            <p class="text-[11px] font-mono text-slate-400 mt-0.5">
+                Última sincronización: <span id="kanban-sync" class="text-cyan-400">--</span>
+            </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+            <input type="text" id="kb-search" placeholder="Buscar ID, título o síntoma..."
+                oninput="renderKanban()"
+                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400">
+            <select id="kb-resp" onchange="renderKanban()"
+                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
+                <option value="">Todos los responsables</option>
+            </select>
+            <select id="kb-prio" onchange="renderKanban()"
+                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
+                <option value="">Todas las prioridades</option>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+            </select>
+            <select id="kb-cat" onchange="renderKanban()"
+                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
+                <option value="">Todas las categorías</option>
+            </select>
+            <button id="kb-toggle-resuelto" onclick="toggleKanbanResueltos()"
+                class="px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:border-cyan-500/50 font-mono uppercase">
+                Mostrar Resueltos
+            </button>
+        </div>
+    </div>
 
+    <div id="kanban-board" class="flex gap-4 overflow-x-auto pb-4 items-start"></div>
+</section>
+
+<!-- Modal de detalle de ticket -->
+<div id="kb-modal" onclick="if(event.target===this) closeKanbanModal()"
+    class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm items-center justify-center p-4">
+    <div class="glass-panel rounded-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 border border-cyan-500/40 space-y-4">
+        <div class="flex justify-between items-start gap-4 border-b border-slate-800 pb-3">
+            <div>
+                <div id="kbm-meta" class="text-xs font-mono text-cyan-400"></div>
+                <h3 id="kbm-title" class="text-lg font-bold text-white mt-1"></h3>
+            </div>
+            <button onclick="closeKanbanModal()" class="text-slate-400 hover:text-white text-xl leading-none">&times;</button>
+        </div>
+        <div id="kbm-badges" class="flex flex-wrap gap-2 text-xs font-mono"></div>
+        <div id="kbm-sintoma-wrap">
+            <div class="text-xs font-mono uppercase text-amber-400 mb-1">Síntoma</div>
+            <pre id="kbm-sintoma" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
+        </div>
+        <div id="kbm-resumen-wrap">
+            <div class="text-xs font-mono uppercase text-cyan-400 mb-1">Resumen</div>
+            <pre id="kbm-resumen" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
+        </div>
+        <div id="kbm-hist-wrap">
+            <div class="text-xs font-mono uppercase text-emerald-400 mb-1">Histórico de interacciones</div>
+            <pre id="kbm-hist" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
+        </div>
+    </div>
+</div>
 </main>
 
 <script>
@@ -593,7 +660,8 @@ const state = {
     },
     charts: {},
     historyMetric: "duration",
-    lastUpdate: null
+    lastUpdate: null,
+    kanban: { estados: [], tickets: [], actualizado: "--" }, showResueltos: false
 };
 
 const WEEK_COLORS = [
@@ -756,14 +824,16 @@ async function fetchJson(path, required = true) {
 }
 
 async function loadAllData() {
-    const [dashboard, data, clean] = await Promise.all([
+    const [dashboard, data, clean, kanban] = await Promise.all([
         fetchJson("datos_dashboard.json", true),
         fetchJson("data.json", false),
-        fetchJson("datos_limpios.json", false)
+        fetchJson("datos_limpios.json", false),
+        fetchJson("tickets_kanban.json", false)
     ]);
 
     state.dashboard = dashboard;
     state.cleanData = Array.isArray(clean) ? clean : [];
+    state.kanban = kanban || { estados: [], tickets: [], actualizado: "--" };
 
     if (data) {
         state.workstreams.Megara = data.dbMegara || [];
@@ -1853,6 +1923,139 @@ function renderAudit() {
         </tr>` : "");
 }
 /* =========================================================
+   KANBAN TICKETS (PEGAR AQUÍ TODO EL BLOQUE DE FUNCIONES DEL PASO D)
+========================================================= */
+function initKanbanFilters() {
+    const tickets = state.kanban?.tickets || [];
+    const respSel = document.getElementById("kb-resp");
+    const catSel = document.getElementById("kb-cat");
+    if (!respSel || !catSel) return;
+
+    const responsables = [...new Set(tickets.map(t => t.responsable).filter(Boolean))].sort();
+    const categorias = [...new Set(tickets.flatMap(t => t.categoria || []))].sort();
+
+    responsables.forEach(r => {
+        const opt = document.createElement("option");
+        opt.value = r;
+        opt.textContent = r;
+        respSel.appendChild(opt);
+    });
+    categorias.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c;
+        opt.textContent = c;
+        catSel.appendChild(opt);
+    });
+    document.getElementById("kanban-sync").textContent = state.kanban?.actualizado || "--";
+}
+
+function toggleKanbanResueltos() {
+    state.showResueltos = !state.showResueltos;
+    const btn = document.getElementById("kb-toggle-resuelto");
+    btn.textContent = state.showResueltos ? "Ocultar Resueltos" : "Mostrar Resueltos";
+    btn.classList.toggle("border-cyan-400", state.showResueltos);
+    btn.classList.toggle("text-cyan-300", state.showResueltos);
+    renderKanban();
+}
+
+function renderKanban() {
+    const board = document.getElementById("kanban-board");
+    if (!board) return;
+
+    const q = (document.getElementById("kb-search")?.value || "").toLowerCase().trim();
+    const fResp = document.getElementById("kb-resp")?.value || "";
+    const fPrio = document.getElementById("kb-prio")?.value || "";
+    const fCat = document.getElementById("kb-cat")?.value || "";
+
+    const estados = (state.kanban?.estados || []).filter(e => state.showResueltos || e !== "Resuelto");
+    const filtrados = (state.kanban?.tickets || []).filter(t => {
+        if (!state.showResueltos && t.estado === "Resuelto") return false;
+        if (fResp && t.responsable !== fResp) return false;
+        if (fPrio && t.prioridad !== fPrio) return false;
+        if (fCat && !(t.categoria || []).includes(fCat)) return false;
+        if (q) {
+            const hay = `${t.id} ${t.titulo} ${t.sintoma}`.toLowerCase();
+            if (!hay.includes(q)) return false;
+        }
+        return true;
+    });
+
+    const prioBorder = { Alta: "border-l-rose-500", Media: "border-l-amber-400", Baja: "border-l-emerald-400" };
+    const prioBadge = {
+        Alta: "bg-rose-500/15 text-rose-300 border-rose-500/30",
+        Media: "bg-amber-400/15 text-amber-300 border-amber-400/30",
+        Baja: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30"
+    };
+
+    board.innerHTML = estados.map(est => {
+        const items = filtrados.filter(t => t.estado === est);
+        const cardsHtml = items.map(t => `
+            <div onclick='openKanbanModal(${JSON.stringify(t).replace(/'/g, "&#39;")})'
+                 class="bg-[#080d1a]/90 hover:bg-[#0d152a] border border-cyan-900/30 hover:border-cyan-400/50 border-l-4 ${prioBorder[t.prioridad] || "border-l-cyan-400"} rounded-lg p-3 cursor-pointer transition space-y-2">
+                <div class="flex items-center justify-between gap-2 text-[11px] font-mono">
+                    <span class="text-cyan-400 font-bold">
+                        ${escapeHtml(t.id)}
+                        ${t.vencido ? '<span class="ml-1 px-1.5 py-0.5 rounded bg-rose-600 text-white text-[9px]">VENCIDO</span>' : ''}
+                    </span>
+                    <span class="px-2 py-0.5 rounded border text-[10px] ${prioBadge[t.prioridad] || ""}">${escapeHtml(t.prioridad)}</span>
+                </div>
+                <div class="text-xs font-semibold text-slate-100 leading-snug">${escapeHtml(t.titulo)}</div>
+                ${t.sintoma ? `<div class="text-[11px] text-slate-400 line-clamp-2">${escapeHtml(t.sintoma)}</div>` : ''}
+                <div class="pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-slate-400">
+                    <span>${escapeHtml(t.responsable)}</span>
+                    <div class="flex flex-wrap gap-1">
+                        ${(t.categoria || []).map(c => `<span class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">${escapeHtml(c)}</span>`).join("")}
+                        ${(t.entorno || []).map(e => `<span class="px-1.5 py-0.5 rounded bg-cyan-950/70 text-cyan-300">${escapeHtml(e)}</span>`).join("")}
+                    </div>
+                </div>
+            </div>
+        `).join("");
+
+        return `
+            <div class="glass-panel rounded-xl p-3 min-w-[290px] max-w-[290px] flex flex-col max-h-[75vh]">
+                <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-cyan-900/30">
+                    <span class="text-xs font-space font-bold uppercase tracking-wider text-white">${escapeHtml(est)}</span>
+                    <span class="px-2 py-0.5 rounded-full text-[11px] font-mono bg-cyan-500/15 text-cyan-300">${items.length}</span>
+                </div>
+                <div class="space-y-2.5 overflow-y-auto pr-1">
+                    ${cardsHtml || '<div class="text-center text-xs text-slate-500 py-6 font-mono">Sin tickets</div>'}
+                </div>
+            </div>
+        `;
+    }).join("");
+}
+
+function openKanbanModal(t) {
+    document.getElementById("kbm-meta").textContent = `${t.id} · Apertura: ${t.fecha_apertura || "--"} · Límite: ${t.fecha_limite || "N/A"}`;
+    document.getElementById("kbm-title").textContent = t.titulo;
+    document.getElementById("kbm-badges").innerHTML = `
+        <span class="px-2 py-1 rounded bg-cyan-500/15 text-cyan-300">Estado: ${escapeHtml(t.estado)}</span>
+        <span class="px-2 py-1 rounded bg-slate-800 text-slate-200">Prioridad: ${escapeHtml(t.prioridad)}</span>
+        <span class="px-2 py-1 rounded bg-slate-800 text-slate-200">Responsable: ${escapeHtml(t.responsable)}</span>
+        <span class="px-2 py-1 rounded bg-slate-800 text-slate-200">Entorno: ${(t.entorno || []).join(", ") || "Sin definir"}</span>
+    `;
+    const setField = (wrapId, textId, val) => {
+        document.getElementById(wrapId).style.display = val ? "block" : "none";
+        document.getElementById(textId).textContent = val || "";
+    };
+    setField("kbm-sintoma-wrap", "kbm-sintoma", t.sintoma);
+    setField("kbm-resumen-wrap", "kbm-resumen", t.resumen);
+    setField("kbm-hist-wrap", "kbm-hist", t.historico);
+
+    const modal = document.getElementById("kb-modal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+}
+
+function closeKanbanModal() {
+    const modal = document.getElementById("kb-modal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+}
+/* =========================================================
+   DATA FRESHNESS   <-- (Esta es la línea 1855 original de main.html)
+========================================================= */
+/* =========================================================
    DATA FRESHNESS
 ========================================================= */
 
@@ -1915,7 +2118,13 @@ function updateDashboard() {
         
         // ¡Agregamos el render de auditoría aquí!
         renderAudit();
-
+// Líneas 1967-1971 de main.html:
+        buildWeekFilters();
+        renderWorkstreams();
+        renderAudit();
+        initKanbanFilters(); // <-- AÑADIR
+        renderKanban();      // <-- AÑADIR
+        updateFreshness();
         const weeks = getWeekNames();
         document.getElementById("subtitle").textContent =
             `Telemetría: ${weeks.filter((_,i) => weekIndices.includes(i)).join(" | ")} · escenario: ${document.getElementById("filter-type").selectedOptions[0].text}`;
@@ -1967,6 +2176,8 @@ async function init() {
         buildWeekFilters();
         renderWorkstreams();
         renderAudit();
+        initKanbanFilters(); // <-- AÑADIR
+        renderKanban();      // <-- AÑADIR
         updateFreshness();
 
         document.getElementById("filter-type")

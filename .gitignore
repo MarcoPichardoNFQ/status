@@ -14,3 +14,4 @@ automatizacion.py
 .env*
 *function*
 bkp*
+.cache_vault/
