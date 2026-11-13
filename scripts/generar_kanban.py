@@ -6,11 +6,9 @@ import subprocess
 from pathlib import Path
 
 # --- CONFIGURACIÓN ---
-# URL de tu repositorio de tickets (si es privado, asegúrate de tener credenciales cacheadas en Windows o usa token en .env)
 REPO_TICKETS_URL = os.getenv("REPO_TICKETS_URL", "https://github.com/marcopichardonfq/tickets.git")
 RAMA_TICKETS = "main"
 
-# Carpeta temporal donde se hará el pull parcial dentro del repo status
 CACHE_DIR = Path(__file__).resolve().parents[1] / ".cache_vault"
 OUTPUT_JSON = Path(__file__).resolve().parents[1] / "tickets_kanban.json"
 
@@ -24,9 +22,7 @@ ESTADOS_FALLBACK = [
     "Resuelto",
 ]
 
-
 def sync_carpetas_especificas() -> Path:
-    """Hace clone/pull parcial trayendo solo 02_TICKETS/Abiertos y 05_GENERAL/listas.json."""
     if not (CACHE_DIR / ".git").exists():
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
         subprocess.run(["git", "init"], cwd=CACHE_DIR, check=True, capture_output=True)
@@ -47,7 +43,6 @@ def sync_carpetas_especificas() -> Path:
     )
     return CACHE_DIR
 
-
 def cargar_estados(vault_dir: Path) -> list[str]:
     listas_path = vault_dir / "05_GENERAL" / "listas.json"
     if listas_path.exists():
@@ -55,7 +50,6 @@ def cargar_estados(vault_dir: Path) -> list[str]:
         if isinstance(data.get("estado"), list) and data["estado"]:
             return data["estado"]
     return ESTADOS_FALLBACK
-
 
 def parse_ticket(filepath: Path) -> dict:
     text = filepath.read_text(encoding="utf-8")
@@ -121,13 +115,12 @@ def parse_ticket(filepath: Path) -> dict:
         "entorno": fm.get("entorno") if isinstance(fm.get("entorno"), list) else [],
         "fecha_apertura": str(fm.get("fecha_apertura", fecha_nombre)),
         "fecha_limite": fecha_limite,
-        #"actualizado": str(fm.get("actualizado", "")),
+        "actualizado": str(fm.get("actualizado", "")),
         "sintoma": str(fm.get("sintoma", "")),
         "resumen": resumen,
         "historico": historico,
         "vencido": vencido,
     }
-
 
 def generar():
     vault_dir = sync_carpetas_especificas()
@@ -142,14 +135,13 @@ def generar():
     tickets.sort(key=lambda x: x["id"], reverse=True)
 
     payload = {
-       # "actualizado": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "actualizado": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "estados": estados,
         "tickets": tickets,
     }
 
     OUTPUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"tickets_kanban.json generado con {len(tickets)} tickets.")
-
 
 if __name__ == "__main__":
     generar()

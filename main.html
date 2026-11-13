@@ -201,12 +201,13 @@ canvas { max-width:100%; }
                     <button class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap" onclick="switchTab('audit')" id="btn-audit">
                         <i data-lucide="file-search" class="w-4 h-4 mr-2"></i> Auditoría
                     </button>
-                    <button
-    class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
-    onclick="switchTab('kanban')" id="btn-kanban">
-    <i data-lucide="kanban" class="w-4 h-4 mr-2"></i> Tickets
-</button>
-                </nav>
+                
+                            <button
+                                class="tab-btn flex items-center px-3 py-2 rounded-lg text-xs font-mono font-bold uppercase border border-transparent whitespace-nowrap"
+                                onclick="switchTab('kanban')" id="btn-kanban">
+                                <i data-lucide="kanban" class="w-4 h-4 mr-2"></i> Tickets
+                            </button>
+                        </nav>
             </div>
         </div>
     </div>
@@ -577,70 +578,72 @@ canvas { max-width:100%; }
             </div>
         </div>
     </section>
-<section id="tab-kanban" class="tab-pane space-y-6">
-    <div class="glass-panel rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
-        <div>
-            <h2 class="text-base font-bold text-white uppercase tracking-wider">Tablero BAU — Soporte Tickets</h2>
-            <p class="text-[11px] font-mono text-slate-400 mt-0.5">
-                Última sincronización: <span id="kanban-sync" class="text-cyan-400">--</span>
-            </p>
-        </div>
-        <div class="flex flex-wrap items-center gap-2 text-xs">
-            <input type="text" id="kb-search" placeholder="Buscar ID, título o síntoma..."
-                oninput="renderKanban()"
-                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400">
-            <select id="kb-resp" onchange="renderKanban()"
-                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
-                <option value="">Todos los responsables</option>
-            </select>
-            <select id="kb-prio" onchange="renderKanban()"
-                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
-                <option value="">Todas las prioridades</option>
-                <option value="Alta">Alta</option>
-                <option value="Media">Media</option>
-                <option value="Baja">Baja</option>
-            </select>
-            <select id="kb-cat" onchange="renderKanban()"
-                class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
-                <option value="">Todas las categorías</option>
-            </select>
-            <button id="kb-toggle-resuelto" onclick="toggleKanbanResueltos()"
-                class="px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:border-cyan-500/50 font-mono uppercase">
-                Mostrar Resueltos
-            </button>
-        </div>
-    </div>
 
-    <div id="kanban-board" class="flex gap-4 overflow-x-auto pb-4 items-start"></div>
-</section>
 
-<!-- Modal de detalle de ticket -->
-<div id="kb-modal" onclick="if(event.target===this) closeKanbanModal()"
-    class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm items-center justify-center p-4">
-    <div class="glass-panel rounded-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 border border-cyan-500/40 space-y-4">
-        <div class="flex justify-between items-start gap-4 border-b border-slate-800 pb-3">
-            <div>
-                <div id="kbm-meta" class="text-xs font-mono text-cyan-400"></div>
-                <h3 id="kbm-title" class="text-lg font-bold text-white mt-1"></h3>
+            <section id="tab-kanban" class="tab-pane space-y-6">
+                <div class="glass-panel rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <h2 class="text-base font-bold text-white uppercase tracking-wider">Tablero BAU — Soporte Tickets</h2>
+                        <p class="text-[11px] font-mono text-slate-400 mt-0.5">
+                            Última sincronización: <span id="kanban-sync" class="text-cyan-400">--</span>
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <input type="text" id="kb-search" placeholder="Buscar ID, título o síntoma..."
+                            oninput="renderKanban()"
+                            class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400">
+                        <select id="kb-resp" onchange="renderKanban()"
+                            class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
+                            <option value="">Todos los responsables</option>
+                        </select>
+                        <select id="kb-prio" onchange="renderKanban()"
+                            class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
+                            <option value="">Todas las prioridades</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+                        <select id="kb-cat" onchange="renderKanban()"
+                            class="bg-[#080d1a] border border-cyan-900/40 rounded-lg px-3 py-1.5 text-slate-200">
+                            <option value="">Todas las categorías</option>
+                        </select>
+                        <button id="kb-toggle-resuelto" onclick="toggleKanbanResueltos()"
+                            class="px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:border-cyan-500/50 font-mono uppercase">
+                            Mostrar Resueltos
+                        </button>
+                    </div>
+                </div>
+
+                <div id="kanban-board" class="flex gap-4 overflow-x-auto pb-4 items-start"></div>
+            </section>
+
+            <!-- Modal de detalle de ticket -->
+            <div id="kb-modal" onclick="if(event.target===this) closeKanbanModal()"
+                class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm items-center justify-center p-4">
+                <div class="glass-panel rounded-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 border border-cyan-500/40 space-y-4">
+                    <div class="flex justify-between items-start gap-4 border-b border-slate-800 pb-3">
+                        <div>
+                            <div id="kbm-meta" class="text-xs font-mono text-cyan-400"></div>
+                            <h3 id="kbm-title" class="text-lg font-bold text-white mt-1"></h3>
+                        </div>
+                        <button onclick="closeKanbanModal()" class="text-slate-400 hover:text-white text-xl leading-none">&times;</button>
+                    </div>
+                    <div id="kbm-badges" class="flex flex-wrap gap-2 text-xs font-mono"></div>
+                    <div id="kbm-sintoma-wrap">
+                        <div class="text-xs font-mono uppercase text-amber-400 mb-1">Síntoma</div>
+                        <pre id="kbm-sintoma" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
+                    </div>
+                    <div id="kbm-resumen-wrap">
+                        <div class="text-xs font-mono uppercase text-cyan-400 mb-1">Resumen</div>
+                        <pre id="kbm-resumen" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
+                    </div>
+                    <div id="kbm-hist-wrap">
+                        <div class="text-xs font-mono uppercase text-emerald-400 mb-1">Histórico de interacciones</div>
+                        <pre id="kbm-hist" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
+                    </div>
+                </div>
             </div>
-            <button onclick="closeKanbanModal()" class="text-slate-400 hover:text-white text-xl leading-none">&times;</button>
-        </div>
-        <div id="kbm-badges" class="flex flex-wrap gap-2 text-xs font-mono"></div>
-        <div id="kbm-sintoma-wrap">
-            <div class="text-xs font-mono uppercase text-amber-400 mb-1">Síntoma</div>
-            <pre id="kbm-sintoma" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
-        </div>
-        <div id="kbm-resumen-wrap">
-            <div class="text-xs font-mono uppercase text-cyan-400 mb-1">Resumen</div>
-            <pre id="kbm-resumen" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
-        </div>
-        <div id="kbm-hist-wrap">
-            <div class="text-xs font-mono uppercase text-emerald-400 mb-1">Histórico de interacciones</div>
-            <pre id="kbm-hist" class="whitespace-pre-wrap font-sans text-xs bg-[#080d1a] p-3 rounded-lg border border-slate-800 text-slate-300"></pre>
-        </div>
-    </div>
-</div>
-</main>
+        </main>
 
 <script>
 "use strict";
@@ -661,7 +664,8 @@ const state = {
     charts: {},
     historyMetric: "duration",
     lastUpdate: null,
-    kanban: { estados: [], tickets: [], actualizado: "--" }, showResueltos: false
+    kanban: { estados: [], tickets: [], actualizado: "--" },
+    showResueltos: false
 };
 
 const WEEK_COLORS = [
@@ -1922,8 +1926,9 @@ function renderAudit() {
             </td>
         </tr>` : "");
 }
+
 /* =========================================================
-   KANBAN TICKETS (PEGAR AQUÍ TODO EL BLOQUE DE FUNCIONES DEL PASO D)
+   KANBAN TICKETS
 ========================================================= */
 function initKanbanFilters() {
     const tickets = state.kanban?.tickets || [];
@@ -1991,7 +1996,7 @@ function renderKanban() {
         const items = filtrados.filter(t => t.estado === est);
         const cardsHtml = items.map(t => `
             <div onclick='openKanbanModal(${JSON.stringify(t).replace(/'/g, "&#39;")})'
-                 class="bg-[#080d1a]/90 hover:bg-[#0d152a] border border-cyan-900/30 hover:border-cyan-400/50 border-l-4 ${prioBorder[t.prioridad] || "border-l-cyan-400"} rounded-lg p-3 cursor-pointer transition space-y-2">
+                 class="bg-[#080d1a]/90 hover:bg-[#0d152a] border border-cyan-900/30 hover:border-cyan-400/50 border-l-4 ${prioBorder[t.prioridad] || "border-l-cyan-400"} rounded-lg p-3 cursor-pointer transition space-y-2 min-w-full">
                 <div class="flex items-center justify-between gap-2 text-[11px] font-mono">
                     <span class="text-cyan-400 font-bold">
                         ${escapeHtml(t.id)}
@@ -2052,9 +2057,7 @@ function closeKanbanModal() {
     modal.classList.add("hidden");
     modal.classList.remove("flex");
 }
-/* =========================================================
-   DATA FRESHNESS   <-- (Esta es la línea 1855 original de main.html)
-========================================================= */
+
 /* =========================================================
    DATA FRESHNESS
 ========================================================= */
@@ -2118,13 +2121,7 @@ function updateDashboard() {
         
         // ¡Agregamos el render de auditoría aquí!
         renderAudit();
-// Líneas 1967-1971 de main.html:
-        buildWeekFilters();
-        renderWorkstreams();
-        renderAudit();
-        initKanbanFilters(); // <-- AÑADIR
-        renderKanban();      // <-- AÑADIR
-        updateFreshness();
+
         const weeks = getWeekNames();
         document.getElementById("subtitle").textContent =
             `Telemetría: ${weeks.filter((_,i) => weekIndices.includes(i)).join(" | ")} · escenario: ${document.getElementById("filter-type").selectedOptions[0].text}`;
@@ -2176,8 +2173,8 @@ async function init() {
         buildWeekFilters();
         renderWorkstreams();
         renderAudit();
-        initKanbanFilters(); // <-- AÑADIR
-        renderKanban();      // <-- AÑADIR
+        initKanbanFilters();
+        renderKanban();
         updateFreshness();
 
         document.getElementById("filter-type")
