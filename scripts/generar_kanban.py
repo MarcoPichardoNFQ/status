@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 
 # --- CONFIGURACIÓN ---
-REPO_TICKETS_URL = os.getenv("REPO_TICKETS_URL", "https://github.com/marcopichardonfq/tickets.git")
+REPO_TICKETS_URL = os.getenv("REPO_TICKETS_URL", "https://github.com/RicardoNfq/BAU-NFQ-vault.git")
 RAMA_TICKETS = "main"
 
 CACHE_DIR = Path(__file__).resolve().parents[1] / ".cache_vault"
