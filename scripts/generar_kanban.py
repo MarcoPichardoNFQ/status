@@ -121,7 +121,7 @@ def parse_ticket(filepath: Path) -> dict:
         "entorno": fm.get("entorno") if isinstance(fm.get("entorno"), list) else [],
         "fecha_apertura": str(fm.get("fecha_apertura", fecha_nombre)),
         "fecha_limite": fecha_limite,
-        "actualizado": str(fm.get("actualizado", "")),
+        #"actualizado": str(fm.get("actualizado", "")),
         "sintoma": str(fm.get("sintoma", "")),
         "resumen": resumen,
         "historico": historico,
