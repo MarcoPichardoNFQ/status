@@ -142,7 +142,7 @@ def generar():
     tickets.sort(key=lambda x: x["id"], reverse=True)
 
     payload = {
-        "actualizado": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+       # "actualizado": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "estados": estados,
         "tickets": tickets,
     }
