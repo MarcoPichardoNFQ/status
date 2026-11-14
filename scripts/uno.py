@@ -15,7 +15,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 def generar_escenario(df_datos, semanas_top, dias_orden):
-    logger.info(f"Generando escenario para semanas: {semanas_top}")
+    #logger.info(f"Generando escenario para semanas: {semanas_top}")
     d_duracion, d_tamano, d_vol = [], [], []
     
     for i, sem in enumerate(semanas_top):
@@ -56,9 +56,8 @@ def generar_escenario(df_datos, semanas_top, dias_orden):
     }
 
 def procesar():
-    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    logger.info("Iniciando procesamiento de datos. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    logger.info("Iniciando procesamiento de datos.")
+    #logger.info("Iniciando procesamiento de datos. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    #logger.info("Iniciando procesamiento de datos.")
     try:
         logger.info(f"Cargando archivo CSV: {CONFIG['archivo_entrada']}")
         df = pd.read_csv(CONFIG["archivo_entrada"], sep='|', dtype=str, quotechar='"')
