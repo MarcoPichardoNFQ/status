@@ -141,7 +141,6 @@ def generar():
     }
 
     OUTPUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"tickets_kanban.json generado con {len(tickets)} tickets.")
 
 if __name__ == "__main__":
     generar()
